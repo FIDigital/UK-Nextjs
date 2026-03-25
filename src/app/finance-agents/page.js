@@ -184,6 +184,8 @@ export default function FinanceAgents() {
     const [isReadMoreOpen, setIsReadMoreOpen] = useState(false);
 
     useGSAP(() => {
+        gsap.config({ nullTargetWarn: false });
+        
         // Hero timeline
         const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
         tl.fromTo(".hero-title-line",
@@ -202,7 +204,7 @@ export default function FinanceAgents() {
         );
 
         // Section reveals
-        const revealElements = document.querySelectorAll(".gsap-reveal");
+        const revealElements = gsap.utils.toArray(".gsap-reveal");
         revealElements.forEach((el) => {
             gsap.fromTo(el,
                 { y: 60, opacity: 0 },
@@ -221,7 +223,7 @@ export default function FinanceAgents() {
         });
 
         // Image placeholder reveals
-        const imgElements = document.querySelectorAll(".gsap-img-reveal");
+        const imgElements = gsap.utils.toArray(".gsap-img-reveal");
         imgElements.forEach((el) => {
             gsap.fromTo(el,
                 { scale: 0.95, opacity: 0, y: 30 },

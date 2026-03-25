@@ -36,7 +36,9 @@ export default function Logo({ variant = "theme", width = "200px", height = "60p
                 alt="FI Digital"
                 fill
                 style={{ objectFit: 'contain', objectPosition: 'left' }}
+                sizes="(max-width: 768px) 100vw, 200px"
                 priority
+                loading="eager"
             />
         </div>
     );
