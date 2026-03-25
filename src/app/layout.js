@@ -17,13 +17,42 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "FI Digital UAE | AI Agent Architects",
-  description: "Enterprise-grade Agentic AI and Zoho CRM implementation services in Dubai and the UAE.",
+  title: "Enterprise AI Agents | FI Digital UK",
+  description: "Custom AI agents for Finance, Legal & Logistics. 200+ engineers. 10 years experience. Claude, GPT-4o, n8n, LangChain.",
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "FI Digital UK",
+  "legalName": "Digital Synergy Ventures UK Limited",
+  "url": "https://fidigital.co.uk",
+  "logo": "https://fidigital.co.uk/images/logo.png",
+  "description": "AI agent development and enterprise automation for UK businesses",
+  "foundingDate": "2016",
+  "numberOfEmployees": { "@type": "QuantitativeValue", "value": 200 },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "London",
+    "addressCountry": "GB"
+  },
+  "sameAs": [
+    "https://fidigital.com.au",
+    "https://www.linkedin.com/company/fidigital"
+  ],
+  "areaServed": ["GB", "AU", "AE", "IN"],
+  "knowsAbout": ["AI Agents", "LangChain", "Claude AI", "n8n", "Enterprise Automation", "Azure OpenAI"]
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body>
         <ThemeProvider attribute="data-theme" defaultTheme="light" enableSystem={false}>
           <Header />

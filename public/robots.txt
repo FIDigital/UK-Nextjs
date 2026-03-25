@@ -1,0 +1,39 @@
+# AI Crawlers — Allow all public content
+User-agent: GPTBot
+Allow: /
+Disallow: /admin
+Disallow: /internal
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /admin
+Disallow: /internal
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /admin
+Disallow: /internal
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /admin
+Disallow: /internal
+
+User-agent: Bytespider
+Allow: /
+Disallow: /admin
+Disallow: /internal
+
+User-agent: CCBot
+Allow: /
+Disallow: /admin
+Disallow: /internal
+
+# Standard search crawlers (keep existing rules)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+Sitemap: https://fidigital.co.uk/sitemap.xml

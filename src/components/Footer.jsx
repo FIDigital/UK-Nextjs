@@ -68,7 +68,7 @@ export default function Footer() {
             </Link>
 
             <p className="fi-footer-tagline">
-              Australian Zoho expertise meets Middle Eastern ambition. AI agent architects for enterprise transformation.
+              FI Digital UK builds autonomous AI agents and AI-native products for UK enterprises. UK-registered (Digital Synergy Ventures UK Limited).
             </p>
 
             <div className="fi-footer-contact">
@@ -142,7 +142,7 @@ export default function Footer() {
 
         <div className="fi-footer-bottom">
           <p className="fi-footer-copy">
-            &copy; {new Date().getFullYear()} FI Digital UAE. All rights reserved.
+            &copy; {new Date().getFullYear()} FI Digital UK. All rights reserved.
           </p>
           <div className="fi-footer-legal">
             <Link href="/privacy" className="fi-footer-legal-link">Privacy Policy</Link>
