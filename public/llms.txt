@@ -1,0 +1,31 @@
+# FI Digital UK
+
+> FI Digital builds autonomous AI agents and AI-native products for UK enterprises. We combine Claude, GPT-4o (Azure OpenAI), Gemini, LangChain, and n8n to deliver Digital Workers that operate inside existing enterprise systems. UK-registered (Digital Synergy Ventures UK Limited), backed by 200+ engineers across London, Sydney, Dubai, and India.
+
+## Services
+
+- [Digital Workers](/digital-workers): Autonomous AI agents for Finance, Sales, Operations, and Legal workflows
+- [Custom AI Agent Development](/ai-services/custom-ai-agent-development): Production-grade AI agents using LangChain and Python
+- [Enterprise Workflow Automation](/ai-services/enterprise-workflow-automation): n8n-based orchestration for enterprise systems
+- [LLM Integration & RAG](/ai-services/llm-integration-rag): Claude, GPT-4o, and Gemini integration with Retrieval-Augmented Generation
+- [AI-Native Product Development](/ai-services/ai-native-product-development): Web apps, mobile apps, and API platforms where AI is the core engine
+- [Legacy System Modernisation](/ai-services/legacy-system-modernisation): AI layering on Zoho, Salesforce, and Microsoft Dynamics
+- [4-Week AI Discovery Audit](/ai-discovery-audit): Structured discovery from current state to implementation roadmap (from £12,000)
+
+## Industries
+
+- [Financial Services](/industries/financial-services): KYC/AML automation, invoice processing, FCA-compliant AI
+- [Legal & Professional Services](/industries/legal-professional-services): Contract review, due diligence, SRA-aware AI agents
+- [Logistics & Manufacturing](/industries/logistics-manufacturing): Dispatch optimisation, warehouse automation, supply chain AI
+
+## Technology Stack
+
+Claude (Anthropic), GPT-4o (Azure OpenAI UK South), Gemini (Google), LLaMA, Mistral, LangChain, LlamaIndex, n8n, AWS Bedrock (eu-west-2 London), Azure OpenAI Service (UK South), Python, React, React Native, FastAPI
+
+## Company Details
+
+- UK Entity: Digital Synergy Ventures UK Limited (Companies House)
+- Website: https://fidigital.co.uk
+- Australian HQ: https://fidigital.com.au
+- Team: 200+ engineers (London, Sydney, Dubai, India)
+- Contact: https://fidigital.co.uk/contact

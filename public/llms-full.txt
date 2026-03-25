@@ -1,0 +1,147 @@
+# FI Digital UK - Full Content Repository (llms-full.txt)
+This document contains the complete technical and service content for FI Digital UK (Digital Synergy Ventures UK Limited), designed for consumption by LLMs and AI researchers.
+
+---
+
+## 1. Home Page (/)
+**Enterprise AI Agents That Actually Work**
+FI Digital UK is the strategic partner for autonomous enterprise transformation. We deploy production-grade AI agents and AI-native products for UK mid-market and enterprise since 2016.
+Tech Stack: n8n, LangChain, Anthropic (Claude 3.5), OpenAI (GPT-4o via Azure), Google Gemini, AWS Bedrock, Python.
+Key Features: Real-time reasoning, document vision, multimodal scale, and 12-16 week deployment cycles.
+
+---
+
+## 2. Digital Workers (Autonomous Agents)
+
+### 2.1 Finance & Billing Agents (/finance-agents)
+Autonomous AI agents for KYC/AML automation, invoice processing, and FCA-compliant financial workflows.
+Key Capabilities:
+- KYC & AML Automation (Claude-powered reasoning)
+- Intelligent Invoice Processing (99.1% accuracy)
+- Automated Collections (Sentiment-aware outreach)
+- Real-time Reconciliation (Zoho Books/Xero integration)
+Zoho Integration: BLEND. Layering Azure OpenAI and Claude over Zoho Finance Plus.
+
+### 2.2 Sales & Outreach Agents (/sales-agents)
+Autonomous AI agents for personalized lead generation, LinkedIn outreach, and Zoho CRM automation.
+Key Capabilities:
+- Hyper-Personalized Outreach (1-to-1 messaging)
+- Lead Scoring & Qualification (Intent signal filtering)
+- Automated Appointment Setting (Calendar orchestration)
+- Market Intelligence Gathering (Industry trend monitoring)
+Zoho Integration: BLEND. Enriching Zoho CRM with initial outreach intelligence.
+
+### 2.3 Operations & Dispatch Agents (/operations-agents)
+Autonomous AI agents for route optimization, inventory management, and warehouse automation for UK logistics.
+Key Capabilities:
+- Real-time Route Optimization (Dynamic dispatch adjustments)
+- Predictive Inventory Control (Multi-hub monitoring)
+- Automated Dispatch Workflow (Zoho Inventory to fleet bridging)
+- Self-healing Supply Chain (Automatic delay remediation)
+Zoho Integration: BLEND. Connecting Zoho Inventory to fleet management via n8n.
+
+### 2.4 Legal & Compliance Agents (/legal-agents)
+Autonomous AI agents for contract review, due diligence, and regulatory compliance (GDPR/FCA).
+Key Capabilities:
+- Contract Review & Analysis (Claude 200k context window)
+- Regulatory Compliance Monitoring (SRA/FCA tracking)
+- Due Diligence (RAG-based case investigation)
+- GDPR & Data Sovereignty (Azure UK South residency)
+Branding: REPLACE (No Zoho mentioned).
+
+---
+
+## 3. AI Services
+
+### 3.1 Custom AI Agent Development (/ai-agent-development)
+Production-grade AI agent development using LangChain, Python, and enterprise LLMs.
+Tech Stack: LangChain, Python, GPT-4o, Claude 3.5 Sonnet.
+Deployment: Azure UK South & AWS London.
+Branding: REPLACE (No Zoho).
+
+### 3.2 Enterprise Workflow Automation (/enterprise-workflow-automation)
+Orchestrate complex enterprise workflows using n8n and AI.
+Tech Stack: n8n.io (Certified), AWS hosting, self-healing protocols.
+Zoho Integration: BLEND. Bridging Zoho Suite to external AI models.
+
+### 3.3 LLM Integration & RAG Systems (/llm-integration-rag)
+Enterprise-grade Retrieval-Augmented Generation (RAG) and LLM orchestration.
+Core strengths: Claude (reasoning), GPT-4o (speed), Gemini (context).
+RAG Process: Vector stores (Pinecone/Milvus), reasoning layers (LangChain), grounded outputs.
+Branding: REPLACE (No Zoho).
+
+### 3.4 Legacy System Modernisation (/legacy-system-modernisation)
+Layering AI intelligence and modern API structures over legacy software (Zoho, Salesforce, Microsoft).
+Approach: Zero downtime modernization, legacy API bridging, compliance-first migration.
+Branding: KEEP ZOHO (Emphasis on extending Zoho Creator/CRM).
+
+### 3.5 4-Week AI Discovery Audit (/discovery-audit)
+High-impact diagnostic to identify high-ROI AI opportunities.
+Price: From £12,000 + VAT.
+Timeline: Week 1 (Discovery), Week 2 (Diagnostic), Week 3 (Compliance), Week 4 (Strategic Roadmap).
+Branding: BLEND. Mapping legacy bridges to AI futures.
+
+### 3.6 AI-Native Product Development (/ai-native-product-development)
+Full-stack development of AI-native web and mobile applications.
+Stack: React, Next.js, Python, FastAPI, React Native.
+Branding: REPLACE (No Zoho).
+
+---
+
+## 4. Industries
+
+### 4.1 Enterprise AI for Financial Services (/industries/financial-services)
+FCA-compliant AI for UK financial institutions.
+Focus: AML/KYC automation, predictive risk modeling, algorithmic compliance.
+Security: Dedicated UK-based engineering and Azure UK South residency.
+Branding: REPLACE (No Zoho).
+
+### 4.2 Enterprise AI for Legal & Professional Services (/industries/legal-professional-services)
+High-accuracy AI for UK legal firms.
+Focus: Due diligence automation, contract reasoning, conflict check intelligence.
+Compliance: SRA guidelines and Claude 3.5 context windows.
+Branding: REPLACE (No Zoho).
+
+### 4.3 Enterprise AI for Logistics & Manufacturing (/industries/logistics-manufacturing)
+Autonomous AI for supply chain and warehouse optimization.
+Focus: Dispatch control, predictive demand, computer vision inventory.
+Zoho Integration: BLEND (Zoho Inventory + IoT Mesh).
+
+---
+
+## 5. Why FI Digital (Platform & Team)
+
+### 5.1 Our Approach & Architecture (/why-fi-digital/approach-architecture)
+Engineering-first methodology: Discovery, Architecture, Deployment, Tuning.
+Tech Core: LangChain, RAG, Azure/AWS hosting, agentic governance.
+Branding: REPLACE (No Zoho).
+
+### 5.2 Global Delivery Model (/why-fi-digital/global-delivery-model)
+London-based leadership (Strategic Architecture) + Global engineering labs (200+ engineers).
+Locations: London (UK), Sydney (Australia), Dubai (UAE), Pune (India).
+Branding: REPLACE (No Zoho).
+
+### 5.3 Partnerships & Certifications (/why-fi-digital/partnerships)
+Certified partnerships: Microsoft Cloud Partner (Azure), AWS Solutions Partner, Zoho Authorized Partner.
+Compliance: Cyber Essentials Plus, GDPR, FCA Tech Practitioner.
+Branding: BLEND.
+
+### 5.4 UK Compliance & Data Residency (/why-fi-digital/uk-compliance)
+Strict UK jurisdictional security. Azure UK South and AWS London regions only.
+Focus: Zero model training on client data, GDPR by design, FCA resilience frameworks.
+Branding: REPLACE (No Zoho).
+
+### 5.5 Our Team (/why-fi-digital/our-team)
+Collective of 200+ engineers. Specialists in Zoho, Salesforce, n8n, and LLM reasoning.
+Branding: BLEND. Heritage in platform expertise + AI innovation.
+
+## 6. Conversion Pages
+
+### 6.1 AI Readiness Assessment (/assessment)
+A 15-question diagnostic scoring enterprise AI readiness across 12 dimensions: repeatability, data quality, cost impact, and compliance.
+
+### 6.2 Book a Strategy Call (/book-call)
+Direct scheduling for a private 30-minute consultation with a UK AI Architect to discuss deployment roadmaps.
+---
+© 2024 FI Digital UK. Digital Synergy Ventures UK Limited.
+London, United Kingdom.
