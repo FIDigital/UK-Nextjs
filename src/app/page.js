@@ -266,27 +266,35 @@ export default function Home() {
     const faqs = [
         {
             q: "What's the difference between an AI agent and a chatbot?",
-            a: "A chatbot responds to prompts—it's essentially a reactive interface answering questions based on fixed data. An AI agent is a digital employee that acts autonomously within defined boundaries. Our agents don't wait for you; they actively monitor networks, extract data from PDFs, validate via ERPs, and transact directly in accounting software, flagging only exceptions. This leap from conversation to action delivers 70-80% efficiency gains."
+            a: "A chatbot responds to prompts—you ask, it answers. An agent acts autonomously within guardrails. Our Finance agent doesn't wait for a question; it monitors your inbox for invoices, processes them, categorises expenses, flags anomalies, and updates QuickBooks—all without human intervention. Chatbots are reactive; agents are proactive. Both use Claude or GPT-4o under the hood, but the architecture is fundamentally different. Agents require orchestration (n8n), decision logic, system integrations, and audit trails. They're more complex to build, but far more valuable."
         },
         {
             q: "How long does a typical deployment take?",
-            a: "Our “Discovery → Build → Operate” methodology is designed to move from initial audit to production handover in 12-16 weeks. We spend 1-2 weeks in discovery mapping data structures, followed by 6-8 weeks of build phase where we architect ( Claude, GPT-4o, n8n) and integrate. The final weeks strictly focus on UAT and handover. You receive battle-tested digital workers paying for themselves by month 3."
+            a: "Discovery to handover: 12-16 weeks for most projects. Discovery (1-2 weeks) + Build (5-6 weeks) + Operate & handover (4-5 weeks). Some simpler agents (expense categorisation, basic lead scoring) ship in 8 weeks. Complex agents (legal due diligence, supply chain optimisation) may take 20 weeks. Timeline depends on data quality, integration complexity, and stakeholder availability—not on how clever the AI is. We've optimised our methodology over 47 prior engagements; timeline predictability is now ±2 weeks."
         },
         {
-            q: "How do you ensure data security and compliance?",
-            a: "Security is non-negotiable. We architect for compliance from day one (FCA/SRA). Data does not leave your infrastructure without approval. We deploy agents inside your cloud instance (AWS/Azure/GCP) for absolute UK/EU data residency. Immutable audit trails log every automated decision. Furthermore, all custom codebase and prompts engineered for your pipeline belong to you permanently."
+            q: "Which AI model is best for my use case?",
+            a: "Claude 3.5 Sonnet excels at reasoning, context retention (200K tokens = 150 pages in context), and instruction-following. GPT-4o is stronger for vision tasks (document scanning, image analysis) and cost-efficiency at scale. Gemini is fastest and cheapest for high-volume, straightforward tasks. We typically blend all three: Claude for decision logic, GPT-4o for document understanding, Gemini for bulk categorisation. Your specific use case (Finance vs. Legal vs. Logistics) determines the optimal mix. We recommend it during Discovery; you approve the choice before Build."
         },
         {
-            q: "How do you handle 'hallucinations' or errors?",
-            a: "We heavily mitigate AI errors through a multi-layered verification strategy. First, RAG limits reasoning specifically to your datasets. Second, we integrate Human-in-the-Loop workflows handling routine 90% and flagging 10% anomalies. Finally, hard-coded guardrails prevent risky behavior (e.g., mismatching GL codes, processing unapproved invoices) without explicit human override."
+            q: "Is my data secure? Can you access it?",
+            a: "Your data lives in your infrastructure—your cloud, your on-premises system, or your chosen secure data residency (UK/EU options available). We don't download, copy, or store your transaction data. Our integrations use API keys and OAuth tokens, which are encrypted and stored separately. For legal/IP-sensitive work, we offer air-gapped deployments where the agent runs entirely within your network. Audit trails are immutable—every decision, every data access, every model call is logged. You can review logs; your compliance team can audit them. We comply with FCA regulations, SRA ethics, and GDPR. You remain the data controller."
         },
         {
-            q: "Which AI model is best for my usecase?",
-            a: "Claude 3.5 Sonnet excels at deep reasoning and complex contract interpretations via its 200K token window. GPT-4o is superior for vision tasks like document extraction from scanned PDFs. Gemini shines at speed and bulk API costs. We typically blend all three in specialized orchestration loops, assigning the optimal brain to the specific sub-task in your workflow."
+            q: "What happens if the AI makes a mistake?",
+            a: "AI is never 100% accurate, which is why we architect supervision into every agent. Finance agents flag low-confidence categorisations for human review (typically 2-5% of volume). Legal agents surface ambiguous clauses for solicitor review. Logistics agents alert dispatch managers to unusual route changes. Our design philosophy: AI speeds up the 95% of straightforward decisions; humans make the 5% of edge cases. Most teams find this reduces errors overall—consistent AI is less error-prone than tired humans. Over 10,000 live agent interactions, our Finance agents achieve 99.2% accuracy; Legal agents are reviewed by humans but reduce solicitor review time by 70%."
         },
         {
-            q: "Can I integrate with my custom ERP or Legacy System?",
-            a: "Yes. Our n8n infrastructure orchestrates easily with 40+ main platforms including Salesforce, NetSuite, Xero, QuickBooks, Zoho, HubSpot, SAP, and custom REST API endpoints. Even legacy systems on-prem can interface via SFTP or direct SQL push/pull. If your tool has an API or imports files, we can connect."
+            q: "What's included in the monthly retainer after handover?",
+            a: "First 6 months: 4-8 hours per month on-call support, bug fixes, and optimisation. We monitor performance metrics, suggest improvements, and tune prompts based on real-world results. Included: email/Slack support, performance reporting, one quarterly strategy call. Not included: major rewrites, new integrations (charged separately), or expansion to new use cases. After month 6, retainer typically shifts to 2-4 hours/month (maintenance only) or you self-manage with our support available on demand. Many clients discover optimisation opportunities after 3 months of live operation; retainer covers that learning."
+        },
+        {
+            q: "Can I integrate with Salesforce/SAP/my custom ERP?",
+            a: "Yes. We've integrated agents with 40+ platforms. Salesforce, SAP, Oracle, NetSuite, Xero, QuickBooks, Sage, Zoho, Pipedrive, HubSpot, Asana, Monday.com, custom REST APIs, SFTP, and SQL databases. n8n handles orchestration; LangChain handles RAG to your knowledge bases. If your system has an API or file-based interface, we can connect an agent to it. Integration complexity varies: Zoho CRM takes 2-3 days; bespoke legacy systems may take 2-3 weeks. We assess integration feasibility during Discovery and quote separately if needed."
+        },
+        {
+            q: "What if we need to scale the agent to handle 10x volume?",
+            a: "Agents scale horizontally (more parallel instances) and vertically (faster models, larger context windows). Claude scales well—it can process 1,000 contracts per month or 10,000 with the same architecture, just more API calls. Cost scales linearly with volume. n8n can handle parallel workflows (10 Finance agents running simultaneously across 10 departments). We typically optimise for cost: use Gemini for bulk volume (cheaper), Claude for complex reasoning (accuracy). By month 6 of operation, we've usually tuned the agent for your specific volume and cost profile. Scaling is straightforward; we handle the architecture planning."
         }
     ];
 
@@ -393,43 +401,14 @@ export default function Home() {
                                     display: "inline-flex", alignItems: "center", gap: "0.75rem", padding: "0.6rem 1.2rem", background: "rgba(16, 185, 129, 0.1)", borderRadius: "100px", border: "1px solid rgba(16, 185, 129, 0.2)", marginBottom: "2.5rem", color: "#10b981", fontSize: "0.9rem", fontWeight: 700, letterSpacing: "0.05em"
                                 }}>
                                     <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#10b981", boxShadow: "0 0 10px #10b981" }} />
-                                    WHATSAPP SALES & CONCIERGE
+                                    ENTERPRISE AI
                                 </div>
                                 <h1 className="hero-title-line" style={{ fontSize: "clamp(2.5rem, 5vw, 4.2rem)", fontWeight: 950, lineHeight: 1.1, marginBottom: "2rem", letterSpacing: "-0.03em", color: "white" }}>
-                                    WhatsApp Sales & <br /> Concierge Agents: The <br />
-                                    Future of <span style={{ color: "#10b981" }}>Real-Time</span> <br />
-                                    <span style={{ color: "#10b981" }}>Customer Engagement</span>
+                                    Enterprise AI Agents <br /> That <span style={{ color: "#10b981" }}>Actually Work</span>
                                 </h1>
                                 <p className="hero-subtitle" style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.25rem)", color: "rgba(255,255,255,0.7)", marginBottom: "2.5rem", lineHeight: 1.6, maxWidth: "700px" }}>
-                                    FI Digital's WhatsApp Sales Agents are autonomous AI workers designed for UAE enterprises. They qualify leads in Arabic and English, process voice notes, and sync data directly to Zoho CRM. Our agents reduce response times from hours to 4.2 seconds on average.
+                                    Autonomous digital workers built on Claude, GPT-4o, and LangChain. Deploy in weeks, not years. FI Digital UK—trusted by UK enterprise since 2016.
                                 </p>
-
-                                <div className="hero-cta" style={{ 
-                                    background: "rgba(255,255,255,0.03)", 
-                                    padding: "2rem", 
-                                    borderRadius: "32px", 
-                                    border: "1px solid rgba(255,255,255,0.1)",
-                                    marginBottom: "3.5rem",
-                                    maxWidth: "750px",
-                                }}>
-                                    <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "white", marginBottom: "1rem", lineHeight: 1.4 }}>
-                                        The Problem: Conversational AI Must Integrate Real Time
-                                    </h3>
-                                    <p style={{ fontSize: "1.05rem", lineHeight: 1.7, color: "rgba(255,255,255,0.7)" }}>
-                                        In the UAE, 85%+ of business communication happens on WhatsApp.
-                                        {!isReadMoreOpen && (
-                                            <>
-                                                ... <button onClick={() => setIsReadMoreOpen(true)} style={{ color: "var(--primary)", background: "transparent", border: "none", cursor: "pointer", fontWeight: 700, padding: 0, textDecoration: "underline", marginLeft: "0.25rem", fontSize: "0.95rem" }}>Read more</button>
-                                            </>
-                                        )}
-                                        {isReadMoreOpen && (
-                                            <span style={{ display: "inline" }}>
-                                                {' '}Our AI-powered agents respond in real-time, handle complex Arabic language syntax, and integrate seamlessly with Zoho CRM to turn raw daily conversations into verified business conversions automatically.
-                                                <button onClick={() => setIsReadMoreOpen(false)} style={{ color: "var(--primary)", background: "transparent", border: "none", cursor: "pointer", fontWeight: 700, padding: 0, textDecoration: "underline", marginLeft: "0.5rem", fontSize: "0.95rem" }}>Show less</button>
-                                            </span>
-                                        )}
-                                    </p>
-                                </div>
 
                                 <div className="hero-cta" style={{ display: "flex", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
                                     <Link href="/demo/whatsapp" style={{ 
@@ -457,25 +436,28 @@ export default function Home() {
                   </div>
              </header>
 
-            {/* Section 1: Enterprise Tech Stack (Zig) */}
-            <section id="technology" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)" }}>
-                <div className="container">
+            {/* Section 1A: Enterprise Tech Stack (Zig) */}
+            <section id="technology-1" style={{ padding: "120px 1.5rem 60px", background: "var(--bg-secondary)" }}>
+                <div className="container" style={{ maxWidth: "1250px" }}>
+                    <div className="gsap-reveal" style={{ textAlign: "center", marginBottom: "5rem" }}>
+                        <h2 className="section-title" style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)" }}>Your Enterprise AI Stack</h2>
+                    </div>
                     <div className="responsive-grid zig">
                         <div className="gsap-img-reveal" style={PlaceholderStyle}>
                             [Image Placeholder: Enterprise AI Tech Stack - Battle-tested deployments integrating Claude, GPT-4o, and n8n]
                         </div>
                         <div className="gsap-reveal">
                             <span className="section-label">Technology</span>
-                            <h2 className="section-title">Your Enterprise AI Stack</h2>
+                            <h2 className="section-title">Core Infrastructure</h2>
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.15rem", textAlign: "justify" }}>
                                 <p style={{ marginBottom: "1.5rem" }}>
-                                    This isn't a boutique stack. It's battle-tested across 200+ live deployments in Financial Services, Legal, and Logistics across the UK, Australia, UAE, and India. We provide integrations with Xero, Salesforce, HubSpot, QuickBooks, Sage, and custom ERP systems.
+                                    FI Digital UK builds on the world's most powerful AI models and orchestration platforms. Our technology stack combines foundational large language models—Claude 3.5 Sonnet for reasoning and context understanding, GPT-4o for vision and multimodal tasks, and Google Gemini for cost-effective scale—with enterprise automation platforms that connect to your existing systems. 
                                 </p>
                                 <p style={{ marginBottom: "1.5rem" }}>
-                                    The stack we've chosen reflects 10 years of enterprise experience: we picked each component because it's proven in production. Claude handles reasoning because its 200K context window parses entire documents. GPT-4o handles rapid structured vision extraction. Gemini handles immense bulk datasets cost-efficiently. 
+                                    We layer n8n for workflow orchestration, LangChain for advanced prompt engineering and retrieval-augmented generation, AWS Bedrock and Azure OpenAI for compliance-aware deployments, and Zoho's integration ecosystem for seamless SAP/Oracle/Salesforce connectivity. This isn't a boutique stack. It's battle-tested across 200+ live deployments in Financial Services, Legal, and Logistics across the UK, Australia, UAE, and India.
                                 </p>
                                 <p style={{ fontWeight: 700, color: "var(--text)" }}>
-                                    Our orchestrated n8n infrastructure connects these models into your existing workflows without vendor-locking you into rigid subscription platforms.
+                                    We've integrated with Xero, QuickBooks, Sage, Zoho Books, Salesforce, HubSpot, Pipedrive, Zoho CRM, Monday.com, Asana, and custom ERP systems. Your AI agent sits on top of proven, auditable infrastructure. No experimental frameworks. No single-vendor lock-in. Just results.
                                 </p>
                             </div>
                         </div>
@@ -483,45 +465,54 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Section 2A: Autonomous Digital Workers (Zag) */}
-            <section id="capabilities" style={{ padding: "120px 1.5rem", background: "var(--bg)" }}>
-                <div className="container">
+            {/* Section 1B: Production Reality (Zag) */}
+            <section id="technology-2" style={{ padding: "120px 1.5rem", background: "var(--bg)" }}>
+                <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zag">
                         <div className="gsap-reveal">
-                            <span className="section-label">Capabilities</span>
-                            <h2 className="section-title">What We Build: Autonomous Digital Workers</h2>
+                            <span className="section-label">Production Tested</span>
+                            <h2 className="section-title">Built For The Enterprise Reality</h2>
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.15rem", textAlign: "justify" }}>
                                 <p style={{ marginBottom: "1.5rem" }}>
-                                    An AI agent isn't an isolated chatbot sandbox. It's a digital employee that thinks, decides, and executes independently within precisely defined enterprise boundaries.
+                                    The stack we've chosen reflects 10 years of enterprise experience: we picked each component because it's proven in production, well-supported, and integrates with real-world business systems. Claude handles reasoning because its 200K context window means we can feed entire documents in a single API call. GPT-4o handles vision because invoice scanning and document extraction is critical in Finance.
                                 </p>
-                                <p>
-                                    Our workers autonomously process external documents, extract unstructured data, execute heuristic decisions based on rigid business rules, and interface directly with multiple CRM ecosystems. They run with zero human intervention required between the initial trigger and the final data outcome.
+                                <p style={{ marginBottom: "1.5rem" }}>
+                                    Gemini handles bulk volume because it's cost-efficient at scale. n8n orchestrates everything because it's open-source, enterprise-grade, and doesn't vendor-lock you. LangChain enables memory because historical context matters in legal work and contract negotiations. 
+                                </p>
+                                <p style={{ fontWeight: 700, color: "var(--text)" }}>
+                                    This isn't theoretical. Our clients run this stack in production today, processing millions in transactions, managing thousands of contracts, optimising delivery routes across 4 countries.
                                 </p>
                             </div>
                         </div>
+                        <div className="gsap-img-reveal" style={PlaceholderStyle}>
+                            [Image Placeholder: Systems Diagram - n8n routing Claude, GPT-4o, and Gemini requests in real-time]
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Section 2A: Autonomous Digital Workers (Zig) */}
+            <section id="capabilities-1" style={{ padding: "120px 1.5rem 60px", background: "var(--bg-secondary)" }}>
+                <div className="container" style={{ maxWidth: "1250px" }}>
+                    <div className="gsap-reveal" style={{ textAlign: "center", marginBottom: "5rem" }}>
+                        <h2 className="section-title" style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)" }}>What We Build: Autonomous Digital Workers</h2>
+                    </div>
+                    <div className="responsive-grid zig">
                         <div className="gsap-img-reveal" style={PlaceholderStyle}>
                             [Image Placeholder: Autonomous Worker Workflow - Average 99.2% Accuracy, 80% Cost Base Savings]
                         </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Section 2B: Capabilities in Action (Zig) */}
-            <section id="industry-applications" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)" }}>
-                <div className="container">
-                    <div className="responsive-grid zig">
-                        <div className="gsap-img-reveal" style={PlaceholderStyle}>
-                            [Image Placeholder: Cross-Discipline Applications - Logistics Routing, Finance Reconciliations, Legal Contracts]
-                        </div>
                         <div className="gsap-reveal">
-                            <span className="section-label">Real World</span>
-                            <h2 className="section-title">Workers Inside Finance, Legal & Logistics</h2>
+                            <span className="section-label">Capabilities</span>
+                            <h2 className="section-title">Intelligent Execution</h2>
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.15rem", textAlign: "justify" }}>
                                 <p style={{ marginBottom: "1.5rem" }}>
-                                    In Finance, a digital worker handles 500+ invoices nightly, auto-categorising expenses with absolute accuracy and reconciling bank anomalies before morning coffee routines. In Legal, an agent cross-patterns complex term reviews against deeply embedded RAG precedent databases, producing massive contract summaries efficiently. 
+                                    An AI agent isn't a chatbot. It's a digital employee that thinks, decides, and acts within defined boundaries. Our agents autonomously process documents, extract data, make decisions based on business rules, and integrate findings across multiple systems—without human intervention between trigger and outcome.
                                 </p>
-                                <p>
-                                    In Logistics, autonomous planners aggressively optimize driver delivery paths, coordinate vendor manifests instantly over API triggers, and forecast future volume trends without fatigue or error margins.
+                                <p style={{ marginBottom: "1.5rem" }}>
+                                    In Finance, a digital worker processes 500+ invoices monthly, auto-categorises expenses with 99.2% accuracy, reconciles bank statements overnight, and flags anomalies before they become problems. It reads an invoice (PDF, email, scanned image), extracts key fields (supplier, amount, tax, GL code), validates against your business rules (is this supplier approved? is the amount within tolerance?), and posts the transaction directly to your accounting software.
+                                </p>
+                                <p style={{ fontWeight: 700, color: "var(--text)" }}>
+                                    Exceptions (duplicate invoices, policy violations, unusual amounts) get flagged to your Finance Manager with context. No manual data entry. No spreadsheets. No email hunting. One client went from 40 hours per week of manual invoice processing to 8 hours per week of exception review.
                                 </p>
                             </div>
                         </div>
@@ -529,22 +520,52 @@ export default function Home() {
                 </div>
             </section>
 
-             {/* Section 3: Framework (Zag) */}
-             <section id="framework" style={{ padding: "120px 1.5rem", background: "var(--bg)" }}>
-                <div className="container">
+            {/* Section 2B: Capabilities in Action (Zag) */}
+            <section id="industry-applications" style={{ padding: "120px 1.5rem", background: "var(--bg)" }}>
+                <div className="container" style={{ maxWidth: "1250px" }}>
+                    <div className="responsive-grid zag">
+                        <div className="gsap-reveal">
+                            <span className="section-label">Real World Context</span>
+                            <h2 className="section-title">Scaling Legal and Logistics Frameworks</h2>
+                            <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.15rem", textAlign: "justify" }}>
+                                <p style={{ marginBottom: "1.5rem" }}>
+                                    In Legal, an agent reviews contracts, extracts key terms, cross-references against precedent databases (via LangChain RAG), and produces annotated summaries in minutes instead of hours. A solicitor reviews the analysis, makes judgment calls, and approves. Time savings: 70-80% on routine contract review. Better decisions: the agent never forgets your precedent patterns. 
+                                </p>
+                                <p style={{ marginBottom: "1.5rem" }}>
+                                    In Logistics, an autonomous dispatcher optimises routes, coordinates with vendors via n8n integrations, updates inventory in real-time, and forecasts demand using historical patterns. Routes are optimised overnight; drivers have their day's plan by 6am. If a new urgent order arrives at 2pm, the agent recalculates the afternoon route in seconds and alerts affected drivers. Fuel efficiency improves 12-18%, on-time performance hits 98%+, and cost per delivery drops 15-20%. 
+                                </p>
+                                <p style={{ fontWeight: 700, color: "var(--text)" }}>
+                                    These aren't theoretical exercises. These are production agents handling £millions in transaction value, managing legal IP portfolios, and orchestrating thousands of shipments weekly. They're supervised—audit trails are absolute, human oversight is built in—but they operate 24/7 without fatigue, bias, or inconsistency. That's the FI Digital difference.
+                                </p>
+                            </div>
+                        </div>
+                        <div className="gsap-img-reveal" style={PlaceholderStyle}>
+                            [Image Placeholder: Cross-Discipline Applications - Logistics Routing, Finance Reconciliations, Legal Contracts]
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+             {/* Section 3A: Framework - Discovery (Zag) */}
+             <section id="framework-1" style={{ padding: "120px 1.5rem 60px", background: "var(--bg)" }}>
+                <div className="container" style={{ maxWidth: "1250px" }}>
+                    <div className="gsap-reveal" style={{ textAlign: "center", marginBottom: "5rem" }}>
+                        <h2 className="section-title" style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)" }}>How We Deploy: Discovery → Build → Operate</h2>
+                    </div>
                     <div className="responsive-grid zag">
                         <div className="gsap-reveal">
                             <span className="section-label">Framework</span>
-                            <h2 className="section-title">How We Deploy: Discovery to Operate</h2>
+                            <h2 className="section-title">The Foundation</h2>
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.15rem", textAlign: "justify" }}>
                                 <p style={{ marginBottom: "1.5rem" }}>
-                                    Most AI vendors sell you a template and vanish entirely. We embed exclusively with your localized processes for 12-16 weeks. We aren't just parachuting in generic tools; we are hard-coding AI securely into your existing operational rhythms.
+                                    Most AI vendors sell you a template and vanish. We embed with your team for 12-16 weeks minimum. This is intense, collaborative work. We're not parachuting in AI; we're building AI into your workflows. 
                                 </p>
-                                <ul style={{ marginBottom: "1.5rem", paddingLeft: "1.5rem", display: "flex", flexDirection: "column", gap: "1rem" }}>
-                                     <li><strong>Discovery:</strong> Weeks 1-2 involve deeply auditing workflows, analyzing staff bandwidth, and exposing the critical 20% of manual tasks draining your capital.</li>
-                                     <li><strong>Build:</strong> Weeks 3-8 encompass designing the agent's brain, routing API nodes, and running stress thresholds in robust pre-production testing.</li>
-                                     <li><strong>Operate:</strong> Weeks 9-12 transition complete agent control. Your teams learn how to adjust rules and monitor scaling behaviors securely.</li>
-                                </ul>
+                                <p style={{ marginBottom: "1.5rem" }}>
+                                    <strong>Week 1-2: Discovery.</strong> We audit your current workflows, identify the 20% of tasks consuming 80% of labour, quantify the cost of errors, and map your tech stack. We interview 8-12 stakeholders—finance directors, paralegals, operations managers—to understand decision logic that no documentation captures. We review your existing systems, APIs, and data structures. 
+                                </p>
+                                <p style={{ fontWeight: 700, color: "var(--text)" }}>
+                                    We identify quick wins (automated report generation, simple categorisation rules) and deep challenges (complex risk assessment, multi-entity reconciliation). By end of Week 2, we've produced a detailed Discovery Report: here's what we found, here's what works well, here's what's broken, here's what the agent should do, here's the timeline and investment.
+                                </p>
                             </div>
                         </div>
                         <div className="gsap-img-reveal" style={PlaceholderStyle}>
@@ -554,25 +575,25 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Section 4: Industries We Serve (Zig) */}
-            <section id="expertise" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)" }}>
-                <div className="container">
+             {/* Section 3B: Framework - Operate (Zig) */}
+             <section id="framework-2" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)" }}>
+                <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zig">
                         <div className="gsap-img-reveal" style={PlaceholderStyle}>
-                            [Image Placeholder: Key Sectors Map - Financial Services processing £2.4bn, Legal Due Diligence, Advanced Logistics]
+                            [Image Placeholder: AI Agent Build & Operate Framework Dashboard]
                         </div>
                         <div className="gsap-reveal">
-                            <span className="section-label">Expertise</span>
-                            <h2 className="section-title">Industries We Scale</h2>
+                            <span className="section-label">Deploy & Scale</span>
+                            <h2 className="section-title">The Operational Handover</h2>
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.15rem", textAlign: "justify" }}>
                                 <p style={{ marginBottom: "1.5rem" }}>
-                                    <strong>Financial Services:</strong> Invoice processing, AML screening, and cash flow predictive analysis. Our finance agents route £2.4bn in transactions across our client ledger, dropping error bounds drastically while generating immediate ROI.
+                                    <strong>Week 3-8: Build.</strong> Our engineering team designs the agent architecture, trains on your data, and integrates with your systems. Claude and GPT-4o handle reasoning; n8n orchestrates workflows; Zoho/Salesforce integrations ensure data flows correctly. We conduct 4 review cycles—Week 3: architecture review, Week 4-5: training/testing, Week 6: system integration, Week 7: UAT (user acceptance testing), Week 8: final refinement.
                                 </p>
                                 <p style={{ marginBottom: "1.5rem" }}>
-                                    <strong>Legal Services:</strong> RAG frameworks power contract monitoring and compliance audits. We connect securely with document systems like iManage. Operations that used to soak 3 weeks of diligence wrap up in mere days.
+                                    <strong>Week 9-12: Operate.</strong> Your team takes the wheel. We run a 4-week handover where you control the agent, we troubleshoot, and document everything. You own the code, the prompts, the configs. We stay on retainer for the first 6 months (typically 4-8 hours per month). 
                                 </p>
-                                <p>
-                                    <strong>Logistics & Manufacturing:</strong> Intelligent tracking routing and live CRM fulfillment triggers. Deliveries hit optimal times continuously, boosting internal fleet efficiency by nearly 20% in documented case deployments.
+                                <p style={{ fontWeight: 700, color: "var(--text)" }}>
+                                    Throughout, we're coaching your team. By week 12, your Finance Manager adjusts rules, your legal team adds contracts to RAG, your Operations Manager refines routing. The agent isn't a black box; it's a tool your team understands and controls.
                                 </p>
                             </div>
                         </div>
@@ -580,19 +601,80 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Section 5: Global Delivery (Zag) */}
-            <section id="global-delivery" style={{ padding: "120px 1.5rem", background: "var(--bg)" }}>
-                <div className="container">
+            {/* Section 4A: Industries - Finance & Legal (Zag) */}
+            <section id="expertise-1" style={{ padding: "120px 1.5rem 60px", background: "var(--bg)" }}>
+                <div className="container" style={{ maxWidth: "1250px" }}>
+                    <div className="gsap-reveal" style={{ textAlign: "center", marginBottom: "5rem" }}>
+                        <h2 className="section-title" style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)" }}>Industries We Serve</h2>
+                    </div>
+                    <div className="responsive-grid zag">
+                        <div className="gsap-reveal">
+                            <span className="section-label">Expertise</span>
+                            <h2 className="section-title">Financial & Legal Services</h2>
+                            <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.15rem", textAlign: "justify" }}>
+                                <p style={{ marginBottom: "1.5rem" }}>
+                                    <strong>Financial Services:</strong> Invoice processing, expense categorisation, reconciliation, cash flow forecasting, AML screening, payment exception handling. Our agents process £2.4bn traversing 47 clients. One mid-market firm went from 12-day to 5-day month-end close. Another saved £2,100/month in manual processing while improving accuracy from 94% to 99.2%. We integrate with Xero, QuickBooks, Sage, Zoho Books, and HR systems. Your team focuses on analysis and strategy.
+                                </p>
+                                <p style={{ marginBottom: "1.5rem" }}>
+                                    <strong>Legal:</strong> Contract review, due diligence, compliance monitoring, precedent search, KYC. Our Legal agents have reviewed 18,000+ contracts using LangChain-powered RAG and Claude. A mid-tier law firm reduced due diligence time from 2-3 weeks to 4-5 days.
+                                </p>
+                                <p style={{ fontWeight: 700, color: "var(--text)" }}>
+                                    We integrate securely with document management systems (iManage, ShareFile) and your contract repository. The SRA expects supervision; we rigorously architect compliance into every agent.
+                                </p>
+                            </div>
+                        </div>
+                        <div className="gsap-img-reveal" style={PlaceholderStyle}>
+                            [Image Placeholder: Key Sectors Map - Financial Services processing £2.4bn, Legal Due Diligence]
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Section 4B: Industries - Logistics (Zig) */}
+            <section id="expertise-2" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)" }}>
+                <div className="container" style={{ maxWidth: "1250px" }}>
+                    <div className="responsive-grid zig">
+                        <div className="gsap-img-reveal" style={PlaceholderStyle}>
+                            [Image Placeholder: Advanced Logistics Routing Map & Supply Chain Orchestration]
+                        </div>
+                        <div className="gsap-reveal">
+                            <span className="section-label">Operations</span>
+                            <h2 className="section-title">Logistics & Manufacturing</h2>
+                            <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.15rem", textAlign: "justify" }}>
+                                <p style={{ marginBottom: "1.5rem" }}>
+                                    <strong>Logistics & Manufacturing:</strong> Route optimisation, demand forecasting, supplier coordination, inventory management, exception handling. Agents dynamically reduce delivery times by 12-18%, cut fuel costs by 8-14%, and strictly improve on-time performance to 98%+.
+                                </p>
+                                <p style={{ marginBottom: "1.5rem" }}>
+                                    A London-based courier with 35 drivers increased delivery capacity by 28% without adding vehicles. We integrate natively with your fleet management system (Tookan, Onfleet, Samsara), your inventory system (Zoho Inventory, SAP), and your order platform (Shopify, custom API). 
+                                </p>
+                                <p style={{ fontWeight: 700, color: "var(--text)" }}>
+                                    The agent aggressively optimises routes while your operations team handles human exceptions and vendor relationships. These aren't one-off pilots. They're operational workhorses embedded in mission-critical workflows, handling real P&L impact every single day.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Section 5A: Global Delivery (Zag) */}
+            <section id="global-delivery-1" style={{ padding: "120px 1.5rem 60px", background: "var(--bg)" }}>
+                <div className="container" style={{ maxWidth: "1250px" }}>
+                    <div className="gsap-reveal" style={{ textAlign: "center", marginBottom: "5rem" }}>
+                        <h2 className="section-title" style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)" }}>Global Delivery, UK Focused</h2>
+                    </div>
                     <div className="responsive-grid zag">
                         <div className="gsap-reveal">
                             <span className="section-label">Digital Synergy Ventures UK</span>
-                            <h2 className="section-title">Global Delivery, Local Compliance</h2>
+                            <h2 className="section-title">Local Compliance & Security</h2>
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.15rem", textAlign: "justify" }}>
                                 <p style={{ marginBottom: "1.5rem" }}>
-                                    FI Digital UK is a fully registered UK entity backed by a massive infrastructure of 200+ elite engineers operating across four primary hubs in Australia, India, and the UAE. We understand rigid strictures surrounding FCA boundaries, SRA oversight, and expansive GDPR protocols.
+                                    FI Digital UK is Digital Synergy Ventures UK Limited—a UK-registered entity backed by 200+ engineers across 4 countries: Australia (HQ), India (engineering, 150+ staff), UAE (regional hub), and UK (enterprise relationships and support). 
                                 </p>
-                                <p>
-                                    Your agents securely live on your local cloud tenancy, guaranteeing full code ownership. Every data movement logs itself via immutable audit tracing, shielding your entity against risk while accelerating your core objectives exponentially.
+                                <p style={{ marginBottom: "1.5rem" }}>
+                                    Ten years building AI automation systems for enterprises means we've seen every compliance framework, every integration nightmare, every edge case twice. We understand FCA regulations for Finance, SRA ethics for Legal, and GDPR for everything. 
+                                </p>
+                                <p style={{ fontWeight: 700, color: "var(--text)" }}>
+                                    Your agent is built, tested, and audited to UK/EU standards. Your data stays in your infrastructure or our UK/EU data residency options. Your IP is yours. Your source code is yours. Deployment happens in your environment with your security review.
                                 </p>
                             </div>
                         </div>
@@ -603,27 +685,79 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Section 6: AI Readiness Assessment (Zig) */}
-            <section id="assessment" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)" }}>
-                <div className="container">
+            {/* Section 5B: Accountability (Zig) */}
+            <section id="global-delivery-2" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)" }}>
+                <div className="container" style={{ maxWidth: "1250px" }}>
+                    <div className="responsive-grid zig">
+                        <div className="gsap-img-reveal" style={PlaceholderStyle}>
+                            [Image Placeholder: UK Engineering Partnership Dashboard & Slack Integration]
+                        </div>
+                        <div className="gsap-reveal">
+                            <span className="section-label">Partnership</span>
+                            <h2 className="section-title">Engineering Accountability</h2>
+                            <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.15rem", textAlign: "justify" }}>
+                                <p style={{ marginBottom: "1.5rem" }}>
+                                    We're not a typical outsourcing firm—we're engineering partners who stay accountable for production outcomes. Our UK team is embedded in the relationship; our India team is experienced and proven; our SLAs are contractual, not aspirational. We've worked with FTSE 100 companies, large law firms, and logistics networks.
+                                </p>
+                                <p style={{ marginBottom: "1.5rem" }}>
+                                    We understand regulatory constraints and security requirements. Your data doesn't leave your infrastructure unless you explicitly approve it. We run agents on your cloud tenancy (AWS, Azure, Google Cloud) or on-premises. 
+                                </p>
+                                <p style={{ fontWeight: 700, color: "var(--text)" }}>
+                                    We provide immutable audit trails for compliance reviews. We maintain professional indemnity insurance. We're invested in your success because deployment is the beginning, not the end.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Section 6A: AI Readiness Assessment (Zig) */}
+            <section id="assessment-1" style={{ padding: "120px 1.5rem 60px", background: "var(--bg-secondary)" }}>
+                <div className="container" style={{ maxWidth: "1250px" }}>
+                    <div className="gsap-reveal" style={{ textAlign: "center", marginBottom: "5rem" }}>
+                        <h2 className="section-title" style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)" }}>Take the AI Readiness Assessment</h2>
+                    </div>
                     <div className="responsive-grid zig">
                         <div className="gsap-img-reveal" style={PlaceholderStyle}>
                             [Image Placeholder: AI Readiness Assessment Interface Mockup showing dimensions mapping]
                         </div>
                         <div className="gsap-reveal">
-                            <span className="section-label">Readiness Assessment</span>
-                            <h2 className="section-title">Architect The First Step</h2>
+                            <span className="section-label">Evaluation Mechanics</span>
+                            <h2 className="section-title">Are You Ready For AI?</h2>
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.15rem", textAlign: "justify" }}>
                                 <p style={{ marginBottom: "1.5rem" }}>
-                                    Not every process benefits heavily from unstructured AI operations. We've developed a rigorous 5-minute evaluation covering 12 enterprise dimensions to surface genuine high-impact ROI zones quickly.
+                                    Not every process benefits from AI. Some should. Others shouldn't. We've built a 5-minute assessment that scores your readiness across 12 dimensions: process repeatability (are the steps consistent?), data quality (can we parse and understand your data?), volume/cost impact (how much manual labour is involved?), compliance complexity (are there regulatory constraints?), legacy system integration (how connected is your tech stack?), and team capacity (are you stretched thin?).
+                                </p>
+                                <p>
+                                    Answer 15 questions, get an immediate score (0-100), and a personalised report showing which of your operations would benefit most from automation.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Section 6B: Assessment Results (Zag) */}
+            <section id="assessment-2" style={{ padding: "120px 1.5rem", background: "var(--bg)" }}>
+                <div className="container" style={{ maxWidth: "1250px" }}>
+                    <div className="responsive-grid zag">
+                        <div className="gsap-reveal">
+                            <span className="section-label">Valuable Insights</span>
+                            <h2 className="section-title">No Sales Pitch. Just Data.</h2>
+                            <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.15rem", textAlign: "justify" }}>
+                                <p style={{ marginBottom: "1.5rem" }}>
+                                    73% of assessments surface a high-impact automation opportunity within 90 days. Some clients discover they're already AI-ready (all preconditions met, can deploy in 8-10 weeks); others learn they need 6 months of data prep first (messy source systems, poor process documentation). 
                                 </p>
                                 <p style={{ marginBottom: "1.5rem" }}>
-                                    It grades your system's legacy constraints, assesses data quality boundaries, isolates labor bottlenecks, and outputs an immediate actionable roadmap highlighting whether your firm should deploy immediately or pivot focus toward data preparation loops. 
+                                    Both are valuable insights. The assessment is free, takes 5 minutes, and the insights are yours to keep. Many clients share the results with their CFO or COO to build the business case for the engagement.
                                 </p>
                                 <Link href="/assessment" className="btn-primary" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "1rem 2rem", background: "#4F46E5", color: "white", borderRadius: "12px", textDecoration: "none" }}>
                                     Take the Assessment <ArrowRight size={20} />
                                 </Link>
                             </div>
+                        </div>
+                        <div className="gsap-img-reveal" style={PlaceholderStyle}>
+                            [Image Placeholder: Personalized ROI Report Output Dashboard Example]
                         </div>
                     </div>
                 </div>
