@@ -123,7 +123,7 @@ export default function AiNativeProductPage() {
                   "Private Semantic Caches"
                 ].map(s => (
                   <li key={s} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontWeight: 600, fontSize: '0.9rem' }}>
-                    <CheckCircle2 size={16} className="text-secondary" /> {item}
+                    <CheckCircle2 size={16} className="text-secondary" /> {s}
                   </li>
                 ))}
               </ul>

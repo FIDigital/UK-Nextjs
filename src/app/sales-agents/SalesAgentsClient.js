@@ -114,9 +114,9 @@ const FAQItem = ({ question, answer }) => {
                 ease: "power2.out"
             });
             gsap.to(containerRef.current, {
-                borderColor: "rgba(59, 130, 246, 0.4)",
-                backgroundColor: "#060913",
-                boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
+                borderColor: "var(--primary)",
+                backgroundColor: "var(--hover-bg)",
+                boxShadow: "var(--card-shadow)",
                 duration: 0.3
             });
         } else {
@@ -127,8 +127,8 @@ const FAQItem = ({ question, answer }) => {
                 ease: "power2.inOut"
             });
             gsap.to(containerRef.current, {
-                borderColor: "rgba(255,255,255,0.05)",
-                backgroundColor: "#0B0F19",
+                borderColor: "var(--border)",
+                backgroundColor: "var(--card-bg)",
                 boxShadow: "none",
                 duration: 0.3
             });
@@ -140,26 +140,24 @@ const FAQItem = ({ question, answer }) => {
             ref={containerRef}
             className="faq-item gsap-card"
             style={{ 
-                background: "#0B0F19", 
-                border: "1px solid rgba(255,255,255,0.05)", 
+                background: "var(--card-bg)", 
+                border: "1px solid var(--border)", 
                 borderRadius: "12px", 
                 marginBottom: "0.75rem", 
                 overflow: "hidden",
                 cursor: "pointer",
-                transition: "border-color 0.3s ease"
+                transition: "all 0.3s ease"
             }}
             onClick={() => setIsOpen(!isOpen)}
-            onMouseEnter={(e) => { if(!isOpen) e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)" }}
-            onMouseLeave={(e) => { if(!isOpen) e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)" }}
         >
             <div style={{ padding: "1.25rem 1.5rem", display: "flex", justifyContent: "space-between", alignItems: "center", gap: "2rem" }}>
-                <h3 style={{ fontSize: "0.95rem", fontWeight: 600, margin: 0, color: "rgba(255,255,255,0.9)", letterSpacing: "0.01em" }}>{question}</h3>
+                <h3 style={{ fontSize: "0.95rem", fontWeight: 600, margin: 0, color: "var(--text)", letterSpacing: "0.01em" }}>{question}</h3>
                 <div style={{ 
                     width: "32px", 
                     height: "32px", 
                     borderRadius: "50%", 
-                    background: "rgba(255,255,255,0.02)", 
-                    border: "1px solid rgba(255,255,255,0.04)",
+                    background: "var(--hover-bg)", 
+                    border: "1px solid var(--border)",
                     display: "flex", 
                     alignItems: "center", 
                     justifyContent: "center",
@@ -167,11 +165,11 @@ const FAQItem = ({ question, answer }) => {
                     transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
                     transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)"
                 }}>
-                    <ChevronDown size={16} color="rgba(255,255,255,0.4)" />
+                    <ChevronDown size={16} color="var(--primary)" />
                 </div>
             </div>
             <div ref={contentRef} style={{ height: 0, opacity: 0, overflow: "hidden" }}>
-                <div style={{ padding: "0 1.5rem 1.5rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.6, fontSize: "0.95rem" }}>
+                <div style={{ padding: "0 1.5rem 1.5rem", color: "var(--text-muted)", lineHeight: 1.6, fontSize: "0.95rem" }}>
                     {answer}
                 </div>
             </div>
@@ -403,14 +401,14 @@ export default function SalesAgentsClient() {
                                     <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#10b981", boxShadow: "0 0 10px #10b981" }} />
                                     SALES AUTOMATION AGENTS
                                 </div>
-                                <h1 className="hero-title-line" style={{ fontSize: "clamp(2.5rem, 5vw, 4.2rem)", fontWeight: 950, lineHeight: 1.1, marginBottom: "2rem", letterSpacing: "-0.03em", color: "white" }}>
+                                <h1 className="hero-title-line" style={{ fontSize: "clamp(2.5rem, 5vw, 4.2rem)", fontWeight: 950, lineHeight: 1.1, marginBottom: "2rem", letterSpacing: "-0.03em", color: "var(--text)" }}>
                                     Your Sales Team <br /> Just Got <span style={{ color: "var(--primary)" }}>30 Extra Hours</span> Per Week
                                 </h1>
-                                <p className="hero-subtitle" style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.25rem)", color: "rgba(255,255,255,0.7)", marginBottom: "2.5rem", lineHeight: 1.6, maxWidth: "700px" }}>
+                                <p className="hero-subtitle" style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.25rem)", color: "var(--text-muted)", marginBottom: "2.5rem", lineHeight: 1.6, maxWidth: "700px" }}>
                                     Meet your Sales Digital Worker: automated lead research, intelligent outreach sequencing, CRM hygiene, and pipeline accuracy—24/7.
                                 </p>
 
-                                <div className="hero-cta" style={{ display: "flex", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
+                                <div className="hero-cta" style={{ display: "flex", gap: "1rem", alignItems: "center", flexWrap: "nowrap" }}>
                                     <Link href="/demo/sales" style={{ 
                                         display: "inline-flex", alignItems: "center", gap: "0.5rem", 
                                         padding: "1rem 2rem", background: "#4F46E5", color: "white", 

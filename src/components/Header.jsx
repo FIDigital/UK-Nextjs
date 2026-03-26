@@ -9,7 +9,7 @@ import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
     { href: "/", label: "Home" },
-    { 
+    {
         label: "Digital Workers",
         subLinks: [
             { href: "/finance-agents", label: "Finance & Billing Agents" },
@@ -169,12 +169,12 @@ export default function Header() {
                                             </span>
                                         )}
                                     </div>
-                                    
+
                                     {link.subLinks && (
                                         <div className="dropdown-menu">
                                             {link.subLinks.map((sub) => (
-                                                <Link 
-                                                    key={sub.href} 
+                                                <Link
+                                                    key={sub.href}
                                                     href={sub.href}
                                                     style={{
                                                         display: "block",
@@ -233,7 +233,7 @@ export default function Header() {
                         <span style={{ fontSize: "0.9rem", fontWeight: 700, opacity: 0.6, textTransform: "uppercase" }}>Theme</span>
                         <ThemeToggle />
                     </div>
-                    
+
                     {navLinks.map((link) => (
                         <div key={link.label} style={{ display: "flex", flexDirection: "column" }}>
                             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
@@ -241,11 +241,11 @@ export default function Header() {
                                     <Link
                                         href={link.href}
                                         onClick={() => setMobileOpen(false)}
-                                        style={{ 
+                                        style={{
                                             padding: "1rem 0.5rem",
-                                            fontSize: "1.25rem", 
-                                            fontWeight: 800, 
-                                            color: "var(--text)", 
+                                            fontSize: "1.25rem",
+                                            fontWeight: 800,
+                                            color: "var(--text)",
                                             textDecoration: "none",
                                             flex: 1
                                         }}
@@ -254,11 +254,11 @@ export default function Header() {
                                     </Link>
                                 ) : (
                                     <span
-                                        style={{ 
+                                        style={{
                                             padding: "1rem 0.5rem",
-                                            fontSize: "1.25rem", 
-                                            fontWeight: 800, 
-                                            color: "var(--text)", 
+                                            fontSize: "1.25rem",
+                                            fontWeight: 800,
+                                            color: "var(--text)",
                                             flex: 1,
                                             cursor: "default"
                                         }}
@@ -268,7 +268,7 @@ export default function Header() {
                                     </span>
                                 )}
                                 {link.subLinks && (
-                                    <button 
+                                    <button
                                         onClick={(e) => {
                                             e.preventDefault();
                                             toggleMobileSubmenu(link.label);
@@ -289,11 +289,11 @@ export default function Header() {
                                     </button>
                                 )}
                             </div>
-                            
+
                             {link.subLinks && mobileSubmenu === link.label && (
-                                <div style={{ 
-                                    paddingLeft: "1rem", 
-                                    display: "flex", 
+                                <div style={{
+                                    paddingLeft: "1rem",
+                                    display: "flex",
                                     flexDirection: "column",
                                     borderLeft: "2px solid var(--primary)",
                                     margin: "0.5rem 0 0.5rem 0.5rem"
@@ -362,7 +362,7 @@ export default function Header() {
                 color: var(--primary) !important;
               }
 
-              .dropdown-menu {
+               .dropdown-menu {
                 position: absolute;
                 top: 100%;
                 left: 50%;
