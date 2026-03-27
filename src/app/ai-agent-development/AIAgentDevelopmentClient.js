@@ -856,7 +856,7 @@ export default function AIAgentDevelopmentClient() {
                     <div className="gsap-reveal" style={{ textAlign: "center", marginBottom: "5rem" }}>
                          <span className="section-label">ENTERPRISE-GRADE</span>
                          <h2 className="section-title" style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)", fontWeight: 950, marginBottom: "2rem" }}>
-                            Section 4: Production Deployment: What Makes Our Agents Enterprise-Grade
+                            SectiProduction Deployment: What Makes Our Agents Enterprise-Grade
                          </h2>
                          <p style={{ color: "var(--text-muted)", maxWidth: "800px", margin: "0 auto", fontSize: "1.2rem", lineHeight: 1.6 }}>
                             There's a massive gap between an agent that works in development and one that works in production handling your real data. We've learned every lesson the hard way.
