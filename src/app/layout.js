@@ -44,16 +44,20 @@ const jsonLd = {
   "knowsAbout": ["AI Agents", "LangChain", "Claude AI", "n8n", "Enterprise Automation", "Azure OpenAI"]
 };
 
+import Script from "next/script";
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable}`}>
       <head>
-        <script
+        <Script
+          id="json-ld"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          strategy="beforeInteractive"
         />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <ThemeProvider attribute="data-theme" defaultTheme="light" enableSystem={false}>
           <Header />
           <main style={{ minHeight: '80vh' }}>
