@@ -276,7 +276,7 @@ export default function ApproachArchitecturePage() {
                     position: "absolute", top: "0", right: "0", width: "65%", height: "100%", zIndex: 0, opacity: 0.7, pointerEvents: "none"
                 }}>
                     <Image 
-                        src="/images/hero-realistic.png" 
+                        src="/images/architecture-hero.png" 
                         alt="Enterprise AI Architecture" 
                         fill 
                         style={{ objectFit: "cover", objectPosition: "left center", maskImage: "radial-gradient(circle at right, black, transparent 80%)", WebkitMaskImage: "radial-gradient(circle at right, black, transparent 80%)" }} 
@@ -303,7 +303,7 @@ export default function ApproachArchitecturePage() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="zig-grid">
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "550px", borderRadius: "32px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "0 20px 40px rgba(0,0,0,0.15)" }}>
-                            <Image src="/images/model-agnostic-realistic.png" alt="Model Agnostic AI Approach" fill style={{ objectFit: "cover" }} />
+                            <Image src="/images/model-agnosticphilosophy.png" alt="Model Agnostic AI Approach" fill style={{ objectFit: "cover" }} />
                         </div>
 
                         <div className="gsap-reveal">
@@ -368,7 +368,7 @@ export default function ApproachArchitecturePage() {
                         </div>
 
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "550px", borderRadius: "32px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "0 20px 40px rgba(0,0,0,0.15)" }}>
-                            <Image src="/images/dual-cloud-realistic.png" alt="Dual Cloud Deployment" fill style={{ objectFit: "cover" }} />
+                            <Image src="/images/dual-cloud-arch.png" alt="Dual Cloud Deployment" fill style={{ objectFit: "cover" }} />
                         </div>
                     </div>
                 </div>
@@ -379,7 +379,7 @@ export default function ApproachArchitecturePage() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="zig-grid">
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "550px", borderRadius: "32px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "0 20px 40px rgba(0,0,0,0.15)" }}>
-                            <Image src="/images/cicd-pipeline-realistic.png" alt="Automated CI/CD AI Pipeline" fill style={{ objectFit: "cover" }} />
+                            <Image src="/images/reasoning-routing.png" alt="Automated CI/CD AI Pipeline" fill style={{ objectFit: "cover" }} />
                         </div>
 
                         <div className="gsap-reveal">
@@ -440,7 +440,7 @@ export default function ApproachArchitecturePage() {
                         </div>
 
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "550px", borderRadius: "32px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "0 20px 40px rgba(0,0,0,0.15)" }}>
-                            <Image src="/images/observability-realistic.png" alt="AI Observability Dashboard" fill style={{ objectFit: "cover" }} />
+                            <Image src="/images/continuous-pipeline.png" alt="AI Observability Dashboard" fill style={{ objectFit: "cover" }} />
                         </div>
                     </div>
                 </div>
@@ -451,7 +451,7 @@ export default function ApproachArchitecturePage() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="zig-grid">
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "550px", borderRadius: "32px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "0 20px 40px rgba(0,0,0,0.15)" }}>
-                            <Image src="/images/security-realistic.png" alt="Deep Security Architecture" fill style={{ objectFit: "cover" }} />
+                            <Image src="/images/enterprise-data-layer.png" alt="Deep Security Architecture" fill style={{ objectFit: "cover" }} />
                         </div>
 
                         <div className="gsap-reveal">

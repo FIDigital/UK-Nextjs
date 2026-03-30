@@ -249,7 +249,7 @@ export default function GlobalDeliveryModelPage() {
                     position: "absolute", top: "0", right: "0", width: "65%", height: "100%", zIndex: 0, opacity: 0.7, pointerEvents: "none"
                 }}>
                     <Image 
-                        src="/images/delivery-hero.png" 
+                        src="/images/engineeringacross-everytimezone-hero-image.png" 
                         alt="Global Engineering Delivery" 
                         fill 
                         style={{ objectFit: "cover", objectPosition: "left center", maskImage: "radial-gradient(circle at right, black, transparent 80%)", WebkitMaskImage: "radial-gradient(circle at right, black, transparent 80%)" }} 
@@ -277,7 +277,7 @@ export default function GlobalDeliveryModelPage() {
                     <div className="zig-grid">
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "550px", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
                             <Image 
-                                src="/images/delivery-map.png"
+                                src="/images/The-Model-UK-India.png"
                                 alt="Global Delivery Network Map"
                                 fill
                                 style={{ objectFit: "cover" }}
@@ -339,7 +339,7 @@ export default function GlobalDeliveryModelPage() {
 
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "550px", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
                             <Image 
-                                src="/images/delivery-roles.png"
+                                src="/images/india-engineering.png"
                                 alt="Roles and Specialisation NOC"
                                 fill
                                 style={{ objectFit: "cover" }}
@@ -355,7 +355,7 @@ export default function GlobalDeliveryModelPage() {
                     <div className="zig-grid">
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "550px", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
                             <Image 
-                                src="/images/observability-realistic.png"
+                                src="/images/time-zone-advantage.png"
                                 alt="24/7 Delivery Timeline NOC"
                                 fill
                                 style={{ objectFit: "cover" }}
@@ -416,7 +416,7 @@ export default function GlobalDeliveryModelPage() {
 
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "550px", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
                             <Image 
-                                src="/images/security-realistic.png"
+                                src="/images/continuous-pipeline.png"
                                 alt="UK Data Protection Cloud Infrastructure"
                                 fill
                                 style={{ objectFit: "cover" }}
@@ -432,10 +432,10 @@ export default function GlobalDeliveryModelPage() {
                     <div className="zig-grid">
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "550px", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
                             <Image 
-                                src="/images/cicd-pipeline-realistic.png"
+                                src="/images/zoho-logo.webp"
                                 alt="Zoho Integration AI Ecosystem Pipeline"
                                 fill
-                                style={{ objectFit: "cover" }}
+                                style={{ objectFit: "contain", background: "white", padding: "1.5rem" }}
                             />
                         </div>
 
