@@ -191,35 +191,69 @@ export default function FinancialServicesPage() {
             
             <style jsx global>{`
                 .section-title {
-                    font-size: clamp(2rem, 4vw, 3rem);
+                    font-size: clamp(2rem, 3.5vw, 2.8rem);
                     font-weight: 800;
                     line-height: 1.1;
                     margin-bottom: 1.5rem;
                     color: var(--text);
                     letter-spacing: -0.02em;
                 }
-                .zig-grid {
+                .zig-grid, .zag-grid {
                     display: grid;
-                    gap: 5rem;
-                    align-items: center;
-                    grid-template-columns: 1fr;
-                }
-                .zag-grid {
-                    display: grid;
-                    gap: 5rem;
+                    gap: 3rem;
                     align-items: center;
                     grid-template-columns: 1fr;
                 }
                 .card-highlight {
-                    background: var(--card-bg);
+                    background: var(--bg-secondary);
                     border: 1px solid var(--border);
                     padding: 1.5rem;
                     border-radius: 16px;
                     margin-top: 1.5rem;
                 }
-                @media (min-width: 900px) {
-                    .zig-grid { grid-template-columns: 1fr 1.2fr; }
-                    .zag-grid { grid-template-columns: 1.2fr 1fr; }
+                @media (min-width: 1024px) {
+                    .zig-grid, .zag-grid { 
+                        grid-template-columns: repeat(12, 1fr); 
+                        gap: 0;
+                        align-items: center;
+                    }
+                    
+                    /* Modern Overlapping Floating Cards Design */
+                    .zig-grid > .gsap-img-wrapper {
+                        grid-column: 1 / 9;
+                        grid-row: 1;
+                        box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+                    }
+                    .zig-grid > .gsap-reveal {
+                        grid-column: 7 / 13;
+                        grid-row: 1;
+                        position: relative;
+                        z-index: 10;
+                        background: var(--bg);
+                        padding: 3.5rem;
+                        border-radius: 24px;
+                        border: 1px solid var(--border);
+                        box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+                        transform: translateY(40px);
+                    }
+
+                    .zag-grid > .gsap-reveal {
+                        grid-column: 1 / 7;
+                        grid-row: 1;
+                        position: relative;
+                        z-index: 10;
+                        background: var(--bg);
+                        padding: 3.5rem;
+                        border-radius: 24px;
+                        border: 1px solid var(--border);
+                        box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+                        transform: translateY(-40px);
+                    }
+                    .zag-grid > .gsap-img-wrapper {
+                        grid-column: 5 / 13;
+                        grid-row: 1;
+                        box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+                    }
                 }
             `}</style>
 
@@ -237,7 +271,7 @@ export default function FinancialServicesPage() {
                     position: "absolute", top: "0", right: "0", width: "65%", height: "100%", zIndex: 0, opacity: 0.7, pointerEvents: "none"
                 }}>
                     <Image 
-                        src="/images/industries/fin_hero_1774865666219.png" 
+                        src="/images/industries/finance-hero.jpg.png" 
                         alt="AI That Understands FCA Compliance" 
                         fill 
                         style={{ objectFit: "cover", objectPosition: "left center", maskImage: "radial-gradient(circle at right, black, transparent 80%)", WebkitMaskImage: "radial-gradient(circle at right, black, transparent 80%)" }} 
@@ -263,9 +297,9 @@ export default function FinancialServicesPage() {
             <section style={{ padding: "100px 1.5rem", background: "var(--bg-secondary)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="zig-grid">
-                        <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "550px", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
+                        <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
                            <Image 
-                                src="/images/industries/fin_chal_1774865692384.png"
+                                src="/images/industries/finance-challenge.jpg.png"
                                 alt="Dashboard showing FCA compliance metrics, audit trails, and KYC workflow stages"
                                 fill
                                 style={{ objectFit: "cover" }}
@@ -330,9 +364,9 @@ export default function FinancialServicesPage() {
                             </div>
                         </div>
 
-                        <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "550px", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
+                        <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
                             <Image 
-                                src="/images/industries/fin_sol_1774865839831.png"
+                                src="/images/industries/finance-solutions.jpg.png"
                                 alt="Automated Pipeline with AI Decision Points"
                                 fill
                                 style={{ objectFit: "cover" }}
@@ -346,9 +380,9 @@ export default function FinancialServicesPage() {
             <section style={{ padding: "100px 1.5rem", background: "var(--bg-secondary)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="zig-grid">
-                        <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "550px", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
+                        <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
                             <Image 
-                                src="/images/industries/fin_comp_1774865937004.png"
+                                src="/images/industries/finance-compliance.jpg"
                                 alt="Compliance Safe AI Flowchart Audit Log"
                                 fill
                                 style={{ objectFit: "cover", objectPosition: "left center" }}
@@ -410,9 +444,9 @@ export default function FinancialServicesPage() {
                             </div>
                         </div>
 
-                        <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "550px", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
+                        <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
                             <Image 
-                                src="/images/industries/fin_tech_1774865960316.png"
+                                src="/images/industries/finance-tech.jpg"
                                 alt="Technology Stack Diagram for Finance"
                                 fill
                                 style={{ objectFit: "cover" }}
@@ -426,9 +460,9 @@ export default function FinancialServicesPage() {
             <section style={{ padding: "100px 1.5rem", background: "var(--bg-secondary)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="zig-grid">
-                        <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "550px", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
+                        <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
                             <Image 
-                                src="/images/industries/fin_aus_1774865981352.png"
+                                src="/images/industries/finance-global.jpg"
                                 alt="Australian APRA ASIC Experience"
                                 fill
                                 style={{ objectFit: "cover", objectPosition: "left center" }}
@@ -484,9 +518,9 @@ export default function FinancialServicesPage() {
                             </div>
                         </div>
 
-                        <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "550px", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
+                        <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
                             <Image 
-                                src="/images/client-success-real.jpg"
+                                src="/images/industries/finance-casestudy.jpg"
                                 alt="Financial Advisory Success Case Study"
                                 fill
                                 style={{ objectFit: "cover" }}
