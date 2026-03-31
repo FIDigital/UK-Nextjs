@@ -191,35 +191,69 @@ export default function LogisticsManufacturingPage() {
             
             <style jsx global>{`
                 .section-title {
-                    font-size: clamp(2rem, 4vw, 3rem);
+                    font-size: clamp(2rem, 3.5vw, 2.8rem);
                     font-weight: 800;
                     line-height: 1.1;
                     margin-bottom: 1.5rem;
                     color: var(--text);
                     letter-spacing: -0.02em;
                 }
-                .zig-grid {
+                .zig-grid, .zag-grid {
                     display: grid;
-                    gap: 5rem;
-                    align-items: center;
-                    grid-template-columns: 1fr;
-                }
-                .zag-grid {
-                    display: grid;
-                    gap: 5rem;
+                    gap: 3rem;
                     align-items: center;
                     grid-template-columns: 1fr;
                 }
                 .card-highlight {
-                    background: var(--card-bg);
+                    background: var(--bg-secondary);
                     border: 1px solid var(--border);
                     padding: 1.5rem;
                     border-radius: 16px;
                     margin-top: 1.5rem;
                 }
-                @media (min-width: 900px) {
-                    .zig-grid { grid-template-columns: 1fr 1.2fr; }
-                    .zag-grid { grid-template-columns: 1.2fr 1fr; }
+                @media (min-width: 1024px) {
+                    .zig-grid, .zag-grid { 
+                        grid-template-columns: repeat(12, 1fr); 
+                        gap: 0;
+                        align-items: center;
+                    }
+                    
+                    /* Modern Overlapping Floating Cards Design */
+                    .zig-grid > .gsap-img-wrapper {
+                        grid-column: 1 / 9;
+                        grid-row: 1;
+                        box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+                    }
+                    .zig-grid > .gsap-reveal {
+                        grid-column: 7 / 13;
+                        grid-row: 1;
+                        position: relative;
+                        z-index: 10;
+                        background: var(--bg);
+                        padding: 3.5rem;
+                        border-radius: 24px;
+                        border: 1px solid var(--border);
+                        box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+                        transform: translateY(40px);
+                    }
+
+                    .zag-grid > .gsap-reveal {
+                        grid-column: 1 / 7;
+                        grid-row: 1;
+                        position: relative;
+                        z-index: 10;
+                        background: var(--bg);
+                        padding: 3.5rem;
+                        border-radius: 24px;
+                        border: 1px solid var(--border);
+                        box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+                        transform: translateY(-40px);
+                    }
+                    .zag-grid > .gsap-img-wrapper {
+                        grid-column: 5 / 13;
+                        grid-row: 1;
+                        box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+                    }
                 }
             `}</style>
 
@@ -237,7 +271,7 @@ export default function LogisticsManufacturingPage() {
                     position: "absolute", top: "0", right: "0", width: "65%", height: "100%", zIndex: 0, opacity: 0.7, pointerEvents: "none"
                 }}>
                     <Image 
-                        src="/images/monitoring-dashboard.png" 
+                        src="/images/industries/logistics-hero.jpg" 
                         alt="AI That Understands Your Supply Chain" 
                         fill 
                         style={{ objectFit: "cover", objectPosition: "left center", maskImage: "radial-gradient(circle at right, black, transparent 80%)", WebkitMaskImage: "radial-gradient(circle at right, black, transparent 80%)" }} 
@@ -263,9 +297,9 @@ export default function LogisticsManufacturingPage() {
             <section style={{ padding: "100px 1.5rem", background: "var(--bg-secondary)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="zig-grid">
-                        <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "550px", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
+                        <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
                            <Image 
-                                src="/images/enterprise-data-layer.png"
+                                src="/images/industries/logistics-challenge.jpg"
                                 alt="Inefficient warehouse logistics vs optimized blue routes"
                                 fill
                                 style={{ objectFit: "cover" }}
@@ -330,9 +364,9 @@ export default function LogisticsManufacturingPage() {
                             </div>
                         </div>
 
-                        <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "550px", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
+                        <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
                             <Image 
-                                src="/images/continuous_pipeline_arch_1774850879428.png"
+                                src="/images/industries/logistics-solutions.jpg"
                                 alt="Four panels visualizing route arrays, warehouse heatmaps, and sensor IoT nodes"
                                 fill
                                 style={{ objectFit: "cover" }}
@@ -346,9 +380,9 @@ export default function LogisticsManufacturingPage() {
             <section style={{ padding: "100px 1.5rem", background: "var(--bg-secondary)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="zig-grid">
-                        <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "550px", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
+                        <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
                             <Image 
-                                src="/images/reasoning_engine_routing_1774850660150.png"
+                                src="/images/industries/logistics-tech.jpg"
                                 alt="n8n orchestration layer routing Gemini optimizations back to TMS"
                                 fill
                                 style={{ objectFit: "cover", objectPosition: "left center" }}
@@ -410,9 +444,9 @@ export default function LogisticsManufacturingPage() {
                             </div>
                         </div>
 
-                        <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "550px", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
+                        <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
                             <Image 
-                                src="/images/dual_cloud_architecture_v3_1774850639873.png"
+                                src="/images/industries/logistics-integration.jpg"
                                 alt="ERP integration stack highlighting Zoho, SAP, Oracle bridging to AI"
                                 fill
                                 style={{ objectFit: "cover" }}
@@ -426,9 +460,9 @@ export default function LogisticsManufacturingPage() {
             <section style={{ padding: "100px 1.5rem", background: "var(--bg-secondary)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="zig-grid">
-                        <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "550px", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
+                        <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
                             <Image 
-                                src="/images/india_engineering_scale_1774850377523.png"
+                                src="/images/industries/logistics-global.jpg"
                                 alt="FI Digital India Engineering hubs supporting UAE logistics corridors"
                                 fill
                                 style={{ objectFit: "cover", objectPosition: "left center" }}
@@ -484,9 +518,9 @@ export default function LogisticsManufacturingPage() {
                             </div>
                         </div>
 
-                        <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "550px", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
+                        <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
                             <Image 
-                                src="/images/client-success-real.jpg"
+                                src="/images/industries/logistics-casestudy.jpg"
                                 alt="UK 3PL Logistics Case Study Optimization metrics"
                                 fill
                                 style={{ objectFit: "cover" }}
