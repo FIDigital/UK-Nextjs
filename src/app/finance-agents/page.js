@@ -363,6 +363,9 @@ export default function FinanceAgents() {
                     grid-template-columns: 1fr;
                 }
                 @media (min-width: 900px) {
+                    .hero-background-wrapper {
+                        width: 65%;
+                    }
                     .responsive-grid.zig { grid-template-columns: 1fr 1.4fr; }
                     .responsive-grid.zag { grid-template-columns: 1.4fr 1fr; }
                     .hero-grid { grid-template-columns: 1.2fr 1fr; }
@@ -373,94 +376,135 @@ export default function FinanceAgents() {
                 @media (min-width: 1200px) {
                     .links-grid { grid-template-columns: repeat(5, 1fr); }
                 }
+                .hero-background-wrapper {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 0;
+                    opacity: 0.8;
+                    pointer-events: none;
+                }
+                .brand-logo-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                    gap: 1.25rem;
+                }
+                .brand-logo-card {
+                    background: #ffffff;
+                    aspect-ratio: 1/1;
+                    border-radius: 20px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 1.5rem;
+                    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05), 0 10px 30px -5px rgba(0,0,0,0.1);
+                    transition: transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28), box-shadow 0.3s ease;
+                }
+                .brand-logo-card:hover {
+                    transform: translateY(-8px) scale(1.05);
+                    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05), 0 20px 40px -10px rgba(0,0,0,0.2);
+                    z-index: 2;
+                }
+                .brand-logo-img {
+                    max-width: 100%;
+                    max-height: 100%;
+                    object-fit: contain;
+                    filter: none !important;
+                }
             `}</style>
             
-            {/* HER0 SECTION */}
-             <header style={{ 
-                 padding: "clamp(120px, 15vh, 160px) 1.5rem 60px", 
-                 display: "flex", 
-                 alignItems: "center", 
-                 position: "relative", 
-                 overflow: "hidden" 
-             }}>
-                  <TechMeshBackground />
-                  <div style={{
+            {/* HERO SECTION - REBUILT TO MATCH INDUSTRIES */}
+            <header className="hero-section" style={{
+                position: "relative",
+                minHeight: "90vh",
+                display: "flex",
+                alignItems: "center",
+                padding: "clamp(120px, 15vh, 160px) 1.5rem 60px",
+                background: "var(--bg)",
+                overflow: "hidden"
+            }}>
+                <TechMeshBackground />
+                <div style={{
                       position: "absolute",
                       top: 0, left: 0, width: "100%", height: "100%",
                       background: "radial-gradient(circle at 70% 50%, transparent, var(--bg) 70%)",
-                      pointerEvents: "none"
-                  }} />
+                      pointerEvents: "none",
+                      zIndex: 1
+                }} />
+                
+                {/* Right-aligned Faded Hero Image Background */}
+                <div className="hero-background hero-background-wrapper">
+                    <Image 
+                        src="/images/agents/finance-agent-hero.jpg" 
+                        alt="Financial AI Agents" 
+                        fill 
+                        style={{ objectFit: "cover", objectPosition: "left center", maskImage: "radial-gradient(circle at right, black, transparent 80%)", WebkitMaskImage: "radial-gradient(circle at right, black, transparent 80%)" }} 
+                        priority 
+                    />
+                </div>
+                
+                <div className="container hero-container" style={{ position: "relative", zIndex: 2, display: "flex", flexDirection: "column", alignItems: "flex-start", textAlign: "left", width: "100%", maxWidth: "1250px", margin: "0 auto" }}>
+                    <div className="hero-title-line" style={{ display: "inline-flex", alignItems: "center", gap: "0.75rem", padding: "0.6rem 1.2rem", background: "rgba(16, 185, 129, 0.1)", borderRadius: "100px", border: "1px solid rgba(16, 185, 129, 0.2)", marginBottom: "2.5rem", color: "#10b981", fontSize: "0.9rem", fontWeight: 700, letterSpacing: "0.05em" }}>
+                        <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#10b981", boxShadow: "0 0 10px #10b981" }} />
+                        FINANCE AUTOMATION AGENTS
+                    </div>
+                    <h1 className="hero-title-line" style={{ fontSize: "clamp(2.5rem, 8vw, 4.2rem)", fontWeight: 950, lineHeight: 1.1, marginBottom: "2rem", letterSpacing: "-0.03em", color: "var(--text)" }}>
+                        Your Finance Team <br /> Just Got <span style={{ color: "var(--primary)" }}>40% Faster</span>
+                    </h1>
+                    <p className="hero-subtitle" style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.25rem)", color: "var(--text-muted)", marginBottom: "2.5rem", lineHeight: 1.6, maxWidth: "700px" }}>
+                        Meet your Finance Digital Worker: autonomous invoice processing, real-time reconciliation, anomaly detection, and compliance-ready audit trails.
+                    </p>
 
-                  <div className="container" style={{ position: "relative", zIndex: 1, maxWidth: "1250px" }}>
-                       {/* MATCHING HOME PAGE LEFT-ALIGN LAYOUT: 1.2fr 1fr split */}
-                       <div className="hero-grid">
-                            <div style={{ maxWidth: "800px" }}>
-                                <div className="hero-title-line" style={{ 
-                                    display: "inline-flex", alignItems: "center", gap: "0.75rem", padding: "0.6rem 1.2rem", background: "rgba(16, 185, 129, 0.1)", borderRadius: "100px", border: "1px solid rgba(16, 185, 129, 0.2)", marginBottom: "2.5rem", color: "#10b981", fontSize: "0.9rem", fontWeight: 700, letterSpacing: "0.05em"
-                                }}>
-                                    <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#10b981", boxShadow: "0 0 10px #10b981" }} />
-                                    FINANCE AUTOMATION AGENTS
-                                </div>
-                                <h1 className="hero-title-line" style={{ fontSize: "clamp(2.5rem, 5vw, 4.2rem)", fontWeight: 950, lineHeight: 1.1, marginBottom: "2rem", letterSpacing: "-0.03em", color: "var(--text)" }}>
-                                    Your Finance Team <br /> Just Got <span style={{ color: "var(--primary)" }}>40% Faster</span>
-                                </h1>
-                                <p className="hero-subtitle" style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.25rem)", color: "var(--text-muted)", marginBottom: "2.5rem", lineHeight: 1.6, maxWidth: "700px" }}>
-                                    Meet your Finance Digital Worker: autonomous invoice processing, real-time reconciliation, anomaly detection, and compliance-ready audit trails.
-                                </p>
+                    <div className="hero-cta" style={{ 
+                        background: "var(--card-bg)", 
+                        padding: "2rem", 
+                        borderRadius: "32px", 
+                        border: "1px solid var(--border)",
+                        marginBottom: "3.5rem",
+                        maxWidth: "750px",
+                        boxShadow: "var(--card-shadow)"
+                    }}>
+                        <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--text)", marginBottom: "1rem", lineHeight: 1.4 }}>
+                            The Problem: Manual Finance Operations Are Bleeding Time and Accuracy
+                        </h3>
+                        <p style={{ fontSize: "1.05rem", lineHeight: 1.7, color: "var(--text-muted)" }}>
+                            Finance teams across the UK are stuck in spreadsheet hell. A mid-market company with £50m annual turnover processes 800-1,200 invoices monthly. 
+                            {!isReadMoreOpen && (
+                                <>
+                                    ... <button onClick={() => setIsReadMoreOpen(true)} style={{ color: "var(--primary)", background: "transparent", border: "none", cursor: "pointer", fontWeight: 700, padding: 0, textDecoration: "underline", marginLeft: "0.25rem", fontSize: "0.95rem" }}>Read more</button>
+                                </>
+                            )}
+                            {isReadMoreOpen && (
+                                <span style={{ display: "inline" }}>
+                                    {' '}Each invoice requires data entry (supplier name, amount, tax, GL code), three-point verification, and manual categorisation. A Finance Manager spends 12 hours weekly on invoice processing alone. Expense reports arrive as PDFs, emails, and scattered attachments; nobody knows what&apos;s actually been submitted until the month-end audit.
+                                    <button onClick={() => setIsReadMoreOpen(false)} style={{ color: "var(--primary)", background: "transparent", border: "none", cursor: "pointer", fontWeight: 700, padding: 0, textDecoration: "underline", marginLeft: "0.5rem", fontSize: "0.95rem" }}>Show less</button>
+                                </span>
+                            )}
+                        </p>
+                    </div>
 
-                                <div className="hero-cta" style={{ 
-                                    background: "var(--card-bg)", 
-                                    padding: "2rem", 
-                                    borderRadius: "32px", 
-                                    border: "1px solid var(--border)",
-                                    marginBottom: "3.5rem",
-                                    maxWidth: "750px",
-                                    boxShadow: "var(--card-shadow)"
-                                }}>
-                                    <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--text)", marginBottom: "1rem", lineHeight: 1.4 }}>
-                                        The Problem: Manual Finance Operations Are Bleeding Time and Accuracy
-                                    </h3>
-                                    <p style={{ fontSize: "1.05rem", lineHeight: 1.7, color: "var(--text-muted)" }}>
-                                        Finance teams across the UK are stuck in spreadsheet hell. A mid-market company with £50m annual turnover processes 800-1,200 invoices monthly. 
-                                        {!isReadMoreOpen && (
-                                            <>
-                                                ... <button onClick={() => setIsReadMoreOpen(true)} style={{ color: "var(--primary)", background: "transparent", border: "none", cursor: "pointer", fontWeight: 700, padding: 0, textDecoration: "underline", marginLeft: "0.25rem", fontSize: "0.95rem" }}>Read more</button>
-                                            </>
-                                        )}
-                                        {isReadMoreOpen && (
-                                            <span style={{ display: "inline" }}>
-                                                {' '}Each invoice requires data entry (supplier name, amount, tax, GL code), three-point verification, and manual categorisation. A Finance Manager spends 12 hours weekly on invoice processing alone. Expense reports arrive as PDFs, emails, and scattered attachments; nobody knows what&apos;s actually been submitted until the month-end audit.
-                                                <button onClick={() => setIsReadMoreOpen(false)} style={{ color: "var(--primary)", background: "transparent", border: "none", cursor: "pointer", fontWeight: 700, padding: 0, textDecoration: "underline", marginLeft: "0.5rem", fontSize: "0.95rem" }}>Show less</button>
-                                            </span>
-                                        )}
-                                    </p>
-                                </div>
-
-                                <div className="hero-cta" style={{ display: "flex", gap: "1rem", alignItems: "center", flexWrap: "nowrap" }}>
-                                    <Link href="/demo/finance" style={{ 
-                                        display: "inline-flex", alignItems: "center", gap: "0.5rem", 
-                                        padding: "1rem 2rem", background: "#4F46E5", color: "white", 
-                                        fontWeight: 700, borderRadius: "12px", textDecoration: "none", 
-                                        boxShadow: "0 10px 30px rgba(79, 70, 229, 0.3)", transition: "all 0.3s ease" 
-                                    }}>
-                                        See Finance Agent Demo <ArrowRight size={20} />
-                                    </Link>
-                                    <Link href="/case-studies/finance-pdf" style={{ 
-                                        display: "inline-flex", alignItems: "center", justifyContent: "center",
-                                        padding: "1rem 2rem", background: "#0F172A", color: "white", 
-                                        fontWeight: 700, borderRadius: "12px", textDecoration: "none",
-                                        transition: "all 0.3s ease" 
-                                    }}>
-                                        Download Finance Case Study
-                                    </Link>
-                                </div>
-                            </div>
-                            
-                            {/* Empty right column to enforce left-alignment of text against the canvas background */}
-                            <div></div>
-                       </div>
-                  </div>
-             </header>
+                    <div className="hero-cta" style={{ display: "flex", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
+                        <Link href="/demo/finance" style={{ 
+                            display: "inline-flex", alignItems: "center", gap: "0.5rem", 
+                            padding: "1rem 2rem", background: "#4F46E5", color: "white", 
+                            fontWeight: 700, borderRadius: "12px", textDecoration: "none", 
+                            boxShadow: "0 10px 30px rgba(79, 70, 229, 0.3)", transition: "all 0.3s ease" 
+                        }}>
+                            See Finance Agent Demo <ArrowRight size={20} />
+                        </Link>
+                        <Link href="/case-studies/finance-pdf" style={{ 
+                            display: "inline-flex", alignItems: "center", justifyContent: "center",
+                            padding: "1rem 2rem", background: "#0F172A", color: "white", 
+                            fontWeight: 700, borderRadius: "12px", textDecoration: "none",
+                            transition: "all 0.3s ease" 
+                        }}>
+                            Download Finance Case Study
+                        </Link>
+                    </div>
+                </div>
+            </header>
 
 
             {/* Section 1: The Problem (Zig) */}
@@ -506,7 +550,7 @@ export default function FinanceAgents() {
                             </div>
                         </div>
                         <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
-    <img src="/images/industries/finance-dw-workflow.jpg" alt="Autonomous Invoice Workflow - Invoice → Extraction → Categorisation → Accounting Software" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+    <img src="/images/agents/finance-dw-workflow.jpg" alt="Autonomous Invoice Workflow - Invoice → Extraction → Categorisation → Accounting Software" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
 </div>
                     </div>
                 </div>
@@ -539,8 +583,22 @@ export default function FinanceAgents() {
             <section id="architecture-extraction" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)" }}>
                 <div className="container">
                     <div className="responsive-grid zig">
-                        <div className="gsap-img-reveal" style={{...PlaceholderStyle, minHeight: "500px"}}>
-                            [Vertical Timeline Graphic: Extraction & Categorisation Stage]
+                        <div className="gsap-img-reveal" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', background: 'var(--card-bg)', padding: '3rem', borderRadius: '32px', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.5)', border: '1px solid rgba(255,255,255,0.05)' }}>
+                            <h3 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "0.5rem", textAlign: "center" }}>AI Reasoners & Orchestrators</h3>
+                            <div className="brand-logo-grid" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
+                                <div className="brand-logo-card">
+                                    <img src="/images/Anthropic-Logo.wine.png" className="brand-logo-img" alt="Claude Anthropic" />
+                                </div>
+                                <div className="brand-logo-card">
+                                    <img src="/images/microsoft-azure-logo.webp" className="brand-logo-img" alt="Azure" />
+                                </div>
+                                <div className="brand-logo-card">
+                                    <strong style={{ color: "#000", fontSize: "1.2rem", fontWeight: 900 }}>GPT-4o</strong>
+                                </div>
+                                <div className="brand-logo-card">
+                                    <strong style={{ color: "#EA4335", fontSize: "1.5rem", fontWeight: 900 }}>n8n</strong>
+                                </div>
+                            </div>
                         </div>
                         <div className="gsap-reveal">
                             <span className="section-label">Methodology</span>
@@ -577,9 +635,9 @@ export default function FinanceAgents() {
                                 </p>
                             </div>
                         </div>
-                        <div className="gsap-img-reveal" style={{...PlaceholderStyle, minHeight: "500px"}}>
-                            [Vertical Timeline Graphic: Rules Engine & ERP Push Stage]
-                        </div>
+                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
+    <img src="/images/agents/finance-dw-erp-sync.jpg" alt="Rules Engine to ERP Synchronization - Real-time automated ledger posting" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+</div>
                     </div>
                 </div>
             </section>
@@ -627,13 +685,17 @@ export default function FinanceAgents() {
                 <div className="container">
                     <div className="responsive-grid zig">
                         
-<div className="gsap-img-reveal tech-logos-grid" style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', background: 'var(--card-bg)', padding: '4rem', borderRadius: '32px', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.5)', border: '1px solid rgba(255,255,255,0.05)' }}>
-    <img src="/images/aws.jpg" style={{ height: '50px', objectFit: 'contain', filter: 'brightness(1.5) contrast(1.2) grayscale(0.5)' }} alt="AWS" />
-    <img src="/images/microsoft-azure-logo.webp" style={{ height: '50px', objectFit: 'contain', filter: 'brightness(1.5)' }} alt="Azure" />
-    <img src="/images/logo_google_cloud.png" style={{ height: '50px', objectFit: 'contain', filter: 'brightness(1.5)' }} alt="Google Cloud" />
-    <img src="/images/Anthropic-Logo.wine.png" style={{ height: '70px', objectFit: 'contain', filter: 'brightness(1.5)' }} alt="Claude Anthropic" />
-    <img src="/images/zoho-logo.webp" style={{ height: '50px', objectFit: 'contain', filter: 'brightness(1.5)' }} alt="Zoho" />
-</div>
+                        <div className="gsap-img-reveal" style={{ background: 'var(--card-bg)', padding: '3rem', borderRadius: '32px', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.5)', border: '1px solid rgba(255,255,255,0.05)' }}>
+                            <h3 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "1.5rem", textAlign: "center" }}>Supported Ecosystems</h3>
+                            <div className="brand-logo-grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
+                                <div className="brand-logo-card"><img src="/images/aws.jpg" className="brand-logo-img" alt="AWS" /></div>
+                                <div className="brand-logo-card"><img src="/images/microsoft-azure-logo.webp" className="brand-logo-img" alt="Azure" /></div>
+                                <div className="brand-logo-card"><img src="/images/logo_google_cloud.png" className="brand-logo-img" alt="Google Cloud" /></div>
+                                <div className="brand-logo-card"><img src="/images/Anthropic-Logo.wine.png" className="brand-logo-img" alt="Claude Anthropic" /></div>
+                                <div className="brand-logo-card"><img src="/images/zoho-logo.webp" className="brand-logo-img" alt="Zoho" /></div>
+                                <div className="brand-logo-card"><strong style={{ color: "#1880e6", fontSize: "1.5rem", fontWeight: 900 }}>Xero</strong></div>
+                            </div>
+                        </div>
 
                         <div className="gsap-reveal">
                             <span className="section-label">Connectivity</span>
@@ -680,7 +742,7 @@ export default function FinanceAgents() {
                             </div>
                         </div>
                         <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
-    <img src="/images/security-arch.png" alt="Security diagram - Encrypted vaults, approval workflows, audit trail, immutable logs" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+    <img src="/images/agents/finance-security-audit.jpg" alt="Security diagram - Encrypted vaults, approval workflows, audit trail, immutable logs" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
 </div>
                     </div>
                 </div>
@@ -691,7 +753,7 @@ export default function FinanceAgents() {
                 <div className="container">
                     <div className="responsive-grid zig">
                         <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
-    <img src="/images/client-success-real.jpg" alt="Case Study - Before/After metrics: 12 days → 5 days, 40 hrs → 8 hrs, 3.2% → 0.4% error, 7-month payback" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+    <img src="/images/agents/finance-case-study.jpg" alt="Case Study - Before/After metrics: 12 days → 5 days, 40 hrs → 8 hrs, 3.2% → 0.4% error, 7-month payback" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
 </div>
                         <div className="gsap-reveal">
                             <span className="section-label">Case Study</span>
