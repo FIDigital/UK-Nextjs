@@ -780,7 +780,9 @@ export default function AIAgentDevelopmentClient() {
                                                 alignItems: "center", 
                                                 gap: "0.5rem" 
                                             }}>
-                                                <img src={`/images/brands/${llm.logo}`} alt={llm.name} className="brand-logo-img" style={{ height: "14px" }} />
+                                                <div style={{ position: "relative", height: "14px", width: "100%", minWidth: "60px" }}>
+                                                    <Image src={`/images/brands/${llm.logo}`} alt={llm.name} className="brand-logo-img" fill style={{ objectFit: "contain" }} />
+                                                </div>
                                                 <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--text-muted)" }}>{llm.name}</span>
                                             </div>
                                         ))}

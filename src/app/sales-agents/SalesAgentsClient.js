@@ -384,12 +384,13 @@ export default function SalesAgentsClient() {
                 }
                 .brand-logo-card {
                     background: #ffffff;
+                    width: 100%;
+                    position: relative;
                     aspect-ratio: 1/1;
                     border-radius: 20px;
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    padding: 1.5rem;
                     box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05), 0 10px 30px -5px rgba(0,0,0,0.1);
                     transition: transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28), box-shadow 0.3s ease;
                 }
@@ -399,8 +400,8 @@ export default function SalesAgentsClient() {
                     z-index: 2;
                 }
                 .brand-logo-img {
-                    max-width: 100%;
-                    max-height: 100%;
+                    width: 100%;
+                    height: 100%;
                     object-fit: contain;
                     filter: none !important;
                 }
@@ -485,7 +486,7 @@ export default function SalesAgentsClient() {
                 <div className="container">
                     <div className="responsive-grid zig">
                         <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
-                            <img src="/images/industries/sales-dw-problem.png" alt="The Problem - Sales rep at desk overwhelmed with browser tabs, email notifications, spreadsheets" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+                            <Image src="/images/industries/sales-dw-problem.png" alt="The Problem - Sales rep at desk overwhelmed with browser tabs, email notifications, spreadsheets" fill style={{ objectFit: "cover", borderRadius: "32px" }} />
                         </div>
                         <div className="gsap-reveal">
                             <span className="section-label">The Problem</span>
@@ -526,7 +527,7 @@ export default function SalesAgentsClient() {
                             </div>
                         </div>
                         <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
-                            <img src="/images/industries/sales-dw-lead.png" alt="Contrast - Clean automated CRM pipeline vs cluttered manual CRM pipeline" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+                            <Image src="/images/industries/sales-dw-lead.png" alt="Contrast - Clean automated CRM pipeline vs cluttered manual CRM pipeline" fill style={{ objectFit: "cover", borderRadius: "32px" }} />
                         </div>
                     </div>
                 </div>
@@ -541,7 +542,7 @@ export default function SalesAgentsClient() {
                     </div>
                     <div className="responsive-grid zig">
                         <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
-                            <img src="/images/agents/sales-dq-qualification.png" alt="Autonomous Lead Qualification Interface" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+                            <Image src="/images/agents/sales-dq-qualification.png" alt="Autonomous Lead Qualification Interface" fill style={{ objectFit: "cover", borderRadius: "32px" }} />
                         </div>
                         <div className="gsap-reveal">
                             <span className="section-label">Digital Worker Profile</span>
@@ -582,7 +583,7 @@ export default function SalesAgentsClient() {
                             </div>
                         </div>
                         <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
-                            <img src="/images/agents/sales-outreach-sequence.png" alt="AI-Generated Intelligent Outreach Sequence Flow" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+                            <Image src="/images/agents/sales-outreach-sequence.png" alt="AI-Generated Intelligent Outreach Sequence Flow" fill style={{ objectFit: "cover", borderRadius: "32px" }} />
                         </div>
                     </div>
                 </div>
@@ -593,7 +594,7 @@ export default function SalesAgentsClient() {
                 <div className="container">
                     <div className="responsive-grid zig">
                         <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
-                            <img src="/images/agents/sales-pipeline-visibility.png" alt="Total Sales Pipeline Dashboard sync" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+                            <Image src="/images/agents/sales-pipeline-visibility.png" alt="Total Sales Pipeline Dashboard sync" fill style={{ objectFit: "cover", borderRadius: "32px" }} />
                         </div>
                         <div className="gsap-reveal">
                             <span className="section-label">CRM Sync & Intelligence</span>
@@ -638,7 +639,7 @@ export default function SalesAgentsClient() {
                             </div>
                         </div>
                         <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
-                            <img src="/images/agents/sales-data-enrichment.png" alt="Data Enrichment Architecture - High-speed data conduits pulling from Crunchbase, LinkedIn" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+                            <Image src="/images/agents/sales-data-enrichment.png" alt="Data Enrichment Architecture - High-speed data conduits pulling from Crunchbase, LinkedIn" fill style={{ objectFit: "cover", borderRadius: "32px" }} />
                         </div>
                     </div>
                 </div>
@@ -649,7 +650,7 @@ export default function SalesAgentsClient() {
                 <div className="container">
                     <div className="responsive-grid zig">
                         <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
-                            <img src="/images/agents/sales-ai-copywriting.png" alt="Dynamic AI Copywriting Structure - generating ultra-personalized sequences" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+                            <Image src="/images/agents/sales-ai-copywriting.png" alt="Dynamic AI Copywriting Structure - generating ultra-personalized sequences" fill style={{ objectFit: "cover", borderRadius: "32px" }} />
                         </div>
                         <div className="gsap-reveal">
                             <span className="section-label">AI Driven Sequence</span>
@@ -728,11 +729,11 @@ export default function SalesAgentsClient() {
                         <div className="gsap-img-reveal" style={{ background: 'var(--card-bg)', padding: '3rem', borderRadius: '32px', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.5)', border: '1px solid rgba(255,255,255,0.05)' }}>
                             <h3 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "1.5rem", textAlign: "center" }}>Supported Ecosystems</h3>
                             <div className="brand-logo-grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
-                                <div className="brand-logo-card"><img src="/images/aws.jpg" className="brand-logo-img" alt="AWS" /></div>
-                                <div className="brand-logo-card"><img src="/images/microsoft-azure-logo.webp" className="brand-logo-img" alt="Azure" /></div>
-                                <div className="brand-logo-card"><img src="/images/logo_google_cloud.png" className="brand-logo-img" alt="Google Cloud" /></div>
-                                <div className="brand-logo-card"><img src="/images/Anthropic-Logo.wine.png" className="brand-logo-img" alt="Claude Anthropic" /></div>
-                                <div className="brand-logo-card"><img src="/images/zoho-logo.webp" className="brand-logo-img" alt="Zoho" /></div>
+                                <div className="brand-logo-card"><Image src="/images/aws.jpg" fill className="brand-logo-img" alt="AWS" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
+                                <div className="brand-logo-card"><Image src="/images/microsoft-azure-logo.webp" fill className="brand-logo-img" alt="Azure" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
+                                <div className="brand-logo-card"><Image src="/images/logo_google_cloud.png" fill className="brand-logo-img" alt="Google Cloud" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
+                                <div className="brand-logo-card"><Image src="/images/Anthropic-Logo.wine.png" fill className="brand-logo-img" alt="Claude Anthropic" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
+                                <div className="brand-logo-card"><Image src="/images/zoho-logo.webp" fill className="brand-logo-img" alt="Zoho" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
                                 <div className="brand-logo-card"><strong style={{ color: "#0091da", fontSize: "1.2rem", fontWeight: 900 }}>Salesforce</strong></div>
                                 <div className="brand-logo-card"><strong style={{ color: "#ff7a59", fontSize: "1.3rem", fontWeight: 900 }}>HubSpot</strong></div>
                                 <div className="brand-logo-card"><strong style={{ color: "#000", fontSize: "1.2rem", fontWeight: 900 }}>LinkedIn</strong></div>
@@ -779,7 +780,7 @@ export default function SalesAgentsClient() {
                             </div>
                         </div>
                         <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
-                            <img src="/images/observability-realistic.png" alt="Omnichannel Feedback Diagram depicting email, LinkedIn, and SMS looping back to scoring models" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+                            <Image src="/images/observability-realistic.png" alt="Omnichannel Feedback Diagram depicting email, LinkedIn, and SMS looping back to scoring models" fill style={{ objectFit: "cover", borderRadius: "32px" }} />
                         </div>
                     </div>
                 </div>
@@ -794,7 +795,7 @@ export default function SalesAgentsClient() {
                     </div>
                     <div className="responsive-grid zig">
                         <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
-                            <img src="/images/industries/sales-dw-roi.png" alt="Case Study Overview - SaaS company metrics dashboard £1.8m ARR" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+                            <Image src="/images/industries/sales-dw-roi.png" alt="Case Study Overview - SaaS company metrics dashboard £1.8m ARR" fill style={{ objectFit: "cover", borderRadius: "32px" }} />
                         </div>
                         <div className="gsap-reveal">
                             <span className="section-label">Client & Challenge</span>
@@ -835,7 +836,7 @@ export default function SalesAgentsClient() {
                             </div>
                         </div>
                         <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
-                            <img src="/images/agents/sales-case-study.png" alt="Case Study - Before/After metrics: 6-8 hrs → &lt;2 min response, £2.1m → £3.8m pipeline, 2.3 month payback" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+                            <Image src="/images/agents/sales-case-study.png" alt="Case Study - Before/After metrics: 6-8 hrs → &lt;2 min response, £2.1m → £3.8m pipeline, 2.3 month payback" fill style={{ objectFit: "cover", borderRadius: "32px" }} />
                         </div>
                     </div>
                 </div>
