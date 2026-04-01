@@ -362,64 +362,86 @@ export default function LegalAgentsClient() {
                     margin-bottom: 2.5rem;
                     letter-spacing: -0.02em;
                 }
+                .hero-background-wrapper {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 0;
+                    opacity: 0.8;
+                    pointer-events: none;
+                }
+                @media (min-width: 900px) {
+                    .hero-background-wrapper {
+                        width: 65%;
+                    }
+                }
             `}</style>
             
-            {/* HERO SECTION */}
-             <header style={{ 
-                 padding: "clamp(120px, 15vh, 160px) 1.5rem 60px", 
-                 display: "flex", 
-                 alignItems: "center", 
-                 position: "relative", 
-                 overflow: "hidden" 
-             }}>
-                  <TechMeshBackground />
-                  <div style={{
+            {/* HERO SECTION - REBUILT TO MATCH INDUSTRIES */}
+            <header className="hero-section" style={{
+                position: "relative",
+                minHeight: "90vh",
+                display: "flex",
+                alignItems: "center",
+                padding: "clamp(120px, 15vh, 160px) 1.5rem 60px",
+                background: "var(--bg)",
+                overflow: "hidden"
+            }}>
+                <TechMeshBackground />
+                <div style={{
                       position: "absolute",
                       top: 0, left: 0, width: "100%", height: "100%",
                       background: "radial-gradient(circle at 70% 50%, transparent, var(--bg) 70%)",
-                      pointerEvents: "none"
-                  }} />
+                      pointerEvents: "none",
+                      zIndex: 1
+                }} />
 
-                  <div className="container" style={{ position: "relative", zIndex: 1, maxWidth: "1250px" }}>
-                       <div className="hero-grid">
-                            <div style={{ maxWidth: "800px" }}>
-                                <div className="hero-title-line" style={{ 
-                                    display: "inline-flex", alignItems: "center", gap: "0.75rem", padding: "0.6rem 1.2rem", background: "rgba(79, 70, 229, 0.1)", borderRadius: "100px", border: "1px solid rgba(79, 70, 229, 0.2)", marginBottom: "2.5rem", color: "var(--primary)", fontSize: "0.9rem", fontWeight: 700, letterSpacing: "0.05em"
-                                }}>
-                                    <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "var(--primary)", boxShadow: "0 0 10px var(--primary)" }} />
-                                    LEGAL AUTOMATION
-                                </div>
-                                <h1 className="hero-title-line" style={{ fontSize: "clamp(2.3rem, 5vw, 4.2rem)", fontWeight: 950, lineHeight: 1.1, marginBottom: "2rem", letterSpacing: "-0.03em", color: "var(--text)" }}>
-                                    Your Legal Team Now Reviews<br /> Contracts in <span style={{ color: "var(--primary)" }}>Minutes</span>, Not Days
-                                </h1>
-                                <p className="hero-subtitle" style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.25rem)", color: "var(--text-muted)", marginBottom: "2.5rem", lineHeight: 1.6, maxWidth: "700px" }}>
-                                    Meet your Legal Digital Worker: AI-assisted contract review, due diligence, compliance monitoring, and KYC—powered by Claude, supervised by solicitors.
-                                </p>
+                {/* Right-aligned Faded Hero Image Background */}
+                <div className="hero-background hero-background-wrapper">
+                    <Image 
+                        src="/images/agents/legal-agent-hero.jpg" 
+                        alt="Legal AI Agents" 
+                        fill 
+                        style={{ objectFit: "cover", objectPosition: "left center", maskImage: "radial-gradient(circle at right, black, transparent 80%)", WebkitMaskImage: "radial-gradient(circle at right, black, transparent 80%)" }} 
+                        priority 
+                    />
+                </div>
 
-                                <div className="hero-cta" style={{ display: "flex", gap: "1rem", alignItems: "center", flexWrap: "wrap" }}>
-                                    <Link href="/demo/legal" style={{ 
-                                        display: "inline-flex", alignItems: "center", gap: "0.5rem", 
-                                        padding: "1rem 2rem", background: "#4F46E5", color: "white", 
-                                        fontWeight: 700, borderRadius: "12px", textDecoration: "none", 
-                                        boxShadow: "0 10px 30px rgba(79, 70, 229, 0.3)", transition: "all 0.3s ease" 
-                                    }}>
-                                        Request Legal Pilot <ArrowRight size={20} />
-                                    </Link>
-                                    <Link href="/case-studies/legal-pdf" style={{ 
-                                        display: "inline-flex", alignItems: "center", justifyContent: "center",
-                                        padding: "1rem 2rem", background: "var(--card-bg)", color: "var(--text)", 
-                                        fontWeight: 700, borderRadius: "12px", textDecoration: "none",
-                                        transition: "all 0.3s ease",
-                                        border: "1px solid var(--border)"
-                                    }}>
-                                        SRA Compliance Guide
-                                    </Link>
-                                </div>
-                            </div>
-                            <div></div>
-                       </div>
-                  </div>
-             </header>
+                <div className="container hero-container" style={{ position: "relative", zIndex: 2, display: "flex", flexDirection: "column", alignItems: "flex-start", textAlign: "left", width: "100%", maxWidth: "1250px", margin: "0 auto" }}>
+                    <div className="hero-title-line" style={{ display: "inline-flex", alignItems: "center", gap: "0.75rem", padding: "0.6rem 1.2rem", background: "rgba(79, 70, 229, 0.1)", borderRadius: "100px", border: "1px solid rgba(79, 70, 229, 0.2)", marginBottom: "2.5rem", color: "var(--primary)", fontSize: "0.9rem", fontWeight: 700, letterSpacing: "0.05em" }}>
+                        <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "var(--primary)", boxShadow: "0 0 10px var(--primary)" }} />
+                        LEGAL AUTOMATION
+                    </div>
+                    <h1 className="hero-title-line" style={{ fontSize: "clamp(2.5rem, 8vw, 4.2rem)", fontWeight: 950, lineHeight: 1.1, marginBottom: "2rem", letterSpacing: "-0.03em", color: "var(--text)" }}>
+                        Your Legal Team Now Reviews<br /> Contracts in <span style={{ color: "var(--primary)" }}>Minutes</span>, Not Days
+                    </h1>
+                    <p className="hero-subtitle" style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.25rem)", color: "var(--text-muted)", marginBottom: "2.5rem", lineHeight: 1.6, maxWidth: "700px" }}>
+                        Meet your Legal Digital Worker: AI-assisted contract review, due diligence, compliance monitoring, and KYC—powered by Claude, supervised by solicitors.
+                    </p>
+
+                    <div className="hero-cta" style={{ display: "flex", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
+                        <Link href="/demo/legal" style={{ 
+                            display: "inline-flex", alignItems: "center", gap: "0.5rem", 
+                            padding: "1rem 2rem", background: "#4F46E5", color: "white", 
+                            fontWeight: 700, borderRadius: "12px", textDecoration: "none", 
+                            boxShadow: "0 10px 30px rgba(79, 70, 229, 0.3)", transition: "all 0.3s ease" 
+                        }}>
+                            Request Legal Pilot <ArrowRight size={20} />
+                        </Link>
+                        <Link href="/case-studies/legal-pdf" style={{ 
+                            display: "inline-flex", alignItems: "center", justifyContent: "center",
+                            padding: "1rem 2rem", background: "var(--card-bg)", color: "var(--text)", 
+                            fontWeight: 700, borderRadius: "12px", textDecoration: "none",
+                            transition: "all 0.3s ease",
+                            border: "1px solid var(--border)"
+                        }}>
+                            SRA Compliance Guide
+                        </Link>
+                    </div>
+                </div>
+            </header>
 
              <section id="opportunity-p1" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)" }}>
                 <div className="container" style={{ maxWidth: "800px", textAlign: "center", marginBottom: "5rem" }}>
@@ -430,8 +452,8 @@ export default function LegalAgentsClient() {
                     <div className="responsive-grid zig" style={{ gap: "4rem" }}>
                         <div className="gsap-img-reveal">
                             <Image 
-                                src="/images/industries/legal-dw-problem.jpg"
-                                alt="Legal AI Contract Review"
+                                src="/images/agents/legal-growth-paradox.jpg"
+                                alt="A Paradox of Growth and Constraints"
                                 width={800}
                                 height={600}
                                 style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }}
@@ -499,8 +521,8 @@ export default function LegalAgentsClient() {
                     <div className="responsive-grid zig" style={{ gap: "4rem" }}>
                         <div className="gsap-img-reveal">
                              <Image 
-                                src="/images/industries/legal-dw-workflow.jpg"
-                                alt="AI Contract Review Logic"
+                                src="/images/agents/legal-autonomous-review.jpg"
+                                alt="Autonomous Contract Review Interface"
                                 width={800}
                                 height={600}
                                 style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }}
@@ -614,8 +636,8 @@ export default function LegalAgentsClient() {
                         </div>
                         <div className="gsap-img-reveal">
                             <Image 
-                                src="/images/reasoning-routing.png"
-                                alt="Claude Legal Reasoning"
+                                src="/images/agents/legal-holistic-context.jpg"
+                                alt="Holistic Contractual Context Understanding via LLM"
                                 width={800}
                                 height={600}
                                 style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }}
@@ -705,8 +727,8 @@ export default function LegalAgentsClient() {
                     <div className="responsive-grid zig" style={{ gap: "4rem" }}>
                         <div className="gsap-img-reveal">
                             <Image 
-                                src="/images/industries/legal-dw-secure.jpg"
-                                alt="AI Legal Memory & RAG"
+                                src="/images/agents/legal-rag-index.jpg"
+                                alt="Semantic RAG Vector Index Representation"
                                 width={800}
                                 height={600}
                                 style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }}
@@ -916,8 +938,8 @@ export default function LegalAgentsClient() {
                     <div className="responsive-grid zig" style={{ gap: "4rem" }}>
                         <div className="gsap-img-reveal">
                             <Image 
-                                src="/images/industries/legal-dw-workflow.jpg"
-                                alt="SRA Compliance Framework"
+                                src="/images/agents/legal-governance-oversight.jpg"
+                                alt="SRA Compliance and Executive Lawyer Oversight"
                                 width={800}
                                 height={600}
                                 style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }}
@@ -982,8 +1004,8 @@ export default function LegalAgentsClient() {
                     <div className="responsive-grid zig" style={{ gap: "4rem" }}>
                         <div className="gsap-img-reveal">
                             <Image 
-                                src="/images/cicd-pipeline.png"
-                                alt="Private Legal AI Infrastructure"
+                                src="/images/agents/legal-privacy-guardrails.jpg"
+                                alt="Private Legal Sector AI Data Privacy Guardrails"
                                 width={800}
                                 height={600}
                                 style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }}
@@ -1059,32 +1081,13 @@ export default function LegalAgentsClient() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zig" style={{ gap: "4rem" }}>
                         <div className="gsap-img-reveal">
-                             <div style={{ 
-                                width: "100%", 
-                                aspectRatio: "4/3",
-                                background: "rgba(255,255,255,0.02)", 
-                                borderRadius: "48px", 
-                                border: "2px dashed var(--border)",
-                                display: "flex",
-                                flexDirection: "column",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                gap: "1rem"
-                             }}>
-                                <div style={{ 
-                                    width: "60px", 
-                                    height: "60px", 
-                                    borderRadius: "16px", 
-                                    background: "rgba(79, 70, 229, 0.1)", 
-                                    display: "flex", 
-                                    alignItems: "center", 
-                                    justifyContent: "center",
-                                    color: "var(--primary)"
-                                }}>
-                                    <FileText size={32} />
-                                </div>
-                                <span style={{ color: "var(--text-muted)", fontSize: "0.9rem", fontWeight: 600 }}>[ M&A CASE STUDY VISUAL ]</span>
-                             </div>
+                             <Image 
+                                src="/images/agents/legal-ai-discovery.jpg"
+                                alt="Deep Due Diligence & M&A AI Data Discovery"
+                                width={800}
+                                height={600}
+                                style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }}
+                            />
                         </div>
                         <div className="gsap-reveal">
                             <h3 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--text)", marginBottom: "1.5rem" }}>AI-Driven Discovery</h3>

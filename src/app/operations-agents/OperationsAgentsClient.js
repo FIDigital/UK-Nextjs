@@ -241,12 +241,53 @@ export default function OperationsAgentsClient() {
                         font-size: 2.2rem;
                     }
                 }
+                .hero-background-wrapper {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 0;
+                    opacity: 0.8;
+                    pointer-events: none;
+                }
+                @media (min-width: 900px) {
+                    .hero-background-wrapper {
+                        width: 65%;
+                    }
+                }
             `}</style>
              <TechMeshBackground />
 
-             {/* Hero Section */}
-             <section style={{ position: "relative", padding: "180px 1.5rem 100px", minHeight: "90vh", display: "flex", alignItems: "center" }}>
-                <div className="container" style={{ maxWidth: "1250px", position: "relative", zIndex: 1 }}>
+             {/* HERO SECTION - REBUILT TO MATCH INDUSTRIES */}
+             <header className="hero-section" style={{
+                position: "relative",
+                minHeight: "90vh",
+                display: "flex",
+                alignItems: "center",
+                padding: "clamp(120px, 15vh, 160px) 1.5rem 60px",
+                background: "var(--bg)",
+                overflow: "hidden"
+            }}>
+                <div style={{
+                      position: "absolute",
+                      top: 0, left: 0, width: "100%", height: "100%",
+                      background: "radial-gradient(circle at 70% 50%, transparent, var(--bg) 70%)",
+                      pointerEvents: "none",
+                      zIndex: 1
+                }} />
+
+                {/* Right-aligned Faded Hero Image Background */}
+                <div className="hero-background hero-background-wrapper">
+                    <Image 
+                        src="/images/agents/ops-agent-hero.jpg" 
+                        alt="Operations AI Agents" 
+                        fill 
+                        style={{ objectFit: "cover", objectPosition: "left center", maskImage: "radial-gradient(circle at right, black, transparent 80%)", WebkitMaskImage: "radial-gradient(circle at right, black, transparent 80%)" }} 
+                        priority 
+                    />
+                </div>
+                <div className="container hero-container" style={{ position: "relative", zIndex: 2, display: "flex", flexDirection: "column", alignItems: "flex-start", textAlign: "left", width: "100%", maxWidth: "1250px", margin: "0 auto" }}>
                     <div style={{ maxWidth: "900px" }}>
                         <div className="hero-reveal" style={{ 
                             display: "inline-flex", alignItems: "center", gap: "0.75rem", padding: "0.6rem 1.2rem", 
@@ -287,7 +328,7 @@ export default function OperationsAgentsClient() {
                         ))}
                     </div>
                 </div>
-             </section>
+             </header>
 
              {/* Section 1: The Friction */}
              <section style={{ padding: "120px 1.5rem", borderTop: "1px solid var(--border)" }}>
