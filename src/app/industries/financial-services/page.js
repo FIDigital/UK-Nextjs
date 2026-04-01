@@ -70,7 +70,7 @@ const ReadMoreText = ({ children, previewHeight = 120, fadeColor = "var(--bg)" }
 
     useEffect(() => {
         if (!contentRef.current || !wrapperRef.current) return;
-        
+
         if (isExpanded) {
             gsap.to(wrapperRef.current, {
                 height: contentRef.current.scrollHeight,
@@ -88,19 +88,19 @@ const ReadMoreText = ({ children, previewHeight = 120, fadeColor = "var(--bg)" }
 
     return (
         <div style={{ position: "relative", marginBottom: "1.5rem" }}>
-            <div 
-                ref={wrapperRef} 
-                style={{ 
-                    height: previewHeight, 
-                    overflow: "hidden", 
-                    position: "relative" 
+            <div
+                ref={wrapperRef}
+                style={{
+                    height: previewHeight,
+                    overflow: "hidden",
+                    position: "relative"
                 }}
             >
                 <div ref={contentRef} style={{ paddingBottom: "1rem" }}>
                     {children}
                 </div>
             </div>
-            
+
             {!isExpanded && (
                 <div style={{
                     position: "absolute",
@@ -112,7 +112,7 @@ const ReadMoreText = ({ children, previewHeight = 120, fadeColor = "var(--bg)" }
                     pointerEvents: "none"
                 }} />
             )}
-            
+
             <button
                 onClick={() => setIsExpanded(!isExpanded)}
                 style={{
@@ -131,12 +131,12 @@ const ReadMoreText = ({ children, previewHeight = 120, fadeColor = "var(--bg)" }
                 }}
             >
                 {isExpanded ? "Show Less" : "Read Full Detail"}
-                <ChevronDown 
-                    size={16} 
-                    style={{ 
-                        transform: isExpanded ? "rotate(180deg)" : "rotate(0deg)", 
-                        transition: "transform 0.3s ease" 
-                    }} 
+                <ChevronDown
+                    size={16}
+                    style={{
+                        transform: isExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                        transition: "transform 0.3s ease"
+                    }}
                 />
             </button>
         </div>
@@ -148,9 +148,9 @@ export default function FinancialServicesPage() {
 
     useGSAP(() => {
         const reveals = gsap.utils.toArray('.gsap-reveal');
-        
+
         reveals.forEach((element) => {
-            gsap.fromTo(element, 
+            gsap.fromTo(element,
                 { y: 50, opacity: 0 },
                 {
                     y: 0,
@@ -188,7 +188,7 @@ export default function FinancialServicesPage() {
         <div ref={containerRef} style={{ background: "var(--bg)", minHeight: "100vh" }}>
             <title>Financial Services AI | FCA Compliant | FI Digital UK</title>
             <meta name="description" content="FCA-compliant AI for KYC, AML, invoice processing, and regulatory reporting. Trusted by UK financial institutions." />
-            
+
             <style jsx global>{`
                 .section-title {
                     font-size: clamp(2rem, 3.5vw, 2.8rem);
@@ -270,12 +270,12 @@ export default function FinancialServicesPage() {
                 <div className="hero-background" style={{
                     position: "absolute", top: "0", right: "0", width: "65%", height: "100%", zIndex: 0, opacity: 0.7, pointerEvents: "none"
                 }}>
-                    <Image 
-                        src="/images/industries/finance-hero.jpg.png" 
-                        alt="AI That Understands FCA Compliance" 
-                        fill 
-                        style={{ objectFit: "cover", objectPosition: "left center", maskImage: "radial-gradient(circle at right, black, transparent 80%)", WebkitMaskImage: "radial-gradient(circle at right, black, transparent 80%)" }} 
-                        priority 
+                    <Image
+                        src="/images/industries/finance-hero.png"
+                        alt="AI That Understands FCA Compliance"
+                        fill
+                        style={{ objectFit: "cover", objectPosition: "left center", maskImage: "radial-gradient(circle at right, black, transparent 80%)", WebkitMaskImage: "radial-gradient(circle at right, black, transparent 80%)" }}
+                        priority
                     />
                 </div>
                 <div className="container hero-container" style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", alignItems: "flex-start", textAlign: "left", width: "100%", maxWidth: "1250px", margin: "0 auto" }}>
@@ -298,7 +298,7 @@ export default function FinancialServicesPage() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="zig-grid">
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
-                           <Image 
+                            <Image
                                 src="/images/industries/finance-challenge.jpg.png"
                                 alt="Dashboard showing FCA compliance metrics, audit trails, and KYC workflow stages"
                                 fill
@@ -308,12 +308,12 @@ export default function FinancialServicesPage() {
 
                         <div className="gsap-reveal">
                             <h2 className="section-title">The Challenge: FCA-Regulated AI in Financial Services</h2>
-                            
+
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
                                 <p style={{ marginBottom: "1rem" }}>
                                     UK financial institutions operate under the strict oversight of the Financial Conduct Authority (FCA), a regulatory framework that has become exponentially more complex as artificial intelligence enters the sector.
                                 </p>
-                                
+
                                 <ReadMoreText previewHeight={220} fadeColor="var(--bg-secondary)">
                                     <p style={{ marginBottom: "1rem" }}>
                                         The challenge isn't simply deploying AI—it's deploying AI that can demonstrate compliance at every step, from training data lineage through to operational decision-making. Financial firms currently face a perfect storm: manual KYC (Know Your Customer) and AML (Anti-Money Laundering) processes consume 15-25% of operations teams' time, while regulatory expectations demand increasingly sophisticated detection of illicit activity.
@@ -339,12 +339,12 @@ export default function FinancialServicesPage() {
                     <div className="zag-grid">
                         <div className="gsap-reveal">
                             <h2 className="section-title">Our Solutions: KYC/AML, Invoice Processing, Regulatory Reporting</h2>
-                            
+
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
                                 <p style={{ marginBottom: "1rem" }}>
                                     We deliver purpose-built AI solutions across the four pillars of financial services operations, drastically reducing manual overhead while improving regulatory compliance accuracy.
                                 </p>
-                                
+
                                 <ReadMoreText previewHeight={200} fadeColor="var(--bg)">
                                     <p style={{ marginBottom: "1rem" }}>
                                         <strong>KYC/AML Automation:</strong> Leverages Claude's advanced reasoning to parse complex customer documents—passports, utility bills, beneficial ownership registers—cross-reference them against sanction lists, PEPs (Politically Exposed Persons) databases, and adverse media, then generate regulatory-grade decision reports with full audit trails. Our system flags high-risk cases for human review while approving routine applications in minutes.
@@ -365,7 +365,7 @@ export default function FinancialServicesPage() {
                         </div>
 
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
-                            <Image 
+                            <Image
                                 src="/images/industries/finance-solutions.jpg.png"
                                 alt="Automated Pipeline with AI Decision Points"
                                 fill
@@ -381,7 +381,7 @@ export default function FinancialServicesPage() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="zig-grid">
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
-                            <Image 
+                            <Image
                                 src="/images/industries/finance-compliance.jpg"
                                 alt="Compliance Safe AI Flowchart Audit Log"
                                 fill
@@ -391,12 +391,12 @@ export default function FinancialServicesPage() {
 
                         <div className="gsap-reveal">
                             <h2 className="section-title">Compliance-Safe AI: Audit Trails & Human-in-Loop</h2>
-                            
+
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
                                 <p style={{ marginBottom: "1rem" }}>
                                     Regulatory compliance isn't an afterthought in our architecture—it's foundational. Every decision our AI makes is accompanied by a complete, immutable audit trail.
                                 </p>
-                                
+
                                 <ReadMoreText previewHeight={180} fadeColor="var(--bg-secondary)">
                                     <p style={{ marginBottom: "1rem" }}>
                                         When Claude assesses a customer's risk profile or flags a transaction as potentially suspicious, the system logs: the input documents, the reasoning applied, the decision threshold triggered, the exact timestamp, and which human reviewer approved or overrode the decision. This audit trail is FCA-ready and defensible.
@@ -422,12 +422,12 @@ export default function FinancialServicesPage() {
                     <div className="zag-grid">
                         <div className="gsap-reveal">
                             <h2 className="section-title">Technology: Claude Reasoning, n8n, Azure OpenAI</h2>
-                            
+
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
                                 <p style={{ marginBottom: "1rem" }}>
                                     Our technology stack is meticulously engineered for highly regulated environments, prioritizing absolute data sovereignty, security, and interpretability.
                                 </p>
-                                
+
                                 <ReadMoreText previewHeight={180} fadeColor="var(--bg)">
                                     <p style={{ marginBottom: "1rem" }}>
                                         We use <strong>Claude</strong> as the core analytical engine because of its ability to interpret complex documents and articulate its reasoning in natural language—exactly what regulators demand. Its 200,000-token context window allows it to review entire customer files and historical records in a single inference.
@@ -445,8 +445,8 @@ export default function FinancialServicesPage() {
                         </div>
 
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
-                            <Image 
-                                src="/images/industries/finance-tech.jpg"
+                            <Image
+                                src="/images/industries/finance-tech.png"
                                 alt="Technology Stack Diagram for Finance"
                                 fill
                                 style={{ objectFit: "cover" }}
@@ -461,7 +461,7 @@ export default function FinancialServicesPage() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="zig-grid">
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
-                            <Image 
+                            <Image
                                 src="/images/industries/finance-global.jpg"
                                 alt="Australian APRA ASIC Experience"
                                 fill
@@ -471,12 +471,12 @@ export default function FinancialServicesPage() {
 
                         <div className="gsap-reveal">
                             <h2 className="section-title">Australian Regulatory Experience Translates to FCA</h2>
-                            
+
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
                                 <p style={{ marginBottom: "1rem" }}>
                                     FI Digital was founded in Australia in 2014, operating through APRA and ASIC frameworks—some of the world's most stringent financial regulatory regimes.
                                 </p>
-                                
+
                                 <ReadMoreText previewHeight={180} fadeColor="var(--bg-secondary)">
                                     <p style={{ marginBottom: "1rem" }}>
                                         The core principles that guided our APRA-compliant solutions translate beautifully to FCA compliance. Both regulators demand that firms deploying AI maintain human accountability, understand model limitations, manage data integrity, and produce strict audit trails.
@@ -499,12 +499,12 @@ export default function FinancialServicesPage() {
                     <div className="zag-grid">
                         <div className="gsap-reveal">
                             <h2 className="section-title">Case Study: Financial Advisory KYC Automation</h2>
-                            
+
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
                                 <p style={{ marginBottom: "1rem" }}>
                                     A London-based independent financial advisory firm with £2.8 billion AUM was spending 120 advisor hours per month on manual KYC documentation review.
                                 </p>
-                                
+
                                 <ReadMoreText previewHeight={180} fadeColor="var(--bg)">
                                     <p style={{ marginBottom: "1rem" }}>
                                         Advisors were doing compliance administrative work instead of serving clients. We implemented a unified KYC automation system integrated directly with their Salesforce and SharePoint deployments. The AI now automatically extracts identity data, runs OFSI sanction checks, and determines a client's risk bucket in under 4 minutes.
@@ -519,8 +519,8 @@ export default function FinancialServicesPage() {
                         </div>
 
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
-                            <Image 
-                                src="/images/industries/finance-casestudy.jpg"
+                            <Image
+                                src="/images/industries/finance-casestudy.png"
                                 alt="Financial Advisory Success Case Study"
                                 fill
                                 style={{ objectFit: "cover" }}
@@ -570,7 +570,7 @@ export default function FinancialServicesPage() {
             {/* FAQ Section */}
             <section style={{ padding: "100px 1.5rem", background: "var(--bg)" }}>
                 <Script id="faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-                
+
                 <div className="container" style={{ maxWidth: "900px" }}>
                     <div className="gsap-reveal" style={{ textAlign: "center", marginBottom: "4rem" }}>
                         <div className="section-label" style={{ display: "inline-block", padding: "0.5rem 1rem", background: "rgba(79, 70, 229, 0.1)", color: "var(--primary)", borderRadius: "100px", fontSize: "0.8rem", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase", marginBottom: "1.5rem" }}>FCA & Intelligence FAQs</div>
@@ -579,7 +579,7 @@ export default function FinancialServicesPage() {
 
                     <div className="gsap-reveal" style={{ display: "flex", flexDirection: "column" }}>
                         {faqs.map((faq, index) => (
-                            <FAQItem 
+                            <FAQItem
                                 key={index}
                                 question={faq.question}
                                 answer={faq.answer}

@@ -102,10 +102,10 @@ const FAQItem = ({ question, answer }) => {
     const [isOpen, setIsOpen] = useState(false);
     const contentRef = useRef(null);
     const containerRef = useRef(null);
-    
+
     useEffect(() => {
         if (!contentRef.current) return;
-        
+
         if (isOpen) {
             gsap.to(contentRef.current, {
                 height: "auto",
@@ -136,14 +136,14 @@ const FAQItem = ({ question, answer }) => {
     }, [isOpen]);
 
     return (
-        <div 
+        <div
             ref={containerRef}
             className="faq-item gsap-card"
-            style={{ 
-                background: "var(--card-bg)", 
-                border: "1px solid var(--border)", 
-                borderRadius: "12px", 
-                marginBottom: "0.75rem", 
+            style={{
+                background: "var(--card-bg)",
+                border: "1px solid var(--border)",
+                borderRadius: "12px",
+                marginBottom: "0.75rem",
                 overflow: "hidden",
                 cursor: "pointer",
                 transition: "all 0.3s ease"
@@ -152,14 +152,14 @@ const FAQItem = ({ question, answer }) => {
         >
             <div style={{ padding: "1.25rem 1.5rem", display: "flex", justifyContent: "space-between", alignItems: "center", gap: "2rem" }}>
                 <h3 style={{ fontSize: "0.95rem", fontWeight: 600, margin: 0, color: "var(--text)", letterSpacing: "0.01em" }}>{question}</h3>
-                <div style={{ 
-                    width: "32px", 
-                    height: "32px", 
-                    borderRadius: "50%", 
-                    background: "var(--hover-bg)", 
+                <div style={{
+                    width: "32px",
+                    height: "32px",
+                    borderRadius: "50%",
+                    background: "var(--hover-bg)",
                     border: "1px solid var(--border)",
-                    display: "flex", 
-                    alignItems: "center", 
+                    display: "flex",
+                    alignItems: "center",
                     justifyContent: "center",
                     flexShrink: 0,
                     transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
@@ -182,23 +182,23 @@ export default function LegalAgentsClient() {
 
     useGSAP(() => {
         gsap.config({ nullTargetWarn: false });
-        
+
         // Hero timeline
         const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
         tl.fromTo(".hero-title-line",
             { y: 60, opacity: 0 },
             { y: 0, opacity: 1, duration: 1.2, stagger: 0.2 }
         )
-        .fromTo(".hero-subtitle",
-            { y: 30, opacity: 0 },
-            { y: 0, opacity: 1, duration: 1 },
-            "-=0.6"
-        )
-        .fromTo(".hero-cta",
-            { y: 20, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.8, stagger: 0.15 },
-            "-=0.6"
-        );
+            .fromTo(".hero-subtitle",
+                { y: 30, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1 },
+                "-=0.6"
+            )
+            .fromTo(".hero-cta",
+                { y: 20, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.8, stagger: 0.15 },
+                "-=0.6"
+            );
 
         // Section reveals
         const revealElements = gsap.utils.toArray(".gsap-reveal");
@@ -378,7 +378,7 @@ export default function LegalAgentsClient() {
                     }
                 }
             `}</style>
-            
+
             {/* HERO SECTION - REBUILT TO MATCH INDUSTRIES */}
             <header className="hero-section" style={{
                 position: "relative",
@@ -391,21 +391,21 @@ export default function LegalAgentsClient() {
             }}>
                 <TechMeshBackground />
                 <div style={{
-                      position: "absolute",
-                      top: 0, left: 0, width: "100%", height: "100%",
-                      background: "radial-gradient(circle at 70% 50%, transparent, var(--bg) 70%)",
-                      pointerEvents: "none",
-                      zIndex: 1
+                    position: "absolute",
+                    top: 0, left: 0, width: "100%", height: "100%",
+                    background: "radial-gradient(circle at 70% 50%, transparent, var(--bg) 70%)",
+                    pointerEvents: "none",
+                    zIndex: 1
                 }} />
 
                 {/* Right-aligned Faded Hero Image Background */}
                 <div className="hero-background hero-background-wrapper">
-                    <Image 
-                        src="/images/agents/legal-agent-hero.jpg" 
-                        alt="Legal AI Agents" 
-                        fill 
-                        style={{ objectFit: "cover", objectPosition: "left center", maskImage: "radial-gradient(circle at right, black, transparent 80%)", WebkitMaskImage: "radial-gradient(circle at right, black, transparent 80%)" }} 
-                        priority 
+                    <Image
+                        src="/images/agents/legal-agent-hero.png"
+                        alt="Legal AI Agents"
+                        fill
+                        style={{ objectFit: "cover", objectPosition: "left center", maskImage: "radial-gradient(circle at right, black, transparent 80%)", WebkitMaskImage: "radial-gradient(circle at right, black, transparent 80%)" }}
+                        priority
                     />
                 </div>
 
@@ -422,17 +422,17 @@ export default function LegalAgentsClient() {
                     </p>
 
                     <div className="hero-cta" style={{ display: "flex", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
-                        <Link href="/demo/legal" style={{ 
-                            display: "inline-flex", alignItems: "center", gap: "0.5rem", 
-                            padding: "1rem 2rem", background: "#4F46E5", color: "white", 
-                            fontWeight: 700, borderRadius: "12px", textDecoration: "none", 
-                            boxShadow: "0 10px 30px rgba(79, 70, 229, 0.3)", transition: "all 0.3s ease" 
+                        <Link href="/demo/legal" style={{
+                            display: "inline-flex", alignItems: "center", gap: "0.5rem",
+                            padding: "1rem 2rem", background: "#4F46E5", color: "white",
+                            fontWeight: 700, borderRadius: "12px", textDecoration: "none",
+                            boxShadow: "0 10px 30px rgba(79, 70, 229, 0.3)", transition: "all 0.3s ease"
                         }}>
                             Request Legal Pilot <ArrowRight size={20} />
                         </Link>
-                        <Link href="/case-studies/legal-pdf" style={{ 
+                        <Link href="/case-studies/legal-pdf" style={{
                             display: "inline-flex", alignItems: "center", justifyContent: "center",
-                            padding: "1rem 2rem", background: "var(--card-bg)", color: "var(--text)", 
+                            padding: "1rem 2rem", background: "var(--card-bg)", color: "var(--text)",
                             fontWeight: 700, borderRadius: "12px", textDecoration: "none",
                             transition: "all 0.3s ease",
                             border: "1px solid var(--border)"
@@ -443,7 +443,7 @@ export default function LegalAgentsClient() {
                 </div>
             </header>
 
-             <section id="opportunity-p1" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)" }}>
+            <section id="opportunity-p1" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)" }}>
                 <div className="container" style={{ maxWidth: "800px", textAlign: "center", marginBottom: "5rem" }}>
                     <span className="section-label">Market Context</span>
                     <h2 className="section-title">The Opportunity: UK Legal Sector Is Ready for AI</h2>
@@ -451,8 +451,8 @@ export default function LegalAgentsClient() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zig" style={{ gap: "4rem" }}>
                         <div className="gsap-img-reveal">
-                            <Image 
-                                src="/images/agents/legal-growth-paradox.jpg"
+                            <Image
+                                src="/images/agents/legal-growth-paradox.png"
                                 alt="A Paradox of Growth and Constraints"
                                 width={800}
                                 height={600}
@@ -463,10 +463,10 @@ export default function LegalAgentsClient() {
                             <h3 style={{ fontSize: "1.8rem", fontWeight: 800, marginBottom: "1.5rem" }}>A Paradox of Growth & Constraints</h3>
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.15rem", textAlign: "justify" }}>
                                 <p style={{ marginBottom: "1.5rem" }}>
-                                    The UK legal sector faces a paradox. Transaction volumes are growing (M&A, regulatory filings, contract management), but legal budgets are flat or contracting. Law firms are constrained by partner billable hour requirements and client cost sensitivity. 
+                                    The UK legal sector faces a paradox. Transaction volumes are growing (M&A, regulatory filings, contract management), but legal budgets are flat or contracting. Law firms are constrained by partner billable hour requirements and client cost sensitivity.
                                 </p>
                                 <p style={{ marginBottom: "1.5rem" }}>
-                                    In-house legal teams are resource-stretched—managing 500+ active contracts, hundreds of regulatory obligations, and KYC screening on new vendors. A typical contract review (SPA, NDA, service agreement) takes a senior associate <strong>2-4 hours</strong>. 
+                                    In-house legal teams are resource-stretched—managing 500+ active contracts, hundreds of regulatory obligations, and KYC screening on new vendors. A typical contract review (SPA, NDA, service agreement) takes a senior associate <strong>2-4 hours</strong>.
                                 </p>
                                 <p>
                                     A due diligence exercise (reviewing 100 documents) takes a paralegal 1-2 weeks of full-time work. The cost is real: a transaction that should cost £800-1,200 in AI-assisted review costs <strong>£2,000-3,000</strong> if done manually.
@@ -512,7 +512,7 @@ export default function LegalAgentsClient() {
                 </div>
             </section>
 
-             <section id="the-agent-p1" style={{ padding: "120px 1.5rem", background: "var(--bg)" }}>
+            <section id="the-agent-p1" style={{ padding: "120px 1.5rem", background: "var(--bg)" }}>
                 <div className="container" style={{ maxWidth: "1250px", textAlign: "center", marginBottom: "5rem" }}>
                     <span className="section-label">Meet Your Agent</span>
                     <h2 className="section-title" style={{ fontSize: "clamp(2.5rem, 5vw, 3.5rem)" }}>Meet Your Legal Digital Worker</h2>
@@ -520,8 +520,8 @@ export default function LegalAgentsClient() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zig" style={{ gap: "4rem" }}>
                         <div className="gsap-img-reveal">
-                             <Image 
-                                src="/images/agents/legal-autonomous-review.jpg"
+                            <Image
+                                src="/images/agents/legal-autonomous-review.png"
                                 alt="Autonomous Contract Review Interface"
                                 width={800}
                                 height={600}
@@ -546,8 +546,8 @@ export default function LegalAgentsClient() {
                 </div>
             </section>
 
-             {/* Section 2B: Deep-Dive Due Diligence */}
-             <section id="the-agent-p2" style={{ padding: "120px 1.5rem", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
+            {/* Section 2B: Deep-Dive Due Diligence */}
+            <section id="the-agent-p2" style={{ padding: "120px 1.5rem", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zag" style={{ gap: "4rem" }}>
                         <div className="gsap-reveal">
@@ -581,13 +581,13 @@ export default function LegalAgentsClient() {
                 </div>
             </section>
 
-             {/* Section 2C: Continuous Compliance */}
-             <section id="the-agent-p3" style={{ padding: "120px 1.5rem", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
+            {/* Section 2C: Continuous Compliance */}
+            <section id="the-agent-p3" style={{ padding: "120px 1.5rem", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zig" style={{ gap: "4rem" }}>
                         <div className="gsap-img-reveal">
-                             <Image 
-                                src="/images/industries/legal-dw-discovery.jpg"
+                            <Image
+                                src="/images/industries/legal-dw-discovery.png"
                                 alt="AI Legal Compliance Monitoring"
                                 width={800}
                                 height={600}
@@ -612,8 +612,8 @@ export default function LegalAgentsClient() {
                 </div>
             </section>
 
-             {/* Section 3A: Holistic Context */}
-             <section id="claude-p1" style={{ padding: "120px 1.5rem", background: "#080c16" }}>
+            {/* Section 3A: Holistic Context */}
+            <section id="claude-p1" style={{ padding: "120px 1.5rem", background: "#080c16" }}>
                 <div className="container" style={{ maxWidth: "1250px", textAlign: "center", marginBottom: "5rem" }}>
                     <span className="section-label" style={{ color: "var(--primary)" }}>Intelligence Layer (Part 1)</span>
                     <h2 className="section-title" style={{ color: "white" }}>How Claude Powers Legal AI</h2>
@@ -635,8 +635,8 @@ export default function LegalAgentsClient() {
                             </div>
                         </div>
                         <div className="gsap-img-reveal">
-                            <Image 
-                                src="/images/agents/legal-holistic-context.jpg"
+                            <Image
+                                src="/images/agents/legal-holistic-context.png"
                                 alt="Holistic Contractual Context Understanding via LLM"
                                 width={800}
                                 height={600}
@@ -647,8 +647,8 @@ export default function LegalAgentsClient() {
                 </div>
             </section>
 
-             {/* Section 3B: Reasoning & Accuracy Benchmarks */}
-             <section id="claude-p2" style={{ padding: "120px 1.5rem", background: "#080c16", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+            {/* Section 3B: Reasoning & Accuracy Benchmarks */}
+            <section id="claude-p2" style={{ padding: "120px 1.5rem", background: "#080c16", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zig" style={{ gap: "4rem" }}>
                         <div style={{ display: "grid", gap: "1.5rem" }}>
@@ -682,8 +682,8 @@ export default function LegalAgentsClient() {
                 </div>
             </section>
 
-             {/* Section 3C: Compelling Economics */}
-             <section id="claude-p3" style={{ padding: "120px 1.5rem", background: "#080c16", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+            {/* Section 3C: Compelling Economics */}
+            <section id="claude-p3" style={{ padding: "120px 1.5rem", background: "#080c16", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zag" style={{ gap: "4rem" }}>
                         <div className="gsap-reveal">
@@ -701,7 +701,7 @@ export default function LegalAgentsClient() {
                             </div>
                         </div>
                         <div style={{ display: "grid", gap: "1.5rem" }}>
-                             {[
+                            {[
                                 { title: "Cost per Review", val: "£0.20 Avg", desc: "Typical cost including the full 150-page context window." },
                                 { title: "Due Diligence", val: "£15.00 Total", desc: "Batch processing for 100 documents assuming 50-80 API calls." },
                                 { title: "Deployment", val: "Solicitor-Led", desc: "AI handles the first-pass; humans handle the final judgment." }
@@ -717,8 +717,8 @@ export default function LegalAgentsClient() {
                 </div>
             </section>
 
-             {/* Section 4A: The RAG Semantic Index */}
-             <section id="memory-p1" style={{ padding: "120px 1.5rem", background: "#080c16", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+            {/* Section 4A: The RAG Semantic Index */}
+            <section id="memory-p1" style={{ padding: "120px 1.5rem", background: "#080c16", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
                 <div className="container" style={{ maxWidth: "1250px", textAlign: "center", marginBottom: "5rem" }}>
                     <span className="section-label" style={{ color: "var(--primary)" }}>Institutional Memory (Part 1)</span>
                     <h2 className="section-title" style={{ color: "white" }}>How LangChain RAG Enables Legal Memory</h2>
@@ -726,8 +726,8 @@ export default function LegalAgentsClient() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zig" style={{ gap: "4rem" }}>
                         <div className="gsap-img-reveal">
-                            <Image 
-                                src="/images/agents/legal-rag-index.jpg"
+                            <Image
+                                src="/images/agents/legal-rag-index.png"
                                 alt="Semantic RAG Vector Index Representation"
                                 width={800}
                                 height={600}
@@ -752,8 +752,8 @@ export default function LegalAgentsClient() {
                 </div>
             </section>
 
-             {/* Section 4B: Institutional Memory at Scale */}
-             <section id="memory-p2" style={{ padding: "120px 1.5rem", background: "#080c16", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+            {/* Section 4B: Institutional Memory at Scale */}
+            <section id="memory-p2" style={{ padding: "120px 1.5rem", background: "#080c16", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zag" style={{ gap: "4rem" }}>
                         <div className="gsap-reveal">
@@ -787,8 +787,8 @@ export default function LegalAgentsClient() {
                 </div>
             </section>
 
-             {/* Section 4C: Automated Deployment & Cost */}
-             <section id="memory-p3" style={{ padding: "120px 1.5rem", background: "#080c16", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+            {/* Section 4C: Automated Deployment & Cost */}
+            <section id="memory-p3" style={{ padding: "120px 1.5rem", background: "#080c16", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zig" style={{ gap: "4rem" }}>
                         <div style={{ display: "grid", gap: "1.5rem" }}>
@@ -822,8 +822,8 @@ export default function LegalAgentsClient() {
                 </div>
             </section>
 
-             {/* Section 5A: Operational Velocity */}
-             <section id="outcomes-p1" style={{ padding: "120px 1.5rem", background: "var(--bg)" }}>
+            {/* Section 5A: Operational Velocity */}
+            <section id="outcomes-p1" style={{ padding: "120px 1.5rem", background: "var(--bg)" }}>
                 <div className="container" style={{ maxWidth: "1250px", textAlign: "center", marginBottom: "5rem" }}>
                     <span className="section-label">Business Outcomes</span>
                     <h2 className="section-title">Hours Saved & Turnaround Improved</h2>
@@ -861,8 +861,8 @@ export default function LegalAgentsClient() {
                 </div>
             </section>
 
-             {/* Section 5B: Negotiation Sharpness & Risk Reduction */}
-             <section id="outcomes-p2" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)", borderTop: "1px solid var(--border)" }}>
+            {/* Section 5B: Negotiation Sharpness & Risk Reduction */}
+            <section id="outcomes-p2" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)", borderTop: "1px solid var(--border)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zig" style={{ gap: "4rem" }}>
                         <div style={{ display: "grid", gap: "1.5rem" }}>
@@ -896,8 +896,8 @@ export default function LegalAgentsClient() {
                 </div>
             </section>
 
-             {/* Section 5C: Economic Impact & ROI */}
-             <section id="outcomes-p3" style={{ padding: "120px 1.5rem", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
+            {/* Section 5C: Economic Impact & ROI */}
+            <section id="outcomes-p3" style={{ padding: "120px 1.5rem", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zag" style={{ gap: "4rem" }}>
                         <div className="gsap-reveal">
@@ -916,8 +916,8 @@ export default function LegalAgentsClient() {
                             </div>
                         </div>
                         <div className="gsap-img-reveal">
-                            <Image 
-                                src="/images/industries/legal-casestudy.jpg"
+                            <Image
+                                src="/images/industries/legal-casestudy.png"
                                 alt="Legal AI Economic Outcomes"
                                 width={800}
                                 height={600}
@@ -928,8 +928,8 @@ export default function LegalAgentsClient() {
                 </div>
             </section>
 
-             {/* Section 6A: Governance & Responsibility */}
-             <section id="compliance-p1" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)", borderTop: "1px solid var(--border)" }}>
+            {/* Section 6A: Governance & Responsibility */}
+            <section id="compliance-p1" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)", borderTop: "1px solid var(--border)" }}>
                 <div className="container" style={{ maxWidth: "1250px", textAlign: "center", marginBottom: "5rem" }}>
                     <span className="section-label">Ethics & Compliance</span>
                     <h2 className="section-title">SRA Compliance: AI as Assistant, Not Replacement</h2>
@@ -937,8 +937,8 @@ export default function LegalAgentsClient() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zig" style={{ gap: "4rem" }}>
                         <div className="gsap-img-reveal">
-                            <Image 
-                                src="/images/agents/legal-governance-oversight.jpg"
+                            <Image
+                                src="/images/agents/legal-governance-oversight.png"
                                 alt="SRA Compliance and Executive Lawyer Oversight"
                                 width={800}
                                 height={600}
@@ -963,8 +963,8 @@ export default function LegalAgentsClient() {
                 </div>
             </section>
 
-             {/* Section 6B: The Defensive Audit Trail */}
-             <section id="compliance-p2" style={{ padding: "120px 1.5rem", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
+            {/* Section 6B: The Defensive Audit Trail */}
+            <section id="compliance-p2" style={{ padding: "120px 1.5rem", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zag" style={{ gap: "4rem" }}>
                         <div className="gsap-reveal">
@@ -998,13 +998,13 @@ export default function LegalAgentsClient() {
                 </div>
             </section>
 
-             {/* Section 6C: Privacy, Bias & Ethics */}
-             <section id="compliance-p3" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)", borderTop: "1px solid var(--border)" }}>
+            {/* Section 6C: Privacy, Bias & Ethics */}
+            <section id="compliance-p3" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)", borderTop: "1px solid var(--border)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zig" style={{ gap: "4rem" }}>
                         <div className="gsap-img-reveal">
-                            <Image 
-                                src="/images/agents/legal-privacy-guardrails.jpg"
+                            <Image
+                                src="/images/agents/legal-privacy-guardrails.png"
                                 alt="Private Legal Sector AI Data Privacy Guardrails"
                                 width={800}
                                 height={600}
@@ -1030,8 +1030,8 @@ export default function LegalAgentsClient() {
                 </div>
             </section>
 
-             {/* Section 7A: Case Study - The Bottleneck */}
-             <section id="case-study-p1" style={{ padding: "120px 1.5rem", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
+            {/* Section 7A: Case Study - The Bottleneck */}
+            <section id="case-study-p1" style={{ padding: "120px 1.5rem", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
                 <div className="container" style={{ maxWidth: "1250px", textAlign: "center", marginBottom: "5rem" }}>
                     <span className="section-label">Real-World Impact</span>
                     <h2 className="section-title">Case Study: Mid-Tier UK Law Firm</h2>
@@ -1053,11 +1053,11 @@ export default function LegalAgentsClient() {
                             </div>
                         </div>
                         <div className="gsap-card" style={{ padding: "3rem", background: "var(--bg-secondary)", borderRadius: "32px", border: "1px solid var(--border)", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-                             <div style={{ marginBottom: "2rem" }}>
+                            <div style={{ marginBottom: "2rem" }}>
                                 <div style={{ fontSize: "0.9rem", color: "var(--primary)", fontWeight: 800, marginBottom: "0.5rem" }}>CLIENT PROFILE</div>
                                 <div style={{ fontSize: "1.5rem", fontWeight: 800, color: "var(--text)" }}>Mid-Tier UK M&A Practice</div>
-                             </div>
-                             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
+                            </div>
+                            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
                                 <div>
                                     <div style={{ fontSize: "2rem", fontWeight: 900, color: "var(--text)" }}>35</div>
                                     <div style={{ fontSize: "0.9rem", color: "var(--text-muted)" }}>Total Lawyers</div>
@@ -1070,19 +1070,19 @@ export default function LegalAgentsClient() {
                                     <div style={{ fontSize: "1.2rem", fontWeight: 800, color: "#EF4444" }}>3-Week Bottleneck</div>
                                     <div style={{ fontSize: "0.9rem", color: "var(--text-muted)" }}>Manual Document Review</div>
                                 </div>
-                             </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-             {/* Section 7B: Case Study - AI Intelligence */}
-             <section id="case-study-p2" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)", borderTop: "1px solid var(--border)" }}>
+            {/* Section 7B: Case Study - AI Intelligence */}
+            <section id="case-study-p2" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)", borderTop: "1px solid var(--border)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zig" style={{ gap: "4rem" }}>
                         <div className="gsap-img-reveal">
-                             <Image 
-                                src="/images/agents/legal-ai-discovery.jpg"
+                            <Image
+                                src="/images/agents/legal-ai-discovery.png"
                                 alt="Deep Due Diligence & M&A AI Data Discovery"
                                 width={800}
                                 height={600}
@@ -1107,15 +1107,15 @@ export default function LegalAgentsClient() {
                 </div>
             </section>
 
-             {/* Section 7C: Case Study - Financial ROI */}
-             <section id="case-study-p3" style={{ padding: "120px 1.5rem", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
+            {/* Section 7C: Case Study - Financial ROI */}
+            <section id="case-study-p3" style={{ padding: "120px 1.5rem", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zag" style={{ gap: "4rem" }}>
                         <div className="gsap-reveal">
                             <h3 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--text)", marginBottom: "1.5rem" }}>Financial ROI & Scale</h3>
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem", textAlign: "justify" }}>
                                 <p style={{ marginBottom: "1.5rem" }}>
-                                    The initial investment of £18,000 for the 8-week build and RAG setup achieved <strong>payback in just 1.2 months</strong>. 
+                                    The initial investment of £18,000 for the 8-week build and RAG setup achieved <strong>payback in just 1.2 months</strong>.
                                 </p>
                                 <p style={{ marginBottom: "1.5rem" }}>
                                     With ongoing costs of only £800/month, the firm is now targeting one additional deal per year, yielding £150k+ in incremental revenue.
@@ -1157,27 +1157,27 @@ export default function LegalAgentsClient() {
                 </div>
             </section>
 
-             {/* Final CTA */}
-             <section style={{ padding: "120px 1.5rem", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
-                  <div className="container" style={{ maxWidth: "1000px", textAlign: "center" }}>
-                       <div className="gsap-reveal">
-                            <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 950, marginBottom: "2rem" }}>
-                                Ready to Deploy Your <span style={{ color: "var(--primary)" }}>Legal Agent?</span>
-                            </h2>
-                            <p style={{ fontSize: "1.2rem", color: "var(--text-muted)", marginBottom: "3rem", maxWidth: "700px", margin: "0 auto 3rem auto", lineHeight: 1.6 }}>
-                                Start with a 4-week contract review pilot. No technical overhead, SRA-compliant security, and immediate ROI.
-                            </p>
-                            <div style={{ display: "flex", gap: "1.5rem", justifyContent: "center", flexWrap: "wrap", alignItems: "center" }}>
-                                <Link href="/demo/legal" className="btn-primary" style={{ padding: "1.2rem 2.5rem", background: "#4F46E5", color: "white", borderRadius: "12px", textDecoration: "none", fontWeight: 700 }}>
-                                    Request Legal Agent Demo
-                                </Link>
-                                <Link href="/case-studies/legal-pdf" style={{ padding: "1.2rem 2.5rem", background: "transparent", color: "var(--text)", borderRadius: "12px", textDecoration: "none", fontWeight: 700, border: "1px solid var(--border)" }}>
-                                    Download Legal Case Study
-                                </Link>
-                            </div>
-                       </div>
-                  </div>
-             </section>
+            {/* Final CTA */}
+            <section style={{ padding: "120px 1.5rem", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
+                <div className="container" style={{ maxWidth: "1000px", textAlign: "center" }}>
+                    <div className="gsap-reveal">
+                        <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 950, marginBottom: "2rem" }}>
+                            Ready to Deploy Your <span style={{ color: "var(--primary)" }}>Legal Agent?</span>
+                        </h2>
+                        <p style={{ fontSize: "1.2rem", color: "var(--text-muted)", marginBottom: "3rem", maxWidth: "700px", margin: "0 auto 3rem auto", lineHeight: 1.6 }}>
+                            Start with a 4-week contract review pilot. No technical overhead, SRA-compliant security, and immediate ROI.
+                        </p>
+                        <div style={{ display: "flex", gap: "1.5rem", justifyContent: "center", flexWrap: "wrap", alignItems: "center" }}>
+                            <Link href="/demo/legal" className="btn-primary" style={{ padding: "1.2rem 2.5rem", background: "#4F46E5", color: "white", borderRadius: "12px", textDecoration: "none", fontWeight: 700 }}>
+                                Request Legal Agent Demo
+                            </Link>
+                            <Link href="/case-studies/legal-pdf" style={{ padding: "1.2rem 2.5rem", background: "transparent", color: "var(--text)", borderRadius: "12px", textDecoration: "none", fontWeight: 700, border: "1px solid var(--border)" }}>
+                                Download Legal Case Study
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             {/* Explore More Agents */}
             <section style={{ padding: "80px 1.5rem", background: "var(--bg-secondary)", borderTop: "1px solid var(--border)" }}>
@@ -1195,10 +1195,10 @@ export default function LegalAgentsClient() {
                             { title: "Case Studies", href: "/case-studies", desc: "Real ROI from UK firms" },
                             { title: "Home", href: "/", desc: "Platform overview" }
                         ].map((link, i) => (
-                            <Link key={i} href={link.href} style={{ 
-                                padding: "1.5rem", 
-                                background: "var(--bg)", 
-                                borderRadius: "16px", 
+                            <Link key={i} href={link.href} style={{
+                                padding: "1.5rem",
+                                background: "var(--bg)",
+                                borderRadius: "16px",
                                 border: "1px solid rgba(255,255,255,0.05)",
                                 textDecoration: "none",
                                 transition: "all 0.3s ease",
@@ -1210,10 +1210,10 @@ export default function LegalAgentsClient() {
                                 fontWeight: 700,
                                 color: "var(--text)",
                                 boxShadow: "0 4px 6px rgba(0,0,0,0.1)"
-                            }} 
-                            onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--primary)"; e.currentTarget.style.color = "var(--primary)"; e.currentTarget.style.transform = "translateY(-4px)"; }}
-                            onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)"; e.currentTarget.style.color = "var(--text)"; e.currentTarget.style.transform = "none"; }}
-                            className="hover-lift">
+                            }}
+                                onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--primary)"; e.currentTarget.style.color = "var(--primary)"; e.currentTarget.style.transform = "translateY(-4px)"; }}
+                                onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)"; e.currentTarget.style.color = "var(--text)"; e.currentTarget.style.transform = "none"; }}
+                                className="hover-lift">
                                 <div style={{ color: "var(--primary)", fontWeight: 800, marginBottom: "0.5rem" }}>{link.title}</div>
                                 <div style={{ color: "var(--text-muted)", fontSize: "0.85rem", fontWeight: 400 }}>{link.desc}</div>
                             </Link>

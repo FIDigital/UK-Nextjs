@@ -102,10 +102,10 @@ const FAQItem = ({ question, answer }) => {
     const [isOpen, setIsOpen] = useState(false);
     const contentRef = useRef(null);
     const containerRef = useRef(null);
-    
+
     useEffect(() => {
         if (!contentRef.current) return;
-        
+
         if (isOpen) {
             gsap.to(contentRef.current, {
                 height: "auto",
@@ -134,12 +134,12 @@ const FAQItem = ({ question, answer }) => {
     }, [isOpen]);
 
     return (
-        <div 
+        <div
             ref={containerRef}
-            style={{ 
-                border: "1px solid var(--border)", 
-                borderRadius: "16px", 
-                marginBottom: "1rem", 
+            style={{
+                border: "1px solid var(--border)",
+                borderRadius: "16px",
+                marginBottom: "1rem",
                 overflow: "hidden",
                 cursor: "pointer",
                 transition: "all 0.3s ease"
@@ -257,10 +257,10 @@ export default function OperationsAgentsClient() {
                     }
                 }
             `}</style>
-             <TechMeshBackground />
+            <TechMeshBackground />
 
-             {/* HERO SECTION - REBUILT TO MATCH INDUSTRIES */}
-             <header className="hero-section" style={{
+            {/* HERO SECTION - REBUILT TO MATCH INDUSTRIES */}
+            <header className="hero-section" style={{
                 position: "relative",
                 minHeight: "90vh",
                 display: "flex",
@@ -270,29 +270,29 @@ export default function OperationsAgentsClient() {
                 overflow: "hidden"
             }}>
                 <div style={{
-                      position: "absolute",
-                      top: 0, left: 0, width: "100%", height: "100%",
-                      background: "radial-gradient(circle at 70% 50%, transparent, var(--bg) 70%)",
-                      pointerEvents: "none",
-                      zIndex: 1
+                    position: "absolute",
+                    top: 0, left: 0, width: "100%", height: "100%",
+                    background: "radial-gradient(circle at 70% 50%, transparent, var(--bg) 70%)",
+                    pointerEvents: "none",
+                    zIndex: 1
                 }} />
 
                 {/* Right-aligned Faded Hero Image Background */}
                 <div className="hero-background hero-background-wrapper">
-                    <Image 
-                        src="/images/agents/ops-agent-hero.jpg" 
-                        alt="Operations AI Agents" 
-                        fill 
-                        style={{ objectFit: "cover", objectPosition: "left center", maskImage: "radial-gradient(circle at right, black, transparent 80%)", WebkitMaskImage: "radial-gradient(circle at right, black, transparent 80%)" }} 
-                        priority 
+                    <Image
+                        src="/images/agents/ops-agent-hero.jpg"
+                        alt="Operations AI Agents"
+                        fill
+                        style={{ objectFit: "cover", objectPosition: "left center", maskImage: "radial-gradient(circle at right, black, transparent 80%)", WebkitMaskImage: "radial-gradient(circle at right, black, transparent 80%)" }}
+                        priority
                     />
                 </div>
                 <div className="container hero-container" style={{ position: "relative", zIndex: 2, display: "flex", flexDirection: "column", alignItems: "flex-start", textAlign: "left", width: "100%", maxWidth: "1250px", margin: "0 auto" }}>
                     <div style={{ maxWidth: "900px" }}>
-                        <div className="hero-reveal" style={{ 
-                            display: "inline-flex", alignItems: "center", gap: "0.75rem", padding: "0.6rem 1.2rem", 
-                            background: "rgba(79, 70, 229, 0.1)", borderRadius: "100px", 
-                            border: "1px solid rgba(79, 70, 229, 0.2)", marginBottom: "2.5rem", 
+                        <div className="hero-reveal" style={{
+                            display: "inline-flex", alignItems: "center", gap: "0.75rem", padding: "0.6rem 1.2rem",
+                            background: "rgba(79, 70, 229, 0.1)", borderRadius: "100px",
+                            border: "1px solid rgba(79, 70, 229, 0.2)", marginBottom: "2.5rem",
                             color: "var(--primary)", fontSize: "0.9rem", fontWeight: 700, letterSpacing: "0.05em"
                         }}>
                             <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "var(--primary)", boxShadow: "0 0 10px var(--primary)" }} />
@@ -314,24 +314,24 @@ export default function OperationsAgentsClient() {
                         </div>
                     </div>
 
-                    <div className="hero-reveal" style={{ marginTop: "6rem", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "2rem", borderTop: "1px solid var(--border)", paddingTop: "3rem" }}>
+                    <div className="hero-reveal" style={{ width: "100%", marginTop: "6rem", display: "flex", flexWrap: "wrap", gap: "clamp(2rem, 5vw, 5rem)", borderTop: "1px solid var(--border)", paddingTop: "3rem" }}>
                         {[
                             { label: "Dispatch Latency", value: "2.4s", sub: "Manual: 4-6 hrs" },
                             { label: "UK Postcode Coverage", value: "100%", sub: "Full Geocoding" },
                             { label: "Margin Increase", value: "11.2%", sub: "Last-mile Optimized" }
                         ].map((stat, i) => (
-                            <div key={i}>
-                                <div style={{ fontSize: "0.8rem", fontWeight: 800, color: "var(--primary)", textTransform: "uppercase", marginBottom: "0.5rem" }}>{stat.label}</div>
-                                <div style={{ fontSize: "2.5rem", fontWeight: 900 }}>{stat.value}</div>
-                                <div style={{ fontSize: "0.9rem", color: "var(--text-muted)" }}>{stat.sub}</div>
+                            <div key={i} style={{ flex: "1 1 200px", minWidth: "150px" }}>
+                                <div style={{ fontSize: "0.85rem", fontWeight: 800, color: "var(--primary)", textTransform: "uppercase", marginBottom: "0.5rem", letterSpacing: "0.05em" }}>{stat.label}</div>
+                                <div style={{ fontSize: "clamp(2rem, 4vw, 2.5rem)", fontWeight: 900, color: "var(--text)", lineHeight: 1.1, marginBottom: "0.25rem" }}>{stat.value}</div>
+                                <div style={{ fontSize: "0.9rem", color: "var(--text-muted)", fontWeight: 500 }}>{stat.sub}</div>
                             </div>
                         ))}
                     </div>
                 </div>
-             </header>
+            </header>
 
-             {/* Section 1: The Friction */}
-             <section style={{ padding: "120px 1.5rem", borderTop: "1px solid var(--border)" }}>
+            {/* Section 1: The Friction */}
+            <section style={{ padding: "120px 1.5rem", borderTop: "1px solid var(--border)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zig">
                         <div className="gsap-reveal">
@@ -347,7 +347,7 @@ export default function OperationsAgentsClient() {
                             </div>
                         </div>
                         <div className="gsap-img-reveal" style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
-                            <Image src="/images/industries/ops-dw-problem.jpg" width={800} height={450} style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }} alt="Logistics Manual Friction" />
+                            <Image src="/images/industries/ops-dw-problem.png" width={800} height={450} style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }} alt="Logistics Manual Friction" />
                             <div style={{ background: "var(--bg-secondary)", border: "1px solid var(--border)", borderRadius: "32px", padding: "2.5rem" }}>
                                 <div style={{ fontSize: "0.85rem", fontWeight: 800, color: "var(--primary)", marginBottom: "2rem", textTransform: "uppercase" }}>Manual Friction Metrics</div>
                                 <div style={{ display: "grid", gap: "1.5rem" }}>
@@ -366,35 +366,35 @@ export default function OperationsAgentsClient() {
                         </div>
                     </div>
                 </div>
-             </section>
+            </section>
 
-             {/* Section 2: Margin Impact */}
-             <section style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)", borderTop: "1px solid var(--border)" }}>
+            {/* Section 2: Margin Impact */}
+            <section style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)", borderTop: "1px solid var(--border)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zag">
                         <div className="gsap-img-reveal" style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
-                            <Image src="/images/industries/ops-dw-predictive.jpg" width={800} height={450} style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }} alt="Predictive Operations Margin" />
+                            <Image src="/images/industries/ops-dw-predictive.png" width={800} height={450} style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }} alt="Predictive Operations Margin" />
                             <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
                                 <div style={{ background: "var(--bg)", border: "1px solid var(--border)", borderRadius: "32px", padding: "2.5rem" }}>
-                                <div style={{ fontSize: "0.7rem", fontWeight: 800, color: "var(--primary)", marginBottom: "1.5rem" }}>REAL-TIME MARGIN TRACKING</div>
-                                <div style={{ display: "flex", alignItems: "baseline", gap: "1rem", marginBottom: "0.5rem" }}>
-                                    <span style={{ fontSize: "3rem", fontWeight: 900 }}>+11.2%</span>
-                                    <span style={{ color: "#10b981", fontWeight: 700 }}>↑ Net Margin Lift</span>
+                                    <div style={{ fontSize: "0.7rem", fontWeight: 800, color: "var(--primary)", marginBottom: "1.5rem" }}>REAL-TIME MARGIN TRACKING</div>
+                                    <div style={{ display: "flex", alignItems: "baseline", gap: "1rem", marginBottom: "0.5rem" }}>
+                                        <span style={{ fontSize: "3rem", fontWeight: 900 }}>+11.2%</span>
+                                        <span style={{ color: "#10b981", fontWeight: 700 }}>↑ Net Margin Lift</span>
+                                    </div>
+                                    <div style={{ height: "4px", width: "100%", background: "rgba(255,255,255,0.05)", borderRadius: "2px" }}>
+                                        <div style={{ width: "75%", height: "100%", background: "var(--primary)" }} />
+                                    </div>
                                 </div>
-                                <div style={{ height: "4px", width: "100%", background: "rgba(255,255,255,0.05)", borderRadius: "2px" }}>
-                                    <div style={{ width: "75%", height: "100%", background: "var(--primary)" }} />
+                                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
+                                    <div style={{ background: "var(--bg)", border: "1px solid var(--border)", borderRadius: "24px", padding: "1.5rem" }}>
+                                        <div style={{ fontSize: "0.6rem", opacity: 0.5 }}>CO2 SAVED</div>
+                                        <div style={{ fontSize: "1.2rem", fontWeight: 800 }}>4.2 Tons/Mo</div>
+                                    </div>
+                                    <div style={{ background: "var(--bg)", border: "1px solid var(--border)", borderRadius: "24px", padding: "1.5rem" }}>
+                                        <div style={{ fontSize: "0.6rem", opacity: 0.5 }}>AVG. STOP ROI</div>
+                                        <div style={{ fontSize: "1.2rem", fontWeight: 800 }}>£18.42</div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
-                                <div style={{ background: "var(--bg)", border: "1px solid var(--border)", borderRadius: "24px", padding: "1.5rem" }}>
-                                    <div style={{ fontSize: "0.6rem", opacity: 0.5 }}>CO2 SAVED</div>
-                                    <div style={{ fontSize: "1.2rem", fontWeight: 800 }}>4.2 Tons/Mo</div>
-                                </div>
-                                <div style={{ background: "var(--bg)", border: "1px solid var(--border)", borderRadius: "24px", padding: "1.5rem" }}>
-                                    <div style={{ fontSize: "0.6rem", opacity: 0.5 }}>AVG. STOP ROI</div>
-                                    <div style={{ fontSize: "1.2rem", fontWeight: 800 }}>£18.42</div>
-                                </div>
-                            </div>
                             </div>
                         </div>
                         <div className="gsap-reveal">
@@ -411,26 +411,26 @@ export default function OperationsAgentsClient() {
                         </div>
                     </div>
                 </div>
-             </section>
+            </section>
 
-             {/* Section 3: Digital Worker 5am Dispatch */}
-             <section style={{ padding: "120px 1.5rem", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
+            {/* Section 3: Digital Worker 5am Dispatch */}
+            <section style={{ padding: "120px 1.5rem", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zig">
                         <div className="gsap-reveal">
-                                <span className="section-label">THE WORKER</span>
-                                <h2 className="section-title">A Worker That <span style={{ color: "var(--primary)" }}>Never Sleeps</span></h2>
-                                <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.15rem" }}>
-                                    <p style={{ marginBottom: "1.5rem" }}>
-                                        While your operations team is asleep, the agent is already at work. At 4am, it triggers its first daily routine: ingesting new orders, checking vehicle readiness from telematics, and calculating the optimal UK-wide logistics grid.
-                                    </p>
-                                    <p>
-                                        When your dispatch manager arrives at 7am, they aren't starting from scratch. They are simply reviewing a perfectly orchestrated sequence that is already pushing routes to driver tablets and notifying customers of exact ETA windows.
-                                    </p>
-                                </div>
+                            <span className="section-label">THE WORKER</span>
+                            <h2 className="section-title">A Worker That <span style={{ color: "var(--primary)" }}>Never Sleeps</span></h2>
+                            <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.15rem" }}>
+                                <p style={{ marginBottom: "1.5rem" }}>
+                                    While your operations team is asleep, the agent is already at work. At 4am, it triggers its first daily routine: ingesting new orders, checking vehicle readiness from telematics, and calculating the optimal UK-wide logistics grid.
+                                </p>
+                                <p>
+                                    When your dispatch manager arrives at 7am, they aren't starting from scratch. They are simply reviewing a perfectly orchestrated sequence that is already pushing routes to driver tablets and notifying customers of exact ETA windows.
+                                </p>
+                            </div>
                         </div>
                         <div className="gsap-img-reveal" style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
-                            <Image src="/images/industries/ops-dw-supply.jpg" width={800} height={450} style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }} alt="Digital Worker Dispatch" />
+                            <Image src="/images/industries/ops-dw-supply.png" width={800} height={450} style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }} alt="Digital Worker Dispatch" />
                             <div style={{ background: "var(--bg-secondary)", border: "1px solid var(--border)", borderRadius: "32px", padding: "2.5rem" }}>
                                 <div style={{ fontSize: "0.85rem", fontWeight: 800, color: "var(--primary)", marginBottom: "2rem", textTransform: "uppercase" }}>5AM Dispatch Timeline</div>
                                 <div style={{ position: "relative", paddingLeft: "2rem", borderLeft: "2px solid rgba(79, 70, 229, 0.2)" }}>
@@ -451,10 +451,10 @@ export default function OperationsAgentsClient() {
                         </div>
                     </div>
                 </div>
-             </section>
+            </section>
 
-             {/* Section 4: Architecture Loop */}
-             <section id="architecture" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)", borderTop: "1px solid var(--border)" }}>
+            {/* Section 4: Architecture Loop */}
+            <section id="architecture" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)", borderTop: "1px solid var(--border)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="gsap-reveal" style={{ textAlign: "center", marginBottom: "5rem" }}>
                         <h2 className="section-title">The <span style={{ color: "var(--primary)" }}>Orchestration Loop</span></h2>
@@ -472,10 +472,10 @@ export default function OperationsAgentsClient() {
                             { step: "05", t: "Feedback", d: "Monitors GPS in real-time. If a driver is delayed, auto-notifies the customer." },
                             { step: "06", t: "Analytics", d: "Logs total miles and ROI per stop for end-of-day margin reporting." }
                         ].map((item, i) => (
-                            <div key={i} className="gsap-card" style={{ 
-                                padding: "2.5rem", 
-                                background: "var(--bg)", 
-                                border: "1px solid var(--border)", 
+                            <div key={i} className="gsap-card" style={{
+                                padding: "2.5rem",
+                                background: "var(--bg)",
+                                border: "1px solid var(--border)",
                                 borderRadius: "24px",
                                 height: "100%",
                                 display: "flex",
@@ -488,14 +488,14 @@ export default function OperationsAgentsClient() {
                         ))}
                     </div>
                 </div>
-             </section>
+            </section>
 
-             {/* Section 5: Business Outcomes */}
-             <section style={{ padding: "120px 1.5rem", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
+            {/* Section 5: Business Outcomes */}
+            <section style={{ padding: "120px 1.5rem", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zig">
                         <div className="gsap-img-reveal" style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
-                            <Image src="/images/industries/ops-dw-roi.jpg" width={800} height={450} style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }} alt="Operations ROI Output" />
+                            <Image src="/images/industries/ops-dw-roi.png" width={800} height={450} style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }} alt="Operations ROI Output" />
                             <div style={{ background: "rgba(79, 70, 229, 0.05)", border: "1px solid var(--primary)", borderRadius: "32px", padding: "2.5rem", textAlign: "center" }}>
                                 <div style={{ fontSize: "0.8rem", color: "var(--primary)", fontWeight: 800, textTransform: "uppercase", marginBottom: "2rem" }}>Delivery Cost Breakdown</div>
                                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "2rem" }}>
@@ -519,7 +519,7 @@ export default function OperationsAgentsClient() {
                             <h2 className="section-title">The Margin Multiplier</h2>
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.15rem" }}>
                                 <p style={{ marginBottom: "1.5rem" }}>
-                                    A 30-driver operation handles current volume by reducing fleet size by 20-25%, saving roughly £210k per year in salary and vehicle overhead. 
+                                    A 30-driver operation handles current volume by reducing fleet size by 20-25%, saving roughly £210k per year in salary and vehicle overhead.
                                 </p>
                                 <p style={{ marginBottom: "1.5rem" }}>
                                     Inventory variance drops from 12% to 2%—freeing up tied-up capital and improving cash flow. Proactive vendor ordering eliminates premium panic-buy costs.
@@ -532,10 +532,10 @@ export default function OperationsAgentsClient() {
                         </div>
                     </div>
                 </div>
-             </section>
+            </section>
 
-             {/* Section 6: Integration Ecosystem */}
-             <section id="ecosystem" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)", borderTop: "1px solid var(--border)" }}>
+            {/* Section 6: Integration Ecosystem */}
+            <section id="ecosystem" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)", borderTop: "1px solid var(--border)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="gsap-reveal" style={{ textAlign: "center", marginBottom: "5rem" }}>
                         <h2 className="section-title">Operations Integration Stack</h2>
@@ -548,11 +548,11 @@ export default function OperationsAgentsClient() {
                             { title: "Order Ingestion", items: ["Shopify Plus", "Amazon Global", "WooCommerce", "EDI Gateways"] },
                             { title: "Communications", items: ["Twilio SMS", "SendGrid", "Slack Operations", "WhatsApp Business"] }
                         ].map((group, i) => (
-                            <div key={i} className="gsap-card" style={{ 
-                                padding: "2.5rem", 
-                                background: "var(--bg)", 
-                                borderRadius: "24px", 
-                                border: "1px solid var(--border)", 
+                            <div key={i} className="gsap-card" style={{
+                                padding: "2.5rem",
+                                background: "var(--bg)",
+                                borderRadius: "24px",
+                                border: "1px solid var(--border)",
                                 transition: "all 0.3s ease",
                                 height: "100%",
                                 display: "flex",
@@ -571,10 +571,10 @@ export default function OperationsAgentsClient() {
                         ))}
                     </div>
                 </div>
-             </section>
+            </section>
 
-             {/* Section 7: Case Study */}
-             <section id="case-study" style={{ padding: "120px 1.5rem", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
+            {/* Section 7: Case Study */}
+            <section id="case-study" style={{ padding: "120px 1.5rem", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="gsap-reveal" style={{ background: "var(--bg-secondary)", border: "1px solid var(--border)", borderRadius: "48px", overflow: "hidden" }}>
                         <div className="responsive-grid zag" style={{ gap: 0 }}>
@@ -628,10 +628,10 @@ export default function OperationsAgentsClient() {
                         </div>
                     </div>
                 </div>
-             </section>
+            </section>
 
-             {/* Section 8: FAQ */}
-             <section id="faq" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)" }}>
+            {/* Section 8: FAQ */}
+            <section id="faq" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)" }}>
                 <div className="container" style={{ maxWidth: "800px" }}>
                     <div className="gsap-reveal" style={{ textAlign: "center", marginBottom: "4rem" }}>
                         <span className="section-label">FAQ</span>
@@ -643,10 +643,10 @@ export default function OperationsAgentsClient() {
                         ))}
                     </div>
                 </div>
-             </section>
+            </section>
 
-             {/* Section 9: Internal Links */}
-             <section style={{ padding: "80px 1.5rem", borderTop: "1px solid var(--border)" }}>
+            {/* Section 9: Internal Links */}
+            <section style={{ padding: "80px 1.5rem", borderTop: "1px solid var(--border)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="links-grid gsap-reveal" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "1.5rem" }}>
                         {[
@@ -667,37 +667,37 @@ export default function OperationsAgentsClient() {
                                 textAlign: "center",
                                 transition: "all 0.3s ease"
                             }}
-                            onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--primary)"; e.currentTarget.style.transform = "translateY(-4px)"; }}
-                            onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.transform = "none"; }}
+                                onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--primary)"; e.currentTarget.style.transform = "translateY(-4px)"; }}
+                                onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.transform = "none"; }}
                             >
                                 {link.title}
                             </Link>
                         ))}
                     </div>
                 </div>
-             </section>
+            </section>
 
-             {/* Section 10: Bottom CTA */}
-             <section style={{ padding: "120px 1.5rem", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
-                  <div className="container" style={{ maxWidth: "1000px", textAlign: "center" }}>
-                       <div className="gsap-reveal">
-                            <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 950, marginBottom: "2rem" }}>
-                                Ready to Architect Your <span style={{ color: "var(--primary)" }}>Operations Agent?</span>
-                            </h2>
-                            <p style={{ fontSize: "1.2rem", color: "var(--text-muted)", marginBottom: "3rem", maxWidth: "700px", margin: "0 auto 3rem auto", lineHeight: 1.6 }}>
-                                Scale your operational capacity without adding headcount. Deploy an autonomous worker that never sleeps and always optimises.
-                            </p>
-                            <div style={{ display: "flex", gap: "1.5rem", justifyContent: "center", flexWrap: "wrap", alignItems: "center" }}>
-                                <Link href="/assessment" className="btn-primary" style={{ padding: "1.2rem 2.5rem", background: "var(--primary)", color: "white", borderRadius: "12px", textDecoration: "none", fontWeight: 700 }}>
-                                    Calculate Your ROI Opportunity
-                                </Link>
-                                <Link href="/case-studies" style={{ padding: "1.2rem 2.5rem", background: "transparent", color: "white", borderRadius: "12px", textDecoration: "none", fontWeight: 700, border: "1px solid var(--border)" }}>
-                                    Explore Case Studies
-                                </Link>
-                            </div>
-                       </div>
-                  </div>
-             </section>
+            {/* Section 10: Bottom CTA */}
+            <section style={{ padding: "120px 1.5rem", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
+                <div className="container" style={{ maxWidth: "1000px", textAlign: "center" }}>
+                    <div className="gsap-reveal">
+                        <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 950, marginBottom: "2rem" }}>
+                            Ready to Architect Your <span style={{ color: "var(--primary)" }}>Operations Agent?</span>
+                        </h2>
+                        <p style={{ fontSize: "1.2rem", color: "var(--text-muted)", marginBottom: "3rem", maxWidth: "700px", margin: "0 auto 3rem auto", lineHeight: 1.6 }}>
+                            Scale your operational capacity without adding headcount. Deploy an autonomous worker that never sleeps and always optimises.
+                        </p>
+                        <div style={{ display: "flex", gap: "1.5rem", justifyContent: "center", flexWrap: "wrap", alignItems: "center" }}>
+                            <Link href="/assessment" className="btn-primary" style={{ padding: "1.2rem 2.5rem", background: "var(--primary)", color: "white", borderRadius: "12px", textDecoration: "none", fontWeight: 700 }}>
+                                Calculate Your ROI Opportunity
+                            </Link>
+                            <Link href="/case-studies" style={{ padding: "1.2rem 2.5rem", background: "transparent", color: "white", borderRadius: "12px", textDecoration: "none", fontWeight: 700, border: "1px solid var(--border)" }}>
+                                Explore Case Studies
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     );
 }

@@ -102,10 +102,10 @@ const FAQItem = ({ question, answer }) => {
     const [isOpen, setIsOpen] = useState(false);
     const contentRef = useRef(null);
     const containerRef = useRef(null);
-    
+
     useEffect(() => {
         if (!contentRef.current) return;
-        
+
         if (isOpen) {
             gsap.to(contentRef.current, {
                 height: "auto",
@@ -136,14 +136,14 @@ const FAQItem = ({ question, answer }) => {
     }, [isOpen]);
 
     return (
-        <div 
+        <div
             ref={containerRef}
             className="faq-item gsap-card"
-            style={{ 
-                background: "var(--card-bg)", 
-                border: "1px solid var(--border)", 
-                borderRadius: "12px", 
-                marginBottom: "0.75rem", 
+            style={{
+                background: "var(--card-bg)",
+                border: "1px solid var(--border)",
+                borderRadius: "12px",
+                marginBottom: "0.75rem",
                 overflow: "hidden",
                 cursor: "pointer",
                 transition: "all 0.3s ease"
@@ -152,14 +152,14 @@ const FAQItem = ({ question, answer }) => {
         >
             <div style={{ padding: "1.25rem 1.5rem", display: "flex", justifyContent: "space-between", alignItems: "center", gap: "2rem" }}>
                 <h3 style={{ fontSize: "0.95rem", fontWeight: 600, margin: 0, color: "var(--text)", letterSpacing: "0.01em" }}>{question}</h3>
-                <div style={{ 
-                    width: "32px", 
-                    height: "32px", 
-                    borderRadius: "50%", 
-                    background: "var(--hover-bg)", 
+                <div style={{
+                    width: "32px",
+                    height: "32px",
+                    borderRadius: "50%",
+                    background: "var(--hover-bg)",
                     border: "1px solid var(--border)",
-                    display: "flex", 
-                    alignItems: "center", 
+                    display: "flex",
+                    alignItems: "center",
                     justifyContent: "center",
                     flexShrink: 0,
                     transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
@@ -183,23 +183,23 @@ export default function FinanceAgents() {
 
     useGSAP(() => {
         gsap.config({ nullTargetWarn: false });
-        
+
         // Hero timeline
         const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
         tl.fromTo(".hero-title-line",
             { y: 60, opacity: 0 },
             { y: 0, opacity: 1, duration: 1.2, stagger: 0.2 }
         )
-        .fromTo(".hero-subtitle",
-            { y: 30, opacity: 0 },
-            { y: 0, opacity: 1, duration: 1 },
-            "-=0.6"
-        )
-        .fromTo(".hero-cta",
-            { y: 20, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.8, stagger: 0.15 },
-            "-=0.6"
-        );
+            .fromTo(".hero-subtitle",
+                { y: 30, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1 },
+                "-=0.6"
+            )
+            .fromTo(".hero-cta",
+                { y: 20, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.8, stagger: 0.15 },
+                "-=0.6"
+            );
 
         // Section reveals
         const revealElements = gsap.utils.toArray(".gsap-reveal");
@@ -414,7 +414,7 @@ export default function FinanceAgents() {
                     filter: none !important;
                 }
             `}</style>
-            
+
             {/* HERO SECTION - REBUILT TO MATCH INDUSTRIES */}
             <header className="hero-section" style={{
                 position: "relative",
@@ -427,24 +427,24 @@ export default function FinanceAgents() {
             }}>
                 <TechMeshBackground />
                 <div style={{
-                      position: "absolute",
-                      top: 0, left: 0, width: "100%", height: "100%",
-                      background: "radial-gradient(circle at 70% 50%, transparent, var(--bg) 70%)",
-                      pointerEvents: "none",
-                      zIndex: 1
+                    position: "absolute",
+                    top: 0, left: 0, width: "100%", height: "100%",
+                    background: "radial-gradient(circle at 70% 50%, transparent, var(--bg) 70%)",
+                    pointerEvents: "none",
+                    zIndex: 1
                 }} />
-                
+
                 {/* Right-aligned Faded Hero Image Background */}
                 <div className="hero-background hero-background-wrapper">
-                    <Image 
-                        src="/images/agents/finance-agent-hero.jpg" 
-                        alt="Financial AI Agents" 
-                        fill 
-                        style={{ objectFit: "cover", objectPosition: "left center", maskImage: "radial-gradient(circle at right, black, transparent 80%)", WebkitMaskImage: "radial-gradient(circle at right, black, transparent 80%)" }} 
-                        priority 
+                    <Image
+                        src="/images/agents/finance-agent-hero.jpg"
+                        alt="Financial AI Agents"
+                        fill
+                        style={{ objectFit: "cover", objectPosition: "left center", maskImage: "radial-gradient(circle at right, black, transparent 80%)", WebkitMaskImage: "radial-gradient(circle at right, black, transparent 80%)" }}
+                        priority
                     />
                 </div>
-                
+
                 <div className="container hero-container" style={{ position: "relative", zIndex: 2, display: "flex", flexDirection: "column", alignItems: "flex-start", textAlign: "left", width: "100%", maxWidth: "1250px", margin: "0 auto" }}>
                     <div className="hero-title-line" style={{ display: "inline-flex", alignItems: "center", gap: "0.75rem", padding: "0.6rem 1.2rem", background: "rgba(16, 185, 129, 0.1)", borderRadius: "100px", border: "1px solid rgba(16, 185, 129, 0.2)", marginBottom: "2.5rem", color: "#10b981", fontSize: "0.9rem", fontWeight: 700, letterSpacing: "0.05em" }}>
                         <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#10b981", boxShadow: "0 0 10px #10b981" }} />
@@ -457,10 +457,10 @@ export default function FinanceAgents() {
                         Meet your Finance Digital Worker: autonomous invoice processing, real-time reconciliation, anomaly detection, and compliance-ready audit trails.
                     </p>
 
-                    <div className="hero-cta" style={{ 
-                        background: "var(--card-bg)", 
-                        padding: "2rem", 
-                        borderRadius: "32px", 
+                    <div className="hero-cta" style={{
+                        background: "var(--card-bg)",
+                        padding: "2rem",
+                        borderRadius: "32px",
                         border: "1px solid var(--border)",
                         marginBottom: "3.5rem",
                         maxWidth: "750px",
@@ -470,7 +470,7 @@ export default function FinanceAgents() {
                             The Problem: Manual Finance Operations Are Bleeding Time and Accuracy
                         </h3>
                         <p style={{ fontSize: "1.05rem", lineHeight: 1.7, color: "var(--text-muted)" }}>
-                            Finance teams across the UK are stuck in spreadsheet hell. A mid-market company with £50m annual turnover processes 800-1,200 invoices monthly. 
+                            Finance teams across the UK are stuck in spreadsheet hell. A mid-market company with £50m annual turnover processes 800-1,200 invoices monthly.
                             {!isReadMoreOpen && (
                                 <>
                                     ... <button onClick={() => setIsReadMoreOpen(true)} style={{ color: "var(--primary)", background: "transparent", border: "none", cursor: "pointer", fontWeight: 700, padding: 0, textDecoration: "underline", marginLeft: "0.25rem", fontSize: "0.95rem" }}>Read more</button>
@@ -486,19 +486,19 @@ export default function FinanceAgents() {
                     </div>
 
                     <div className="hero-cta" style={{ display: "flex", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
-                        <Link href="/demo/finance" style={{ 
-                            display: "inline-flex", alignItems: "center", gap: "0.5rem", 
-                            padding: "1rem 2rem", background: "#4F46E5", color: "white", 
-                            fontWeight: 700, borderRadius: "12px", textDecoration: "none", 
-                            boxShadow: "0 10px 30px rgba(79, 70, 229, 0.3)", transition: "all 0.3s ease" 
+                        <Link href="/demo/finance" style={{
+                            display: "inline-flex", alignItems: "center", gap: "0.5rem",
+                            padding: "1rem 2rem", background: "#4F46E5", color: "white",
+                            fontWeight: 700, borderRadius: "12px", textDecoration: "none",
+                            boxShadow: "0 10px 30px rgba(79, 70, 229, 0.3)", transition: "all 0.3s ease"
                         }}>
                             See Finance Agent Demo <ArrowRight size={20} />
                         </Link>
-                        <Link href="/case-studies/finance-pdf" style={{ 
+                        <Link href="/case-studies/finance-pdf" style={{
                             display: "inline-flex", alignItems: "center", justifyContent: "center",
-                            padding: "1rem 2rem", background: "#0F172A", color: "white", 
+                            padding: "1rem 2rem", background: "#0F172A", color: "white",
                             fontWeight: 700, borderRadius: "12px", textDecoration: "none",
-                            transition: "all 0.3s ease" 
+                            transition: "all 0.3s ease"
                         }}>
                             Download Finance Case Study
                         </Link>
@@ -512,8 +512,8 @@ export default function FinanceAgents() {
                 <div className="container">
                     <div className="responsive-grid zig">
                         <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
-    <img src="/images/industries/finance-dw-problem.jpg" alt="The Problem - Overwhelmed finance professional at desk surrounded by invoices, spreadsheets, sticky notes" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
-</div>
+                            <img src="/images/industries/finance-dw-problem.png" alt="The Problem - Overwhelmed finance professional at desk surrounded by invoices, spreadsheets, sticky notes" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+                        </div>
                         <div className="gsap-reveal">
                             <span className="section-label">The Impact</span>
                             <h2 className="section-title">The Cost of Manual Processing</h2>
@@ -550,8 +550,8 @@ export default function FinanceAgents() {
                             </div>
                         </div>
                         <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
-    <img src="/images/agents/finance-dw-workflow.jpg" alt="Autonomous Invoice Workflow - Invoice → Extraction → Categorisation → Accounting Software" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
-</div>
+                            <img src="/images/agents/finance-dw-workflow.png" alt="Autonomous Invoice Workflow - Invoice → Extraction → Categorisation → Accounting Software" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+                        </div>
                     </div>
                 </div>
             </section>
@@ -561,8 +561,8 @@ export default function FinanceAgents() {
                 <div className="container">
                     <div className="responsive-grid zig">
                         <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
-    <img src="/images/industries/finance-dw-recon.jpg" alt="Expense & Reconciliation - Mobile receipt upload matching against bank feed automatically" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
-</div>
+                            <img src="/images/industries/finance-dw-recon.png" alt="Expense & Reconciliation - Mobile receipt upload matching against bank feed automatically" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+                        </div>
                         <div className="gsap-reveal">
                             <span className="section-label">Expense & Reconciliation</span>
                             <h2 className="section-title">Intelligent Expense & Reconciliation</h2>
@@ -608,8 +608,8 @@ export default function FinanceAgents() {
                                     The Finance agent is a multi-step orchestration built on proven, auditable infrastructure. The trigger is simple: an email arrives with an invoice attachment, or a user submits an expense via your custom app. n8n (open-source workflow automation) detects the trigger and starts the sequence.
                                 </p>
                                 <ul style={{ marginBottom: "1.5rem", paddingLeft: "1.5rem", display: "flex", flexDirection: "column", gap: "1rem" }}>
-                                     <li><strong>Step 1: Document Extraction.</strong> GPT-4o with vision capability reads the invoice, extracts key fields (supplier, date, amount, tax, PO), and returns structured JSON. Accuracy on well-formed invoices: 99.1%.</li>
-                                     <li><strong>Step 2: Intelligent Categorisation.</strong> Claude reads the extracted data plus your business context—your supplier list, GL chart, approval thresholds, policy rules—and decides on GL code, cost centre, and approval routing. Claude works with a 200K token context window.</li>
+                                    <li><strong>Step 1: Document Extraction.</strong> GPT-4o with vision capability reads the invoice, extracts key fields (supplier, date, amount, tax, PO), and returns structured JSON. Accuracy on well-formed invoices: 99.1%.</li>
+                                    <li><strong>Step 2: Intelligent Categorisation.</strong> Claude reads the extracted data plus your business context—your supplier list, GL chart, approval thresholds, policy rules—and decides on GL code, cost centre, and approval routing. Claude works with a 200K token context window.</li>
                                 </ul>
                             </div>
                         </div>
@@ -626,9 +626,9 @@ export default function FinanceAgents() {
                             <h2 className="section-title">Rules Engine to ERP Synchronization</h2>
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.15rem", textAlign: "justify" }}>
                                 <ul style={{ marginBottom: "1.5rem", paddingLeft: "1.5rem", display: "flex", flexDirection: "column", gap: "1rem" }}>
-                                     <li><strong>Step 3: Validation & Rules.</strong> The agent applies business logic: Is the supplier approved? Is the amount within limits? Rules are stored in a simple JSON configuration that your Finance Manager can edit.</li>
-                                     <li><strong>Step 4: System Integration.</strong> n8n&apos;s connectors integrate with Xero, QuickBooks, Sage, Zoho Books via REST APIs. The agent pushes approved invoices directly into your accounting software in milliseconds.</li>
-                                     <li><strong>Step 5: Audit Trail.</strong> Every decision is logged: who submitted, what was extracted, rules applied, decision made. Logs are immutable.</li>
+                                    <li><strong>Step 3: Validation & Rules.</strong> The agent applies business logic: Is the supplier approved? Is the amount within limits? Rules are stored in a simple JSON configuration that your Finance Manager can edit.</li>
+                                    <li><strong>Step 4: System Integration.</strong> n8n&apos;s connectors integrate with Xero, QuickBooks, Sage, Zoho Books via REST APIs. The agent pushes approved invoices directly into your accounting software in milliseconds.</li>
+                                    <li><strong>Step 5: Audit Trail.</strong> Every decision is logged: who submitted, what was extracted, rules applied, decision made. Logs are immutable.</li>
                                 </ul>
                                 <p>
                                     The entire loop runs in 90 seconds. Humans never touch straightforward invoices. Exceptions land in a task queue; your Finance team reviews them, and the agent learns the decision for next time.
@@ -636,8 +636,8 @@ export default function FinanceAgents() {
                             </div>
                         </div>
                         <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
-    <img src="/images/agents/finance-dw-erp-sync.jpg" alt="Rules Engine to ERP Synchronization - Real-time automated ledger posting" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
-</div>
+                            <img src="/images/agents/finance-dw-erp-sync.png" alt="Rules Engine to ERP Synchronization - Real-time automated ledger posting" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+                        </div>
                     </div>
                 </div>
             </section>
@@ -649,33 +649,33 @@ export default function FinanceAgents() {
                         <span className="section-label">Impact</span>
                         <h2 className="section-title">Business Outcomes: The Numbers That Matter</h2>
                     </div>
-                    
+
                     <div className="outcomes-grid">
                         <div className="gsap-reveal metrics-grid">
-                             <div className="gsap-card" style={{ padding: "2rem", background: "var(--bg-secondary)", borderRadius: "32px", border: "1px solid var(--border)" }}>
-                                 <h4 style={{ color: "var(--primary)", fontWeight: 900, marginBottom: "0.5rem", fontSize: "1.7rem" }}>40-50%</h4>
-                                 <div style={{ fontWeight: 800, marginBottom: "0.5rem", color: "white" }}>Hours Saved</div>
-                                 <p style={{ color: "var(--text-muted)", fontSize: "0.95rem", lineHeight: 1.6 }}>Reduction in manual admin. For 3 FTEs, that&apos;s 1.5 redirected to strategy. Annual savings: £35k-55k per head.</p>
-                             </div>
-                             <div className="gsap-card" style={{ padding: "2rem", background: "var(--bg-secondary)", borderRadius: "32px", border: "1px solid var(--border)" }}>
-                                 <h4 style={{ color: "var(--primary)", fontWeight: 900, marginBottom: "0.5rem", fontSize: "1.7rem" }}>3-5 Days</h4>
-                                 <div style={{ fontWeight: 800, marginBottom: "0.5rem", color: "white" }}>Faster Cycle Time</div>
-                                 <p style={{ color: "var(--text-muted)", fontSize: "0.95rem", lineHeight: 1.6 }}>Month-end close now takes 3-5 days instead of 10-14 days. Open items resolved in real-time.</p>
-                             </div>
-                             <div className="gsap-card" style={{ padding: "2rem", background: "var(--bg-secondary)", borderRadius: "32px", border: "1px solid var(--border)" }}>
-                                 <h4 style={{ color: "var(--primary)", fontWeight: 900, marginBottom: "0.5rem", fontSize: "1.7rem" }}>99.2%</h4>
-                                 <div style={{ fontWeight: 800, marginBottom: "0.5rem", color: "white" }}>Accuracy</div>
-                                 <p style={{ color: "var(--text-muted)", fontSize: "0.95rem", lineHeight: 1.6 }}>Accuracy on routine invoices; 98% of flagged exceptions correctly identified. Fewer HMRC queries.</p>
-                             </div>
-                             <div className="gsap-card" style={{ padding: "2rem", background: "var(--bg-secondary)", borderRadius: "32px", border: "1px solid var(--border)" }}>
-                                 <h4 style={{ color: "var(--primary)", fontWeight: 900, marginBottom: "0.5rem", fontSize: "1.7rem" }}>6-9 Months</h4>
-                                 <div style={{ fontWeight: 800, marginBottom: "0.5rem", color: "white" }}>Typical Payback</div>
-                                 <p style={{ color: "var(--text-muted)", fontSize: "0.95rem", lineHeight: 1.6 }}>Eliminated £1,200-1,800/mo in outsourced data entry. Plus 3-5 days improved cash cycle.</p>
-                             </div>
+                            <div className="gsap-card" style={{ padding: "2rem", background: "var(--bg-secondary)", borderRadius: "32px", border: "1px solid var(--border)" }}>
+                                <h4 style={{ color: "var(--primary)", fontWeight: 900, marginBottom: "0.5rem", fontSize: "1.7rem" }}>40-50%</h4>
+                                <div style={{ fontWeight: 800, marginBottom: "0.5rem", color: "white" }}>Hours Saved</div>
+                                <p style={{ color: "var(--text-muted)", fontSize: "0.95rem", lineHeight: 1.6 }}>Reduction in manual admin. For 3 FTEs, that&apos;s 1.5 redirected to strategy. Annual savings: £35k-55k per head.</p>
+                            </div>
+                            <div className="gsap-card" style={{ padding: "2rem", background: "var(--bg-secondary)", borderRadius: "32px", border: "1px solid var(--border)" }}>
+                                <h4 style={{ color: "var(--primary)", fontWeight: 900, marginBottom: "0.5rem", fontSize: "1.7rem" }}>3-5 Days</h4>
+                                <div style={{ fontWeight: 800, marginBottom: "0.5rem", color: "white" }}>Faster Cycle Time</div>
+                                <p style={{ color: "var(--text-muted)", fontSize: "0.95rem", lineHeight: 1.6 }}>Month-end close now takes 3-5 days instead of 10-14 days. Open items resolved in real-time.</p>
+                            </div>
+                            <div className="gsap-card" style={{ padding: "2rem", background: "var(--bg-secondary)", borderRadius: "32px", border: "1px solid var(--border)" }}>
+                                <h4 style={{ color: "var(--primary)", fontWeight: 900, marginBottom: "0.5rem", fontSize: "1.7rem" }}>99.2%</h4>
+                                <div style={{ fontWeight: 800, marginBottom: "0.5rem", color: "white" }}>Accuracy</div>
+                                <p style={{ color: "var(--text-muted)", fontSize: "0.95rem", lineHeight: 1.6 }}>Accuracy on routine invoices; 98% of flagged exceptions correctly identified. Fewer HMRC queries.</p>
+                            </div>
+                            <div className="gsap-card" style={{ padding: "2rem", background: "var(--bg-secondary)", borderRadius: "32px", border: "1px solid var(--border)" }}>
+                                <h4 style={{ color: "var(--primary)", fontWeight: 900, marginBottom: "0.5rem", fontSize: "1.7rem" }}>6-9 Months</h4>
+                                <div style={{ fontWeight: 800, marginBottom: "0.5rem", color: "white" }}>Typical Payback</div>
+                                <p style={{ color: "var(--text-muted)", fontSize: "0.95rem", lineHeight: 1.6 }}>Eliminated £1,200-1,800/mo in outsourced data entry. Plus 3-5 days improved cash cycle.</p>
+                            </div>
                         </div>
                         <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
-    <img src="/images/industries/finance-dw-roi.jpg" alt="Business Outcomes - Metrics dashboard: 40% hours saved, 99.2% accuracy, 6-9 month payback, 3-5 day cycle time improvement" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
-</div>
+                            <img src="/images/industries/finance-dw-roi.png" alt="Business Outcomes - Metrics dashboard: 40% hours saved, 99.2% accuracy, 6-9 month payback, 3-5 day cycle time improvement" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+                        </div>
                     </div>
                 </div>
             </section>
@@ -684,7 +684,7 @@ export default function FinanceAgents() {
             <section id="integration" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)" }}>
                 <div className="container">
                     <div className="responsive-grid zig">
-                        
+
                         <div className="gsap-img-reveal" style={{ background: 'var(--card-bg)', padding: '3rem', borderRadius: '32px', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.5)', border: '1px solid rgba(255,255,255,0.05)' }}>
                             <h3 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "1.5rem", textAlign: "center" }}>Supported Ecosystems</h3>
                             <div className="brand-logo-grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
@@ -731,10 +731,10 @@ export default function FinanceAgents() {
                                     Finance is regulated. We understand FCA principles, AML/CTFS obligations, and audit expectations. Here&apos;s what we build into every Finance agent.
                                 </p>
                                 <ul style={{ marginBottom: "1.5rem", paddingLeft: "1.5rem", display: "flex", flexDirection: "column", gap: "1rem" }}>
-                                     <li><strong>Approval Workflows:</strong> High-risk transactions ({`>`}£50k, new suppliers, policy exceptions) route to a human approver before GL posting. The agent prepares the decision brief.</li>
-                                     <li><strong>Segregation of Duties:</strong> The agent handles categorisation and validation; humans handle judgment calls and exceptions.</li>
-                                     <li><strong>Encryption:</strong> API keys and credentials are stored in encrypted vaults (AWS Secrets Manager, Azure Key Vault). Integrations use OAuth.</li>
-                                     <li><strong>Immutable Audit Trails:</strong> Logs track submission timestamp, who submitted, what was extracted, rules applied, decision made, who approved, when it posted. Logs are queryable for FCA compliance and SRA readiness.</li>
+                                    <li><strong>Approval Workflows:</strong> High-risk transactions ({`>`}£50k, new suppliers, policy exceptions) route to a human approver before GL posting. The agent prepares the decision brief.</li>
+                                    <li><strong>Segregation of Duties:</strong> The agent handles categorisation and validation; humans handle judgment calls and exceptions.</li>
+                                    <li><strong>Encryption:</strong> API keys and credentials are stored in encrypted vaults (AWS Secrets Manager, Azure Key Vault). Integrations use OAuth.</li>
+                                    <li><strong>Immutable Audit Trails:</strong> Logs track submission timestamp, who submitted, what was extracted, rules applied, decision made, who approved, when it posted. Logs are queryable for FCA compliance and SRA readiness.</li>
                                 </ul>
                                 <p>
                                     Retention logs stay per HMRC guidance (6 years for PAYE, 3 years for expenses, etc.). You define retention policy; we enforce it.
@@ -742,8 +742,8 @@ export default function FinanceAgents() {
                             </div>
                         </div>
                         <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
-    <img src="/images/agents/finance-security-audit.jpg" alt="Security diagram - Encrypted vaults, approval workflows, audit trail, immutable logs" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
-</div>
+                            <img src="/images/agents/finance-security-audit.png" alt="Security diagram - Encrypted vaults, approval workflows, audit trail, immutable logs" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+                        </div>
                     </div>
                 </div>
             </section>
@@ -753,8 +753,8 @@ export default function FinanceAgents() {
                 <div className="container">
                     <div className="responsive-grid zig">
                         <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
-    <img src="/images/agents/finance-case-study.jpg" alt="Case Study - Before/After metrics: 12 days → 5 days, 40 hrs → 8 hrs, 3.2% → 0.4% error, 7-month payback" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
-</div>
+                            <img src="/images/agents/finance-case-study.png" alt="Case Study - Before/After metrics: 12 days → 5 days, 40 hrs → 8 hrs, 3.2% → 0.4% error, 7-month payback" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+                        </div>
                         <div className="gsap-reveal">
                             <span className="section-label">Case Study</span>
                             <h2 className="section-title">A £120M Turnover Professional Services Firm</h2>
@@ -766,7 +766,7 @@ export default function FinanceAgents() {
                                     <strong>Challenge:</strong> Month-end close took 12 days, with 40 hours of manual invoice processing, frequent data entry errors, and fragmented approval workflows across email and spreadsheet.
                                 </p>
                                 <p style={{ marginBottom: "1.5rem" }}>
-                                    <strong>Outcome:</strong> We deployed a Finance agent integrating with Xero and BambooHR. The agent processes 80% of invoices without human touch (88% accuracy within first week, 99.2% by week 12). 
+                                    <strong>Outcome:</strong> We deployed a Finance agent integrating with Xero and BambooHR. The agent processes 80% of invoices without human touch (88% accuracy within first week, 99.2% by week 12).
                                 </p>
                                 <p>
                                     <strong>Results:</strong> Month-end close reduced from 12 days to 5 days. Manual invoice processing time dropped from 40 hours/month to 8 hours/month. Error rate dropped from 3.2% to 0.4%. Cash flow visibility improved 13 weeks out with 94% accuracy. Total investment: £28,000 + £800/month retainer. Payback: 7 months. Ongoing monthly savings: £2,100.
@@ -822,8 +822,8 @@ export default function FinanceAgents() {
                                 transition: "all 0.3s ease",
                                 boxShadow: "0 4px 6px rgba(0,0,0,0.1)"
                             }}
-                            onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--primary)"; e.currentTarget.style.color = "var(--primary)"; e.currentTarget.style.transform = "translateY(-2px)"; }}
-                            onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.color = "var(--text)"; e.currentTarget.style.transform = "none"; }}
+                                onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--primary)"; e.currentTarget.style.color = "var(--primary)"; e.currentTarget.style.transform = "translateY(-2px)"; }}
+                                onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.color = "var(--text)"; e.currentTarget.style.transform = "none"; }}
                             >
                                 {link.title}
                             </Link>
@@ -832,27 +832,27 @@ export default function FinanceAgents() {
                 </div>
             </section>
 
-             {/* Bottom CTAs */}
-             <section style={{ padding: "120px 1.5rem", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
-                  <div className="container" style={{ maxWidth: "1000px", textAlign: "center" }}>
-                       <div className="gsap-reveal">
-                            <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 950, marginBottom: "2rem" }}>
-                                Ready to <span style={{ color: "var(--primary)" }}>Automate</span> Your Finance Operations?
-                            </h2>
-                            <p style={{ fontSize: "1.2rem", color: "var(--text-muted)", marginBottom: "3rem", maxWidth: "700px", margin: "0 auto 3rem auto", lineHeight: 1.6 }}>
-                                See how a Finance Digital Worker can instantly extract, categorise, and reconcile your data with 99.2% accuracy.
-                            </p>
-                            <div style={{ display: "flex", gap: "1.5rem", justifyContent: "center", flexWrap: "wrap", alignItems: "center" }}>
-                                <Link href="/demo/finance" className="btn-primary" style={{ padding: "0 2.5rem", background: "#1d4ed8", boxShadow: "0 10px 30px rgba(29, 78, 216, 0.3)" }}>
-                                    See Finance Agent Demo <ArrowRight size={20} />
-                                </Link>
-                                <Link href="/case-studies/finance-pdf" className="btn-secondary" style={{ padding: "0 2.5rem", border: "1px solid rgba(255,255,255,0.2)", color: "white" }}>
-                                    Download Finance Case Study
-                                </Link>
-                            </div>
-                       </div>
-                  </div>
-             </section>
+            {/* Bottom CTAs */}
+            <section style={{ padding: "120px 1.5rem", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
+                <div className="container" style={{ maxWidth: "1000px", textAlign: "center" }}>
+                    <div className="gsap-reveal">
+                        <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 950, marginBottom: "2rem" }}>
+                            Ready to <span style={{ color: "var(--primary)" }}>Automate</span> Your Finance Operations?
+                        </h2>
+                        <p style={{ fontSize: "1.2rem", color: "var(--text-muted)", marginBottom: "3rem", maxWidth: "700px", margin: "0 auto 3rem auto", lineHeight: 1.6 }}>
+                            See how a Finance Digital Worker can instantly extract, categorise, and reconcile your data with 99.2% accuracy.
+                        </p>
+                        <div style={{ display: "flex", gap: "1.5rem", justifyContent: "center", flexWrap: "wrap", alignItems: "center" }}>
+                            <Link href="/demo/finance" className="btn-primary" style={{ padding: "0 2.5rem", background: "#1d4ed8", boxShadow: "0 10px 30px rgba(29, 78, 216, 0.3)" }}>
+                                See Finance Agent Demo <ArrowRight size={20} />
+                            </Link>
+                            <Link href="/case-studies/finance-pdf" className="btn-secondary" style={{ padding: "0 2.5rem", border: "1px solid rgba(255,255,255,0.2)", color: "white" }}>
+                                Download Finance Case Study
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
         </div>
     );

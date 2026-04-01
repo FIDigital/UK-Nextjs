@@ -9,12 +9,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import Script from "next/script";
 import FAQItem from "@/components/FAQItem";
-import { 
-    GlobalMapVisual, 
-    RolesChartVisual, 
+import {
+    GlobalMapVisual,
+    RolesChartVisual,
     TimelineVisual,
     DataProtectionVisual,
-    ZohoExpertiseVisual 
+    ZohoExpertiseVisual
 } from "@/components/DeliveryIllustrations";
 
 if (typeof window !== "undefined") {
@@ -73,7 +73,7 @@ const ReadMoreText = ({ children, previewHeight = 120, fadeColor = "var(--bg)" }
 
     useEffect(() => {
         if (!contentRef.current || !wrapperRef.current) return;
-        
+
         if (isExpanded) {
             gsap.to(wrapperRef.current, {
                 height: contentRef.current.scrollHeight,
@@ -91,19 +91,19 @@ const ReadMoreText = ({ children, previewHeight = 120, fadeColor = "var(--bg)" }
 
     return (
         <div style={{ position: "relative", marginBottom: "1.5rem" }}>
-            <div 
-                ref={wrapperRef} 
-                style={{ 
-                    height: previewHeight, 
-                    overflow: "hidden", 
-                    position: "relative" 
+            <div
+                ref={wrapperRef}
+                style={{
+                    height: previewHeight,
+                    overflow: "hidden",
+                    position: "relative"
                 }}
             >
                 <div ref={contentRef} style={{ paddingBottom: "1rem" }}>
                     {children}
                 </div>
             </div>
-            
+
             {!isExpanded && (
                 <div style={{
                     position: "absolute",
@@ -115,7 +115,7 @@ const ReadMoreText = ({ children, previewHeight = 120, fadeColor = "var(--bg)" }
                     pointerEvents: "none"
                 }} />
             )}
-            
+
             <button
                 onClick={() => setIsExpanded(!isExpanded)}
                 style={{
@@ -134,12 +134,12 @@ const ReadMoreText = ({ children, previewHeight = 120, fadeColor = "var(--bg)" }
                 }}
             >
                 {isExpanded ? "Show Less" : "Read Full Detail"}
-                <ChevronDown 
-                    size={16} 
-                    style={{ 
-                        transform: isExpanded ? "rotate(180deg)" : "rotate(0deg)", 
-                        transition: "transform 0.3s ease" 
-                    }} 
+                <ChevronDown
+                    size={16}
+                    style={{
+                        transform: isExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                        transition: "transform 0.3s ease"
+                    }}
                 />
             </button>
         </div>
@@ -151,9 +151,9 @@ export default function GlobalDeliveryModelPage() {
 
     useGSAP(() => {
         const reveals = gsap.utils.toArray('.gsap-reveal');
-        
+
         reveals.forEach((element) => {
-            gsap.fromTo(element, 
+            gsap.fromTo(element,
                 { y: 50, opacity: 0 },
                 {
                     y: 0,
@@ -248,12 +248,12 @@ export default function GlobalDeliveryModelPage() {
                 <div className="hero-background" style={{
                     position: "absolute", top: "0", right: "0", width: "65%", height: "100%", zIndex: 0, opacity: 0.7, pointerEvents: "none"
                 }}>
-                    <Image 
-                        src="/images/engineeringacross-everytimezone-hero-image.png" 
-                        alt="Global Engineering Delivery" 
-                        fill 
-                        style={{ objectFit: "cover", objectPosition: "left center", maskImage: "radial-gradient(circle at right, black, transparent 80%)", WebkitMaskImage: "radial-gradient(circle at right, black, transparent 80%)" }} 
-                        priority 
+                    <Image
+                        src="/images/engineeringacross-everytimezone-hero-image.png"
+                        alt="Global Engineering Delivery"
+                        fill
+                        style={{ objectFit: "cover", objectPosition: "left center", maskImage: "radial-gradient(circle at right, black, transparent 80%)", WebkitMaskImage: "radial-gradient(circle at right, black, transparent 80%)" }}
+                        priority
                     />
                 </div>
                 <div className="container hero-container" style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", alignItems: "flex-start", textAlign: "left", width: "100%", maxWidth: "1250px", margin: "0 auto" }}>
@@ -276,7 +276,7 @@ export default function GlobalDeliveryModelPage() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="zig-grid">
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "550px", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
-                            <Image 
+                            <Image
                                 src="/images/The-Model-UK-India.png"
                                 alt="Global Delivery Network Map"
                                 fill
@@ -286,12 +286,12 @@ export default function GlobalDeliveryModelPage() {
 
                         <div className="gsap-reveal">
                             <h2 className="section-title">The Model: UK + India + Australia</h2>
-                            
+
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
                                 <p style={{ marginBottom: "1rem" }}>
                                     FI Digital operates a genuinely distributed global delivery model. Our UK headquarters in London manages client relationships, regulatory compliance, and senior architecture for European clients. Our India engineering centre (Bangalore, Hyderabad, Gujarat) comprises 200+ engineers building systems, conducting quality assurance, and providing operational support.
                                 </p>
-                                
+
                                 <ReadMoreText previewHeight={180} fadeColor="var(--bg-secondary)">
                                     <p style={{ marginBottom: "1rem" }}>
                                         Our Australia office (Sydney, Melbourne) drives innovation, manages Asia-Pacific clients, and oversees financial services architecture. This distribution isn't simply about cost optimisation (though it is cost-effective); it's about having the right expertise in the right location at the right time. UK-based clients interact with UK salespeople, UK architects, and UK account managers who understand the regulatory environment.
@@ -317,12 +317,12 @@ export default function GlobalDeliveryModelPage() {
                     <div className="zag-grid">
                         <div className="gsap-reveal">
                             <h2 className="section-title">200+ Engineers by Specialisation</h2>
-                            
+
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
                                 <p style={{ marginBottom: "1rem" }}>
                                     Our engineering team spans multiple specialisations aligned to the work we deliver. <strong>Platform Engineers (40 FTE)</strong> design and maintain cloud infrastructure, manage AWS and Azure deployments, implement security controls, and ensure observability across systems.
                                 </p>
-                                
+
                                 <ReadMoreText previewHeight={180} fadeColor="var(--bg)">
                                     <p style={{ marginBottom: "1rem" }}>
                                         <strong>Generalist AI/ML Engineers (60 FTE)</strong> build AI systems end-to-end: they select models, fine-tune implementations, integrate AI into applications, manage deployment, and handle operational support. They're comfortable with Claude, GPT-4o, Gemini, and open-source models.
@@ -338,7 +338,7 @@ export default function GlobalDeliveryModelPage() {
                         </div>
 
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "550px", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
-                            <Image 
+                            <Image
                                 src="/images/india-engineering.png"
                                 alt="Roles and Specialisation NOC"
                                 fill
@@ -354,7 +354,7 @@ export default function GlobalDeliveryModelPage() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="zig-grid">
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "550px", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
-                            <Image 
+                            <Image
                                 src="/images/time-zone-advantage.png"
                                 alt="24/7 Delivery Timeline NOC"
                                 fill
@@ -364,12 +364,12 @@ export default function GlobalDeliveryModelPage() {
 
                         <div className="gsap-reveal">
                             <h2 className="section-title">Time Zone Advantage</h2>
-                            
+
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
                                 <p style={{ marginBottom: "1rem" }}>
                                     Concurrent work across time zones is an operational superpower on software projects. Consider a typical feature development cycle: UK architects design a feature on Monday; they document requirements, acceptance criteria, and technical approach; by end of Monday London time, the design document is ready for handoff.
                                 </p>
-                                
+
                                 <ReadMoreText previewHeight={180} fadeColor="var(--bg-secondary)">
                                     <p style={{ marginBottom: "1rem" }}>
                                         India engineers receive the brief on Tuesday morning India time; they begin implementation immediately. By Wednesday morning India time (Tuesday afternoon UK time), India has delivered code for review. UK engineers review Tuesday evening; they provide feedback or approval. If code is approved, it's deployed to staging Wednesday evening UK time.
@@ -392,12 +392,12 @@ export default function GlobalDeliveryModelPage() {
                     <div className="zag-grid">
                         <div className="gsap-reveal">
                             <h2 className="section-title">UK Data Protection in Global Model</h2>
-                            
+
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
                                 <p style={{ marginBottom: "1rem" }}>
                                     Distributed delivery requires careful management of data protection. Your client data—customer records, financial information, legal documents—must remain under UK data protection law (GDPR, Data Protection Act 2018). Our global model maintains absolute separation of concerns. Client data is processed exclusively on UK-based infrastructure (AWS eu-west-2 or Azure UK South).
                                 </p>
-                                
+
                                 <ReadMoreText previewHeight={180} fadeColor="var(--bg)">
                                     <p style={{ marginBottom: "1rem" }}>
                                         Your production databases, customer-facing applications, and sensitive data remain in UK cloud infrastructure, accessible only by UK-based team members or explicitly authorised India-based engineers (with granular access controls). India-based engineers work on code development (non-sensitive), system architecture (non-sensitive), testing against anonymised or synthetic data, and operational support.
@@ -415,7 +415,7 @@ export default function GlobalDeliveryModelPage() {
                         </div>
 
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "550px", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
-                            <Image 
+                            <Image
                                 src="/images/continuous-pipeline.png"
                                 alt="UK Data Protection Cloud Infrastructure"
                                 fill
@@ -431,7 +431,7 @@ export default function GlobalDeliveryModelPage() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="zig-grid">
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "550px", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
-                            <Image 
+                            <Image
                                 src="/images/zoho-logo.webp"
                                 alt="Zoho Integration AI Ecosystem Pipeline"
                                 fill
@@ -441,12 +441,12 @@ export default function GlobalDeliveryModelPage() {
 
                         <div className="gsap-reveal">
                             <h2 className="section-title">QA Across Borders: India's Zoho + AI Expertise</h2>
-                            
+
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
                                 <p style={{ marginBottom: "1rem" }}>
                                     Our India engineering centre has accumulated a decade of expertise in Zoho ecosystem implementations. Zoho has thousands of modules—Zoho CRM, Books, Projects, Inventory, People, Desk—and most mid-market firms use multiple Zoho applications. Our India engineers are fluent in Zoho's architecture, customisation patterns, API design, and extension frameworks.
                                 </p>
-                                
+
                                 <ReadMoreText previewHeight={180} fadeColor="var(--bg-secondary)">
                                     <p style={{ marginBottom: "1rem" }}>
                                         This expertise is a competitive advantage, particularly for firms using Zoho. When we implement AI for Zoho Inventory, India engineers understand not just the technical integration but the operational context: how Zoho Inventory integrates with Books, how purchase orders flow from Projects into Inventory, how custom fields are used.
@@ -469,7 +469,7 @@ export default function GlobalDeliveryModelPage() {
             {/* FAQ Section */}
             <section style={{ padding: "100px 1.5rem", background: "var(--bg)" }}>
                 <Script id="faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-                
+
                 <div className="container" style={{ maxWidth: "900px" }}>
                     <div className="gsap-reveal" style={{ textAlign: "center", marginBottom: "4rem" }}>
                         <div className="section-label">Global Delivery FAQs</div>
@@ -478,7 +478,7 @@ export default function GlobalDeliveryModelPage() {
 
                     <div className="gsap-reveal" style={{ display: "flex", flexDirection: "column" }}>
                         {faqs.map((faq, index) => (
-                            <FAQItem 
+                            <FAQItem
                                 key={index}
                                 question={faq.question}
                                 answer={faq.answer}
@@ -488,8 +488,8 @@ export default function GlobalDeliveryModelPage() {
                 </div>
             </section>
 
-             {/* Final CTA Section */}
-             <section style={{ padding: "100px 1.5rem", background: "var(--bg-secondary)", textAlign: "center" }}>
+            {/* Final CTA Section */}
+            <section style={{ padding: "100px 1.5rem", background: "var(--bg-secondary)", textAlign: "center" }}>
                 <div className="container gsap-reveal" style={{ maxWidth: "800px" }}>
                     <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 800, marginBottom: "1.5rem" }}>Accelerate Your Delivery</h2>
                     <p style={{ fontSize: "1.2rem", color: "var(--text-muted)", marginBottom: "3rem", lineHeight: 1.6 }}>

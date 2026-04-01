@@ -66,7 +66,7 @@ const ReadMoreText = ({ children, previewHeight = 120, fadeColor = "var(--bg)" }
 
     useEffect(() => {
         if (!contentRef.current || !wrapperRef.current) return;
-        
+
         if (isExpanded) {
             gsap.to(wrapperRef.current, {
                 height: contentRef.current.scrollHeight,
@@ -84,19 +84,19 @@ const ReadMoreText = ({ children, previewHeight = 120, fadeColor = "var(--bg)" }
 
     return (
         <div style={{ position: "relative", marginBottom: "1.5rem" }}>
-            <div 
-                ref={wrapperRef} 
-                style={{ 
-                    height: previewHeight, 
-                    overflow: "hidden", 
-                    position: "relative" 
+            <div
+                ref={wrapperRef}
+                style={{
+                    height: previewHeight,
+                    overflow: "hidden",
+                    position: "relative"
                 }}
             >
                 <div ref={contentRef} style={{ paddingBottom: "1rem" }}>
                     {children}
                 </div>
             </div>
-            
+
             {!isExpanded && (
                 <div style={{
                     position: "absolute",
@@ -108,7 +108,7 @@ const ReadMoreText = ({ children, previewHeight = 120, fadeColor = "var(--bg)" }
                     pointerEvents: "none"
                 }} />
             )}
-            
+
             <button
                 onClick={() => setIsExpanded(!isExpanded)}
                 style={{
@@ -127,12 +127,12 @@ const ReadMoreText = ({ children, previewHeight = 120, fadeColor = "var(--bg)" }
                 }}
             >
                 {isExpanded ? "Show Less" : "Read Full Detail"}
-                <ChevronDown 
-                    size={16} 
-                    style={{ 
-                        transform: isExpanded ? "rotate(180deg)" : "rotate(0deg)", 
-                        transition: "transform 0.3s ease" 
-                    }} 
+                <ChevronDown
+                    size={16}
+                    style={{
+                        transform: isExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                        transition: "transform 0.3s ease"
+                    }}
                 />
             </button>
         </div>
@@ -141,13 +141,13 @@ const ReadMoreText = ({ children, previewHeight = 120, fadeColor = "var(--bg)" }
 
 const NetworkDiagramVisual = () => {
     return (
-        <div style={{ 
-            width: "100%", 
-            height: "550px", 
-            borderRadius: "32px", 
+        <div style={{
+            width: "100%",
+            height: "550px",
+            borderRadius: "32px",
             background: "var(--bg-secondary)",
             border: "1px solid var(--border)",
-            display: "flex", 
+            display: "flex",
             alignItems: "center",
             justifyContent: "center",
             padding: "2rem"
@@ -162,7 +162,7 @@ const NetworkDiagramVisual = () => {
             }}>
                 {/* AWS */}
                 <div style={{
-                    background: "white", padding: "12%", borderRadius: "24px", 
+                    background: "white", padding: "12%", borderRadius: "24px",
                     display: "flex", alignItems: "center", justifyContent: "center",
                     boxShadow: "0 10px 30px rgba(0,0,0,0.05)",
                     aspectRatio: "1", border: "1px solid rgba(0,0,0,0.05)",
@@ -175,7 +175,7 @@ const NetworkDiagramVisual = () => {
 
                 {/* Microsoft */}
                 <div style={{
-                    background: "white", padding: "12%", borderRadius: "24px", 
+                    background: "white", padding: "12%", borderRadius: "24px",
                     display: "flex", alignItems: "center", justifyContent: "center",
                     boxShadow: "0 10px 30px rgba(0,0,0,0.05)",
                     aspectRatio: "1", border: "1px solid rgba(0,0,0,0.05)",
@@ -188,7 +188,7 @@ const NetworkDiagramVisual = () => {
 
                 {/* Anthropic */}
                 <div style={{
-                    background: "white", padding: "12%", borderRadius: "24px", 
+                    background: "white", padding: "12%", borderRadius: "24px",
                     display: "flex", alignItems: "center", justifyContent: "center",
                     boxShadow: "0 10px 30px rgba(0,0,0,0.05)",
                     aspectRatio: "1", border: "1px solid rgba(0,0,0,0.05)",
@@ -201,7 +201,7 @@ const NetworkDiagramVisual = () => {
 
                 {/* Google */}
                 <div style={{
-                    background: "white", padding: "12%", borderRadius: "24px", 
+                    background: "white", padding: "12%", borderRadius: "24px",
                     display: "flex", alignItems: "center", justifyContent: "center",
                     boxShadow: "0 10px 30px rgba(0,0,0,0.05)",
                     aspectRatio: "1", border: "1px solid rgba(0,0,0,0.05)",
@@ -221,9 +221,9 @@ export default function PartnershipsPage() {
 
     useGSAP(() => {
         const reveals = gsap.utils.toArray('.gsap-reveal');
-        
+
         reveals.forEach((element) => {
-            gsap.fromTo(element, 
+            gsap.fromTo(element,
                 { y: 50, opacity: 0 },
                 {
                     y: 0,
@@ -261,7 +261,7 @@ export default function PartnershipsPage() {
         <div ref={containerRef} style={{ background: "var(--bg)", minHeight: "100vh" }}>
             <title>Technology Partners | AWS | Microsoft | Anthropic | FI Digital UK</title>
             <meta name="description" content="AWS Partner, Microsoft Partner, Anthropic, Google Cloud partner. Enterprise certification and integrations." />
-            
+
             <style jsx global>{`
                 .section-title {
                     font-size: clamp(2rem, 4vw, 3rem);
@@ -309,12 +309,12 @@ export default function PartnershipsPage() {
                 <div className="hero-background" style={{
                     position: "absolute", top: "0", right: "0", width: "65%", height: "100%", zIndex: 0, opacity: 0.7, pointerEvents: "none"
                 }}>
-                    <Image 
-                        src="/images/Built-on-Enterprise-Partnerships.png" 
-                        alt="Enterprise Partnerships" 
-                        fill 
-                        style={{ objectFit: "cover", objectPosition: "left center", maskImage: "radial-gradient(circle at right, black, transparent 80%)", WebkitMaskImage: "radial-gradient(circle at right, black, transparent 80%)" }} 
-                        priority 
+                    <Image
+                        src="/images/Built-on-Enterprise-Partnerships.png"
+                        alt="Enterprise Partnerships"
+                        fill
+                        style={{ objectFit: "cover", objectPosition: "left center", maskImage: "radial-gradient(circle at right, black, transparent 80%)", WebkitMaskImage: "radial-gradient(circle at right, black, transparent 80%)" }}
+                        priority
                     />
                 </div>
                 <div className="container hero-container" style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", alignItems: "flex-start", textAlign: "left", width: "100%", maxWidth: "1250px", margin: "0 auto" }}>
@@ -337,17 +337,17 @@ export default function PartnershipsPage() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="zig-grid">
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "550px", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
-                           <NetworkDiagramVisual />
+                            <NetworkDiagramVisual />
                         </div>
 
                         <div className="gsap-reveal">
                             <h2 className="section-title">Technology Partners Overview</h2>
-                            
+
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
                                 <p style={{ marginBottom: "1rem" }}>
                                     FI Digital is built on partnerships with the world's leading technology companies. These aren't superficial partnerships; they're technical relationships that shape our product architecture and delivery approach.
                                 </p>
-                                
+
                                 <ReadMoreText previewHeight={180} fadeColor="var(--bg-secondary)">
                                     <p style={{ marginBottom: "1rem" }}>
                                         <strong>AWS</strong> is our primary cloud infrastructure provider. We hold AWS Advanced Partner status, which certifies that we have demonstrated technical expertise, customer success, and operational excellence in delivering AWS-based solutions. We maintain active relationships with AWS solution architects, regularly attend AWS training and certification updates, and participate in AWS partner programmes focused on AI/ML and regulated industries.
@@ -377,12 +377,12 @@ export default function PartnershipsPage() {
                     <div className="zag-grid">
                         <div className="gsap-reveal">
                             <h2 className="section-title">AWS Partnership Detail</h2>
-                            
+
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
                                 <p style={{ marginBottom: "1rem" }}>
                                     AWS is the foundational platform for most FI Digital deployments. Our Advanced Partner status (with AI/ML Competency) reflects years of successful implementations and customer outcomes. AWS provides the infrastructure, the security guarantees, and the management services that make enterprise AI deployment viable.
                                 </p>
-                                
+
                                 <ReadMoreText previewHeight={180} fadeColor="var(--bg)">
                                     <p style={{ marginBottom: "1rem" }}>
                                         We deploy on AWS EC2 for general compute, but we increasingly use managed services: AWS Bedrock for Claude/Anthropic model access, AWS SageMaker for model management and monitoring, AWS Lambda for serverless AI inference, and AWS AppFlow for data integration. These managed services shift operational burden from us to AWS; they reduce the infrastructure you need to manage; they simplify deployment; and they improve security.
@@ -401,7 +401,7 @@ export default function PartnershipsPage() {
 
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "550px", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", background: "#f8f9fa", padding: "2rem" }}>
                             {/* We will use an advanced CSS design here instead of a static image to represent AWS integration, or one of the existing pipeline images */}
-                            <Image 
+                            <Image
                                 src="/images/aws.jpg"
                                 alt="AWS Infrastructure Security & Bedrock"
                                 fill
@@ -417,7 +417,7 @@ export default function PartnershipsPage() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="zig-grid">
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "550px", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
-                            <Image 
+                            <Image
                                 src="/images/microsoft-azure-logo.webp"
                                 alt="AWS Advanced Partner Technology"
                                 fill
@@ -427,12 +427,12 @@ export default function PartnershipsPage() {
 
                         <div className="gsap-reveal">
                             <h2 className="section-title">Microsoft & Azure Detail</h2>
-                            
+
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
                                 <p style={{ marginBottom: "1rem" }}>
                                     For clients committed to the Microsoft ecosystem, Azure OpenAI UK South provides enterprise-grade access to GPT-4o on sovereign UK infrastructure. Azure OpenAI differs from direct OpenAI API access: Microsoft manages the infrastructure, provides SLA guarantees, ensures UK data residency, and integrates seamlessly with your Azure environment.
                                 </p>
-                                
+
                                 <ReadMoreText previewHeight={180} fadeColor="var(--bg-secondary)">
                                     <p style={{ marginBottom: "1rem" }}>
                                         Your AI workloads run in the same Azure tenant as your Dynamics 365, Power Platform, and other Microsoft services. Integration is native: you can build Power Automate workflows that call GPT-4o; you can embed vision AI into Power Apps; you can orchestrate AI within Dynamics business processes. This ecosystem integration is powerful for firms already invested in Microsoft.
@@ -458,12 +458,12 @@ export default function PartnershipsPage() {
                     <div className="zag-grid">
                         <div className="gsap-reveal">
                             <h2 className="section-title">Anthropic Detail</h2>
-                            
+
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
                                 <p style={{ marginBottom: "1rem" }}>
                                     Anthropic is our strategic AI model partner. Claude is the foundation of our legal and financial services solutions because of its extended reasoning capability, explainability, and alignment with regulatory requirements.
                                 </p>
-                                
+
                                 <ReadMoreText previewHeight={180} fadeColor="var(--bg)">
                                     <p style={{ marginBottom: "1rem" }}>
                                         Our partnership with Anthropic is technically deep: we have access to Anthropic's research, we participate in conversations about model capabilities and limitations, and we provide feedback that shapes Anthropic's product direction. Claude's architecture—particularly extended context (200,000 tokens) and constitutional AI (which aligns model outputs with human-chosen values)—is uniquely suited to regulated industries.
@@ -481,7 +481,7 @@ export default function PartnershipsPage() {
                         </div>
 
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "550px", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
-                            <Image 
+                            <Image
                                 src="/images/Anthropic-Logo.wine.png"
                                 alt="Anthropic Claude API Models"
                                 fill
@@ -497,21 +497,21 @@ export default function PartnershipsPage() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="zig-grid">
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "550px", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
-                            <Image 
+                            <Image
                                 src="/images/logo_google_cloud.png"
                                 alt="Google Cloud Gemini Models"
                                 fill
-                                style={{ objectFit: "contain", background: "white", padding: "2rem" }}                         />
+                                style={{ objectFit: "contain", background: "white", padding: "2rem" }} />
                         </div>
 
                         <div className="gsap-reveal">
                             <h2 className="section-title">Google Cloud Detail</h2>
-                            
+
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
                                 <p style={{ marginBottom: "1rem" }}>
                                     Google Cloud provides Gemini and complementary services that enable real-time AI operations. Gemini is our primary model for logistics, manufacturing, and operations AI because of its training on structured data and multi-step reasoning under time constraints.
                                 </p>
-                                
+
                                 <ReadMoreText previewHeight={180} fadeColor="var(--bg-secondary)">
                                     <p style={{ marginBottom: "1rem" }}>
                                         Gemini excels at constraint satisfaction problems (routing, scheduling, resource allocation) that require rapid decision-making. Google Cloud's infrastructure provides access to Gemini API with scale and reliability guarantees. Google Cloud also provides services that enhance our operational AI: BigQuery for analytics on massive datasets, Vertex AI for model management, and document understanding capabilities.
@@ -537,12 +537,12 @@ export default function PartnershipsPage() {
                     <div className="zag-grid">
                         <div className="gsap-reveal">
                             <h2 className="section-title">Zoho Partnership: A Decade of Expertise</h2>
-                            
+
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
                                 <p style={{ marginBottom: "1rem" }}>
                                     Our Zoho expertise is accumulated over a decade of implementation experience. Zoho isn't a single product; it's a family of 40+ business applications. Most mid-market firms use 3-5 Zoho applications; many use 8-10.
                                 </p>
-                                
+
                                 <ReadMoreText previewHeight={180} fadeColor="var(--bg)">
                                     <p style={{ marginBottom: "1rem" }}>
                                         Zoho's customisation and integration capabilities are extensive but require deep understanding to use effectively. Our engineers have implemented Zoho solutions across financial services, professional services, and manufacturing/logistics. This experience has taught us where Zoho excels and where integration with external systems is necessary.
@@ -560,7 +560,7 @@ export default function PartnershipsPage() {
                         </div>
 
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "550px", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
-                            <Image 
+                            <Image
                                 src="/images/zoho-logo.webp"
                                 alt="Zoho Enterprise Consulting"
                                 fill
@@ -576,7 +576,7 @@ export default function PartnershipsPage() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="zig-grid">
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "550px", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
-                            <Image 
+                            <Image
                                 src="/images/What-This-Means-for-Clients.png"
                                 alt="Client Benefits"
                                 fill
@@ -586,12 +586,12 @@ export default function PartnershipsPage() {
 
                         <div className="gsap-reveal">
                             <h2 className="section-title">What This Means for Clients</h2>
-                            
+
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
                                 <p style={{ marginBottom: "1rem" }}>
                                     These partnerships translate into concrete client benefits. First, you get access to enterprise-grade infrastructure backed by the world's leading cloud and AI companies. Their security controls exceed what any individual consulting firm could build independently.
                                 </p>
-                                
+
                                 <ReadMoreText previewHeight={180} fadeColor="var(--bg-secondary)">
                                     <p style={{ marginBottom: "1rem" }}>
                                         Second, you benefit from our specialised knowledge. We're not generalists deploying AI; we're specialists in financial services AI, legal services AI, and operations AI. Our decade of Zoho experience means we can implement Zoho-based solutions faster effectively.
@@ -614,7 +614,7 @@ export default function PartnershipsPage() {
             {/* FAQ Section */}
             <section style={{ padding: "100px 1.5rem", background: "var(--bg)" }}>
                 <Script id="faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-                
+
                 <div className="container" style={{ maxWidth: "900px" }}>
                     <div className="gsap-reveal" style={{ textAlign: "center", marginBottom: "4rem" }}>
                         <div className="section-label" style={{ display: "inline-block", padding: "0.5rem 1rem", background: "rgba(79, 70, 229, 0.1)", color: "var(--primary)", borderRadius: "100px", fontSize: "0.8rem", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase", marginBottom: "1.5rem" }}>Partnership FAQs</div>
@@ -623,7 +623,7 @@ export default function PartnershipsPage() {
 
                     <div className="gsap-reveal" style={{ display: "flex", flexDirection: "column" }}>
                         {faqs.map((faq, index) => (
-                            <FAQItem 
+                            <FAQItem
                                 key={index}
                                 question={faq.question}
                                 answer={faq.answer}
