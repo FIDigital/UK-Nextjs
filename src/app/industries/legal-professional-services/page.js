@@ -70,7 +70,7 @@ const ReadMoreText = ({ children, previewHeight = 120, fadeColor = "var(--bg)" }
 
     useEffect(() => {
         if (!contentRef.current || !wrapperRef.current) return;
-        
+
         if (isExpanded) {
             gsap.to(wrapperRef.current, {
                 height: contentRef.current.scrollHeight,
@@ -88,19 +88,19 @@ const ReadMoreText = ({ children, previewHeight = 120, fadeColor = "var(--bg)" }
 
     return (
         <div style={{ position: "relative", marginBottom: "1.5rem" }}>
-            <div 
-                ref={wrapperRef} 
-                style={{ 
-                    height: previewHeight, 
-                    overflow: "hidden", 
-                    position: "relative" 
+            <div
+                ref={wrapperRef}
+                style={{
+                    height: previewHeight,
+                    overflow: "hidden",
+                    position: "relative"
                 }}
             >
                 <div ref={contentRef} style={{ paddingBottom: "1rem" }}>
                     {children}
                 </div>
             </div>
-            
+
             {!isExpanded && (
                 <div style={{
                     position: "absolute",
@@ -112,7 +112,7 @@ const ReadMoreText = ({ children, previewHeight = 120, fadeColor = "var(--bg)" }
                     pointerEvents: "none"
                 }} />
             )}
-            
+
             <button
                 onClick={() => setIsExpanded(!isExpanded)}
                 style={{
@@ -131,12 +131,12 @@ const ReadMoreText = ({ children, previewHeight = 120, fadeColor = "var(--bg)" }
                 }}
             >
                 {isExpanded ? "Show Less" : "Read Full Detail"}
-                <ChevronDown 
-                    size={16} 
-                    style={{ 
-                        transform: isExpanded ? "rotate(180deg)" : "rotate(0deg)", 
-                        transition: "transform 0.3s ease" 
-                    }} 
+                <ChevronDown
+                    size={16}
+                    style={{
+                        transform: isExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                        transition: "transform 0.3s ease"
+                    }}
                 />
             </button>
         </div>
@@ -148,9 +148,9 @@ export default function LegalServicesPage() {
 
     useGSAP(() => {
         const reveals = gsap.utils.toArray('.gsap-reveal');
-        
+
         reveals.forEach((element) => {
-            gsap.fromTo(element, 
+            gsap.fromTo(element,
                 { y: 50, opacity: 0 },
                 {
                     y: 0,
@@ -188,7 +188,7 @@ export default function LegalServicesPage() {
         <div ref={containerRef} style={{ background: "var(--bg)", minHeight: "100vh" }}>
             <title>Legal AI Solutions | SRA Compliant | FI Digital UK</title>
             <meta name="description" content="AI-powered contract review, due diligence, and matter management for UK law firms. SRA-compliant, Confidentiality-safe, Enterprise-ready." />
-            
+
             <style jsx global>{`
                 .section-title {
                     font-size: clamp(2rem, 3.5vw, 2.8rem);
@@ -270,12 +270,12 @@ export default function LegalServicesPage() {
                 <div className="hero-background" style={{
                     position: "absolute", top: "0", right: "0", width: "65%", height: "100%", zIndex: 0, opacity: 0.7, pointerEvents: "none"
                 }}>
-                    <Image 
-                        src="/images/industries/legal-hero.jpg" 
-                        alt="AI That Understands Legal Confidentiality" 
-                        fill 
-                        style={{ objectFit: "cover", objectPosition: "left center", maskImage: "radial-gradient(circle at right, black, transparent 80%)", WebkitMaskImage: "radial-gradient(circle at right, black, transparent 80%)" }} 
-                        priority 
+                    <Image
+                        src="/images/industries/legal-hero.png"
+                        alt="AI That Understands Legal Confidentiality"
+                        fill
+                        style={{ objectFit: "cover", objectPosition: "left center", maskImage: "radial-gradient(circle at right, black, transparent 80%)", WebkitMaskImage: "radial-gradient(circle at right, black, transparent 80%)" }}
+                        priority
                     />
                 </div>
                 <div className="container hero-container" style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", alignItems: "flex-start", textAlign: "left", width: "100%", maxWidth: "1250px", margin: "0 auto" }}>
@@ -298,7 +298,7 @@ export default function LegalServicesPage() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="zig-grid">
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
-                           <Image 
+                            <Image
                                 src="/images/industries/legal-challenge.jpg"
                                 alt="Modern law office reviewing contracts with AI analysis"
                                 fill
@@ -308,12 +308,12 @@ export default function LegalServicesPage() {
 
                         <div className="gsap-reveal">
                             <h2 className="section-title">The Opportunity: UK Law Firms Ready for AI</h2>
-                            
+
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
                                 <p style={{ marginBottom: "1rem" }}>
                                     The UK legal market stands at an inflection point. Over 10,000 law firms operate in England, Wales, and Scotland, yet the adoption of enterprise AI in legal services remains surprisingly low.
                                 </p>
-                                
+
                                 <ReadMoreText previewHeight={220} fadeColor="var(--bg-secondary)">
                                     <p style={{ marginBottom: "1rem" }}>
                                         The legal profession is increasingly tech-savvy; in-house counsel teams at FTSE 100 companies are actively seeking AI-powered contract and document intelligence. Yet most firms still rely on keyword search, manual document review, and time-consuming due diligence processes.
@@ -339,12 +339,12 @@ export default function LegalServicesPage() {
                     <div className="zag-grid">
                         <div className="gsap-reveal">
                             <h2 className="section-title">Solutions: Contract Review, Due Diligence, Matter Management</h2>
-                            
+
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
                                 <p style={{ marginBottom: "1rem" }}>
                                     We deliver four core AI solutions purpose-built for legal services to radically accelerate your most time-consuming workflows.
                                 </p>
-                                
+
                                 <ReadMoreText previewHeight={200} fadeColor="var(--bg)">
                                     <p style={{ marginBottom: "1rem" }}>
                                         <strong>Contract Review:</strong> Using Claude's 200,000-token context window, our system can ingest an entire contract, background documents, and client instructions to produce comprehensive legal analysis in minutes. It identifies key obligations, unusual terms, and missing provisions. M&A contract reviews that traditionally demand 40-80 hours can be completed in 4 hours.
@@ -365,8 +365,8 @@ export default function LegalServicesPage() {
                         </div>
 
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
-                            <Image 
-                                src="/images/industries/legal-solutions.jpg"
+                            <Image
+                                src="/images/industries/legal-solutions.png"
                                 alt="Three-panel layout mapping contract terms, diligence grids, and matter deadlines"
                                 fill
                                 style={{ objectFit: "cover" }}
@@ -381,7 +381,7 @@ export default function LegalServicesPage() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="zig-grid">
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
-                            <Image 
+                            <Image
                                 src="/images/industries/legal-tech.jpg"
                                 alt="Claude Multi-Step Reasoning Architecture"
                                 fill
@@ -391,12 +391,12 @@ export default function LegalServicesPage() {
 
                         <div className="gsap-reveal">
                             <h2 className="section-title">How Claude Powers Legal AI: 200K Context & Reasoning</h2>
-                            
+
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
                                 <p style={{ marginBottom: "1rem" }}>
                                     Claude's architecture is unusually well-suited to legal work. The massive 200,000-token context window (roughly 150,000 words) allows it to read and deeply reason about entire document sets in a single sweep.
                                 </p>
-                                
+
                                 <ReadMoreText previewHeight={180} fadeColor="var(--bg-secondary)">
                                     <p style={{ marginBottom: "1rem" }}>
                                         For an M&A transaction, Claude can simultaneously ingest the share purchase agreement, completion mechanics, warranties, indemnity schedules, and the buyer's bespoke instructions. This holistic reasoning far surpasses basic searching, spotting true ambiguities and complex cross-document conflicts humans might easily miss.
@@ -422,12 +422,12 @@ export default function LegalServicesPage() {
                     <div className="zag-grid">
                         <div className="gsap-reveal">
                             <h2 className="section-title">SRA Compliance & Professional Conduct</h2>
-                            
+
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
                                 <p style={{ marginBottom: "1rem" }}>
                                     The Solicitors Regulation Authority doesn't strictly prohibit AI use—but it imposes standards that directly reshape how AI architectures must be deployed.
                                 </p>
-                                
+
                                 <ReadMoreText previewHeight={180} fadeColor="var(--bg)">
                                     <p style={{ marginBottom: "1rem" }}>
                                         SRA Principle 4 requires upholding the 'rule of law and administration of justice,' and Principle 6 dictates 'integrity.' This means firms must ensure absolute systemic supervision, active confidentiality management, and guaranteed human judgment loop integration.
@@ -445,8 +445,8 @@ export default function LegalServicesPage() {
                         </div>
 
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
-                            <Image 
-                                src="/images/industries/legal-compliance.jpg"
+                            <Image
+                                src="/images/industries/legal-compliance.png"
                                 alt="SRA Standards of Conduct compliance architecture"
                                 fill
                                 style={{ objectFit: "cover" }}
@@ -461,7 +461,7 @@ export default function LegalServicesPage() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="zig-grid">
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
-                            <Image 
+                            <Image
                                 src="/images/industries/legal-market.jpg"
                                 alt="UK Legal Market Segmentation highlighting mid-market firms"
                                 fill
@@ -471,12 +471,12 @@ export default function LegalServicesPage() {
 
                         <div className="gsap-reveal">
                             <h2 className="section-title">Targeting the 50-500 Lawyer Mid-Market</h2>
-                            
+
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
                                 <p style={{ marginBottom: "1rem" }}>
                                     Our core focus operates aggressively within the upper-mid-market UK legal sector: ambitious firms hosting between 50 and 500 lawyers handling heavy corporate flows.
                                 </p>
-                                
+
                                 <ReadMoreText previewHeight={180} fadeColor="var(--bg-secondary)">
                                     <p style={{ marginBottom: "1rem" }}>
                                         These prominent commercial practices actively handle M&A, complex litigation, and high-value property finance, but historically lack the sprawling internal technology teams enjoyed by Magic Circle mega-firms.
@@ -499,12 +499,12 @@ export default function LegalServicesPage() {
                     <div className="zag-grid">
                         <div className="gsap-reveal">
                             <h2 className="section-title">Case Study: Commercial Litigation Contract Review</h2>
-                            
+
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
                                 <p style={{ marginBottom: "1rem" }}>
                                     A 120-lawyer commercial litigation boutique in the City handled complex disputes involving extensive documentary discovery. Associates spent ~800 hours annually purely extracting relevant holdings and cross-referencing file contracts.
                                 </p>
-                                
+
                                 <ReadMoreText previewHeight={180} fadeColor="var(--bg)">
                                     <p style={{ marginBottom: "1rem" }}>
                                         We deployed our AI document review systems directly integrating internally to their Westlaw DocPoint and Opus practice software. For a £2.1M shareholder dispute spanning 3,500 highly dense pages, the AI natively processed the complete load overnight. It accurately isolated 47 key documents, material breaches, and cross-referenced claims automatically.
@@ -519,8 +519,8 @@ export default function LegalServicesPage() {
                         </div>
 
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
-                            <Image 
-                                src="/images/industries/legal-casestudy.jpg"
+                            <Image
+                                src="/images/industries/legal-casestudy.png"
                                 alt="Commercial litigation AI contract review case study"
                                 fill
                                 style={{ objectFit: "cover" }}
@@ -570,7 +570,7 @@ export default function LegalServicesPage() {
             {/* FAQ Section */}
             <section style={{ padding: "100px 1.5rem", background: "var(--bg)" }}>
                 <Script id="faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-                
+
                 <div className="container" style={{ maxWidth: "900px" }}>
                     <div className="gsap-reveal" style={{ textAlign: "center", marginBottom: "4rem" }}>
                         <div className="section-label" style={{ display: "inline-block", padding: "0.5rem 1rem", background: "rgba(79, 70, 229, 0.1)", color: "var(--primary)", borderRadius: "100px", fontSize: "0.8rem", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase", marginBottom: "1.5rem" }}>Legal Operations FAQs</div>
@@ -579,7 +579,7 @@ export default function LegalServicesPage() {
 
                     <div className="gsap-reveal" style={{ display: "flex", flexDirection: "column" }}>
                         {faqs.map((faq, index) => (
-                            <FAQItem 
+                            <FAQItem
                                 key={index}
                                 question={faq.question}
                                 answer={faq.answer}

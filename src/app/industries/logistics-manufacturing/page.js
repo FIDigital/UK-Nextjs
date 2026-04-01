@@ -70,7 +70,7 @@ const ReadMoreText = ({ children, previewHeight = 120, fadeColor = "var(--bg)" }
 
     useEffect(() => {
         if (!contentRef.current || !wrapperRef.current) return;
-        
+
         if (isExpanded) {
             gsap.to(wrapperRef.current, {
                 height: contentRef.current.scrollHeight,
@@ -88,19 +88,19 @@ const ReadMoreText = ({ children, previewHeight = 120, fadeColor = "var(--bg)" }
 
     return (
         <div style={{ position: "relative", marginBottom: "1.5rem" }}>
-            <div 
-                ref={wrapperRef} 
-                style={{ 
-                    height: previewHeight, 
-                    overflow: "hidden", 
-                    position: "relative" 
+            <div
+                ref={wrapperRef}
+                style={{
+                    height: previewHeight,
+                    overflow: "hidden",
+                    position: "relative"
                 }}
             >
                 <div ref={contentRef} style={{ paddingBottom: "1rem" }}>
                     {children}
                 </div>
             </div>
-            
+
             {!isExpanded && (
                 <div style={{
                     position: "absolute",
@@ -112,7 +112,7 @@ const ReadMoreText = ({ children, previewHeight = 120, fadeColor = "var(--bg)" }
                     pointerEvents: "none"
                 }} />
             )}
-            
+
             <button
                 onClick={() => setIsExpanded(!isExpanded)}
                 style={{
@@ -131,12 +131,12 @@ const ReadMoreText = ({ children, previewHeight = 120, fadeColor = "var(--bg)" }
                 }}
             >
                 {isExpanded ? "Show Less" : "Read Full Detail"}
-                <ChevronDown 
-                    size={16} 
-                    style={{ 
-                        transform: isExpanded ? "rotate(180deg)" : "rotate(0deg)", 
-                        transition: "transform 0.3s ease" 
-                    }} 
+                <ChevronDown
+                    size={16}
+                    style={{
+                        transform: isExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                        transition: "transform 0.3s ease"
+                    }}
                 />
             </button>
         </div>
@@ -148,9 +148,9 @@ export default function LogisticsManufacturingPage() {
 
     useGSAP(() => {
         const reveals = gsap.utils.toArray('.gsap-reveal');
-        
+
         reveals.forEach((element) => {
-            gsap.fromTo(element, 
+            gsap.fromTo(element,
                 { y: 50, opacity: 0 },
                 {
                     y: 0,
@@ -188,7 +188,7 @@ export default function LogisticsManufacturingPage() {
         <div ref={containerRef} style={{ background: "var(--bg)", minHeight: "100vh" }}>
             <title>Logistics & Manufacturing AI | Supply Chain Optimization | FI Digital UK</title>
             <meta name="description" content="AI-powered dispatch, warehouse automation, predictive maintenance, and supply chain optimisation for UK manufacturers and logistics providers." />
-            
+
             <style jsx global>{`
                 .section-title {
                     font-size: clamp(2rem, 3.5vw, 2.8rem);
@@ -270,12 +270,12 @@ export default function LogisticsManufacturingPage() {
                 <div className="hero-background" style={{
                     position: "absolute", top: "0", right: "0", width: "65%", height: "100%", zIndex: 0, opacity: 0.7, pointerEvents: "none"
                 }}>
-                    <Image 
-                        src="/images/industries/logistics-hero.jpg" 
-                        alt="AI That Understands Your Supply Chain" 
-                        fill 
-                        style={{ objectFit: "cover", objectPosition: "left center", maskImage: "radial-gradient(circle at right, black, transparent 80%)", WebkitMaskImage: "radial-gradient(circle at right, black, transparent 80%)" }} 
-                        priority 
+                    <Image
+                        src="/images/industries/logistics-hero.png"
+                        alt="AI That Understands Your Supply Chain"
+                        fill
+                        style={{ objectFit: "cover", objectPosition: "left center", maskImage: "radial-gradient(circle at right, black, transparent 80%)", WebkitMaskImage: "radial-gradient(circle at right, black, transparent 80%)" }}
+                        priority
                     />
                 </div>
                 <div className="container hero-container" style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", alignItems: "flex-start", textAlign: "left", width: "100%", maxWidth: "1250px", margin: "0 auto" }}>
@@ -298,7 +298,7 @@ export default function LogisticsManufacturingPage() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="zig-grid">
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
-                           <Image 
+                            <Image
                                 src="/images/industries/logistics-challenge.jpg"
                                 alt="Inefficient warehouse logistics vs optimized blue routes"
                                 fill
@@ -308,12 +308,12 @@ export default function LogisticsManufacturingPage() {
 
                         <div className="gsap-reveal">
                             <h2 className="section-title">The Challenge: Manual Operations Can't Scale</h2>
-                            
+
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
                                 <p style={{ marginBottom: "1rem" }}>
                                     UK manufacturing and logistics operations face a fundamental scaling problem. A mid-sized manufacturer typically manages operations through a combination of legacy ERP systems, spreadsheets, email, and institutional knowledge.
                                 </p>
-                                
+
                                 <ReadMoreText previewHeight={220} fadeColor="var(--bg-secondary)">
                                     <p style={{ marginBottom: "1rem" }}>
                                         This model works until it doesn't: as volume grows, as supply chains extend globally, as customer delivery expectations tighten, the manual model breaks. Dispatch optimisation is still often done by human coordinators assigning 80-120 delivery requests using intuition rather than constraint mathematics.
@@ -339,12 +339,12 @@ export default function LogisticsManufacturingPage() {
                     <div className="zag-grid">
                         <div className="gsap-reveal">
                             <h2 className="section-title">Solutions: Dispatch, Warehouse & Predictive Maintenance</h2>
-                            
+
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
                                 <p style={{ marginBottom: "1rem" }}>
                                     We deliver four integrated AI solutions that radically reform logistics and manufacturing operational matrices.
                                 </p>
-                                
+
                                 <ReadMoreText previewHeight={200} fadeColor="var(--bg)">
                                     <p style={{ marginBottom: "1rem" }}>
                                         <strong>Dispatch Optimisation:</strong> Replaces manual intuition with AI-driven routing. It ingests package weights, time windows, map telemetry, and DOT restrictions to dynamically calculate perfect fleet routes. A typical deployment cuts fuel costs by 12-18% and surges on-time delivery from 82% to 96%.
@@ -365,8 +365,8 @@ export default function LogisticsManufacturingPage() {
                         </div>
 
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
-                            <Image 
-                                src="/images/industries/logistics-solutions.jpg"
+                            <Image
+                                src="/images/industries/logistics-solutions.png"
                                 alt="Four panels visualizing route arrays, warehouse heatmaps, and sensor IoT nodes"
                                 fill
                                 style={{ objectFit: "cover" }}
@@ -381,7 +381,7 @@ export default function LogisticsManufacturingPage() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="zig-grid">
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
-                            <Image 
+                            <Image
                                 src="/images/industries/logistics-tech.jpg"
                                 alt="n8n orchestration layer routing Gemini optimizations back to TMS"
                                 fill
@@ -391,12 +391,12 @@ export default function LogisticsManufacturingPage() {
 
                         <div className="gsap-reveal">
                             <h2 className="section-title">Technology: n8n + Gemini for Operational AI</h2>
-                            
+
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
                                 <p style={{ marginBottom: "1rem" }}>
                                     Our operational layer acts as the autonomous central nervous system of your supply chain, powered aggressively by Google's Gemini and orchestrated by n8n.
                                 </p>
-                                
+
                                 <ReadMoreText previewHeight={180} fadeColor="var(--bg-secondary)">
                                     <p style={{ marginBottom: "1rem" }}>
                                         <strong>Gemini</strong> excels at constraint complexity. While certain models target dense legal texts, Gemini thrives assessing multi-modal structural realities—calculating microsecond route alterations across 100+ variables, reading IoT gauge visuals natively, and returning operational commands.
@@ -422,12 +422,12 @@ export default function LogisticsManufacturingPage() {
                     <div className="zag-grid">
                         <div className="gsap-reveal">
                             <h2 className="section-title">Integration: Zoho, SAP, Oracle & Custom ERP</h2>
-                            
+
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
                                 <p style={{ marginBottom: "1rem" }}>
                                     We inject operational intelligence cleanly into whatever enterprise stack you currently maintain, ensuring high-frequency data streams remain unsiloed.
                                 </p>
-                                
+
                                 <ReadMoreText previewHeight={180} fadeColor="var(--bg)">
                                     <p style={{ marginBottom: "1rem" }}>
                                         For mid-market operations leveraging <strong>Zoho Inventory</strong> and <strong>Zoho Projects</strong>, AI integration is profoundly native. We aggressively scale Zoho environments to digest real-time dispatch telemetrics and predictive manufacturing limits in under 4 weeks.
@@ -445,8 +445,8 @@ export default function LogisticsManufacturingPage() {
                         </div>
 
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
-                            <Image 
-                                src="/images/industries/logistics-integration.jpg"
+                            <Image
+                                src="/images/industries/logistics-integration.png"
                                 alt="ERP integration stack highlighting Zoho, SAP, Oracle bridging to AI"
                                 fill
                                 style={{ objectFit: "cover" }}
@@ -461,7 +461,7 @@ export default function LogisticsManufacturingPage() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="zig-grid">
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
-                            <Image 
+                            <Image
                                 src="/images/industries/logistics-global.jpg"
                                 alt="FI Digital India Engineering hubs supporting UAE logistics corridors"
                                 fill
@@ -471,12 +471,12 @@ export default function LogisticsManufacturingPage() {
 
                         <div className="gsap-reveal">
                             <h2 className="section-title">UAE & India Operational Excellence</h2>
-                            
+
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
                                 <p style={{ marginBottom: "1rem" }}>
                                     FI Digital actively builds aggressive manufacturing execution systems for high-yield industrial electronics and automotive bases across the UAE, Bangalore, Hyderabad, and Gujarat.
                                 </p>
-                                
+
                                 <ReadMoreText previewHeight={180} fadeColor="var(--bg-secondary)">
                                     <p style={{ marginBottom: "1rem" }}>
                                         Our Dubai infrastructure supports major logistics firms managing the intense Gulf trade corridor, tracking high-volume GCC distributions flawlessly. That unyielding real-world operational scale is directly imported into our UK deployments.
@@ -499,12 +499,12 @@ export default function LogisticsManufacturingPage() {
                     <div className="zag-grid">
                         <div className="gsap-reveal">
                             <h2 className="section-title">Case Study: Logistics Dispatch Optimization</h2>
-                            
+
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
                                 <p style={{ marginBottom: "1rem" }}>
                                     A Bristol-based 3PL managed 150 delivery vehicles serving 800+ UK retailers. Dispatchers burned 3 manual hours daily assigning 500 orders blindly—leaving fleet utilisation stuck at a costly 68% and tanking on-time ratings to 84%.
                                 </p>
-                                
+
                                 <ReadMoreText previewHeight={180} fadeColor="var(--bg)">
                                     <p style={{ marginBottom: "1rem" }}>
                                         We deployed our dispatch logic directly onto their TMC software and Samsara telematics endpoints. Generating hyper-optimized mathematical transit routes instantly, we ingested current truck geolocations against strict customer drop-off windows and DOT driver caps.
@@ -519,8 +519,8 @@ export default function LogisticsManufacturingPage() {
                         </div>
 
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
-                            <Image 
-                                src="/images/industries/logistics-casestudy.jpg"
+                            <Image
+                                src="/images/industries/logistics-casestudy.png"
                                 alt="UK 3PL Logistics Case Study Optimization metrics"
                                 fill
                                 style={{ objectFit: "cover" }}
@@ -570,7 +570,7 @@ export default function LogisticsManufacturingPage() {
             {/* FAQ Section */}
             <section style={{ padding: "100px 1.5rem", background: "var(--bg)" }}>
                 <Script id="faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-                
+
                 <div className="container" style={{ maxWidth: "900px" }}>
                     <div className="gsap-reveal" style={{ textAlign: "center", marginBottom: "4rem" }}>
                         <div className="section-label" style={{ display: "inline-block", padding: "0.5rem 1rem", background: "rgba(79, 70, 229, 0.1)", color: "var(--primary)", borderRadius: "100px", fontSize: "0.8rem", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase", marginBottom: "1.5rem" }}>Operations FAQs</div>
@@ -579,7 +579,7 @@ export default function LogisticsManufacturingPage() {
 
                     <div className="gsap-reveal" style={{ display: "flex", flexDirection: "column" }}>
                         {faqs.map((faq, index) => (
-                            <FAQItem 
+                            <FAQItem
                                 key={index}
                                 question={faq.question}
                                 answer={faq.answer}

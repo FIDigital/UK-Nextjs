@@ -102,10 +102,10 @@ const FAQItem = ({ question, answer }) => {
     const [isOpen, setIsOpen] = useState(false);
     const contentRef = useRef(null);
     const containerRef = useRef(null);
-    
+
     useEffect(() => {
         if (!contentRef.current) return;
-        
+
         if (isOpen) {
             gsap.to(contentRef.current, {
                 height: "auto",
@@ -136,32 +136,32 @@ const FAQItem = ({ question, answer }) => {
     }, [isOpen]);
 
     return (
-        <div 
+        <div
             ref={containerRef}
             className="faq-item gsap-card"
-            style={{ 
-                background: "#0B0F19", 
-                border: "1px solid rgba(255,255,255,0.05)", 
-                borderRadius: "12px", 
-                marginBottom: "0.75rem", 
+            style={{
+                background: "#0B0F19",
+                border: "1px solid rgba(255,255,255,0.05)",
+                borderRadius: "12px",
+                marginBottom: "0.75rem",
                 overflow: "hidden",
                 cursor: "pointer",
                 transition: "border-color 0.3s ease"
             }}
             onClick={() => setIsOpen(!isOpen)}
-            onMouseEnter={(e) => { if(!isOpen) e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)" }}
-            onMouseLeave={(e) => { if(!isOpen) e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)" }}
+            onMouseEnter={(e) => { if (!isOpen) e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)" }}
+            onMouseLeave={(e) => { if (!isOpen) e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)" }}
         >
             <div style={{ padding: "1.25rem 1.5rem", display: "flex", justifyContent: "space-between", alignItems: "center", gap: "2rem" }}>
                 <h3 style={{ fontSize: "0.95rem", fontWeight: 600, margin: 0, color: "rgba(255,255,255,0.9)", letterSpacing: "0.01em" }}>{question}</h3>
-                <div style={{ 
-                    width: "32px", 
-                    height: "32px", 
-                    borderRadius: "50%", 
-                    background: "rgba(255,255,255,0.02)", 
+                <div style={{
+                    width: "32px",
+                    height: "32px",
+                    borderRadius: "50%",
+                    background: "rgba(255,255,255,0.02)",
                     border: "1px solid rgba(255,255,255,0.04)",
-                    display: "flex", 
-                    alignItems: "center", 
+                    display: "flex",
+                    alignItems: "center",
                     justifyContent: "center",
                     flexShrink: 0,
                     transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
@@ -185,23 +185,23 @@ export default function Home() {
 
     useGSAP(() => {
         gsap.config({ nullTargetWarn: false });
-        
+
         // Hero timeline
         const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
         tl.fromTo(".hero-title-line",
             { y: 60, opacity: 0 },
             { y: 0, opacity: 1, duration: 1.2, stagger: 0.2 }
         )
-        .fromTo(".hero-subtitle",
-            { y: 30, opacity: 0 },
-            { y: 0, opacity: 1, duration: 1 },
-            "-=0.6"
-        )
-        .fromTo(".hero-cta",
-            { y: 20, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.8, stagger: 0.15 },
-            "-=0.6"
-        );
+            .fromTo(".hero-subtitle",
+                { y: 30, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1 },
+                "-=0.6"
+            )
+            .fromTo(".hero-cta",
+                { y: 20, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.8, stagger: 0.15 },
+                "-=0.6"
+            );
 
         // Section reveals
         const revealElements = gsap.utils.toArray(".gsap-reveal");
@@ -453,7 +453,7 @@ export default function Home() {
                     .links-grid { grid-template-columns: repeat(5, 1fr); }
                 }
             `}</style>
-            
+
             {/* HERO SECTION - REBUILT TO MATCH INDUSTRIES */}
             <header className="hero-section" style={{
                 position: "relative",
@@ -466,24 +466,24 @@ export default function Home() {
             }}>
                 <TechMeshBackground />
                 <div style={{
-                      position: "absolute",
-                      top: 0, left: 0, width: "100%", height: "100%",
-                      background: "radial-gradient(circle at 70% 50%, transparent, var(--bg) 70%)",
-                      pointerEvents: "none",
-                      zIndex: 1
+                    position: "absolute",
+                    top: 0, left: 0, width: "100%", height: "100%",
+                    background: "radial-gradient(circle at 70% 50%, transparent, var(--bg) 70%)",
+                    pointerEvents: "none",
+                    zIndex: 1
                 }} />
-                
+
                 {/* Right-aligned Faded Hero Image Background */}
                 <div className="hero-background hero-background-wrapper">
-                    <Image 
-                        src="/images/industries/home-hero-bg.jpg" 
-                        alt="Enterprise AI Headquarters" 
-                        fill 
-                        style={{ objectFit: "cover", objectPosition: "left center", maskImage: "radial-gradient(circle at right, black, transparent 80%)", WebkitMaskImage: "radial-gradient(circle at right, black, transparent 80%)" }} 
-                        priority 
+                    <Image
+                        src="/images/industries/home-hero-bg.jpg"
+                        alt="Enterprise AI Headquarters"
+                        fill
+                        style={{ objectFit: "cover", objectPosition: "left center", maskImage: "radial-gradient(circle at right, black, transparent 80%)", WebkitMaskImage: "radial-gradient(circle at right, black, transparent 80%)" }}
+                        priority
                     />
                 </div>
-                
+
                 <div className="container hero-container" style={{ position: "relative", zIndex: 2, display: "flex", flexDirection: "column", alignItems: "flex-start", textAlign: "left", width: "100%", maxWidth: "1250px", margin: "0 auto" }}>
                     <div className="hero-title-line" style={{ display: "inline-flex", alignItems: "center", gap: "0.75rem", padding: "0.6rem 1.2rem", background: "rgba(16, 185, 129, 0.1)", borderRadius: "100px", border: "1px solid rgba(16, 185, 129, 0.2)", marginBottom: "2.5rem", color: "#10b981", fontSize: "0.9rem", fontWeight: 700, letterSpacing: "0.05em" }}>
                         <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#10b981", boxShadow: "0 0 10px #10b981" }} />
@@ -497,20 +497,20 @@ export default function Home() {
                     </p>
 
                     <div className="hero-cta" style={{ display: "flex", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
-                        <Link href="/demo/whatsapp" style={{ 
-                            display: "inline-flex", alignItems: "center", gap: "0.5rem", 
-                            padding: "1rem 2rem", background: "#4F46E5", color: "white", 
-                            fontWeight: 700, borderRadius: "12px", textDecoration: "none", 
-                            boxShadow: "0 10px 30px rgba(79, 70, 229, 0.3)", transition: "all 0.3s ease" 
+                        <Link href="/demo/whatsapp" style={{
+                            display: "inline-flex", alignItems: "center", gap: "0.5rem",
+                            padding: "1rem 2rem", background: "#4F46E5", color: "white",
+                            fontWeight: 700, borderRadius: "12px", textDecoration: "none",
+                            boxShadow: "0 10px 30px rgba(79, 70, 229, 0.3)", transition: "all 0.3s ease"
                         }}>
                             See WhatsApp Demo <ArrowRight size={20} />
                         </Link>
-                        <Link href="/case-studies" style={{ 
+                        <Link href="/case-studies" style={{
                             display: "inline-flex", alignItems: "center", justifyContent: "center",
-                            padding: "1rem 2rem", background: "var(--card-bg)", color: "var(--text)", 
+                            padding: "1rem 2rem", background: "var(--card-bg)", color: "var(--text)",
                             border: "1px solid var(--border)",
                             fontWeight: 700, borderRadius: "12px", textDecoration: "none",
-                            transition: "all 0.3s ease" 
+                            transition: "all 0.3s ease"
                         }}>
                             Explore Global Case Studies
                         </Link>
@@ -540,7 +540,7 @@ export default function Home() {
                             <h2 className="section-title">Core Infrastructure</h2>
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.15rem", textAlign: "justify" }}>
                                 <p style={{ marginBottom: "1.5rem" }}>
-                                    FI Digital UK builds on the world's most powerful AI models and orchestration platforms. Our technology stack combines foundational large language models—Claude 3.5 Sonnet for reasoning and context understanding, GPT-4o for vision and multimodal tasks, and Google Gemini for cost-effective scale—with enterprise automation platforms that connect to your existing systems. 
+                                    FI Digital UK builds on the world's most powerful AI models and orchestration platforms. Our technology stack combines foundational large language models—Claude 3.5 Sonnet for reasoning and context understanding, GPT-4o for vision and multimodal tasks, and Google Gemini for cost-effective scale—with enterprise automation platforms that connect to your existing systems.
                                 </p>
                                 <p style={{ marginBottom: "1.5rem" }}>
                                     We layer n8n for workflow orchestration, LangChain for advanced prompt engineering and retrieval-augmented generation, AWS Bedrock and Azure OpenAI for compliance-aware deployments, and Zoho's integration ecosystem for seamless SAP/Oracle/Salesforce connectivity. This isn't a boutique stack. It's battle-tested across 200+ live deployments in Financial Services, Legal, and Logistics across the UK, Australia, UAE, and India.
@@ -566,7 +566,7 @@ export default function Home() {
                                     The stack we've chosen reflects 10 years of enterprise experience: we picked each component because it's proven in production, well-supported, and integrates with real-world business systems. Claude handles reasoning because its 200K context window means we can feed entire documents in a single API call. GPT-4o handles vision because invoice scanning and document extraction is critical in Finance.
                                 </p>
                                 <p style={{ marginBottom: "1.5rem" }}>
-                                    Gemini handles bulk volume because it's cost-efficient at scale. n8n orchestrates everything because it's open-source, enterprise-grade, and doesn't vendor-lock you. LangChain enables memory because historical context matters in legal work and contract negotiations. 
+                                    Gemini handles bulk volume because it's cost-efficient at scale. n8n orchestrates everything because it's open-source, enterprise-grade, and doesn't vendor-lock you. LangChain enables memory because historical context matters in legal work and contract negotiations.
                                 </p>
                                 <p style={{ fontWeight: 700, color: "var(--text)" }}>
                                     This isn't theoretical. Our clients run this stack in production today, processing millions in transactions, managing thousands of contracts, optimising delivery routes across 4 countries.
@@ -625,7 +625,7 @@ export default function Home() {
                             <h2 className="section-title">Scaling Legal and Logistics Frameworks</h2>
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.15rem", textAlign: "justify" }}>
                                 <p style={{ marginBottom: "1.5rem" }}>
-                                    In Legal, an agent reviews contracts, extracts key terms, cross-references against precedent databases (via LangChain RAG), and produces annotated summaries in minutes instead of hours. A solicitor reviews the analysis, makes judgment calls, and approves. Time savings: 70-80% on routine contract review. Better decisions: the agent never forgets your precedent patterns. 
+                                    In Legal, an agent reviews contracts, extracts key terms, cross-references against precedent databases (via LangChain RAG), and produces annotated summaries in minutes instead of hours. A solicitor reviews the analysis, makes judgment calls, and approves. Time savings: 70-80% on routine contract review. Better decisions: the agent never forgets your precedent patterns.
                                 </p>
                                 <p style={{ marginBottom: "1.5rem" }}>
                                     In Logistics, an autonomous dispatcher optimises routes, coordinates with vendors via n8n integrations, updates inventory in real-time, and forecasts demand using historical patterns. Routes are optimised overnight; drivers have their day's plan by 6am. If a new urgent order arrives at 2pm, the agent recalculates the afternoon route in seconds.
@@ -639,8 +639,8 @@ export default function Home() {
                 </div>
             </section>
 
-             {/* Section 3A: Framework - Discovery (Zag) */}
-             <section id="framework-1" style={{ padding: "120px 1.5rem 60px", background: "var(--bg)" }}>
+            {/* Section 3A: Framework - Discovery (Zag) */}
+            <section id="framework-1" style={{ padding: "120px 1.5rem 60px", background: "var(--bg)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="gsap-reveal" style={{ textAlign: "center", marginBottom: "5rem" }}>
                         <h2 className="section-title" style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)" }}>How We Deploy: Discovery → Build → Operate</h2>
@@ -651,10 +651,10 @@ export default function Home() {
                             <h2 className="section-title">The Foundation</h2>
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.15rem", textAlign: "justify" }}>
                                 <p style={{ marginBottom: "1.5rem" }}>
-                                    Most AI vendors sell you a template and vanish. We embed with your team for 12-16 weeks minimum. This is intense, collaborative work. We're not parachuting in AI; we're building AI into your workflows. 
+                                    Most AI vendors sell you a template and vanish. We embed with your team for 12-16 weeks minimum. This is intense, collaborative work. We're not parachuting in AI; we're building AI into your workflows.
                                 </p>
                                 <p style={{ marginBottom: "1.5rem" }}>
-                                    <strong>Week 1-2: Discovery.</strong> We audit your current workflows, identify the 20% of tasks consuming 80% of labour, quantify the cost of errors, and map your tech stack. We interview 8-12 stakeholders—finance directors, paralegals, operations managers—to understand decision logic that no documentation captures. We review your existing systems, APIs, and data structures. 
+                                    <strong>Week 1-2: Discovery.</strong> We audit your current workflows, identify the 20% of tasks consuming 80% of labour, quantify the cost of errors, and map your tech stack. We interview 8-12 stakeholders—finance directors, paralegals, operations managers—to understand decision logic that no documentation captures. We review your existing systems, APIs, and data structures.
                                 </p>
                                 <p style={{ fontWeight: 700, color: "var(--text)" }}>
                                     We identify quick wins (automated report generation, simple categorisation rules) and deep challenges (complex risk assessment, multi-entity reconciliation). By end of Week 2, we've produced a detailed Discovery Report: here's what we found, here's what works well, here's what's broken, here's what the agent should do, here's the timeline and investment.
@@ -662,19 +662,19 @@ export default function Home() {
                             </div>
                         </div>
                         <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
-    <img src="/images/delivery-hero.png" alt="12-16 Week Embedded AI Deployment Timeline Graphic" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
-</div>
+                            <img src="/images/delivery-hero.png" alt="12-16 Week Embedded AI Deployment Timeline Graphic" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+                        </div>
                     </div>
                 </div>
             </section>
 
-             {/* Section 3B: Framework - Operate (Zig) */}
-             <section id="framework-2" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)" }}>
+            {/* Section 3B: Framework - Operate (Zig) */}
+            <section id="framework-2" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zig">
                         <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
-    <img src="/images/industries/home-ecosystem.jpg" alt="AI Agent Build & Operate Framework Dashboard" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
-</div>
+                            <img src="/images/industries/home-ecosystem.png" alt="AI Agent Build & Operate Framework Dashboard" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+                        </div>
                         <div className="gsap-reveal">
                             <span className="section-label">Deploy & Scale</span>
                             <h2 className="section-title">The Operational Handover</h2>
@@ -683,7 +683,7 @@ export default function Home() {
                                     <strong>Week 3-8: Build.</strong> Our engineering team designs the agent architecture, trains on your data, and integrates with your systems. Claude and GPT-4o handle reasoning; n8n orchestrates workflows; Zoho/Salesforce integrations ensure data flows correctly. We conduct 4 review cycles—Week 3: architecture review, Week 4-5: training/testing, Week 6: system integration, Week 7: UAT (user acceptance testing), Week 8: final refinement.
                                 </p>
                                 <p style={{ marginBottom: "1.5rem" }}>
-                                    <strong>Week 9-12: Operate.</strong> Your team takes the wheel. We run a 4-week handover where you control the agent, we troubleshoot, and document everything. You own the code, the prompts, the configs. We stay on retainer for the first 6 months (typically 4-8 hours per month). 
+                                    <strong>Week 9-12: Operate.</strong> Your team takes the wheel. We run a 4-week handover where you control the agent, we troubleshoot, and document everything. You own the code, the prompts, the configs. We stay on retainer for the first 6 months (typically 4-8 hours per month).
                                 </p>
                                 <p style={{ fontWeight: 700, color: "var(--text)" }}>
                                     Throughout, we're coaching your team. By week 12, your Finance Manager adjusts rules, your legal team adds contracts to RAG, your Operations Manager refines routing. The agent isn't a black box; it's a tool your team understands and controls.
@@ -702,7 +702,7 @@ export default function Home() {
                         <span className="section-label">Expertise</span>
                         <h2 className="section-title" style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)" }}>Industries We Serve</h2>
                     </div>
-                    
+
                     <div className="bento-grid">
                         {/* Finance & Legal (Large Vertical Pane) */}
                         <div className="bento-large gsap-reveal" style={{ position: "relative", borderRadius: "32px", overflow: "hidden", border: "1px solid var(--border)", display: "flex", flexDirection: "column", background: "var(--card-bg)", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }}>
@@ -713,7 +713,7 @@ export default function Home() {
                                         <strong>Financial Services:</strong> Invoice processing, expense categorisation, reconciliation, AML screening. Our agents process £2.4bn across 47 clients. One mid-market firm went from 12-day to 5-day month-end close. We integrate with Xero, QuickBooks, Sage, and SAP.
                                     </p>
                                     <p>
-                                        <strong>Legal:</strong> Contract review, due diligence, compliance monitoring. A mid-tier law firm reduced due diligence time from 2-3 weeks to 4-5 days. We integrate securely with document management systems (iManage, ShareFile). 
+                                        <strong>Legal:</strong> Contract review, due diligence, compliance monitoring. A mid-tier law firm reduced due diligence time from 2-3 weeks to 4-5 days. We integrate securely with document management systems (iManage, ShareFile).
                                     </p>
                                 </div>
                             </div>
@@ -747,7 +747,7 @@ export default function Home() {
                     <div className="gsap-reveal" style={{ textAlign: "center", marginBottom: "5rem" }}>
                         <h2 className="section-title" style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)" }}>Global Delivery, UK Focused</h2>
                     </div>
-                    
+
                     <div className="offset-layout-right">
                         <div className="gsap-img-reveal offset-img-container">
                             <Image src="/images/industries/home-security-compliance.jpg" alt="Local Compliance & Security Guardrails" fill style={{ objectFit: "cover" }} />
@@ -757,10 +757,10 @@ export default function Home() {
                             <h2 className="section-title">Local Compliance & Security</h2>
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.15rem", textAlign: "justify" }}>
                                 <p style={{ marginBottom: "1.5rem" }}>
-                                    FI Digital UK is Digital Synergy Ventures UK Limited—a UK-registered entity backed by 200+ engineers across 4 countries: Australia (HQ), India (engineering), UAE (regional hub), and UK (enterprise relationships). 
+                                    FI Digital UK is Digital Synergy Ventures UK Limited—a UK-registered entity backed by 200+ engineers across 4 countries: Australia (HQ), India (engineering), UAE (regional hub), and UK (enterprise relationships).
                                 </p>
                                 <p style={{ marginBottom: "1.5rem" }}>
-                                    Ten years building AI automation systems for enterprises means we've seen every compliance framework, every integration nightmare, every edge case twice. We understand FCA regulations for Finance, SRA ethics for Legal, and GDPR for everything. 
+                                    Ten years building AI automation systems for enterprises means we've seen every compliance framework, every integration nightmare, every edge case twice. We understand FCA regulations for Finance, SRA ethics for Legal, and GDPR for everything.
                                 </p>
                                 <p style={{ fontWeight: 700, color: "var(--text)" }}>
                                     Your agent is built, tested, and audited to UK/EU standards. Your data stays in your infrastructure or our UK/EU data residency options. Your IP is yours. Your source code is yours. Deployment happens in your environment with your security review.
@@ -786,7 +786,7 @@ export default function Home() {
                                     We're not a typical outsourcing firm—we're engineering partners who stay accountable for production outcomes. Our UK team is embedded in the relationship; our India team is experienced and proven; our SLAs are contractual, not aspirational. We've worked with FTSE 100 companies, large law firms, and logistics networks.
                                 </p>
                                 <p style={{ marginBottom: "1.5rem" }}>
-                                    We understand regulatory constraints and security requirements. Your data doesn't leave your infrastructure unless you explicitly approve it. We run agents on your cloud tenancy (AWS, Azure, Google Cloud) or on-premises. 
+                                    We understand regulatory constraints and security requirements. Your data doesn't leave your infrastructure unless you explicitly approve it. We run agents on your cloud tenancy (AWS, Azure, Google Cloud) or on-premises.
                                 </p>
                                 <p style={{ fontWeight: 700, color: "var(--text)" }}>
                                     We provide immutable audit trails for compliance reviews. We maintain professional indemnity insurance. We're invested in your success because deployment is the beginning, not the end.
@@ -803,7 +803,7 @@ export default function Home() {
                 <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "80vh", minHeight: "600px", overflow: "hidden" }}>
                     <Image src="/images/industries/home-readiness-ui.jpg" alt="AI Readiness Interface" fill style={{ objectFit: "cover", filter: "brightness(0.7)" }} />
                     <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, var(--bg) 0%, transparent 60%)" }} />
-                    
+
                     {/* Centered Glass Container */}
                     <div style={{ position: "absolute", top: "45%", left: "50%", transform: "translate(-50%, -50%)", width: "90%", maxWidth: "800px", padding: "clamp(2rem, 5vw, 4rem)", borderRadius: "32px", background: "rgba(11, 15, 25, 0.6)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)", border: "1px solid rgba(255,255,255,0.1)", textAlign: "center", boxShadow: "0 30px 60px rgba(0,0,0,0.5)" }} className="gsap-reveal">
                         <span className="section-label" style={{ border: "none", background: "rgba(79, 70, 229, 0.2)", color: "#a5b4fc" }}>Evaluation Mechanics</span>
@@ -823,14 +823,14 @@ export default function Home() {
                 <div className="container" style={{ maxWidth: "1250px", marginTop: "clamp(-100px, -10vh, -150px)", position: "relative", zIndex: 10 }}>
                     <div className="offset-layout-left">
                         <div className="gsap-img-reveal offset-img-container" style={{ boxShadow: "0 40px 80px rgba(0,0,0,0.6)", background: "var(--card-bg)", aspectRatio: "16/9" }}>
-                            <Image src="/images/industries/home-roi-data.jpg" alt="ROI Personalised Data" fill style={{ objectFit: "cover" }} />
+                            <Image src="/images/industries/home-roi-data-v2.png" alt="ROI Personalised Data" fill style={{ objectFit: "cover" }} />
                         </div>
                         <div className="gsap-reveal offset-text-container" style={{ paddingTop: "clamp(2.5rem, 4vw, 4rem)" }}>
                             <span className="section-label">Valuable Insights</span>
                             <h2 className="section-title">No Sales Pitch. Just Data.</h2>
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.15rem", textAlign: "justify" }}>
                                 <p style={{ marginBottom: "1.5rem" }}>
-                                    73% of assessments surface a high-impact automation opportunity within 90 days. Some clients discover they're already AI-ready (all preconditions met, can deploy in 8-10 weeks); others learn they need 6 months of data prep first (messy source systems, poor process documentation). 
+                                    73% of assessments surface a high-impact automation opportunity within 90 days. Some clients discover they're already AI-ready (all preconditions met, can deploy in 8-10 weeks); others learn they need 6 months of data prep first (messy source systems, poor process documentation).
                                 </p>
                                 <p style={{ marginBottom: "2.5rem" }}>
                                     Both are valuable insights. The assessment is free, takes 5 minutes, and the insights are yours to keep. Many clients share the results with their CFO or COO to build the business case for the engagement.
@@ -889,8 +889,8 @@ export default function Home() {
                                 transition: "all 0.3s ease",
                                 boxShadow: "0 4px 6px rgba(0,0,0,0.1)"
                             }}
-                            onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--primary)"; e.currentTarget.style.color = "var(--primary)"; e.currentTarget.style.transform = "translateY(-2px)"; }}
-                            onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.color = "var(--text)"; e.currentTarget.style.transform = "none"; }}
+                                onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--primary)"; e.currentTarget.style.color = "var(--primary)"; e.currentTarget.style.transform = "translateY(-2px)"; }}
+                                onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.color = "var(--text)"; e.currentTarget.style.transform = "none"; }}
                             >
                                 {link.title}
                             </Link>
@@ -899,27 +899,27 @@ export default function Home() {
                 </div>
             </section>
 
-             {/* Bottom CTA */}
-             <section style={{ padding: "120px 1.5rem", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
-                  <div className="container" style={{ maxWidth: "1000px", textAlign: "center" }}>
-                       <div className="gsap-reveal">
-                            <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 950, marginBottom: "2rem" }}>
-                                Ready to Architect Your <span style={{ color: "var(--primary)" }}>AI Platform?</span>
-                            </h2>
-                            <p style={{ fontSize: "1.2rem", color: "var(--text-muted)", marginBottom: "3rem", maxWidth: "700px", margin: "0 auto 3rem auto", lineHeight: 1.6 }}>
-                                Work with UK engineering partners who stay exclusively accountable for massive automated production outcomes.
-                            </p>
-                            <div style={{ display: "flex", gap: "1.5rem", justifyContent: "center", flexWrap: "wrap", alignItems: "center" }}>
-                                <Link href="/book-call" className="btn-primary" style={{ padding: "1rem 2.5rem", background: "#1d4ed8", color: "white", borderRadius: "12px", textDecoration: "none", fontWeight: 700, boxShadow: "0 10px 30px rgba(29, 78, 216, 0.3)" }}>
-                                    Book 30-min Strategy Call
-                                </Link>
-                                <Link href="/contact" className="btn-secondary" style={{ padding: "1rem 2.5rem", border: "1px solid rgba(255,255,255,0.2)", color: "white", borderRadius: "12px", textDecoration: "none", fontWeight: 700 }}>
-                                    Contact London Office
-                                </Link>
-                            </div>
-                       </div>
-                  </div>
-             </section>
+            {/* Bottom CTA */}
+            <section style={{ padding: "120px 1.5rem", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
+                <div className="container" style={{ maxWidth: "1000px", textAlign: "center" }}>
+                    <div className="gsap-reveal">
+                        <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 950, marginBottom: "2rem" }}>
+                            Ready to Architect Your <span style={{ color: "var(--primary)" }}>AI Platform?</span>
+                        </h2>
+                        <p style={{ fontSize: "1.2rem", color: "var(--text-muted)", marginBottom: "3rem", maxWidth: "700px", margin: "0 auto 3rem auto", lineHeight: 1.6 }}>
+                            Work with UK engineering partners who stay exclusively accountable for massive automated production outcomes.
+                        </p>
+                        <div style={{ display: "flex", gap: "1.5rem", justifyContent: "center", flexWrap: "wrap", alignItems: "center" }}>
+                            <Link href="/book-call" className="btn-primary" style={{ padding: "1rem 2.5rem", background: "#1d4ed8", color: "white", borderRadius: "12px", textDecoration: "none", fontWeight: 700, boxShadow: "0 10px 30px rgba(29, 78, 216, 0.3)" }}>
+                                Book 30-min Strategy Call
+                            </Link>
+                            <Link href="/contact" className="btn-secondary" style={{ padding: "1rem 2.5rem", border: "1px solid rgba(255,255,255,0.2)", color: "white", borderRadius: "12px", textDecoration: "none", fontWeight: 700 }}>
+                                Contact London Office
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
         </div>
     );
