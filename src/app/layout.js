@@ -19,6 +19,11 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Enterprise AI Agents | FI Digital UK",
   description: "Custom AI agents for Finance, Legal & Logistics. 200+ engineers. 10 years experience. Claude, GPT-4o, n8n, LangChain.",
+  icons: {
+    icon: "/images/favicon.png",
+    shortcut: "/images/favicon.png",
+    apple: "/images/favicon.png",
+  },
 };
 
 const jsonLd = {
