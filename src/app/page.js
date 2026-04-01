@@ -477,7 +477,7 @@ export default function Home() {
                 {/* Right-aligned Faded Hero Image Background */}
                 <div className="hero-background hero-background-wrapper">
                     <Image
-                        src="/images/industries/home-hero-bg.jpg"
+                        src="/images/industries/home-hero-bg.png"
                         alt="Enterprise AI Headquarters"
                         fill
                         style={{ objectFit: "cover", objectPosition: "left center", maskImage: "radial-gradient(circle at right, black, transparent 80%)", WebkitMaskImage: "radial-gradient(circle at right, black, transparent 80%)" }}
@@ -593,7 +593,7 @@ export default function Home() {
                     </div>
                     <div className="offset-layout-right">
                         <div className="gsap-img-reveal offset-img-container">
-                            <Image src="/images/industries/home-workflow.jpg" alt="Autonomous Worker Workflow" fill style={{ objectFit: "cover" }} />
+                            <Image src="/images/industries/home-workflow.png" alt="Autonomous Worker Workflow" fill style={{ objectFit: "cover" }} />
                         </div>
                         <div className="gsap-reveal offset-text-container">
                             <span className="section-label">Capabilities</span>
@@ -619,7 +619,7 @@ export default function Home() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="offset-layout-left">
                         <div className="gsap-img-reveal offset-img-container">
-                            <Image src="/images/industries/home-global.jpg" alt="Cross-Discipline Applications" fill style={{ objectFit: "cover" }} />
+                            <Image src="/images/industries/home-global.png" alt="Cross-Discipline Applications" fill style={{ objectFit: "cover" }} />
                         </div>
                         <div className="gsap-reveal offset-text-container">
                             <span className="section-label">Real World Context</span>
@@ -719,7 +719,7 @@ export default function Home() {
                                 </div>
                             </div>
                             <div className="gsap-img-reveal" style={{ flex: 1, position: "relative", minHeight: "400px" }}>
-                                <Image src="/images/industries/home-finance-legal.jpg" alt="Financial & Legal Services AI Framework" fill style={{ objectFit: "cover" }} />
+                                <Image src="/images/industries/home-finance-legal.png" alt="Financial & Legal Services AI Framework" fill style={{ objectFit: "cover" }} />
                                 <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, var(--card-bg) 0%, transparent 40%)" }} />
                             </div>
                         </div>
@@ -736,7 +736,7 @@ export default function Home() {
 
                         {/* Logistics Image (Bottom Row) */}
                         <div className="gsap-img-reveal" style={{ position: "relative", borderRadius: "32px", overflow: "hidden", border: "1px solid var(--border)", minHeight: "350px", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }}>
-                            <Image src="/images/industries/home-logistics-mfg.jpg" alt="Logistics AI Optimization" fill style={{ objectFit: "cover" }} />
+                            <Image src="/images/industries/home-logistics-mfg.png" alt="Logistics AI Optimization" fill style={{ objectFit: "cover" }} />
                         </div>
                     </div>
                 </div>
@@ -751,7 +751,7 @@ export default function Home() {
 
                     <div className="offset-layout-right">
                         <div className="gsap-img-reveal offset-img-container">
-                            <Image src="/images/industries/home-security-compliance.jpg" alt="Local Compliance & Security Guardrails" fill style={{ objectFit: "cover" }} />
+                            <Image src="/images/industries/home-security-compliance.png" alt="Local Compliance & Security Guardrails" fill style={{ objectFit: "cover" }} />
                         </div>
                         <div className="gsap-reveal offset-text-container">
                             <span className="section-label">Digital Synergy Ventures UK</span>
@@ -777,7 +777,7 @@ export default function Home() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="offset-layout-left">
                         <div className="gsap-img-reveal offset-img-container">
-                            <Image src="/images/industries/home-accountability.jpg" alt="Engineering Partnership Accountability" fill style={{ objectFit: "cover" }} />
+                            <Image src="/images/industries/home-accountability.png" alt="Engineering Partnership Accountability" fill style={{ objectFit: "cover" }} />
                         </div>
                         <div className="gsap-reveal offset-text-container">
                             <span className="section-label">Partnership</span>
@@ -802,7 +802,7 @@ export default function Home() {
             <section id="assessment-parallax" style={{ padding: "0 0 120px 0", background: "var(--bg)" }}>
                 {/* Immense Edge-to-Edge Image with Glassmorphism Overlay */}
                 <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "80vh", minHeight: "600px", overflow: "hidden" }}>
-                    <Image src="/images/industries/home-readiness-ui.jpg" alt="AI Readiness Interface" fill style={{ objectFit: "cover", filter: "brightness(0.7)" }} />
+                    <Image src="/images/industries/home-readiness-ui.png" alt="AI Readiness Interface" fill style={{ objectFit: "cover", filter: "brightness(0.7)" }} />
                     <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, var(--bg) 0%, transparent 60%)" }} />
 
                     {/* Centered Glass Container */}

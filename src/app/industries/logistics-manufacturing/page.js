@@ -299,7 +299,7 @@ export default function LogisticsManufacturingPage() {
                     <div className="zig-grid">
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
                             <Image
-                                src="/images/industries/logistics-challenge.jpg"
+                                src="/images/industries/logistics-challenge.png"
                                 alt="Inefficient warehouse logistics vs optimized blue routes"
                                 fill
                                 style={{ objectFit: "cover" }}
@@ -382,7 +382,7 @@ export default function LogisticsManufacturingPage() {
                     <div className="zig-grid">
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
                             <Image
-                                src="/images/industries/logistics-tech.jpg"
+                                src="/images/industries/logistics-tech.png"
                                 alt="n8n orchestration layer routing Gemini optimizations back to TMS"
                                 fill
                                 style={{ objectFit: "cover", objectPosition: "left center" }}
@@ -462,7 +462,7 @@ export default function LogisticsManufacturingPage() {
                     <div className="zig-grid">
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
                             <Image
-                                src="/images/industries/logistics-global.jpg"
+                                src="/images/industries/logistics-global.png"
                                 alt="FI Digital India Engineering hubs supporting UAE logistics corridors"
                                 fill
                                 style={{ objectFit: "cover", objectPosition: "left center" }}
