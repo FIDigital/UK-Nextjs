@@ -391,12 +391,13 @@ export default function Home() {
                 }
                 .brand-logo-card {
                     background: #ffffff;
+                    width: 100%;
+                    position: relative;
                     aspect-ratio: 1/1;
                     border-radius: 20px;
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    padding: 1.5rem;
                     box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05), 0 10px 30px -5px rgba(0,0,0,0.1);
                     transition: transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28), box-shadow 0.3s ease;
                 }
@@ -406,8 +407,8 @@ export default function Home() {
                     z-index: 2;
                 }
                 .brand-logo-img {
-                    max-width: 100%;
-                    max-height: 100%;
+                    width: 100%;
+                    height: 100%;
                     object-fit: contain;
                     filter: none !important;
                 }
@@ -526,13 +527,13 @@ export default function Home() {
                     </div>
                     <div className="responsive-grid zig">
                         <div className="gsap-img-reveal brand-logo-grid" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(110px, 1fr))", alignContent: "center", justifyItems: "center" }}>
-                            <div className="brand-logo-card"><img src="/images/brands/Amazon.png" className="brand-logo-img" alt="AWS" title="Amazon Web Services" /></div>
-                            <div className="brand-logo-card"><img src="/images/brands/Azure.jpg" className="brand-logo-img" alt="Microsoft Azure" style={{ mixBlendMode: 'multiply' }} /></div>
-                            <div className="brand-logo-card"><img src="/images/brands/gcp.png" className="brand-logo-img" alt="Google Cloud" /></div>
-                            <div className="brand-logo-card"><img src="/images/brands/zoho.png" className="brand-logo-img" alt="Zoho" /></div>
-                            <div className="brand-logo-card"><img src="/images/brands/SAP.png" className="brand-logo-img" alt="SAP" /></div>
-                            <div className="brand-logo-card"><img src="/images/brands/oracle.jpg" className="brand-logo-img" alt="Oracle" style={{ mixBlendMode: 'multiply' }} /></div>
-                            <div className="brand-logo-card"><img src="/images/brands/Salesforce.png" className="brand-logo-img" alt="Salesforce" /></div>
+                            <div className="brand-logo-card"><Image src="/images/brands/Amazon.png" fill className="brand-logo-img" alt="AWS" title="Amazon Web Services" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
+                            <div className="brand-logo-card"><Image src="/images/brands/Azure.jpg" fill className="brand-logo-img" alt="Microsoft Azure" style={{ mixBlendMode: 'multiply', objectFit: 'contain', padding: '1.5rem' }} /></div>
+                            <div className="brand-logo-card"><Image src="/images/brands/gcp.png" fill className="brand-logo-img" alt="Google Cloud" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
+                            <div className="brand-logo-card"><Image src="/images/brands/zoho.png" fill className="brand-logo-img" alt="Zoho" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
+                            <div className="brand-logo-card"><Image src="/images/brands/SAP.png" fill className="brand-logo-img" alt="SAP" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
+                            <div className="brand-logo-card"><Image src="/images/brands/oracle.jpg" fill className="brand-logo-img" alt="Oracle" style={{ mixBlendMode: 'multiply', objectFit: 'contain', padding: '1.5rem' }} /></div>
+                            <div className="brand-logo-card"><Image src="/images/brands/Salesforce.png" fill className="brand-logo-img" alt="Salesforce" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
                         </div>
 
                         <div className="gsap-reveal">
@@ -574,11 +575,11 @@ export default function Home() {
                             </div>
                         </div>
                         <div className="gsap-img-reveal brand-logo-grid" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(130px, 1fr))", alignContent: "center", justifyItems: "center" }}>
-                            <div className="brand-logo-card"><img src="/images/brands/claude.png" className="brand-logo-img" alt="Anthropic Claude" /></div>
-                            <div className="brand-logo-card"><img src="/images/brands/OpenAI.png" className="brand-logo-img" alt="OpenAI GPT-4o" /></div>
-                            <div className="brand-logo-card"><img src="/images/brands/Google_Gemini.png" className="brand-logo-img" alt="Google Gemini" /></div>
-                            <div className="brand-logo-card"><img src="/images/brands/N8n.png" className="brand-logo-img" alt="n8n Orchestration" /></div>
-                            <div className="brand-logo-card"><img src="/images/brands/langchain.png" className="brand-logo-img" alt="LangChain RAG" /></div>
+                            <div className="brand-logo-card"><Image src="/images/brands/claude.png" fill className="brand-logo-img" alt="Anthropic Claude" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
+                            <div className="brand-logo-card"><Image src="/images/brands/OpenAI.png" fill className="brand-logo-img" alt="OpenAI GPT-4o" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
+                            <div className="brand-logo-card"><Image src="/images/brands/Google_Gemini.png" fill className="brand-logo-img" alt="Google Gemini" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
+                            <div className="brand-logo-card"><Image src="/images/brands/N8n.png" fill className="brand-logo-img" alt="n8n Orchestration" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
+                            <div className="brand-logo-card"><Image src="/images/brands/langchain.png" fill className="brand-logo-img" alt="LangChain RAG" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
                         </div>
                     </div>
                 </div>
@@ -662,7 +663,7 @@ export default function Home() {
                             </div>
                         </div>
                         <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
-                            <img src="/images/delivery-hero.png" alt="12-16 Week Embedded AI Deployment Timeline Graphic" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+                            <Image src="/images/delivery-hero.png" alt="12-16 Week Embedded AI Deployment Timeline Graphic" fill style={{ objectFit: "cover", borderRadius: "32px" }} />
                         </div>
                     </div>
                 </div>
@@ -673,7 +674,7 @@ export default function Home() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zig">
                         <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
-                            <img src="/images/industries/home-ecosystem.png" alt="AI Agent Build & Operate Framework Dashboard" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+                            <Image src="/images/industries/home-ecosystem.png" alt="AI Agent Build & Operate Framework Dashboard" fill style={{ objectFit: "cover", borderRadius: "32px" }} />
                         </div>
                         <div className="gsap-reveal">
                             <span className="section-label">Deploy & Scale</span>
