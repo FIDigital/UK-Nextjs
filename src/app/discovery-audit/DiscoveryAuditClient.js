@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { 
     ShieldCheck, 
     Zap, 
@@ -150,7 +151,7 @@ export default function DiscoveryAuditClient() {
     }, { scope: containerRef });
 
     return (
-        <div ref={containerRef} style={{ background: "#0B0F1A", color: "white", minHeight: "100vh" }}>
+        <div ref={containerRef} style={{ background: "var(--bg)", color: "var(--text)", minHeight: "100vh" }}>
             <style jsx>{`
                 .container {
                     max-width: 1250px;
@@ -159,7 +160,7 @@ export default function DiscoveryAuditClient() {
                 }
                 .section-label {
                     display: inline-block;
-                    color: #4F46E5;
+                    color: var(--primary);
                     font-weight: 800;
                     letter-spacing: 0.1em;
                     text-transform: uppercase;
@@ -172,20 +173,21 @@ export default function DiscoveryAuditClient() {
                     line-height: 1.1;
                     margin-bottom: 2.5rem;
                     letter-spacing: -0.03em;
+                    color: var(--text);
                 }
                 .text-muted {
-                    color: rgba(255,255,255,0.6);
+                    color: var(--text-muted);
                     line-height: 1.8;
                     font-size: 1.15rem;
                 }
                 .glass-card {
-                    background: rgba(255,255,255,0.03);
-                    border: 1px solid rgba(255,255,255,0.06);
+                    background: var(--card-bg);
+                    border: 1px solid var(--border);
                     border-radius: 32px;
                     padding: 3rem;
                     transition: all 0.3s ease;
                 }
-                .glass-card:hover { border-color: #4F46E5; background: rgba(255,255,255,0.05); }
+                .glass-card:hover { border-color: var(--primary); background: var(--bg-secondary); }
                 .responsive-grid {
                     display: grid;
                     gap: 6rem;
@@ -200,43 +202,57 @@ export default function DiscoveryAuditClient() {
 
             {/* HERO SECTION */}
             <header style={{ 
-                padding: "clamp(120px, 15vh, 160px) 0 100px", 
+                padding: "clamp(120px, 15vh, 180px) 0 100px", 
                 position: "relative", 
-                overflow: "hidden" 
+                overflow: "hidden",
+                background: "var(--bg)"
             }}>
-                <TechMeshBackground />
                 <div style={{
                     position: "absolute",
-                    top: 0, left: 0, width: "100%", height: "100%",
-                    background: "radial-gradient(circle at 70% 50%, transparent, #0B0F1A 70%)",
-                    pointerEvents: "none"
-                }} />
+                    top: 0, right: 0, width: "70%", height: "100%",
+                    zIndex: 0,
+                    pointerEvents: "none",
+                    opacity: 0.8
+                }}>
+                    <Image 
+                        src="/images/discovery-audit/hero-discovery-audit.png" 
+                        alt="AI Discovery Audit" 
+                        fill 
+                        style={{ objectFit: "cover", objectPosition: "center right" }} 
+                        priority 
+                    />
+                    <div style={{
+                        position: "absolute",
+                        top: 0, left: 0, width: "100%", height: "100%",
+                        background: "radial-gradient(circle at 70% 50%, transparent, var(--bg) 75%)"
+                    }} />
+                </div>
 
-                <div className="container" style={{ position: "relative", zIndex: 1 }}>
-                    <div style={{ maxWidth: "1000px" }}>
+                
+
+               <div className="container" style={{ position: "relative", zIndex: 1 }}>
+                    <div style={{ maxWidth: "850px" }}>
                         <div className="hero-title-line" style={{ display: "inline-flex", alignItems: "center", gap: "0.8rem", marginBottom: "2.5rem" }}>
-                            <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#4F46E5", boxShadow: "0 0 10px #4F46E5" }} />
-                            <span style={{ fontSize: "0.9rem", fontWeight: 800, letterSpacing: "0.1em", textTransform: "uppercase", color: "#4F46E5" }}>Strategy Audit</span>
+                            <div className="pulse-dot" style={{ width: "8px", height: "8px", borderRadius: "50%", background: "var(--primary)", boxShadow: "0 0 15px var(--primary)" }} />
+                            <span style={{ fontSize: "0.9rem", fontWeight: 800, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--primary)" }}>Strategy Audit</span>
                         </div>
-                        <h1 className="hero-title-line" style={{ fontSize: "clamp(2.5rem, 6vw, 4.8rem)", fontWeight: 950, lineHeight: 1.05, marginBottom: "2.5rem", letterSpacing: "-0.04em" }}>
-                            De-Risk Your <span style={{ color: "#4F46E5" }}>AI Investment</span> <br />
+                        <h1 className="hero-title-line" style={{ fontSize: "clamp(2.8rem, 6vw, 5.2rem)", fontWeight: 950, lineHeight: 1.05, marginBottom: "2.5rem", letterSpacing: "-0.04em", color: "var(--text)" }}>
+                            De-Risk Your <span style={{ color: "var(--primary)" }}>AI Investment</span> <br />
                             With a Structured 4-Week Discovery
                         </h1>
-                        <p className="hero-subtitle" style={{ fontSize: "clamp(1.15rem, 1.8vw, 1.4rem)", color: "rgba(255,255,255,0.7)", marginBottom: "4rem", maxWidth: "850px", lineHeight: 1.6 }}>
+                        <p className="hero-subtitle" style={{ fontSize: "clamp(1.2rem, 1.8vw, 1.5rem)", color: "var(--text-muted)", marginBottom: "4rem", maxWidth: "750px", lineHeight: 1.6, textAlign: "justify" }}>
                             Comprehensive assessment of your systems, AI opportunities, technical architecture, and business case. From £12,000. Deliverables: 90-day roadmap, detailed business case, technical design, ROI projections.
                         </p>
                         <div className="hero-cta" style={{ display: "flex", gap: "1.2rem", flexWrap: "wrap", alignItems: "center" }}>
-                            <Link href="/contact" style={{ padding: "1.25rem 2.8rem", background: "#4F46E5", color: "white", borderRadius: "14px", fontWeight: 700, textDecoration: "none", boxShadow: "0 10px 40px rgba(79, 70, 229, 0.3)" }}>Book 4-Week Audit</Link>
-                            <div style={{ padding: "0.8rem 1.5rem", background: "rgba(255,255,255,0.05)", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.1)", fontSize: "0.9rem", fontWeight: 700 }}>
-                                <span style={{ opacity: 0.5 }}>INVESTMENT: </span> FROM £12,000
-                            </div>
+                            <Link href="/contact" style={{ padding: "1.25rem 2.8rem", background: "var(--primary)", color: "white", borderRadius: "14px", fontWeight: 700, textDecoration: "none", boxShadow: "0 10px 40px rgba(79, 70, 229, 0.3)" }}>Book 4-Week Audit</Link>
+                           
                         </div>
                     </div>
                 </div>
             </header>
 
             {/* ACT I: THE STRATEGY GAP */}
-            <section style={{ padding: "120px 0", background: "linear-gradient(to bottom, #0B0F1A, #0F172A)", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+            <section style={{ padding: "120px 0", background: "var(--bg-secondary)", borderTop: "1px solid var(--border)" }}>
                 <div className="container">
                     <div className="responsive-grid zig">
                         <div className="gsap-reveal">
@@ -252,15 +268,15 @@ export default function DiscoveryAuditClient() {
                             </div>
                         </div>
                         <div className="gsap-reveal glass-card" style={{ borderLeft: "4px solid #ef4444" }}>
-                            <h4 style={{ fontSize: "1.2rem", fontWeight: 800, marginBottom: "1.5rem" }}>The Cost of Premature Scaling</h4>
+                            <h4 style={{ fontSize: "1.2rem", fontWeight: 800, marginBottom: "1.5rem", color: "var(--text)" }}>The Cost of Premature Scaling</h4>
                             <div style={{ display: "grid", gap: "1rem" }}>
                                 {[
                                     { l: "Misaligned High-ROI Pilots", v: "82% Failure" },
                                     { l: "Average Strategy Waste", v: "£150,000" },
                                     { l: "Technical Debt Accumulation", v: "High" }
                                 ].map((item, i) => (
-                                    <div key={i} style={{ display: "flex", justifyContent: "space-between", padding: "1rem", background: "rgba(255,255,255,0.02)", borderRadius: "12px" }}>
-                                        <span style={{ fontSize: "0.9rem", color: "rgba(255,255,255,0.5)" }}>{item.l}</span>
+                                    <div key={i} style={{ display: "flex", justifyContent: "space-between", padding: "1rem", background: "var(--bg)", borderRadius: "12px", border: "1px solid var(--border)" }}>
+                                        <span style={{ fontSize: "0.9rem", color: "var(--text-muted)" }}>{item.l}</span>
                                         <span style={{ fontWeight: 800, color: "#ef4444" }}>{item.v}</span>
                                     </div>
                                 ))}
@@ -271,7 +287,7 @@ export default function DiscoveryAuditClient() {
             </section>
 
             {/* ACT II: THE PROCESS OVERVIEW */}
-            <section style={{ padding: "120px 0", background: "#0B0F1A", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+            <section style={{ padding: "120px 0", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
                 <div className="container">
                     <div className="gsap-reveal" style={{ textAlign: "center", marginBottom: "5rem" }}>
                         <span className="section-label">Act II: The Diagnostic Method</span>
@@ -292,15 +308,15 @@ export default function DiscoveryAuditClient() {
                                 <div style={{ marginBottom: "1.5rem" }}>
                                     <div style={{ width: "32px", height: "32px", borderRadius: "50%", background: "rgba(79, 70, 229, 0.1)", color: "var(--primary)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.8rem", fontWeight: 900 }}>{i + 1}</div>
                                 </div>
-                                <h4 style={{ fontWeight: 800, marginBottom: "1rem", fontSize: "1.1rem" }}>{item.t}</h4>
-                                <p style={{ fontSize: "0.95rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.6, marginTop: "auto" }}>{item.d}</p>
+                                <h4 style={{ fontWeight: 800, marginBottom: "1rem", fontSize: "1.1rem", color: "var(--text)" }}>{item.t}</h4>
+                                <p style={{ fontSize: "0.95rem", color: "var(--text-muted)", lineHeight: 1.6, marginTop: "auto" }}>{item.d}</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
                         {/* ACT III: THE OUTPUT */}
-            <section style={{ padding: "120px 0", background: "linear-gradient(to bottom, #0B0F1A, #0F172A)", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+            <section style={{ padding: "120px 0", background: "var(--bg-secondary)", borderTop: "1px solid var(--border)" }}>
                 <div className="container">
                     <div className="responsive-grid zag">
                         <div className="gsap-reveal">
@@ -308,14 +324,14 @@ export default function DiscoveryAuditClient() {
                                 <div className="glass-card" style={{ textAlign: "center", border: "1px solid var(--primary)" }}>
                                     <Activity size={40} color="var(--primary)" style={{ marginBottom: "1.5rem" }} />
                                     <div style={{ fontSize: "3rem", fontWeight: 950, color: "var(--primary)", lineHeight: 1 }}>94%</div>
-                                    <div style={{ color: "rgba(255,255,255,0.7)", fontWeight: 800, textTransform: "uppercase", fontSize: "0.75rem", letterSpacing: "0.15em", marginTop: "1rem" }}>Implementation Rate</div>
-                                    <p style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.5)", marginTop: "1.5rem" }}>Industry standard: 60%</p>
+                                    <div style={{ color: "var(--text-muted)", fontWeight: 800, textTransform: "uppercase", fontSize: "0.75rem", letterSpacing: "0.15em", marginTop: "1rem" }}>Implementation Rate</div>
+                                    <p style={{ fontSize: "0.85rem", color: "var(--text-muted)", marginTop: "1.5rem" }}>Industry standard: 60%</p>
                                 </div>
                                 <div className="glass-card" style={{ textAlign: "center" }}>
                                     <Target size={40} color="#10b981" style={{ marginBottom: "1.5rem" }} />
                                     <div style={{ fontSize: "3rem", fontWeight: 950, color: "#10b981", lineHeight: 1 }}>89%</div>
-                                    <div style={{ color: "rgba(255,255,255,0.7)", fontWeight: 800, textTransform: "uppercase", fontSize: "0.75rem", letterSpacing: "0.15em", marginTop: "1rem" }}>ROI Success Rate</div>
-                                    <p style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.5)", marginTop: "1rem" }}>Promised ROI achieved in Year 1.</p>
+                                    <div style={{ color: "var(--text-muted)", fontWeight: 800, textTransform: "uppercase", fontSize: "0.75rem", letterSpacing: "0.15em", marginTop: "1rem" }}>ROI Success Rate</div>
+                                    <p style={{ fontSize: "0.85rem", color: "var(--text-muted)", marginTop: "1rem" }}>Promised ROI achieved in Year 1.</p>
                                 </div>
                             </div>
                         </div>
@@ -330,7 +346,7 @@ export default function DiscoveryAuditClient() {
                                     We ensure your AI strategy is as robust as your existing systems—without the gamble. 89% of our clients achieve promised ROI within the first year because discovery defines the path correctly.
                                 </p>
                                 <div style={{ marginTop: "2rem" }}>
-                                    <Link href="/contact" style={{ display: "flex", alignItems: "center", gap: "1rem", color: "white", textDecoration: "none", fontWeight: 800 }}>
+                                    <Link href="/contact" style={{ display: "flex", alignItems: "center", gap: "1rem", color: "var(--text)", textDecoration: "none", fontWeight: 800 }}>
                                         Secure Your Discovery Slot <ArrowUpRight size={20} color="var(--primary)" />
                                     </Link>
                                 </div>
@@ -341,7 +357,7 @@ export default function DiscoveryAuditClient() {
             </section>
 
             {/* WEEK 1: FOUNDATIONS */}
-            <section style={{ padding: "120px 0", background: "linear-gradient(to bottom, #0B0F1A, #0F172A)", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+            <section style={{ padding: "120px 0", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
                 <div className="container">
                     <div className="gsap-reveal" style={{ textAlign: "center", marginBottom: "5rem" }}>
                         <span className="section-label">Week 1: Foundations</span>
@@ -355,22 +371,22 @@ export default function DiscoveryAuditClient() {
                         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "2rem" }}>
                             <div className="gsap-reveal glass-card" style={{ borderTop: "4px solid var(--primary)" }}>
                                 <div style={{ fontSize: "0.80rem", fontWeight: 800, color: "var(--primary)", textTransform: "uppercase", marginBottom: "1rem" }}>Days 1-2</div>
-                                <h4 style={{ fontWeight: 800, marginBottom: "1.5rem" }}>Stakeholder Interviews</h4>
-                                <div style={{ fontSize: "0.95rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.7 }}>
+                                <h4 style={{ fontWeight: 800, marginBottom: "1.5rem", color: "var(--text)" }}>Stakeholder Interviews</h4>
+                                <div style={{ fontSize: "0.95rem", color: "var(--text-muted)", lineHeight: 1.7 }}>
                                     <p>We interview 12-18 stakeholders across finance (CFO, Controller), operations (COO, managers), sales (VP Sales), and technology (CTO, infrastructure). We ask: What processes take the most time? Where do errors happen most? What systems do you use (CRM, ERP, accounting, etc.)?</p>
                                 </div>
                             </div>
                             <div className="gsap-reveal glass-card" style={{ borderTop: "4px solid #10b981" }}>
                                 <div style={{ fontSize: "0.80rem", fontWeight: 800, color: "#10b981", textTransform: "uppercase", marginBottom: "1rem" }}>Days 2-4</div>
-                                <h4 style={{ fontWeight: 800, marginBottom: "1.5rem" }}>System Audit</h4>
-                                <div style={{ fontSize: "0.95rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.7 }}>
+                                <h4 style={{ fontWeight: 800, marginBottom: "1.5rem", color: "var(--text)" }}>System Audit</h4>
+                                <div style={{ fontSize: "0.95rem", color: "var(--text-muted)", lineHeight: 1.7 }}>
                                     <p>Technical audit of systems (Zoho, SAP, etc.). We review configurations, API capabilities, and data volume. We generate a data quality assessment: records with critical fields and integration health.</p>
                                 </div>
                             </div>
                             <div className="gsap-reveal glass-card" style={{ borderTop: "4px solid #f59e0b" }}>
                                 <div style={{ fontSize: "0.80rem", fontWeight: 800, color: "#f59e0b", textTransform: "uppercase", marginBottom: "1rem" }}>Days 3-5</div>
-                                <h4 style={{ fontWeight: 800, marginBottom: "1.5rem" }}>Process Documentation</h4>
-                                <div style={{ fontSize: "0.95rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.7 }}>
+                                <h4 style={{ fontWeight: 800, marginBottom: "1.5rem", color: "var(--text)" }}>Process Documentation</h4>
+                                <div style={{ fontSize: "0.95rem", color: "var(--text-muted)", lineHeight: 1.7 }}>
                                     <p>We map your top 5-10 processes: onboarding, invoice processing, lead management. We document cycle time, error rates, and labor costs. Deliverable: <strong>Current State Assessment Report</strong> (30-40 pages).</p>
                                 </div>
                             </div>
@@ -380,7 +396,7 @@ export default function DiscoveryAuditClient() {
             </section>
 
             {/* WEEK 2: STRATEGY */}
-            <section style={{ padding: "120px 0", background: "#0B0F1A", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+            <section style={{ padding: "120px 0", background: "var(--bg-secondary)", borderTop: "1px solid var(--border)" }}>
                 <div className="container">
                     <div className="gsap-reveal" style={{ textAlign: "center", marginBottom: "5rem" }}>
                         <span className="section-label">Week 2: Strategy</span>
@@ -404,15 +420,15 @@ export default function DiscoveryAuditClient() {
                                 <div style={{ color: i === 6 ? "#10b981" : "var(--primary)", marginBottom: "1.5rem" }}>
                                     {dim.i}
                                 </div>
-                                <h4 style={{ fontWeight: 800, marginBottom: "1rem", fontSize: "1.05rem" }}>Dimension {i + 1}: {dim.t}</h4>
-                                <p style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.6 }}>{dim.d}</p>
+                                <h4 style={{ fontWeight: 800, marginBottom: "1rem", fontSize: "1.05rem", color: "var(--text)" }}>Dimension {i + 1}: {dim.t}</h4>
+                                <p style={{ fontSize: "0.85rem", color: "var(--text-muted)", lineHeight: 1.6 }}>{dim.d}</p>
                             </div>
                         ))}
                     </div>
 
                     <div className="gsap-reveal glass-card" style={{ background: "rgba(79, 70, 229, 0.05)", border: "1px solid var(--primary)", textAlign: "center", padding: "4rem 2rem" }}>
                         <div style={{ color: "var(--primary)", fontWeight: 800, textTransform: "uppercase", fontSize: "0.85rem", letterSpacing: "0.15em", marginBottom: "2rem" }}>Opportunity Ranking Formula</div>
-                        <div style={{ fontSize: "clamp(1.5rem, 4vw, 2.5rem)", fontWeight: 950, letterSpacing: "0.05em", fontFamily: "monospace", display: "inline-flex", alignItems: "center", gap: "0.5rem", flexWrap: "wrap", justifyContent: "center" }}>
+                        <div style={{ fontSize: "clamp(1.5rem, 4vw, 2.5rem)", fontWeight: 950, letterSpacing: "0.05em", fontFamily: "monospace", display: "inline-flex", alignItems: "center", gap: "0.5rem", flexWrap: "wrap", justifyContent: "center", color: "var(--text)" }}>
                             <span>(Impact × Confidence)</span>
                             <span style={{ color: "var(--primary)" }}> / </span>
                             <span>(Cost × Timeline)</span>
@@ -422,9 +438,9 @@ export default function DiscoveryAuditClient() {
             </section>
 
             {/* WEEK 3: TECHNOLOGY DESIGN (100% VERBATIM) */}
-            <section style={{ padding: "120px 0", background: "linear-gradient(to bottom, #0F172A, #0B0F1A)", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+            <section style={{ padding: "120px 0", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
                 <div className="container" style={{ position: "relative" }}>
-                    <div style={{ position: "absolute", top: "10%", right: "5%", opacity: "0.05", pointerEvents: "none" }}>
+                    <div style={{ position: "absolute", top: "10%", right: "5%", opacity: "0.05", pointerEvents: "none", color: "var(--primary)" }}>
                         <Cpu size={400} />
                     </div>
                     
@@ -438,8 +454,8 @@ export default function DiscoveryAuditClient() {
 
                     <div style={{ display: "grid", gap: "3rem" }}>
                         <div className="gsap-reveal glass-card">
-                            <h4 style={{ fontWeight: 800, marginBottom: "1.5rem", color: "white" }}>Model Selection</h4>
-                            <div style={{ fontSize: "1.05rem", color: "rgba(255,255,255,0.7)", lineHeight: 1.8 }}>
+                            <h4 style={{ fontWeight: 800, marginBottom: "1.5rem", color: "var(--text)" }}>Model Selection</h4>
+                            <div style={{ fontSize: "1.05rem", color: "var(--text-muted)", lineHeight: 1.8 }}>
                                 <p style={{ marginBottom: "1.5rem" }}>
                                     For each opportunity, which AI model? Claude (reasoning-heavy tasks), GPT-4o (conversation, structured output), Gemini (multimodal, Google ecosystem), open-source (latency-sensitive, privacy-critical). We benchmark each model against your requirements.
                                 </p>
@@ -452,8 +468,8 @@ export default function DiscoveryAuditClient() {
                         </div>
 
                         <div className="gsap-reveal glass-card">
-                            <h4 style={{ fontWeight: 800, marginBottom: "1.5rem", color: "white" }}>Architecture Design</h4>
-                            <div style={{ fontSize: "1.05rem", color: "rgba(255,255,255,0.7)", lineHeight: 1.8 }}>
+                            <h4 style={{ fontWeight: 800, marginBottom: "1.5rem", color: "var(--text)" }}>Architecture Design</h4>
+                            <div style={{ fontSize: "1.05rem", color: "var(--text-muted)", lineHeight: 1.8 }}>
                                 <p style={{ marginBottom: "1.5rem" }}>
                                     We design the technical system. Example: lead scoring system looks like: Salesforce webhook → triggers agent → Claude reads lead details + company research + historical data → agent returns score (0-100%) → score written back to Salesforce → Salesforce workflow routes leads based on score.
                                 </p>
@@ -464,20 +480,20 @@ export default function DiscoveryAuditClient() {
                         </div>
 
                         <div className="gsap-reveal glass-card">
-                            <h4 style={{ fontWeight: 800, marginBottom: "1.5rem", color: "white" }}>Data Pipeline Design</h4>
-                            <div style={{ fontSize: "1.05rem", color: "rgba(255,255,255,0.7)", lineHeight: 1.8 }}>
+                            <h4 style={{ fontWeight: 800, marginBottom: "1.5rem", color: "var(--text)" }}>Data Pipeline Design</h4>
+                            <div style={{ fontSize: "1.05rem", color: "var(--text-muted)", lineHeight: 1.8 }}>
                                 <p style={{ marginBottom: "1.5rem" }}>
                                     For models that need historical data (churn prediction, forecasting), we design data pipelines: which data sources (your CRM, ERP, data warehouse), how often to refresh (daily, hourly, real-time), which data transformations (cleaning, normalisation, feature engineering), where to store (S3, database, vector store).
                                 </p>
-                                <p style={{ margin: 0, padding: "1.2rem", background: "rgba(255,255,255,0.03)", borderRadius: "16px", border: "1px solid rgba(255,255,255,0.05)" }}>
+                                <p style={{ margin: 0, padding: "1.2rem", background: "var(--bg-secondary)", borderRadius: "16px", border: "1px solid var(--border)" }}>
                                     We assess data quality: if 30% of records have missing fields, do we clean data first? If we do, cost and timeline increase. We give you the choice.
                                 </p>
                             </div>
                         </div>
 
                         <div className="gsap-reveal glass-card">
-                            <h4 style={{ fontWeight: 800, marginBottom: "1.5rem", color: "white" }}>Infrastructure Design</h4>
-                            <div style={{ fontSize: "1.05rem", color: "rgba(255,255,255,0.7)", lineHeight: 1.8 }}>
+                            <h4 style={{ fontWeight: 800, marginBottom: "1.5rem", color: "var(--text)" }}>Infrastructure Design</h4>
+                            <div style={{ fontSize: "1.05rem", color: "var(--text-muted)", lineHeight: 1.8 }}>
                                 <p style={{ marginBottom: "1.5rem" }}>
                                     Where does this run? Cloud-hosted (AWS, Azure, Google Cloud) costs less operationally but requires cloud management. Self-hosted (on your infrastructure) gives you more control but requires ops team. We typically recommend cloud-hosted for UK enterprises (AWS UK region for data residency), with managed services where possible (RDS for databases, ECS for containers, CloudWatch for monitoring) to minimise ops burden.
                                 </p>
@@ -487,9 +503,9 @@ export default function DiscoveryAuditClient() {
                         <div className="gsap-reveal glass-card" style={{ background: "rgba(79, 70, 229, 0.05)", border: "1px solid var(--primary)" }}>
                             <div className="responsive-grid zig" style={{ gap: "4rem" }}>
                                 <div>
-                                    <span className="section-label" style={{ color: "white", opacity: 0.6 }}>End of Week 3 Deliverable</span>
-                                    <h3 style={{ fontSize: "2rem", fontWeight: 900, marginBottom: "1.5rem", color: "white" }}>Technical Architecture Document</h3>
-                                    <p style={{ color: "rgba(255,255,255,0.7)", lineHeight: 1.8, fontSize: "1.05rem" }}>
+                                    <span className="section-label" style={{ background: "var(--primary)", color: "white" }}>End of Week 3 Deliverable</span>
+                                    <h3 style={{ fontSize: "2rem", fontWeight: 900, marginBottom: "1.5rem", color: "var(--text)" }}>Technical Architecture Document</h3>
+                                    <p style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.05rem" }}>
                                         Typically 40-60 pages. Includes: for each top opportunity, system architecture (flowcharts, component diagrams), technology stack (LLMs, APIs, databases), infrastructure diagram, security specification, and integration specs.
                                     </p>
                                 </div>
@@ -499,8 +515,8 @@ export default function DiscoveryAuditClient() {
                                         { l: "Typical LLM API Cost", v: "£200-800/mo typical" },
                                         { l: "Implementation Timeline", v: "8-14 weeks typical" }
                                     ].map((item, i) => (
-                                        <div key={i} style={{ display: "flex", justifyContent: "space-between", padding: "1.2rem", background: "rgba(255,255,255,0.03)", borderRadius: "14px", border: "1px solid rgba(255,255,255,0.05)" }}>
-                                            <span style={{ fontSize: "0.9rem", color: "rgba(255,255,255,0.5)", fontWeight: 700 }}>{item.l}</span>
+                                        <div key={i} style={{ display: "flex", justifyContent: "space-between", padding: "1.2rem", background: "var(--bg)", borderRadius: "14px", border: "1px solid var(--border)" }}>
+                                            <span style={{ fontSize: "0.9rem", color: "var(--text-muted)", fontWeight: 700 }}>{item.l}</span>
                                             <span style={{ fontWeight: 800, color: "var(--primary)" }}>{item.v}</span>
                                         </div>
                                     ))}
@@ -512,7 +528,7 @@ export default function DiscoveryAuditClient() {
             </section>
 
             {/* SECTION 5: PRICING & DELIVERABLES SUMMARY */}
-            <section id="pricing" style={{ padding: "120px 0", background: "#0B0F1A", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+            <section id="pricing" style={{ padding: "120px 0", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
                 <div className="container">
                     <div className="gsap-reveal" style={{ textAlign: "center", marginBottom: "5rem" }}>
                         <span className="section-label">Investment</span>
@@ -526,17 +542,17 @@ export default function DiscoveryAuditClient() {
                         {/* STARTUP */}
                         <div className="gsap-reveal glass-card" style={{ display: "flex", flexDirection: "column", height: "100%" }}>
                             <div style={{ marginBottom: "2rem" }}>
-                                <h4 style={{ fontWeight: 800, marginBottom: "0.5rem", fontSize: "1.2rem" }}>Startup Package</h4>
-                                <div style={{ fontSize: "2.8rem", fontWeight: 950, color: "white", letterSpacing: "-0.02em" }}>£12,000</div>
+                                <h4 style={{ fontWeight: 800, marginBottom: "0.5rem", fontSize: "1.2rem", color: "var(--text)" }}>Startup Package</h4>
+                                <div style={{ fontSize: "2.8rem", fontWeight: 950, color: "var(--text)", letterSpacing: "-0.02em" }}>£12,000</div>
                             </div>
                             <div className="text-muted" style={{ fontSize: "0.95rem", lineHeight: 1.6, marginBottom: "2rem" }}>
                                 <p>1 opportunity deep-dive, lightweight documentation, suitable for smaller firms or single-domain focus.</p>
                             </div>
                             <div style={{ marginTop: "auto", display: "grid", gap: "1rem" }}>
-                                <div style={{ display: "flex", gap: "0.8rem", fontSize: "0.9rem", color: "rgba(255,255,255,0.6)", alignItems: "center" }}>
+                                <div style={{ display: "flex", gap: "0.8rem", fontSize: "0.9rem", color: "var(--text-muted)", alignItems: "center" }}>
                                     <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "var(--primary)" }} /> Single Domain Focus
                                 </div>
-                                <div style={{ display: "flex", gap: "0.8rem", fontSize: "0.9rem", color: "rgba(255,255,255,0.6)", alignItems: "center" }}>
+                                <div style={{ display: "flex", gap: "0.8rem", fontSize: "0.9rem", color: "var(--text-muted)", alignItems: "center" }}>
                                     <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "var(--primary)" }} /> Strategic Roadmap
                                 </div>
                             </div>
@@ -546,17 +562,17 @@ export default function DiscoveryAuditClient() {
                         <div className="gsap-reveal glass-card" style={{ display: "flex", flexDirection: "column", height: "100%", border: "1px solid var(--primary)", background: "rgba(79, 70, 229, 0.05)", position: "relative", transform: "scale(1.02)", zIndex: 1 }}>
                             <div style={{ position: "absolute", top: "-15px", left: "50%", transform: "translateX(-50%)", background: "var(--primary)", color: "white", padding: "4px 14px", borderRadius: "20px", fontSize: "0.75rem", fontWeight: 900, textTransform: "uppercase", letterSpacing: "0.1em" }}>Recommended</div>
                             <div style={{ marginBottom: "2rem" }}>
-                                <h4 style={{ fontWeight: 800, marginBottom: "0.5rem", fontSize: "1.2rem" }}>Standard Package</h4>
+                                <h4 style={{ fontWeight: 800, marginBottom: "0.5rem", fontSize: "1.2rem", color: "var(--text)" }}>Standard Package</h4>
                                 <div style={{ fontSize: "3.2rem", fontWeight: 950, color: "var(--primary)", letterSpacing: "-0.02em" }}>£18,000</div>
                             </div>
                             <div className="text-muted" style={{ fontSize: "0.95rem", lineHeight: 1.6, marginBottom: "2rem" }}>
                                 <p>3-5 opportunities, comprehensive documentation, suitable for most mid-market enterprises.</p>
                             </div>
                             <div style={{ marginTop: "auto", display: "grid", gap: "1rem" }}>
-                                <div style={{ display: "flex", gap: "0.8rem", fontSize: "0.95rem", fontWeight: 700, alignItems: "center" }}>
+                                <div style={{ display: "flex", gap: "0.8rem", fontSize: "0.95rem", fontWeight: 700, alignItems: "center", color: "var(--text)" }}>
                                     <ShieldCheck size={18} color="var(--primary)" /> 3-5 Opportunity Deep-Dives
                                 </div>
-                                <div style={{ display: "flex", gap: "0.8rem", fontSize: "0.95rem", fontWeight: 700, alignItems: "center" }}>
+                                <div style={{ display: "flex", gap: "0.8rem", fontSize: "0.95rem", fontWeight: 700, alignItems: "center", color: "var(--text)" }}>
                                     <Target size={18} color="var(--primary)" /> Full Financial Modelling
                                 </div>
                             </div>
@@ -565,17 +581,17 @@ export default function DiscoveryAuditClient() {
                         {/* ENTERPRISE */}
                         <div className="gsap-reveal glass-card" style={{ display: "flex", flexDirection: "column", height: "100%" }}>
                             <div style={{ marginBottom: "2rem" }}>
-                                <h4 style={{ fontWeight: 800, marginBottom: "0.5rem", fontSize: "1.2rem" }}>Enterprise Package</h4>
-                                <div style={{ fontSize: "2.8rem", fontWeight: 950, color: "white", letterSpacing: "-0.02em" }}>£28,000</div>
+                                <h4 style={{ fontWeight: 800, marginBottom: "0.5rem", fontSize: "1.2rem", color: "var(--text)" }}>Enterprise Package</h4>
+                                <div style={{ fontSize: "2.8rem", fontWeight: 950, color: "var(--text)", letterSpacing: "-0.02em" }}>£28,000</div>
                             </div>
                             <div className="text-muted" style={{ fontSize: "0.95rem", lineHeight: 1.6, marginBottom: "2rem" }}>
                                 <p>6-10 opportunities, detailed enterprise-grade documentation, multiple business units, suitable for larger enterprises.</p>
                             </div>
                             <div style={{ marginTop: "auto", display: "grid", gap: "1rem" }}>
-                                <div style={{ display: "flex", gap: "0.8rem", fontSize: "0.9rem", color: "rgba(255,255,255,0.6)", alignItems: "center" }}>
+                                <div style={{ display: "flex", gap: "0.8rem", fontSize: "0.9rem", color: "var(--text-muted)", alignItems: "center" }}>
                                     <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#10b981" }} /> 6-10 Depth Workstreams
                                 </div>
-                                <div style={{ display: "flex", gap: "0.8rem", fontSize: "0.9rem", color: "rgba(255,255,255,0.6)", alignItems: "center" }}>
+                                <div style={{ display: "flex", gap: "0.8rem", fontSize: "0.9rem", color: "var(--text-muted)", alignItems: "center" }}>
                                     <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#10b981" }} /> Multi-Unit Strategy
                                 </div>
                             </div>
@@ -583,7 +599,7 @@ export default function DiscoveryAuditClient() {
                     </div>
 
                     {/* DETAILS GRID */}
-                    <div className="gsap-reveal glass-card" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", padding: "4rem" }}>
+                    <div className="gsap-reveal glass-card" style={{ background: "var(--bg-secondary)", border: "1px solid var(--border)", padding: "4rem" }}>
                         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "4rem" }}>
                             <div>
                                 <h5 style={{ fontWeight: 800, marginBottom: "1.5rem", color: "var(--primary)", textTransform: "uppercase", fontSize: "0.85rem", letterSpacing: "0.15em" }}>Inclusions</h5>
@@ -618,7 +634,7 @@ export default function DiscoveryAuditClient() {
             </section>
 
             {/* FAQ SECTION */}
-            <section style={{ padding: "120px 0", background: "linear-gradient(to bottom, #0B0F1A, #0F172A)", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+            <section style={{ padding: "120px 0", background: "var(--bg-secondary)", borderTop: "1px solid var(--border)" }}>
                 <div className="container">
                     <div className="gsap-reveal" style={{ textAlign: "center", marginBottom: "5rem" }}>
                         <span className="section-label">Common Questions</span>
@@ -645,7 +661,7 @@ export default function DiscoveryAuditClient() {
                             }
                         ].map((item, i) => (
                             <details key={i} className="gsap-reveal glass-card" style={{ padding: "1.5rem 2.5rem", cursor: "pointer" }}>
-                                <summary style={{ fontSize: "1.1rem", fontWeight: 800, padding: "0.5rem 0", color: "white", listStyle: "none", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                                <summary style={{ fontSize: "1.1rem", fontWeight: 800, padding: "0.5rem 0", color: "var(--text)", listStyle: "none", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                                     {item.q}
                                     <span style={{ color: "var(--primary)" }}>+</span>
                                 </summary>
@@ -659,11 +675,11 @@ export default function DiscoveryAuditClient() {
             </section>
 
             {/* INTERNAL LINKING / ecosystem */}
-            <section style={{ padding: "100px 0", background: "#0B0F1A", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+            <section style={{ padding: "100px 0", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
                 <div className="container">
                     <div style={{ marginBottom: "4rem" }}>
                         <span className="section-label">The Ecosystem</span>
-                        <h2 style={{ fontSize: "2.2rem", fontWeight: 900 }}>Where Discovery <span style={{ color: "var(--primary)" }}>Leads Next</span></h2>
+                        <h2 style={{ fontSize: "2.2rem", fontWeight: 900, color: "var(--text)" }}>Where Discovery <span style={{ color: "var(--primary)" }}>Leads Next</span></h2>
                     </div>
                     
                     <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
@@ -673,10 +689,10 @@ export default function DiscoveryAuditClient() {
                             { t: "LLM & RAG Integration", l: "/llm-integration-rag", icon: <BarChart3 size={20} /> },
                             { t: "Legacy Modernisation", l: "/legacy-system-modernisation", icon: <ShieldCheck size={20} /> }
                         ].map((link, i) => (
-                            <Link key={i} href={link.l} className="gsap-reveal glass-card" style={{ textDecoration: "none", padding: "2rem", display: "flex", alignItems: "center", gap: "1.2rem", border: "1px solid rgba(255,255,255,0.05)" }}>
+                            <Link key={i} href={link.l} className="gsap-reveal glass-card" style={{ textDecoration: "none", padding: "2rem", display: "flex", alignItems: "center", gap: "1.2rem", border: "1px solid var(--border)" }}>
                                 <div style={{ color: "var(--primary)" }}>{link.icon}</div>
-                                <span style={{ fontWeight: 800, color: "white" }}>{link.t}</span>
-                                <ArrowUpRight size={16} style={{ marginLeft: "auto", opacity: 0.3 }} />
+                                <span style={{ fontWeight: 800, color: "var(--text)" }}>{link.t}</span>
+                                <ArrowUpRight size={16} style={{ marginLeft: "auto", opacity: 0.3, color: "var(--text)" }} />
                             </Link>
                         ))}
                     </div>
@@ -684,16 +700,16 @@ export default function DiscoveryAuditClient() {
             </section>
 
             {/* FINAL CTA */}
-            <section style={{ padding: "120px 0", background: "linear-gradient(to bottom, #0B0F1A, #0F172A)" }}>
+            <section style={{ padding: "120px 0", background: "var(--bg-secondary)" }}>
                 <div className="container" style={{ textAlign: "center" }}>
                     <div className="gsap-reveal" style={{ maxWidth: "800px", margin: "0 auto" }}>
-                        <h2 className="section-title">Ready to <span style={{ color: "#4F46E5" }}>Start Your Discovery?</span></h2>
+                        <h2 className="section-title">Ready to <span style={{ color: "var(--primary)" }}>Start Your Discovery?</span></h2>
                         <p className="text-muted" style={{ marginBottom: "4rem" }}>
                             Stop gambling with AI. Start executing against a tested, structured, and ROI-focused plan.
                         </p>
                         <div style={{ display: "flex", gap: "1.5rem", justifyContent: "center", flexWrap: "wrap" }}>
-                            <Link href="/contact" style={{ padding: "1.2rem 3rem", background: "#4F46E5", color: "white", borderRadius: "14px", fontWeight: 700, textDecoration: "none", boxShadow: "0 10px 40px rgba(79, 70, 229, 0.3)" }}>Start Your Discovery Today</Link>
-                            <Link href="/resources/discovery-overview" style={{ padding: "1.2rem 3rem", background: "transparent", color: "white", borderRadius: "14px", fontWeight: 700, textDecoration: "none", border: "1px solid rgba(255,255,255,0.1)" }}>Download Discovery Overview</Link>
+                            <Link href="/contact" style={{ padding: "1.2rem 3rem", background: "var(--primary)", color: "white", borderRadius: "14px", fontWeight: 700, textDecoration: "none", boxShadow: "0 10px 40px rgba(79, 70, 229, 0.3)" }}>Start Your Discovery Today</Link>
+                            <Link href="/resources/discovery-overview" style={{ padding: "1.2rem 3rem", background: "transparent", color: "var(--text)", borderRadius: "14px", fontWeight: 700, textDecoration: "none", border: "1px solid var(--border)" }}>Download Discovery Overview</Link>
                         </div>
                     </div>
                 </div>

@@ -92,16 +92,7 @@ export default function Footer() {
             </div>
 
             <div className="fi-footer-socials">
-              <a href="#" target="_blank" rel="noopener noreferrer" className="fi-footer-social-link" aria-label="Instagram">
-                <Instagram size={18} />
-              </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="fi-footer-social-link" aria-label="Facebook">
-                <Facebook size={18} />
-              </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="fi-footer-social-link" aria-label="Twitter">
-                <Twitter size={18} />
-              </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="fi-footer-social-link" aria-label="LinkedIn">
+              <a href={siteConfig.linkedin} target="_blank" rel="noopener noreferrer" className="fi-footer-social-link" aria-label="LinkedIn">
                 <Linkedin size={18} />
               </a>
             </div>
@@ -310,7 +301,8 @@ export default function Footer() {
 
         .fi-footer-offices {
           display: grid;
-          grid-template-columns: repeat(2, 1fr);
+          grid-template-columns: 1fr;
+          max-width: 500px;
           gap: 1.5rem;
           padding: 2rem 0;
           border-bottom: 1px solid var(--footer-border);

@@ -3,7 +3,8 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown, Plus, Minus } from "lucide-react";
+import { ChevronDown, Plus, Minus, Linkedin, Phone, Mail } from "lucide-react";
+import { siteConfig } from "@/lib/siteData";
 import Logo from "./Logo";
 import ThemeToggle from "./ThemeToggle";
 
@@ -197,7 +198,18 @@ export default function Header() {
                             ))}
                         </nav>
 
-                        <div className="header-actions-desktop" style={{ display: "flex", alignItems: "center", gap: "1.25rem", borderLeft: "1px solid var(--border)", paddingLeft: "1.25rem", height: "30px" }}>
+                        <div className="header-actions-desktop" style={{ display: "flex", alignItems: "center", gap: "1rem", borderLeft: "1px solid var(--border)", paddingLeft: "1.25rem" }}>
+                            <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginRight: "0.5rem" }}>
+                                <a href={`tel:${siteConfig.phone}`} title={siteConfig.phone} style={{ color: "var(--text)", opacity: 0.7, transition: "opacity 0.2s" }} onMouseEnter={e => e.currentTarget.style.opacity = 1} onMouseLeave={e => e.currentTarget.style.opacity = 0.7}>
+                                    <Phone size={16} />
+                                </a>
+                                <a href={`mailto:${siteConfig.email}`} title={siteConfig.email} style={{ color: "var(--text)", opacity: 0.7, transition: "opacity 0.2s" }} onMouseEnter={e => e.currentTarget.style.opacity = 1} onMouseLeave={e => e.currentTarget.style.opacity = 0.7}>
+                                    <Mail size={16} />
+                                </a>
+                                <a href={siteConfig.linkedin} target="_blank" rel="noopener noreferrer" title="LinkedIn" style={{ color: "var(--text)", opacity: 0.7, transition: "opacity 0.2s" }} onMouseEnter={e => e.currentTarget.style.opacity = 1} onMouseLeave={e => e.currentTarget.style.opacity = 0.7}>
+                                    <Linkedin size={16} />
+                                </a>
+                            </div>
                             <ThemeToggle />
                         </div>
 
@@ -229,6 +241,15 @@ export default function Header() {
 
             <div className={`mobile-menu ${mobileOpen ? "open" : ""}`}>
                 <nav style={{ padding: "80px 1.5rem 2.5rem", display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "2rem", padding: "0 0.5rem" }}>
+                        <span style={{ fontSize: "0.9rem", fontWeight: 700, opacity: 0.6, textTransform: "uppercase" }}>Connect</span>
+                        <div style={{ display: "flex", gap: "1.25rem", alignItems: "center" }}>
+                            <a href={`tel:${siteConfig.phone}`} style={{ color: "var(--text)" }}><Phone size={20} /></a>
+                            <a href={`mailto:${siteConfig.email}`} style={{ color: "var(--text)" }}><Mail size={20} /></a>
+                            <a href={siteConfig.linkedin} target="_blank" rel="noopener noreferrer" style={{ color: "var(--text)" }}><Linkedin size={20} /></a>
+                        </div>
+                    </div>
+
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "2rem", padding: "0 0.5rem" }}>
                         <span style={{ fontSize: "0.9rem", fontWeight: 700, opacity: 0.6, textTransform: "uppercase" }}>Theme</span>
                         <ThemeToggle />

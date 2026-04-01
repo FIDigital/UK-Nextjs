@@ -118,7 +118,7 @@ const FAQItem = ({ question, answer }) => {
                 onClick={() => setIsOpen(!isOpen)}
                 style={{ width: "100%", padding: "1.5rem 2rem", display: "flex", justifyContent: "space-between", alignItems: "center", background: "none", border: "none", cursor: "pointer", textAlign: "left" }}
             >
-                <span style={{ fontSize: "1.1rem", fontWeight: 700, color: "white" }}>{question}</span>
+                <span style={{ fontSize: "1.1rem", fontWeight: 700, color: "var(--text)" }}>{question}</span>
                 <ChevronDown size={20} style={{ transform: isOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.3s ease", color: "var(--primary)" }} />
             </button>
             <div ref={contentRef} style={{ height: 0, opacity: 0, overflow: "hidden" }}>
@@ -182,6 +182,11 @@ export default function AiNativeProductClient() {
     return (
         <div ref={containerRef} style={{ background: "var(--bg)", color: "var(--text)", overflowX: "hidden" }}>
             <style jsx>{`
+                .container {
+                    max-width: 1250px;
+                    margin: 0 auto;
+                    padding: 0 1.5rem;
+                }
                 .responsive-grid {
                     display: grid;
                     gap: 6rem;
@@ -305,34 +310,56 @@ export default function AiNativeProductClient() {
                     }
                 }
             `}</style>
-             <TechMeshBackground />
+             {/* TechMeshBackground removed here and integrated into Hero with image */}
  
              {/* FAQ Call Removed */}
 
             {/* Hero Section */}
-            <section style={{ position: "relative", padding: "180px 1.5rem 100px", minHeight: "90vh", display: "flex", alignItems: "center" }}>
-                <div className="container" style={{ maxWidth: "1250px", position: "relative", zIndex: 1 }}>
-                    <div style={{ maxWidth: "950px" }}>
-                        <div className="hero-reveal" style={{ 
-                            display: "inline-flex", alignItems: "center", gap: "0.75rem", padding: "0.6rem 1.2rem", 
-                            background: "rgba(79, 70, 229, 0.1)", borderRadius: "100px", 
-                            border: "1px solid rgba(79, 70, 229, 0.2)", marginBottom: "2.5rem", 
-                            color: "var(--primary)", fontSize: "0.9rem", fontWeight: 700, letterSpacing: "0.05em"
-                        }}>
-                            <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "var(--primary)", boxShadow: "0 0 10px var(--primary)" }} />
-                            AI-NATIVE ENGINEERING
+            <section style={{ 
+                position: "relative", 
+                padding: "clamp(120px, 15vh, 180px) 0 100px", 
+                overflow: "hidden",
+                background: "var(--bg)"
+            }}>
+                {/* Background Image Container */}
+                <div style={{
+                    position: "absolute",
+                    top: 0, right: 0, width: "70%", height: "100%",
+                    zIndex: 0,
+                    pointerEvents: "none",
+                    opacity: 0.8
+                }}>
+                    <Image 
+                        src="/images/ai-native-product/hero-ai-native-product.png" 
+                        alt="AI-Native Product Engineering" 
+                        fill 
+                        style={{ objectFit: "cover", objectPosition: "center right" }} 
+                        priority 
+                    />
+                    <div style={{
+                        position: "absolute",
+                        top: 0, left: 0, width: "100%", height: "100%",
+                        background: "radial-gradient(circle at 70% 50%, transparent, var(--bg) 75%)"
+                    }} />
+                </div>
+
+                <div className="container" style={{ position: "relative", zIndex: 1 }}>
+                    <div style={{ maxWidth: "850px" }}>
+                        <div className="hero-reveal" style={{ display: "inline-flex", alignItems: "center", gap: "0.8rem", marginBottom: "2.5rem" }}>
+                            <div className="pulse-dot" style={{ width: "8px", height: "8px", borderRadius: "50%", background: "var(--primary)", boxShadow: "0 0 15px var(--primary)" }} />
+                            <span style={{ fontSize: "0.9rem", fontWeight: 800, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--primary)" }}>Product Engineering</span>
                         </div>
-                        <h1 className="hero-reveal" style={{ fontSize: "clamp(2.3rem, 5vw, 4.2rem)", fontWeight: 950, lineHeight: 1.1, marginBottom: "2rem", letterSpacing: "-0.03em" }}>
-                            Build Products That <span style={{ color: "var(--primary)" }}>Wouldn't Exist Without AI</span>
+                        <h1 className="hero-reveal" style={{ fontSize: "clamp(2.8rem, 6vw, 5.2rem)", fontWeight: 950, lineHeight: 1.05, marginBottom: "2.5rem", letterSpacing: "-0.04em", color: "var(--text)" }}>
+                            AI Feature vs. AI Product: <span style={{ color: "var(--primary)" }}>The Difference That Matters</span>
                         </h1>
-                        <p className="hero-reveal" style={{ fontSize: "clamp(1.1rem, 1.5vw, 1.4rem)", color: "var(--text-muted)", marginBottom: "3.5rem", lineHeight: 1.6, maxWidth: "800px" }}>
+                        <p className="hero-reveal" style={{ fontSize: "clamp(1.2rem, 1.8vw, 1.5rem)", color: "var(--text-muted)", marginBottom: "4rem", maxWidth: "750px", lineHeight: 1.6, textAlign: "justify" }}>
                             AI-native web apps, mobile apps, API platforms, internal tools. Full-stack engineering. Concept to production in 14-20 weeks. 200+ engineers, £10M+ projects delivered.
                         </p>
-                        <div className="hero-reveal" style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap" }}>
-                            <Link href="/book-call" className="btn-primary" style={{ padding: "1.2rem 2.5rem", background: "var(--primary)", border: "none", borderRadius: "12px", color: "white", textDecoration: "none", fontWeight: 700, fontSize: "1.1rem" }}>
+                        <div className="hero-reveal" style={{ display: "flex", gap: "1.2rem", flexWrap: "wrap", alignItems: "center" }}>
+                            <Link href="/book-call" style={{ padding: "1.25rem 2.8rem", background: "var(--primary)", color: "white", borderRadius: "14px", fontWeight: 700, textDecoration: "none", boxShadow: "0 10px 40px rgba(79, 70, 229, 0.3)" }}>
                                 Book Discovery Session
                             </Link>
-                            <Link href="#difference" style={{ padding: "1.2rem 2.5rem", background: "rgba(255,255,255,0.05)", border: "1px solid var(--border)", borderRadius: "12px", color: "white", textDecoration: "none", fontWeight: 700, fontSize: "1.1rem" }}>
+                            <Link href="#difference" style={{ padding: "1.25rem 2.8rem", background: "var(--bg-secondary)", border: "1px solid var(--border)", borderRadius: "14px", color: "var(--text)", textDecoration: "none", fontWeight: 700 }}>
                                 AI Feature vs. Product
                             </Link>
                         </div>
@@ -346,7 +373,7 @@ export default function AiNativeProductClient() {
                         ].map((stat, i) => (
                             <div key={i}>
                                 <div style={{ fontSize: "0.8rem", fontWeight: 800, color: "var(--primary)", textTransform: "uppercase", marginBottom: "0.5rem" }}>{stat.label}</div>
-                                <div style={{ fontSize: "2.5rem", fontWeight: 900 }}>{stat.value}</div>
+                                <div style={{ fontSize: "2.5rem", fontWeight: 900, color: "var(--text)" }}>{stat.value}</div>
                                 <div style={{ fontSize: "0.9rem", color: "var(--text-muted)" }}>{stat.sub}</div>
                             </div>
                         ))}
@@ -355,11 +382,11 @@ export default function AiNativeProductClient() {
             </section>
 
             {/* Section 1: AI Feature vs AI Product */}
-            <section id="difference" style={{ padding: "120px 1.5rem", borderTop: "1px solid var(--border)" }}>
-                <div className="container" style={{ maxWidth: "1250px" }}>
-                    <div style={{ textAlign: "center", marginBottom: "5rem" }} className="gsap-reveal">
+            <section id="difference" style={{ padding: "120px 0", borderTop: "1px solid var(--border)" }}>
+                <div className="container">
+                    <div style={{ textAlign: "left", marginBottom: "5rem" }} className="gsap-reveal">
                         <span className="section-label">THE PHILOSOPHY</span>
-                        <h2 className="section-title">AI Feature vs. AI Product: <span style={{ color: "var(--primary)" }}>The Difference That Matters</span></h2>
+                        <h2 className="section-title">AI Feature vs. AI Product: <br /><span style={{ color: "var(--primary)" }}>The Difference That Matters</span></h2>
                     </div>
 
                     <div className="responsive-grid zig">
@@ -369,27 +396,30 @@ export default function AiNativeProductClient() {
                                     An AI feature is a capability you add to existing software. Smart email suggestions in Gmail, predictive text in WhatsApp, fraud detection in Stripe — these are features. They enhance existing products.
                                 </p>
                                 <p style={{ marginBottom: "1.5rem" }}>
-                                    An <strong>AI product</strong> is built from the ground up with AI as the core. Midjourney's image generation, ChatGPT's conversational intelligence, GitHub Copilot's code generation — these products wouldn't exist without AI. AI isn't a feature; it's the entire reason to use the product.
+                                    An <strong>AI product</strong> is built from the ground up with AI as the core. Midjourney&apos;s image generation, ChatGPT&apos;s conversational intelligence, GitHub Copilot&apos;s code generation — these products wouldn&apos;t exist without AI. AI isn&apos;t a feature; it&apos;s the entire reason to use the product.
                                 </p>
                                 <p style={{ marginBottom: "1.5rem" }}>
-                                    We build AI products. This is different from adding AI to existing systems. When you add an AI feature to legacy software, you're retrofitting intelligence into traditional architecture. When you build an AI product, you design the entire system around AI from day one.
+                                    We build AI products. This is different from adding AI to existing systems. When you add an AI feature to legacy software, you&apos;re retrofitting intelligence into traditional architecture. When you build an AI product, you design the entire system around AI from day one.
                                 </p>
                                 <p>
-                                    If you're building a product where AI is the core, we're the right partner.
+                                    If you&apos;re building a product where AI is the core, we&apos;re the right partner.
                                 </p>
                             </div>
                         </div>
-                        <div className="gsap-img-reveal">
-                            <div style={{ background: "var(--bg-secondary)", border: "1px solid var(--border)", borderRadius: "48px", padding: "3rem" }}>
+                        <div className="gsap-img-reveal" style={{ position: "relative", borderRadius: "32px", overflow: "hidden", display: "flex", flexDirection: "column", gap: "2rem" }}>
+                            <div style={{ position: "relative", width: "100%", aspectRatio: "4/3", borderRadius: "24px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "0 20px 40px rgba(0,0,0,0.3)" }}>
+                                <Image src="/images/ai-native-product/philosophy-visual.png" alt="AI-Native Philosophy" fill style={{ objectFit: "cover" }} />
+                            </div>
+                            <div style={{ background: "var(--bg-secondary)", border: "1px solid var(--border)", borderRadius: "24px", padding: "2.5rem" }}>
                                 <div style={{ fontSize: "0.85rem", fontWeight: 800, color: "var(--primary)", marginBottom: "2rem", textTransform: "uppercase" }}>Key Differences</div>
-                                <div style={{ display: "grid", gap: "1.5rem" }}>
+                                <div style={{ display: "grid", gap: "1.2rem" }}>
                                     {[
                                         { l: "Architecture", v: "Observe & Reason", c: "var(--primary)", desc: "Built on loops, not just CRUD." },
-                                        { l: "Performance", v: "Sub-second Speed", c: "white", desc: "Native latency for AI interactions." },
-                                        { l: "Reliability", v: "Soft Failover", c: "white", desc: "Greaceful degradation under load." },
-                                        { l: "Data", v: "Learning Loops", c: "white", desc: "Real-time interaction training." }
+                                        { l: "Performance", v: "Sub-second Speed", c: "var(--text)", desc: "Native latency for AI interactions." },
+                                        { l: "Reliability", v: "Soft Failover", c: "var(--text)", desc: "Graceful degradation under load." },
+                                        { l: "Data", v: "Learning Loops", c: "var(--text)", desc: "Real-time interaction training." }
                                     ].map((m, i) => (
-                                        <div key={i} style={{ padding: "1.25rem", background: "var(--bg)", borderRadius: "16px", border: "1px solid var(--border)" }}>
+                                        <div key={i} style={{ padding: "1rem 1.25rem", background: "var(--bg)", borderRadius: "16px", border: "1px solid var(--border)" }}>
                                             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.25rem" }}>
                                                 <span style={{ fontWeight: 600, fontSize: '0.85rem' }}>{m.l}</span>
                                                 <span style={{ fontWeight: 900, color: m.c, fontSize: '0.85rem' }}>{m.v}</span>
@@ -405,11 +435,11 @@ export default function AiNativeProductClient() {
             </section>
 
             {/* Comparison Cards Section */}
-            <section style={{ padding: "60px 1.5rem 120px" }}>
+            <section style={{ padding: "60px 0 120px" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))", gap: "2rem" }}>
                         <div className="gsap-reveal diff-card">
-                            <h3 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "1.5rem", color: "white" }}>Traditional Products</h3>
+                            <h3 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "1.5rem", color: "var(--text)" }}>Traditional Products</h3>
                             <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
                                 {[
                                     "Architecture: Built on CRUD and linear business logic",
@@ -433,7 +463,7 @@ export default function AiNativeProductClient() {
                                     "Reliability: Degrade gracefully (simplified results faster)",
                                     "Data: Large datasets, interaction data, and learning loops"
                                 ].map((item, i) => (
-                                    <li key={i} style={{ display: "flex", gap: "1rem", marginBottom: "1rem", color: "white", fontSize: '0.95rem' }}>
+                                    <li key={i} style={{ display: "flex", gap: "1rem", marginBottom: "1rem", color: "var(--text)", fontSize: '0.95rem' }}>
                                         <CheckCircle2 size={18} style={{ color: "var(--primary)", flexShrink: 0, marginTop: "0.2rem" }} />
                                         {item}
                                     </li>
@@ -445,11 +475,11 @@ export default function AiNativeProductClient() {
             </section>
 
             {/* Track Record Section */}
-            <section style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)", borderTop: "1px solid var(--border)" }}>
+            <section style={{ padding: "120px 0", background: "var(--bg-secondary)", borderTop: "1px solid var(--border)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
-                    <div className="gsap-reveal" style={{ textAlign: "center", marginBottom: "5rem" }}>
+                    <div className="gsap-reveal" style={{ textAlign: "left", marginBottom: "5rem" }}>
                         <h2 className="section-title">Our <span style={{ color: "var(--primary)" }}>Track Record</span></h2>
-                        <p style={{ color: "var(--text-muted)", maxWidth: "900px", margin: "2rem auto 0", fontSize: "1.2rem", lineHeight: 1.8 }}>
+                        <p style={{ color: "var(--text-muted)", maxWidth: "900px", margin: "2rem 0 0 0", fontSize: "1.2rem", lineHeight: 1.8 }}>
                             We've built 12 AI-native products in the past three years. None of them would work as traditional products; AI is why they exist. Average product: 16-week timeline, £120K-280K development cost, £40K-120K monthly cloud costs, £20K-60K monthly team costs for 2-4 FTE post-launch.
                         </p>
                     </div>
@@ -466,7 +496,7 @@ export default function AiNativeProductClient() {
                                 background: "var(--bg)", 
                                 border: "1px solid var(--border)", 
                                 borderRadius: "24px",
-                                textAlign: "center"
+                                textAlign: "left"
                             }}>
                                 <div style={{ fontSize: "0.8rem", fontWeight: 800, color: "var(--primary)", textTransform: "uppercase", marginBottom: "1rem" }}>{stat.label}</div>
                                 <div style={{ fontSize: "1.8rem", fontWeight: 900, marginBottom: "0.5rem" }}>{stat.value}</div>
@@ -479,12 +509,12 @@ export default function AiNativeProductClient() {
 
 
             {/* Section 2: Types of AI Products */}
-            <section style={{ padding: "120px 1.5rem", borderTop: "1px solid var(--border)" }}>
+            <section style={{ padding: "120px 0", borderTop: "1px solid var(--border)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
-                    <div style={{ textAlign: "center", marginBottom: "5rem" }} className="gsap-reveal">
+                    <div style={{ textAlign: "left", marginBottom: "5rem" }} className="gsap-reveal">
                         <span className="section-label">THE OFFERING</span>
                         <h2 className="section-title">What We Build: <span style={{ color: "var(--primary)" }}>Four Types of AI-Native Products</span></h2>
-                        <p style={{ color: "var(--text-muted)", maxWidth: "800px", margin: "1rem auto 0", fontSize: "1.2rem" }}>
+                        <p style={{ color: "var(--text-muted)", maxWidth: "800px", margin: "1rem 0 0 0", fontSize: "1.2rem", lineHeight: 1.6 }}>
                             We've built AI products across four categories. Each has different architecture, team composition, timeline, and cost profile.
                         </p>
                     </div>
@@ -550,7 +580,7 @@ export default function AiNativeProductClient() {
                                     <h4 style={{ fontSize: "0.85rem", fontWeight: 800, textTransform: "uppercase", marginBottom: "1.5rem", letterSpacing: "0.1em" }}>Application Examples</h4>
                                     <ul style={{ listStyle: "none", padding: 0, display: "grid", gap: "1rem" }}>
                                         {item.examples.map((ex, j) => (
-                                            <li key={j} style={{ display: "flex", gap: "0.75rem", alignItems: "flex-start", fontSize: "0.95rem", color: "white" }}>
+                                            <li key={j} style={{ display: "flex", gap: "0.75rem", alignItems: "flex-start", fontSize: "0.95rem", color: "var(--text)" }}>
                                                 <CheckCircle2 size={18} style={{ color: "var(--primary)", flexShrink: 0, marginTop: "0.1rem" }} />
                                                 {ex}
                                             </li>
@@ -564,7 +594,7 @@ export default function AiNativeProductClient() {
                                         {item.stats.map((s, k) => (
                                             <div key={k}>
                                                 <div style={{ fontSize: "0.7rem", fontWeight: 800, color: "var(--primary)", textTransform: "uppercase", marginBottom: "0.25rem" }}>{s.l}</div>
-                                                <div style={{ fontSize: "1rem", fontWeight: 700, color: "white" }}>{s.v}</div>
+                                                <div style={{ fontSize: "1rem", fontWeight: 700, color: "var(--text)" }}>{s.v}</div>
                                             </div>
                                         ))}
                                     </div>
@@ -575,7 +605,7 @@ export default function AiNativeProductClient() {
                             </div>
                         ))}
                     </div>
-                    <div style={{ marginTop: "6rem", textAlign: "center", color: "var(--text-muted)", fontSize: "1.1rem", maxWidth: "900px", margin: "6rem auto 0", lineHeight: 1.8 }} className="gsap-reveal">
+                    <div style={{ marginTop: "6rem", textAlign: "left", color: "var(--text-muted)", fontSize: "1.1rem", maxWidth: "900px", margin: "6rem 0 0 0", lineHeight: 1.8 }} className="gsap-reveal">
                         <p>
                             Each type has different considerations. Web apps and mobile apps have consumer UX requirements (design matters). API platforms need robust error handling and documentation. Internal tools prioritise speed-to-value over polish.
                         </p>
@@ -584,12 +614,12 @@ export default function AiNativeProductClient() {
             </section>
  
              {/* Section 3: Our Build Process */}
-             <section style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)", borderTop: "1px solid var(--border)" }}>
+             <section style={{ padding: "120px 0", background: "var(--bg-secondary)", borderTop: "1px solid var(--border)" }}>
                  <div className="container" style={{ maxWidth: "1000px" }}>
-                     <div style={{ textAlign: "center", marginBottom: "6rem" }} className="gsap-reveal">
+                     <div style={{ textAlign: "left", marginBottom: "6rem" }} className="gsap-reveal">
                          <span className="section-label">THE METHODOLOGY</span>
                          <h2 className="section-title">Our Build Process: <span style={{ color: "var(--primary)" }}>5 Phases</span></h2>
-                         <p style={{ color: "var(--text-muted)", maxWidth: "800px", margin: "1rem auto 0", fontSize: "1.2rem", lineHeight: 1.6 }}>
+                         <p style={{ color: "var(--text-muted)", maxWidth: "800px", margin: "1rem 0 0 0", fontSize: "1.2rem", lineHeight: 1.6 }}>
                             Building an AI product is 40% architecture, 40% engineering, 20% polish. We follow a specific process developed across 12+ launches.
                          </p>
                      </div>
@@ -657,7 +687,7 @@ export default function AiNativeProductClient() {
                                  <div className="phase-dot">{i + 1}</div>
                                  <div style={{ background: 'var(--bg)', border: '1px solid var(--border)', padding: '2.5rem', borderRadius: '32px' }}>
                                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.5rem' }}>
-                                         <h3 style={{ fontSize: "1.6rem", fontWeight: 900, color: "white", margin: 0 }}>{p.phase}</h3>
+                                         <h3 style={{ fontSize: "1.6rem", fontWeight: 900, color: "var(--text)", margin: 0 }}>{p.phase}</h3>
                                          <span style={{ fontSize: "0.85rem", fontWeight: 800, background: 'rgba(79, 70, 229, 0.1)', color: 'var(--primary)', padding: '0.5rem 1.25rem', borderRadius: '50px', border: '1px solid rgba(79, 70, 229, 0.2)' }}>
                                              {p.timeline}
                                          </span>
@@ -665,7 +695,7 @@ export default function AiNativeProductClient() {
                                      <p style={{ fontSize: "1.1rem", color: "var(--text-muted)", lineHeight: 1.6, marginBottom: "1.5rem" }}>{p.desc}</p>
                                      <ul style={{ listStyle: "none", padding: 0, display: "grid", gap: "1rem" }}>
                                          {p.items.map((item, j) => (
-                                             <li key={j} style={{ display: "flex", gap: "0.75rem", alignItems: "flex-start", fontSize: "0.95rem", color: "rgba(255,255,255,0.7)" }}>
+                                             <li key={j} style={{ display: "flex", gap: "0.75rem", alignItems: "flex-start", fontSize: "0.95rem", color: "var(--text-muted)" }}>
                                                  <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--primary)', marginTop: '0.6rem', flexShrink: 0 }} />
                                                  {item}
                                              </li>
@@ -677,7 +707,7 @@ export default function AiNativeProductClient() {
                      </div>
  
                      <div style={{ marginTop: "6rem" }} className="gsap-reveal">
-                         <div style={{ background: 'var(--bg)', border: '1px solid var(--border)', padding: '3rem', borderRadius: '48px', textAlign: 'center' }}>
+                         <div style={{ background: 'var(--bg)', border: '1px solid var(--border)', padding: '3rem', borderRadius: '48px', textAlign: 'left' }}>
                              <h4 style={{ fontSize: "1.2rem", fontWeight: 900, marginBottom: "2rem", textTransform: 'uppercase', letterSpacing: '0.1em' }}>Typical Delivery Timelines</h4>
                              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem' }}>
                                  {[
@@ -698,30 +728,35 @@ export default function AiNativeProductClient() {
              </section>
  
              {/* Section 4: Case Study */}
-             <section style={{ padding: "120px 1.5rem", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
+             <section style={{ padding: "120px 0", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
                  <div className="container" style={{ maxWidth: "1200px" }}>
-                     <div style={{ textAlign: "center", marginBottom: "6rem" }} className="gsap-reveal">
+                     <div style={{ textAlign: "left", marginBottom: "6rem" }} className="gsap-reveal">
                          <span className="section-label">CASE STUDY</span>
                          <h2 className="section-title">Compliance Platform: <span style={{ color: "var(--primary)" }}>60 Hours to 4 Hours</span></h2>
-                         <p style={{ color: "var(--text-muted)", maxWidth: "800px", margin: "1rem auto 0", fontSize: "1.2rem", lineHeight: 1.6 }}>
+                         <p style={{ color: "var(--text-muted)", maxWidth: "800px", margin: "1rem 0 0 0", fontSize: "1.2rem", lineHeight: 1.6 }}>
                             How we built an AI-native SaaS that compressed 60+ hours of manual legal review into a 4-minute automated sweep + 3 hours of expert verification.
                          </p>
                      </div>
  
                      {/* The Impact Cards */}
-                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginBottom: '6rem' }}>
-                         {[
-                             { label: "Productivity Increase", val: "10x", desc: "A single lawyer now verifies 300+ contracts monthly, up from 30 manual reviews." },
-                             { label: "AI Accuracy (vs Human)", val: "94.2%", desc: "Claude 3.5 identified critical risks with near-parity to the 96.8% human baseline." },
-                             { label: "Processing Cost", val: "£0.18", desc: "Average API cost per contract, replacing £40+ per hour in junior associate time." }
-                         ].map((m, i) => (
-                             <div key={i} className="gsap-reveal" style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border)', padding: '2.5rem', borderRadius: '32px', textAlign: 'center' }}>
-                                 <div style={{ fontSize: "0.85rem", color: "var(--primary)", fontWeight: 800, textTransform: "uppercase", marginBottom: "1rem", letterSpacing: "0.1em" }}>{m.label}</div>
-                                 <div style={{ fontSize: "3.5rem", fontWeight: 950, color: "white", marginBottom: "1rem" }}>{m.val}</div>
-                                 <p style={{ fontSize: "1rem", color: "var(--text-muted)", lineHeight: 1.5, margin: 0 }}>{m.desc}</p>
-                             </div>
-                         ))}
-                     </div>
+                    <div className="responsive-grid zag gsap-reveal" style={{ marginBottom: '6rem' }}>
+                        <div style={{ position: "relative", width: "100%", aspectRatio: "1/1", borderRadius: "32px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "0 30px 60px rgba(0,0,0,0.5)" }}>
+                            <Image src="/images/ai-native-product/case-study-compliance.png" alt="Compliance Platform Case Study Visual" fill style={{ objectFit: "cover" }} />
+                        </div>
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '2rem' }}>
+                            {[
+                                { label: "Productivity Increase", val: "10x", desc: "A single lawyer now verifies 300+ contracts monthly, up from 30 manual reviews." },
+                                { label: "AI Accuracy (vs Human)", val: "94.2%", desc: "Claude 3.5 identified critical risks with near-parity to the 96.8% human baseline." },
+                                { label: "Processing Cost", val: "£0.18", desc: "Average API cost per contract, replacing £40+ per hour in junior associate time." }
+                            ].map((m, i) => (
+                                <div key={i} style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border)', padding: '2rem', borderRadius: '24px', textAlign: 'left' }}>
+                                    <div style={{ fontSize: "0.80rem", color: "var(--primary)", fontWeight: 800, textTransform: "uppercase", marginBottom: "0.75rem", letterSpacing: "0.1em" }}>{m.label}</div>
+                                    <div style={{ fontSize: "2.8rem", fontWeight: 950, color: "var(--text)", marginBottom: "0.5rem" }}>{m.val}</div>
+                                    <p style={{ fontSize: "0.95rem", color: "var(--text-muted)", lineHeight: 1.5, margin: 0 }}>{m.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
  
                      {/* Case Study Narrative Grid */}
                      <div style={{ display: 'grid', gap: '4rem' }}>
@@ -745,7 +780,7 @@ export default function AiNativeProductClient() {
                                  </p>
                                  <div style={{ display: 'grid', gap: '1.5rem' }}>
                                      <div style={{ padding: '1.5rem', background: 'var(--bg-secondary)', borderRadius: '20px', border: '1px solid var(--border)' }}>
-                                         <strong style={{ display: 'block', marginBottom: '0.5rem', color: 'white' }}>Decision Layer</strong>
+                                         <strong style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text)' }}>Decision Layer</strong>
                                          <span style={{ fontSize: '0.95rem', color: 'var(--text-muted)' }}>Upload Contract → Chunking → Semantic Retrieval of Policy Clauses → Claude Reasoning Loop → Structured JSON Output.</span>
                                      </div>
                                  </div>
@@ -773,7 +808,7 @@ export default function AiNativeProductClient() {
                                  </ul>
                              </div>
                              <div style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border)', padding: '2.5rem', borderRadius: '32px' }}>
-                                 <h4 style={{ fontSize: "1.1rem", fontWeight: 900, marginBottom: "1.5rem", color: "white", textTransform: 'uppercase' }}>12-Week Build Journey</h4>
+                                 <h4 style={{ fontSize: "1.1rem", fontWeight: 900, marginBottom: "1.5rem", color: "var(--text)", textTransform: 'uppercase' }}>12-Week Build Journey</h4>
                                  <div style={{ display: 'grid', gap: '1rem', borderLeft: '2px solid var(--border)', paddingLeft: '1.5rem' }}>
                                      {[
                                          { w: "W1-2", t: "Auth & Doc Upload Architecture" },
@@ -785,19 +820,20 @@ export default function AiNativeProductClient() {
                                      ].map((w, i) => (
                                          <div key={i}>
                                              <div style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--primary)' }}>{w.w}</div>
-                                             <div style={{ fontSize: '0.9rem', color: 'white' }}>{w.t}</div>
+                                             <div style={{ fontSize: '0.9rem', color: 'var(--text)' }}>{w.t}</div>
                                          </div>
                                      ))}
                                  </div>
                              </div>
                          </div>
  
-                         {/* Results & ROI */}
-                         <div className="gsap-reveal" style={{ marginTop: '4rem' }}>
-                             <div style={{ background: 'linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, rgba(13, 17, 23, 0.1) 100%)', border: '1px solid rgba(79, 70, 229, 0.3)', padding: '4rem', borderRadius: '48px' }}>
-                                 <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                                     <h3 style={{ fontSize: "2.2rem", fontWeight: 950, marginBottom: "1rem" }}>The Results: <span style={{ color: "var(--primary)" }}>Business & ROI</span></h3>
-                                     <p style={{ color: "var(--text-muted)", fontSize: "1.2rem", maxWidth: "800px", margin: "0 auto" }}>
+                        {/* Results & ROI */}
+                        <div className="gsap-reveal" style={{ marginTop: '4rem' }}>
+                            <div style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border)', padding: '4rem', borderRadius: '48px', position: "relative", overflow: "hidden" }}>
+                                <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", background: "radial-gradient(circle at top right, rgba(79, 70, 229, 0.05), transparent 70%)", pointerEvents: "none" }} />
+                                <div style={{ textAlign: 'left', marginBottom: '4rem', position: "relative", zIndex: 1 }}>
+                                    <h3 style={{ fontSize: "2.2rem", fontWeight: 950, marginBottom: "1rem", color: "var(--text)" }}>The Results: <span style={{ color: "var(--primary)" }}>Business & ROI</span></h3>
+                                     <p style={{ color: "var(--text-muted)", fontSize: "1.2rem", maxWidth: "800px", margin: "0" }}>
                                          The firm transformed from a cost-heavy service model to a highly profitable, licensed software product.
                                      </p>
                                  </div>
@@ -806,17 +842,17 @@ export default function AiNativeProductClient() {
                                      <div>
                                          <h4 style={{ fontSize: '0.9rem', fontWeight: 800, color: 'var(--primary)', marginBottom: '1.5rem', textTransform: 'uppercase' }}>Operating Efficiency</h4>
                                          <div style={{ display: 'grid', gap: '1rem' }}>
-                                             <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '0.5rem' }}>
+                                             <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border)', paddingBottom: '0.5rem' }}>
                                                  <span style={{ color: 'var(--text-muted)' }}>Monthly Contracts</span>
-                                                 <span style={{ color: 'white', fontWeight: 700 }}>30 → 300+</span>
+                                                 <span style={{ color: 'var(--text)', fontWeight: 700 }}>30 → 300+</span>
                                              </div>
-                                             <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '0.5rem' }}>
+                                             <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border)', paddingBottom: '0.5rem' }}>
                                                  <span style={{ color: 'var(--text-muted)' }}>Revenue Model</span>
-                                                 <span style={{ color: 'white', fontWeight: 700 }}>Service → Licensed</span>
+                                                 <span style={{ color: 'var(--text)', fontWeight: 700 }}>Service → Licensed</span>
                                              </div>
                                              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                                                  <span style={{ color: 'var(--text-muted)' }}>Annual Growth</span>
-                                                 <span style={{ color: 'white', fontWeight: 700 }}>40% YoY</span>
+                                                 <span style={{ color: 'var(--text)', fontWeight: 700 }}>40% YoY</span>
                                              </div>
                                          </div>
                                      </div>
@@ -824,17 +860,17 @@ export default function AiNativeProductClient() {
                                      <div>
                                          <h4 style={{ fontSize: '0.9rem', fontWeight: 800, color: 'var(--primary)', marginBottom: '1.5rem', textTransform: 'uppercase' }}>Financial Profile</h4>
                                          <div style={{ display: 'grid', gap: '1rem' }}>
-                                             <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '0.5rem' }}>
+                                             <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border)', paddingBottom: '0.5rem' }}>
                                                  <span style={{ color: 'var(--text-muted)' }}>Dev Investment</span>
-                                                 <span style={{ color: 'white', fontWeight: 700 }}>£140,000</span>
+                                                 <span style={{ color: 'var(--text)', fontWeight: 700 }}>£140,000</span>
                                              </div>
-                                             <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '0.5rem' }}>
+                                             <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border)', paddingBottom: '0.5rem' }}>
                                                  <span style={{ color: 'var(--text-muted)' }}>Cloud OpEx</span>
-                                                 <span style={{ color: 'white', fontWeight: 700 }}>£8,000/mo</span>
+                                                 <span style={{ color: 'var(--text)', fontWeight: 700 }}>£8,000/mo</span>
                                              </div>
                                              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                                                  <span style={{ color: 'var(--text-muted)' }}>Break-even</span>
-                                                 <span style={{ color: 'white', fontWeight: 700 }}>18 Months</span>
+                                                 <span style={{ color: 'var(--text)', fontWeight: 700 }}>18 Months</span>
                                              </div>
                                          </div>
                                      </div>
@@ -854,9 +890,9 @@ export default function AiNativeProductClient() {
              </section>
 
             {/* FAQ Section */}
-            <section style={{ padding: "120px 1.5rem", borderTop: "1px solid var(--border)" }}>
+            <section style={{ padding: "120px 0", borderTop: "1px solid var(--border)" }}>
                 <div className="container" style={{ maxWidth: "900px" }}>
-                    <div style={{ textAlign: "center", marginBottom: "5rem" }} className="gsap-reveal">
+                    <div style={{ textAlign: "left", marginBottom: "5rem" }} className="gsap-reveal">
                         <span className="section-label">RESOURCES</span>
                         <h2 className="section-title">Frequently Asked <span style={{ color: "var(--primary)" }}>Questions</span></h2>
                     </div>
@@ -880,29 +916,29 @@ export default function AiNativeProductClient() {
             </section>
 
             {/* Bottom CTA */}
-            <section style={{ padding: "120px 1.5rem", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
-                  <div className="container" style={{ maxWidth: "1000px", textAlign: "center" }}>
+            <section style={{ padding: "120px 0", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
+                  <div className="container" style={{ maxWidth: "1000px", textAlign: "left" }}>
                        <div className="gsap-reveal">
                             <h2 style={{ fontSize: "clamp(2.5rem, 5vw, 3.5rem)", fontWeight: 950, marginBottom: "2rem" }}>
                                 Let's Build Your <span style={{ color: "var(--primary)" }}>AI Product</span>
                             </h2>
-                            <p style={{ fontSize: "1.2rem", color: "var(--text-muted)", marginBottom: "3rem", maxWidth: "700px", margin: "0 auto 3rem auto", lineHeight: 1.6 }}>
+                            <p style={{ fontSize: "1.2rem", color: "var(--text-muted)", marginBottom: "3rem", maxWidth: "700px", margin: "0 0 3rem 0", lineHeight: 1.6 }}>
                                 Whether you're building a new SaaS platform or an internal tool to optimize your organization, we're the right partner to de-risk your investment.
                             </p>
-                            <div style={{ display: "flex", gap: "1.5rem", justifyContent: "center", flexWrap: "wrap", alignItems: "center" }}>
-                                <Link href="/contact" className="btn-primary" style={{ padding: "1.2rem 2.5rem", background: "var(--primary)", color: "white", borderRadius: "12px", textDecoration: "none", fontWeight: 700 }}>
+                            <div style={{ display: "flex", gap: "1.5rem", justifyContent: "flex-start", flexWrap: "wrap", alignItems: "center" }}>
+                                <Link href="/contact" className="btn-primary" style={{ padding: "1.2rem 2.8rem", background: "var(--primary)", color: "white", borderRadius: "14px", textDecoration: "none", fontWeight: 700, boxShadow: "0 10px 40px rgba(79, 70, 229, 0.3)" }}>
                                     Build Your AI Product
                                 </Link>
-                                <Link href="/work" style={{ padding: "1.2rem 2.5rem", background: "transparent", color: "white", borderRadius: "12px", textDecoration: "none", fontWeight: 700, border: "1px solid var(--border)" }}>
+                                <Link href="/work" style={{ padding: "1.2rem 2.5rem", background: "var(--bg-secondary)", color: "var(--text)", borderRadius: "14px", textDecoration: "none", fontWeight: 700, border: "1px solid var(--border)" }}>
                                     View Our Portfolio
                                 </Link>
                             </div>
                        </div>
                   </div>
             </section>
-
+ 
             {/* Internal Links */}
-            <section style={{ padding: "80px 1.5rem", borderTop: "1px solid var(--border)" }}>
+            <section style={{ padding: "80px 0", borderTop: "1px solid var(--border)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="links-grid gsap-reveal" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "1.5rem" }}>
                         {[
@@ -915,7 +951,7 @@ export default function AiNativeProductClient() {
                                 background: "var(--bg-secondary)",
                                 borderRadius: "16px",
                                 border: "1px solid var(--border)",
-                                color: "white",
+                                color: "var(--text)",
                                 textDecoration: "none",
                                 fontWeight: 700,
                                 textAlign: "center",
