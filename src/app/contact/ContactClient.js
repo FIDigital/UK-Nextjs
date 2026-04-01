@@ -1,5 +1,6 @@
 "use client";
 import { useRef, useState, useEffect } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -209,10 +210,12 @@ export default function ContactClient() {
         
         <div className="hero-background gsap-img-reveal" style={{ position: "absolute", top: "0", left: "0", width: "100%", height: "100%", zIndex: 0, pointerEvents: "none" }}>
           <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, background: "linear-gradient(to bottom, rgba(4, 5, 12, 0.4) 0%, rgba(4, 5, 12, 1) 100%)", zIndex: 1 }} />
-          <img 
+          <Image 
             src="/images/client-success-real.jpg" 
             alt="FI Digital Strategic Consultation" 
-            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 20%", opacity: 0.3 }} 
+            fill
+            style={{ objectFit: "cover", objectPosition: "center 20%", opacity: 0.3 }} 
+            priority
           />
         </div>
 
