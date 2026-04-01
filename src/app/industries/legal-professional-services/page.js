@@ -299,7 +299,7 @@ export default function LegalServicesPage() {
                     <div className="zig-grid">
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
                             <Image
-                                src="/images/industries/legal-challenge.jpg"
+                                src="/images/industries/legal-challenge.png"
                                 alt="Modern law office reviewing contracts with AI analysis"
                                 fill
                                 style={{ objectFit: "cover" }}
@@ -382,7 +382,7 @@ export default function LegalServicesPage() {
                     <div className="zig-grid">
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
                             <Image
-                                src="/images/industries/legal-tech.jpg"
+                                src="/images/industries/legal-tech.png"
                                 alt="Claude Multi-Step Reasoning Architecture"
                                 fill
                                 style={{ objectFit: "cover", objectPosition: "left center" }}
@@ -462,7 +462,7 @@ export default function LegalServicesPage() {
                     <div className="zig-grid">
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
                             <Image
-                                src="/images/industries/legal-market.jpg"
+                                src="/images/industries/legal-market.png"
                                 alt="UK Legal Market Segmentation highlighting mid-market firms"
                                 fill
                                 style={{ objectFit: "cover", objectPosition: "left center" }}
