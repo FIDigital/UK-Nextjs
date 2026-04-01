@@ -10,7 +10,7 @@ import ThemeToggle from "./ThemeToggle";
 const navLinks = [
     { href: "/", label: "Home" },
     {
-        label: "Digital Workers",
+        label: "AI Agents",
         subLinks: [
             { href: "/finance-agents", label: "Finance & Billing Agents" },
             { href: "/sales-agents", label: "Sales & Outreach Agents" },
@@ -19,7 +19,7 @@ const navLinks = [
         ]
     },
     {
-        label: "Platform",
+        label: "Services",
         subLinks: [
             { href: "/ai-agent-development", label: "Custom AI Agent Development" },
             { href: "/enterprise-workflow-automation", label: "Enterprise Workflow Automation" },

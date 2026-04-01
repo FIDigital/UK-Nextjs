@@ -1,14 +1,14 @@
 export const siteConfig = {
   name: "FI Digital UK",
   description: "AI Agent Architects for Enterprise Transformation",
-  phone: "+44 20 1234 5678",
-  whatsapp: "+44 7123 456789",
-  email: "hello@fidigital.co.uk",
+  phone: "+44 7405 649223",
+  whatsapp: "+44 7405 649223",
+  email: "info@fidigital.ae",
   offices: {
     london: {
       city: "London",
-      address: "London, United Kingdom",
-      phone: "+44 20 1234 5678",
+      address: "71-75 Shelton Street, Covent Garden, London, WC2H 9JQ",
+      phone: "+44 7405 649223",
     },
     sydney: {
       city: "Sydney",
