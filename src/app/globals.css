@@ -20,6 +20,7 @@
   --footer-hover: #ffffff;
   
   --hero-bg: #f8fafc;
+  --success: #10b981;
 }
 
 [data-theme='dark'] {
@@ -36,6 +37,7 @@
   --card-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
   
   --hero-bg: #020617;
+  --success: #10b981;
 }
 
 * {

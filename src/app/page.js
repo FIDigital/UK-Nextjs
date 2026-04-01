@@ -114,9 +114,9 @@ const FAQItem = ({ question, answer }) => {
                 ease: "power2.out"
             });
             gsap.to(containerRef.current, {
-                borderColor: "rgba(59, 130, 246, 0.4)",
-                backgroundColor: "#060913",
-                boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
+                borderColor: "var(--primary)",
+                backgroundColor: "var(--hover-bg)",
+                boxShadow: "var(--card-shadow)",
                 duration: 0.3
             });
         } else {
@@ -127,8 +127,8 @@ const FAQItem = ({ question, answer }) => {
                 ease: "power2.inOut"
             });
             gsap.to(containerRef.current, {
-                borderColor: "rgba(255,255,255,0.05)",
-                backgroundColor: "#0B0F19",
+                borderColor: "var(--border)",
+                backgroundColor: "var(--card-bg)",
                 boxShadow: "none",
                 duration: 0.3
             });
@@ -140,26 +140,24 @@ const FAQItem = ({ question, answer }) => {
             ref={containerRef}
             className="faq-item gsap-card"
             style={{
-                background: "#0B0F19",
-                border: "1px solid rgba(255,255,255,0.05)",
+                background: "var(--card-bg)",
+                border: "1px solid var(--border)",
                 borderRadius: "12px",
                 marginBottom: "0.75rem",
                 overflow: "hidden",
                 cursor: "pointer",
-                transition: "border-color 0.3s ease"
+                transition: "all 0.3s ease"
             }}
             onClick={() => setIsOpen(!isOpen)}
-            onMouseEnter={(e) => { if (!isOpen) e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)" }}
-            onMouseLeave={(e) => { if (!isOpen) e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)" }}
         >
             <div style={{ padding: "1.25rem 1.5rem", display: "flex", justifyContent: "space-between", alignItems: "center", gap: "2rem" }}>
-                <h3 style={{ fontSize: "0.95rem", fontWeight: 600, margin: 0, color: "rgba(255,255,255,0.9)", letterSpacing: "0.01em" }}>{question}</h3>
+                <h3 style={{ fontSize: "0.95rem", fontWeight: 600, margin: 0, color: "var(--text)", letterSpacing: "0.01em" }}>{question}</h3>
                 <div style={{
                     width: "32px",
                     height: "32px",
                     borderRadius: "50%",
-                    background: "rgba(255,255,255,0.02)",
-                    border: "1px solid rgba(255,255,255,0.04)",
+                    background: "var(--hover-bg)",
+                    border: "1px solid var(--border)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -167,11 +165,11 @@ const FAQItem = ({ question, answer }) => {
                     transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
                     transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)"
                 }}>
-                    <ChevronDown size={16} color="rgba(255,255,255,0.4)" />
+                    <ChevronDown size={16} color="var(--primary)" />
                 </div>
             </div>
             <div ref={contentRef} style={{ height: 0, opacity: 0, overflow: "hidden" }}>
-                <div style={{ padding: "0 1.5rem 1.5rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.6, fontSize: "0.95rem" }}>
+                <div style={{ padding: "0 1.5rem 1.5rem", color: "var(--text-muted)", lineHeight: 1.6, fontSize: "0.95rem" }}>
                     {answer}
                 </div>
             </div>
@@ -390,7 +388,7 @@ export default function Home() {
                     gap: 1.25rem;
                 }
                 .brand-logo-card {
-                    background: #ffffff;
+                    background: var(--card-bg);
                     width: 100%;
                     position: relative;
                     aspect-ratio: 1/1;
@@ -398,7 +396,7 @@ export default function Home() {
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05), 0 10px 30px -5px rgba(0,0,0,0.1);
+                    box-shadow: inset 0 0 0 1px var(--border), 0 10px 30px -5px rgba(0,0,0,0.1);
                     transition: transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28), box-shadow 0.3s ease;
                 }
                 .brand-logo-card:hover {
@@ -486,12 +484,12 @@ export default function Home() {
                 </div>
 
                 <div className="container hero-container" style={{ position: "relative", zIndex: 2, display: "flex", flexDirection: "column", alignItems: "flex-start", textAlign: "left", width: "100%", maxWidth: "1250px", margin: "0 auto" }}>
-                    <div className="hero-title-line" style={{ display: "inline-flex", alignItems: "center", gap: "0.75rem", padding: "0.6rem 1.2rem", background: "rgba(16, 185, 129, 0.1)", borderRadius: "100px", border: "1px solid rgba(16, 185, 129, 0.2)", marginBottom: "2.5rem", color: "#10b981", fontSize: "0.9rem", fontWeight: 700, letterSpacing: "0.05em" }}>
-                        <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#10b981", boxShadow: "0 0 10px #10b981" }} />
+                    <div className="hero-title-line" style={{ display: "inline-flex", alignItems: "center", gap: "0.75rem", padding: "0.6rem 1.2rem", background: "rgba(16, 185, 129, 0.1)", borderRadius: "100px", border: "1px solid rgba(16, 185, 129, 0.2)", marginBottom: "2.5rem", color: "var(--success)", fontSize: "0.9rem", fontWeight: 700, letterSpacing: "0.05em" }}>
+                        <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "var(--success)", boxShadow: "0 0 10px var(--success)" }} />
                         ENTERPRISE AI
                     </div>
                     <h1 className="hero-title-line" style={{ fontSize: "clamp(2.5rem, 8vw, 4.5rem)", fontWeight: 950, lineHeight: 1.1, marginBottom: "2rem", letterSpacing: "-0.03em", color: "var(--text)" }}>
-                        Enterprise AI Agents <br /> That <span style={{ color: "#10b981" }}>Actually Work</span>
+                        Enterprise AI Agents <br /> That <span style={{ color: "var(--success)" }}>Actually Work</span>
                     </h1>
                     <p className="hero-subtitle" style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.35rem)", color: "var(--text-muted)", marginBottom: "2.5rem", lineHeight: 1.6, maxWidth: "680px" }}>
                         Autonomous digital workers built on Claude, GPT-4o, and LangChain. Deploy in weeks, not years. FI Digital UK—trusted by UK enterprise since 2016.
@@ -500,9 +498,9 @@ export default function Home() {
                     <div className="hero-cta" style={{ display: "flex", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
                         <Link href="/demo/whatsapp" style={{
                             display: "inline-flex", alignItems: "center", gap: "0.5rem",
-                            padding: "1rem 2rem", background: "#4F46E5", color: "white",
+                            padding: "1rem 2rem", background: "var(--primary)", color: "white",
                             fontWeight: 700, borderRadius: "12px", textDecoration: "none",
-                            boxShadow: "0 10px 30px rgba(79, 70, 229, 0.3)", transition: "all 0.3s ease"
+                            boxShadow: "0 10px 30px rgba(29, 78, 216, 0.3)", transition: "all 0.3s ease"
                         }}>
                             See WhatsApp Demo <ArrowRight size={20} />
                         </Link>
@@ -806,8 +804,8 @@ export default function Home() {
                     <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, var(--bg) 0%, transparent 60%)" }} />
 
                     {/* Centered Glass Container */}
-                    <div style={{ position: "absolute", top: "45%", left: "50%", transform: "translate(-50%, -50%)", width: "90%", maxWidth: "800px", padding: "clamp(2rem, 5vw, 4rem)", borderRadius: "32px", background: "rgba(11, 15, 25, 0.6)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)", border: "1px solid rgba(255,255,255,0.1)", textAlign: "center", boxShadow: "0 30px 60px rgba(0,0,0,0.5)" }} className="gsap-reveal">
-                        <span className="section-label" style={{ border: "none", background: "rgba(79, 70, 229, 0.2)", color: "#a5b4fc" }}>Evaluation Mechanics</span>
+                    <div style={{ position: "absolute", top: "45%", left: "50%", transform: "translate(-50%, -50%)", width: "90%", maxWidth: "800px", padding: "clamp(2rem, 5vw, 4rem)", borderRadius: "32px", background: "rgba(15, 23, 42, 0.6)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)", border: "1px solid var(--border)", textAlign: "center", boxShadow: "var(--card-shadow)" }} className="gsap-reveal">
+                        <span className="section-label" style={{ border: "none", background: "var(--hover-bg)", color: "var(--primary)" }}>Evaluation Mechanics</span>
                         <h2 className="section-title" style={{ color: "white", fontSize: "clamp(2rem, 4vw, 3.5rem)" }}>Are You Ready For AI?</h2>
                         <div style={{ color: "rgba(255,255,255,0.85)", lineHeight: 1.8, fontSize: "1.15rem" }}>
                             <p style={{ marginBottom: "1.5rem" }}>
@@ -836,7 +834,7 @@ export default function Home() {
                                 <p style={{ marginBottom: "2.5rem" }}>
                                     Both are valuable insights. The assessment is free, takes 5 minutes, and the insights are yours to keep. Many clients share the results with their CFO or COO to build the business case for the engagement.
                                 </p>
-                                <Link href="/assessment" className="btn-primary" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "1rem 2rem", background: "#4F46E5", color: "white", borderRadius: "12px", textDecoration: "none", fontWeight: 700 }}>
+                                <Link href="/assessment" className="btn-primary" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "1rem 2rem", background: "var(--primary)", color: "white", borderRadius: "12px", textDecoration: "none", fontWeight: 700 }}>
                                     Take the Assessment <ArrowRight size={20} />
                                 </Link>
                             </div>
@@ -911,10 +909,10 @@ export default function Home() {
                             Work with UK engineering partners who stay exclusively accountable for massive automated production outcomes.
                         </p>
                         <div style={{ display: "flex", gap: "1.5rem", justifyContent: "center", flexWrap: "wrap", alignItems: "center" }}>
-                            <Link href="/book-call" className="btn-primary" style={{ padding: "1rem 2.5rem", background: "#1d4ed8", color: "white", borderRadius: "12px", textDecoration: "none", fontWeight: 700, boxShadow: "0 10px 30px rgba(29, 78, 216, 0.3)" }}>
+                            <Link href="/book-call" className="btn-primary" style={{ padding: "1rem 2.5rem", background: "var(--primary)", color: "white", borderRadius: "12px", textDecoration: "none", fontWeight: 700, boxShadow: "0 10px 30px rgba(29, 78, 216, 0.3)" }}>
                                 Book 30-min Strategy Call
                             </Link>
-                            <Link href="/contact" className="btn-secondary" style={{ padding: "1rem 2.5rem", border: "1px solid rgba(255,255,255,0.2)", color: "white", borderRadius: "12px", textDecoration: "none", fontWeight: 700 }}>
+                            <Link href="/contact" className="btn-secondary" style={{ padding: "1rem 2.5rem", border: "1px solid var(--border)", color: "var(--text)", borderRadius: "12px", textDecoration: "none", fontWeight: 700 }}>
                                 Contact London Office
                             </Link>
                         </div>
