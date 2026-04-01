@@ -439,9 +439,9 @@ export default function SalesAgentsClient() {
             <section id="problem" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)" }}>
                 <div className="container">
                     <div className="responsive-grid zig">
-                        <div className="gsap-img-reveal" style={PlaceholderStyle}>
-                            [Image Placeholder: The Problem - Sales rep at desk overwhelmed with browser tabs, email notifications, spreadsheets]
-                        </div>
+                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
+    <img src="/images/industries/sales-dw-problem.jpg" alt="The Problem - Sales rep at desk overwhelmed with browser tabs, email notifications, spreadsheets" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+</div>
                         <div className="gsap-reveal">
                             <span className="section-label">The Problem</span>
                             <h2 className="section-title">Your Sales Team Is Drowning in Admin</h2>
@@ -480,9 +480,9 @@ export default function SalesAgentsClient() {
                                 </p>
                             </div>
                         </div>
-                        <div className="gsap-img-reveal" style={PlaceholderStyle}>
-                            [Image Placeholder: Contrast - Clean automated CRM pipeline vs cluttered manual CRM pipeline]
-                        </div>
+                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
+    <img src="/images/industries/sales-dw-lead.jpg" alt="Contrast - Clean automated CRM pipeline vs cluttered manual CRM pipeline" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+</div>
                     </div>
                 </div>
             </section>
@@ -495,9 +495,9 @@ export default function SalesAgentsClient() {
                         <h2 className="section-title">Meet Your Sales Digital Worker</h2>
                     </div>
                     <div className="responsive-grid zig">
-                        <div className="gsap-img-reveal" style={PlaceholderStyle}>
-                            [Image Placeholder: Meet Your Sales Digital Worker Workflow Diagram: Inbound lead → Enrichment → Scoring → Outreach → Sync]
-                        </div>
+                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
+    <img src="/images/industries/sales-dw-workflow.jpg" alt="Meet Your Sales Digital Worker Workflow Diagram: Inbound lead → Enrichment → Scoring → Outreach → Sync" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+</div>
                         <div className="gsap-reveal">
                             <span className="section-label">Digital Worker Profile</span>
                             <h2 className="section-title">Autonomous Lead Qualification</h2>
@@ -536,9 +536,9 @@ export default function SalesAgentsClient() {
                                 </p>
                             </div>
                         </div>
-                        <div className="gsap-img-reveal" style={PlaceholderStyle}>
-                            [Image Placeholder: AI-Generated Multi-touch Email Sequence Flow]
-                        </div>
+                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
+    <img src="/images/cicd-pipeline.png" alt="AI-Generated Multi-touch Email Sequence Flow" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+</div>
                     </div>
                 </div>
             </section>
@@ -547,9 +547,9 @@ export default function SalesAgentsClient() {
             <section id="pipeline" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)" }}>
                 <div className="container">
                     <div className="responsive-grid zig">
-                        <div className="gsap-img-reveal" style={PlaceholderStyle}>
-                            [Image Placeholder: Seamless CRM Sync Interface Example]
-                        </div>
+                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
+    <img src="/images/model-agnostic.png" alt="Seamless CRM Sync Interface Example" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+</div>
                         <div className="gsap-reveal">
                             <span className="section-label">CRM Sync & Intelligence</span>
                             <h2 className="section-title">Total Pipeline Visibility</h2>
@@ -592,9 +592,9 @@ export default function SalesAgentsClient() {
                                 </p>
                             </div>
                         </div>
-                        <div className="gsap-img-reveal" style={PlaceholderStyle}>
-                            [Image Placeholder: Technical Diagram - n8n Orchestration → Crunchbase / LinkedIn APIs → Claude Scoring]
-                        </div>
+                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
+    <img src="/images/reasoning-routing.png" alt="Technical Diagram - n8n Orchestration → Crunchbase / LinkedIn APIs → Claude Scoring" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+</div>
                     </div>
                 </div>
             </section>
@@ -603,9 +603,9 @@ export default function SalesAgentsClient() {
              <section id="orchestration-2" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)" }}>
                 <div className="container">
                     <div className="responsive-grid zig">
-                        <div className="gsap-img-reveal" style={PlaceholderStyle}>
-                            [Image Placeholder: Multi-Touch Sequence Map: Wait Timers, Branching Paths, and Nurture Drains]
-                        </div>
+                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
+    <img src="/images/cicd-pipeline-v2.png" alt="Multi-Touch Sequence Map: Wait Timers, Branching Paths, and Nurture Drains" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+</div>
                         <div className="gsap-reveal">
                             <span className="section-label">AI Driven Sequence</span>
                             <h2 className="section-title">Copywriting & Multi-Touch Flow</h2>
@@ -679,9 +679,15 @@ export default function SalesAgentsClient() {
                         <h2 className="section-title">Integration Ecosystem: Your Entire Sales Stack Connected</h2>
                     </div>
                     <div className="responsive-grid zig">
-                        <div className="gsap-img-reveal" style={PlaceholderStyle}>
-                            [Image Placeholder: Integration map - Sales agent connected to Zoho CRM, Salesforce, HubSpot, Crunchbase]
-                        </div>
+                        
+<div className="gsap-img-reveal tech-logos-grid" style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', background: 'var(--card-bg)', padding: '4rem', borderRadius: '32px', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.5)', border: '1px solid rgba(255,255,255,0.05)' }}>
+    <img src="/images/aws.jpg" style={{ height: '50px', objectFit: 'contain', filter: 'brightness(1.5) contrast(1.2) grayscale(0.5)' }} alt="AWS" />
+    <img src="/images/microsoft-azure-logo.webp" style={{ height: '50px', objectFit: 'contain', filter: 'brightness(1.5)' }} alt="Azure" />
+    <img src="/images/logo_google_cloud.png" style={{ height: '50px', objectFit: 'contain', filter: 'brightness(1.5)' }} alt="Google Cloud" />
+    <img src="/images/Anthropic-Logo.wine.png" style={{ height: '70px', objectFit: 'contain', filter: 'brightness(1.5)' }} alt="Claude Anthropic" />
+    <img src="/images/zoho-logo.webp" style={{ height: '50px', objectFit: 'contain', filter: 'brightness(1.5)' }} alt="Zoho" />
+</div>
+
                         <div className="gsap-reveal">
                             <span className="section-label">Ecosystem</span>
                             <h2 className="section-title">Your Entire Sales Stack Connected</h2>
@@ -720,9 +726,9 @@ export default function SalesAgentsClient() {
                                 </p>
                             </div>
                         </div>
-                        <div className="gsap-img-reveal" style={PlaceholderStyle}>
-                            [Image Placeholder: Omnichannel Feedback Diagram depicting email, LinkedIn, and SMS looping back to scoring models]
-                        </div>
+                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
+    <img src="/images/observability-realistic.png" alt="Omnichannel Feedback Diagram depicting email, LinkedIn, and SMS looping back to scoring models" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+</div>
                     </div>
                 </div>
             </section>
@@ -735,9 +741,9 @@ export default function SalesAgentsClient() {
                         <h2 className="section-title">Case Study: B2B SaaS Company, 5-Rep Sales Team</h2>
                     </div>
                     <div className="responsive-grid zig">
-                        <div className="gsap-img-reveal" style={PlaceholderStyle}>
-                            [Image Placeholder: Case Study Overview - SaaS company metrics dashboard £1.8m ARR]
-                        </div>
+                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
+    <img src="/images/industries/sales-dw-roi.jpg" alt="Case Study Overview - SaaS company metrics dashboard £1.8m ARR" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+</div>
                         <div className="gsap-reveal">
                             <span className="section-label">Client & Challenge</span>
                             <h2 className="section-title">£1.8m ARR SaaS Ecosystem</h2>
@@ -776,9 +782,9 @@ export default function SalesAgentsClient() {
                                 </p>
                             </div>
                         </div>
-                        <div className="gsap-img-reveal" style={PlaceholderStyle}>
-                            [Image Placeholder: Case Study - Before/After metrics: 6-8 hrs → &lt;2 min response, £2.1m → £3.8m pipeline, 2.3 month payback]
-                        </div>
+                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
+    <img src="/images/client-success-real.jpg" alt="Case Study - Before/After metrics: 6-8 hrs → &lt;2 min response, £2.1m → £3.8m pipeline, 2.3 month payback" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+</div>
                     </div>
                 </div>
             </section>

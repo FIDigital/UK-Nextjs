@@ -467,9 +467,9 @@ export default function FinanceAgents() {
             <section id="problem" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)" }}>
                 <div className="container">
                     <div className="responsive-grid zig">
-                        <div className="gsap-img-reveal" style={PlaceholderStyle}>
-                            [Image Placeholder: The Problem - Overwhelmed finance professional at desk surrounded by invoices, spreadsheets, sticky notes]
-                        </div>
+                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
+    <img src="/images/industries/finance-dw-problem.jpg" alt="The Problem - Overwhelmed finance professional at desk surrounded by invoices, spreadsheets, sticky notes" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+</div>
                         <div className="gsap-reveal">
                             <span className="section-label">The Impact</span>
                             <h2 className="section-title">The Cost of Manual Processing</h2>
@@ -505,9 +505,9 @@ export default function FinanceAgents() {
                                 </p>
                             </div>
                         </div>
-                        <div className="gsap-img-reveal" style={PlaceholderStyle}>
-                            [Image Placeholder: Autonomous Invoice Workflow - Invoice → Extraction → Categorisation → Accounting Software]
-                        </div>
+                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
+    <img src="/images/industries/finance-dw-workflow.jpg" alt="Autonomous Invoice Workflow - Invoice → Extraction → Categorisation → Accounting Software" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+</div>
                     </div>
                 </div>
             </section>
@@ -516,9 +516,9 @@ export default function FinanceAgents() {
             <section id="expense-reconciliation" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)" }}>
                 <div className="container">
                     <div className="responsive-grid zig">
-                        <div className="gsap-img-reveal" style={PlaceholderStyle}>
-                            [Image Placeholder: Expense & Reconciliation - Mobile receipt upload matching against bank feed automatically]
-                        </div>
+                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
+    <img src="/images/industries/finance-dw-recon.jpg" alt="Expense & Reconciliation - Mobile receipt upload matching against bank feed automatically" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+</div>
                         <div className="gsap-reveal">
                             <span className="section-label">Expense & Reconciliation</span>
                             <h2 className="section-title">Intelligent Expense & Reconciliation</h2>
@@ -615,9 +615,9 @@ export default function FinanceAgents() {
                                  <p style={{ color: "var(--text-muted)", fontSize: "0.95rem", lineHeight: 1.6 }}>Eliminated £1,200-1,800/mo in outsourced data entry. Plus 3-5 days improved cash cycle.</p>
                              </div>
                         </div>
-                        <div className="gsap-img-reveal" style={{ ...PlaceholderStyle, minHeight: "500px" }}>
-                             [Image Placeholder: Business Outcomes - Metrics dashboard: 40% hours saved, 99.2% accuracy, 6-9 month payback, 3-5 day cycle time improvement]
-                        </div>
+                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
+    <img src="/images/industries/finance-dw-roi.jpg" alt="Business Outcomes - Metrics dashboard: 40% hours saved, 99.2% accuracy, 6-9 month payback, 3-5 day cycle time improvement" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+</div>
                     </div>
                 </div>
             </section>
@@ -626,9 +626,15 @@ export default function FinanceAgents() {
             <section id="integration" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)" }}>
                 <div className="container">
                     <div className="responsive-grid zig">
-                        <div className="gsap-img-reveal" style={PlaceholderStyle}>
-                            [Image Placeholder: Integration map - Finance agent (center) connected to Xero, QB, Sage, Zoho Books, HR systems, banks, ERP]
-                        </div>
+                        
+<div className="gsap-img-reveal tech-logos-grid" style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', background: 'var(--card-bg)', padding: '4rem', borderRadius: '32px', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.5)', border: '1px solid rgba(255,255,255,0.05)' }}>
+    <img src="/images/aws.jpg" style={{ height: '50px', objectFit: 'contain', filter: 'brightness(1.5) contrast(1.2) grayscale(0.5)' }} alt="AWS" />
+    <img src="/images/microsoft-azure-logo.webp" style={{ height: '50px', objectFit: 'contain', filter: 'brightness(1.5)' }} alt="Azure" />
+    <img src="/images/logo_google_cloud.png" style={{ height: '50px', objectFit: 'contain', filter: 'brightness(1.5)' }} alt="Google Cloud" />
+    <img src="/images/Anthropic-Logo.wine.png" style={{ height: '70px', objectFit: 'contain', filter: 'brightness(1.5)' }} alt="Claude Anthropic" />
+    <img src="/images/zoho-logo.webp" style={{ height: '50px', objectFit: 'contain', filter: 'brightness(1.5)' }} alt="Zoho" />
+</div>
+
                         <div className="gsap-reveal">
                             <span className="section-label">Connectivity</span>
                             <h2 className="section-title">Integration Ecosystem: One Agent, Your Entire Finance Stack</h2>
@@ -673,9 +679,9 @@ export default function FinanceAgents() {
                                 </p>
                             </div>
                         </div>
-                        <div className="gsap-img-reveal" style={PlaceholderStyle}>
-                            [Image Placeholder: Security diagram - Encrypted vaults, approval workflows, audit trail, immutable logs]
-                        </div>
+                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
+    <img src="/images/security-arch.png" alt="Security diagram - Encrypted vaults, approval workflows, audit trail, immutable logs" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+</div>
                     </div>
                 </div>
             </section>
@@ -684,9 +690,9 @@ export default function FinanceAgents() {
             <section id="case-study" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)" }}>
                 <div className="container">
                     <div className="responsive-grid zig">
-                        <div className="gsap-img-reveal" style={PlaceholderStyle}>
-                            [Image Placeholder: Case Study - Before/After metrics: 12 days → 5 days, 40 hrs → 8 hrs, 3.2% → 0.4% error, 7-month payback]
-                        </div>
+                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
+    <img src="/images/client-success-real.jpg" alt="Case Study - Before/After metrics: 12 days → 5 days, 40 hrs → 8 hrs, 3.2% → 0.4% error, 7-month payback" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+</div>
                         <div className="gsap-reveal">
                             <span className="section-label">Case Study</span>
                             <h2 className="section-title">A £120M Turnover Professional Services Firm</h2>

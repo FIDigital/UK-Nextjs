@@ -349,11 +349,11 @@ export default function AIAgentDevelopmentClient() {
                     <div className="responsive-grid zig" style={{ gap: "4rem" }}>
                         <div className="gsap-img-reveal">
                             <Image 
-                                src="/assets/legal/ai_reasoning_loop.png"
+                                src="/images/reasoning-routing.png"
                                 alt="Five Pillars of AI Agency Diagram"
                                 width={800}
                                 height={600}
-                                style={{ borderRadius: "48px", width: "100%", height: "auto", boxShadow: "0 20px 40px rgba(0,0,0,0.2)" }}
+                                style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }}
                             />
                         </div>
                         <div className="gsap-reveal">
@@ -385,11 +385,11 @@ export default function AIAgentDevelopmentClient() {
                         </div>
                         <div className="gsap-img-reveal">
                             <Image 
-                                src="/assets/legal/finance_settlement_agent.png"
+                                src="/images/industries/finance-dw-workflow.jpg"
                                 alt="Financial Settlement Agent Dashboard"
                                 width={800}
                                 height={600}
-                                style={{ borderRadius: "48px", width: "100%", height: "auto", boxShadow: "0 20px 40px rgba(0,0,0,0.2)" }}
+                                style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }}
                             />
                         </div>
                     </div>

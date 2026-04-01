@@ -365,76 +365,158 @@ export default function Home() {
                     gap: 1.5rem;
                     grid-template-columns: 1fr;
                 }
+                .offset-img-container {
+                    width: 100%;
+                    position: relative;
+                    aspect-ratio: 4/3;
+                    border-radius: 32px;
+                    overflow: hidden;
+                    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+                }
+                .offset-text-container {
+                    width: 100%;
+                    position: relative;
+                    z-index: 10;
+                    margin-top: -2rem;
+                    background: var(--bg);
+                    padding: 2.5rem;
+                    border-radius: 32px;
+                    box-shadow: 0 30px 60px -15px rgba(0,0,0,0.7);
+                    border: 1px solid var(--border);
+                }
+                .brand-logo-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                    gap: 1.25rem;
+                }
+                .brand-logo-card {
+                    background: #ffffff;
+                    aspect-ratio: 1/1;
+                    border-radius: 20px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 1.5rem;
+                    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05), 0 10px 30px -5px rgba(0,0,0,0.1);
+                    transition: transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28), box-shadow 0.3s ease;
+                }
+                .brand-logo-card:hover {
+                    transform: translateY(-8px) scale(1.05);
+                    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05), 0 20px 40px -10px rgba(0,0,0,0.2);
+                    z-index: 2;
+                }
+                .brand-logo-img {
+                    max-width: 100%;
+                    max-height: 100%;
+                    object-fit: contain;
+                    filter: none !important;
+                }
+                .bento-grid {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap: 2rem;
+                }
+                .hero-background-wrapper {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 0;
+                    opacity: 0.8;
+                    pointer-events: none;
+                }
                 @media (min-width: 900px) {
+                    .hero-background-wrapper {
+                        width: 65%;
+                    }
                     .responsive-grid.zig { grid-template-columns: 1fr 1.4fr; }
                     .responsive-grid.zag { grid-template-columns: 1.4fr 1fr; }
                     .hero-grid { grid-template-columns: 1.2fr 1fr; }
                     .outcomes-grid { grid-template-columns: 1.2fr 1fr; }
                     .metrics-grid { grid-template-columns: 1fr 1fr; }
                     .links-grid { grid-template-columns: repeat(3, 1fr); }
+                    
+                    .offset-layout-right .offset-img-container { width: 85%; aspect-ratio: 21/9; }
+                    .offset-layout-right .offset-text-container { width: 60%; margin-top: -120px; margin-left: auto; padding: 4rem; margin-right: 2rem; }
+                    
+                    .offset-layout-left .offset-img-container { width: 85%; margin-left: auto; aspect-ratio: 21/9; }
+                    .offset-layout-left .offset-text-container { width: 60%; margin-top: -120px; margin-right: auto; padding: 4rem; margin-left: 2rem; }
+
+                    .sticky-grid-desktop { grid-template-columns: 1fr 1fr; align-items: start; }
+                    .sticky-text-col { position: sticky; top: 150px; height: fit-content; }
+                    
+                    .bento-grid { grid-template-columns: 1.1fr 0.9fr; }
+                    .bento-large { grid-row: span 2; }
                 }
                 @media (min-width: 1200px) {
                     .links-grid { grid-template-columns: repeat(5, 1fr); }
                 }
             `}</style>
             
-            {/* HER0 SECTION */}
-             <header style={{ 
-                 padding: "clamp(120px, 15vh, 160px) 1.5rem 60px", 
-                 display: "flex", 
-                 alignItems: "center", 
-                 position: "relative", 
-                 overflow: "hidden" 
-             }}>
-                  <TechMeshBackground />
-                  <div style={{
+            {/* HERO SECTION - REBUILT TO MATCH INDUSTRIES */}
+            <header className="hero-section" style={{
+                position: "relative",
+                minHeight: "90vh",
+                display: "flex",
+                alignItems: "center",
+                padding: "clamp(120px, 15vh, 160px) 1.5rem 60px",
+                background: "var(--bg)",
+                overflow: "hidden"
+            }}>
+                <TechMeshBackground />
+                <div style={{
                       position: "absolute",
                       top: 0, left: 0, width: "100%", height: "100%",
                       background: "radial-gradient(circle at 70% 50%, transparent, var(--bg) 70%)",
-                      pointerEvents: "none"
-                  }} />
+                      pointerEvents: "none",
+                      zIndex: 1
+                }} />
+                
+                {/* Right-aligned Faded Hero Image Background */}
+                <div className="hero-background hero-background-wrapper">
+                    <Image 
+                        src="/images/industries/home-hero-bg.jpg" 
+                        alt="Enterprise AI Headquarters" 
+                        fill 
+                        style={{ objectFit: "cover", objectPosition: "left center", maskImage: "radial-gradient(circle at right, black, transparent 80%)", WebkitMaskImage: "radial-gradient(circle at right, black, transparent 80%)" }} 
+                        priority 
+                    />
+                </div>
+                
+                <div className="container hero-container" style={{ position: "relative", zIndex: 2, display: "flex", flexDirection: "column", alignItems: "flex-start", textAlign: "left", width: "100%", maxWidth: "1250px", margin: "0 auto" }}>
+                    <div className="hero-title-line" style={{ display: "inline-flex", alignItems: "center", gap: "0.75rem", padding: "0.6rem 1.2rem", background: "rgba(16, 185, 129, 0.1)", borderRadius: "100px", border: "1px solid rgba(16, 185, 129, 0.2)", marginBottom: "2.5rem", color: "#10b981", fontSize: "0.9rem", fontWeight: 700, letterSpacing: "0.05em" }}>
+                        <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#10b981", boxShadow: "0 0 10px #10b981" }} />
+                        ENTERPRISE AI
+                    </div>
+                    <h1 className="hero-title-line" style={{ fontSize: "clamp(2.5rem, 8vw, 4.5rem)", fontWeight: 950, lineHeight: 1.1, marginBottom: "2rem", letterSpacing: "-0.03em", color: "var(--text)" }}>
+                        Enterprise AI Agents <br /> That <span style={{ color: "#10b981" }}>Actually Work</span>
+                    </h1>
+                    <p className="hero-subtitle" style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.35rem)", color: "var(--text-muted)", marginBottom: "2.5rem", lineHeight: 1.6, maxWidth: "680px" }}>
+                        Autonomous digital workers built on Claude, GPT-4o, and LangChain. Deploy in weeks, not years. FI Digital UK—trusted by UK enterprise since 2016.
+                    </p>
 
-                  <div className="container" style={{ position: "relative", zIndex: 1, maxWidth: "1250px" }}>
-                       <div className="hero-grid">
-                            <div style={{ maxWidth: "800px" }}>
-                                <div className="hero-title-line" style={{ 
-                                    display: "inline-flex", alignItems: "center", gap: "0.75rem", padding: "0.6rem 1.2rem", background: "rgba(16, 185, 129, 0.1)", borderRadius: "100px", border: "1px solid rgba(16, 185, 129, 0.2)", marginBottom: "2.5rem", color: "#10b981", fontSize: "0.9rem", fontWeight: 700, letterSpacing: "0.05em"
-                                }}>
-                                    <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#10b981", boxShadow: "0 0 10px #10b981" }} />
-                                    ENTERPRISE AI
-                                </div>
-                                <h1 className="hero-title-line" style={{ fontSize: "clamp(2.5rem, 5vw, 4.2rem)", fontWeight: 950, lineHeight: 1.1, marginBottom: "2rem", letterSpacing: "-0.03em", color: "white" }}>
-                                    Enterprise AI Agents <br /> That <span style={{ color: "#10b981" }}>Actually Work</span>
-                                </h1>
-                                <p className="hero-subtitle" style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.25rem)", color: "rgba(255,255,255,0.7)", marginBottom: "2.5rem", lineHeight: 1.6, maxWidth: "700px" }}>
-                                    Autonomous digital workers built on Claude, GPT-4o, and LangChain. Deploy in weeks, not years. FI Digital UK—trusted by UK enterprise since 2016.
-                                </p>
-
-                                <div className="hero-cta" style={{ display: "flex", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
-                                    <Link href="/demo/whatsapp" style={{ 
-                                        display: "inline-flex", alignItems: "center", gap: "0.5rem", 
-                                        padding: "1rem 2rem", background: "#4F46E5", color: "white", 
-                                        fontWeight: 700, borderRadius: "12px", textDecoration: "none", 
-                                        boxShadow: "0 10px 30px rgba(79, 70, 229, 0.3)", transition: "all 0.3s ease" 
-                                    }}>
-                                        See WhatsApp Demo <ArrowRight size={20} />
-                                    </Link>
-                                    <Link href="/case-studies" style={{ 
-                                        display: "inline-flex", alignItems: "center", justifyContent: "center",
-                                        padding: "1rem 2rem", background: "#0F172A", color: "white", 
-                                        fontWeight: 700, borderRadius: "12px", textDecoration: "none",
-                                        transition: "all 0.3s ease" 
-                                    }}>
-                                        Explore Global Case Studies
-                                    </Link>
-                                </div>
-                            </div>
-                            
-                            {/* Empty right column */}
-                            <div></div>
-                       </div>
-                  </div>
-             </header>
+                    <div className="hero-cta" style={{ display: "flex", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
+                        <Link href="/demo/whatsapp" style={{ 
+                            display: "inline-flex", alignItems: "center", gap: "0.5rem", 
+                            padding: "1rem 2rem", background: "#4F46E5", color: "white", 
+                            fontWeight: 700, borderRadius: "12px", textDecoration: "none", 
+                            boxShadow: "0 10px 30px rgba(79, 70, 229, 0.3)", transition: "all 0.3s ease" 
+                        }}>
+                            See WhatsApp Demo <ArrowRight size={20} />
+                        </Link>
+                        <Link href="/case-studies" style={{ 
+                            display: "inline-flex", alignItems: "center", justifyContent: "center",
+                            padding: "1rem 2rem", background: "var(--card-bg)", color: "var(--text)", 
+                            border: "1px solid var(--border)",
+                            fontWeight: 700, borderRadius: "12px", textDecoration: "none",
+                            transition: "all 0.3s ease" 
+                        }}>
+                            Explore Global Case Studies
+                        </Link>
+                    </div>
+                </div>
+            </header>
 
             {/* Section 1A: Enterprise Tech Stack (Zig) */}
             <section id="technology-1" style={{ padding: "120px 1.5rem 60px", background: "var(--bg-secondary)" }}>
@@ -443,9 +525,16 @@ export default function Home() {
                         <h2 className="section-title" style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)" }}>Your Enterprise AI Stack</h2>
                     </div>
                     <div className="responsive-grid zig">
-                        <div className="gsap-img-reveal" style={PlaceholderStyle}>
-                            [Image Placeholder: Enterprise AI Tech Stack - Battle-tested deployments integrating Claude, GPT-4o, and n8n]
+                        <div className="gsap-img-reveal brand-logo-grid" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(110px, 1fr))", alignContent: "center", justifyItems: "center" }}>
+                            <div className="brand-logo-card"><img src="/images/brands/Amazon.png" className="brand-logo-img" alt="AWS" title="Amazon Web Services" /></div>
+                            <div className="brand-logo-card"><img src="/images/brands/Azure.jpg" className="brand-logo-img" alt="Microsoft Azure" style={{ mixBlendMode: 'multiply' }} /></div>
+                            <div className="brand-logo-card"><img src="/images/brands/gcp.png" className="brand-logo-img" alt="Google Cloud" /></div>
+                            <div className="brand-logo-card"><img src="/images/brands/zoho.png" className="brand-logo-img" alt="Zoho" /></div>
+                            <div className="brand-logo-card"><img src="/images/brands/SAP.png" className="brand-logo-img" alt="SAP" /></div>
+                            <div className="brand-logo-card"><img src="/images/brands/oracle.jpg" className="brand-logo-img" alt="Oracle" style={{ mixBlendMode: 'multiply' }} /></div>
+                            <div className="brand-logo-card"><img src="/images/brands/Salesforce.png" className="brand-logo-img" alt="Salesforce" /></div>
                         </div>
+
                         <div className="gsap-reveal">
                             <span className="section-label">Technology</span>
                             <h2 className="section-title">Core Infrastructure</h2>
@@ -484,8 +573,12 @@ export default function Home() {
                                 </p>
                             </div>
                         </div>
-                        <div className="gsap-img-reveal" style={PlaceholderStyle}>
-                            [Image Placeholder: Systems Diagram - n8n routing Claude, GPT-4o, and Gemini requests in real-time]
+                        <div className="gsap-img-reveal brand-logo-grid" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(130px, 1fr))", alignContent: "center", justifyItems: "center" }}>
+                            <div className="brand-logo-card"><img src="/images/brands/claude.png" className="brand-logo-img" alt="Anthropic Claude" /></div>
+                            <div className="brand-logo-card"><img src="/images/brands/OpenAI.png" className="brand-logo-img" alt="OpenAI GPT-4o" /></div>
+                            <div className="brand-logo-card"><img src="/images/brands/Google_Gemini.png" className="brand-logo-img" alt="Google Gemini" /></div>
+                            <div className="brand-logo-card"><img src="/images/brands/N8n.png" className="brand-logo-img" alt="n8n Orchestration" /></div>
+                            <div className="brand-logo-card"><img src="/images/brands/langchain.png" className="brand-logo-img" alt="LangChain RAG" /></div>
                         </div>
                     </div>
                 </div>
@@ -497,11 +590,11 @@ export default function Home() {
                     <div className="gsap-reveal" style={{ textAlign: "center", marginBottom: "5rem" }}>
                         <h2 className="section-title" style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)" }}>What We Build: Autonomous Digital Workers</h2>
                     </div>
-                    <div className="responsive-grid zig">
-                        <div className="gsap-img-reveal" style={PlaceholderStyle}>
-                            [Image Placeholder: Autonomous Worker Workflow - Average 99.2% Accuracy, 80% Cost Base Savings]
+                    <div className="offset-layout-right">
+                        <div className="gsap-img-reveal offset-img-container">
+                            <Image src="/images/industries/home-workflow.jpg" alt="Autonomous Worker Workflow" fill style={{ objectFit: "cover" }} />
                         </div>
-                        <div className="gsap-reveal">
+                        <div className="gsap-reveal offset-text-container">
                             <span className="section-label">Capabilities</span>
                             <h2 className="section-title">Intelligent Execution</h2>
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.15rem", textAlign: "justify" }}>
@@ -509,10 +602,10 @@ export default function Home() {
                                     An AI agent isn't a chatbot. It's a digital employee that thinks, decides, and acts within defined boundaries. Our agents autonomously process documents, extract data, make decisions based on business rules, and integrate findings across multiple systems—without human intervention between trigger and outcome.
                                 </p>
                                 <p style={{ marginBottom: "1.5rem" }}>
-                                    In Finance, a digital worker processes 500+ invoices monthly, auto-categorises expenses with 99.2% accuracy, reconciles bank statements overnight, and flags anomalies before they become problems. It reads an invoice (PDF, email, scanned image), extracts key fields (supplier, amount, tax, GL code), validates against your business rules (is this supplier approved? is the amount within tolerance?), and posts the transaction directly to your accounting software.
+                                    In Finance, a digital worker processes 500+ invoices monthly, auto-categorises expenses with 99.2% accuracy, reconciles bank statements overnight, and flags anomalies before they become problems. It reads an invoice, extracts key fields, validates against your business rules, and posts the transaction directly to your accounting software.
                                 </p>
                                 <p style={{ fontWeight: 700, color: "var(--text)" }}>
-                                    Exceptions (duplicate invoices, policy violations, unusual amounts) get flagged to your Finance Manager with context. No manual data entry. No spreadsheets. No email hunting. One client went from 40 hours per week of manual invoice processing to 8 hours per week of exception review.
+                                    Exceptions (duplicate invoices, policy violations, unusual amounts) get flagged to your Finance Manager with context. No manual data entry. No spreadsheets. No email hunting.
                                 </p>
                             </div>
                         </div>
@@ -523,8 +616,11 @@ export default function Home() {
             {/* Section 2B: Capabilities in Action (Zag) */}
             <section id="industry-applications" style={{ padding: "120px 1.5rem", background: "var(--bg)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
-                    <div className="responsive-grid zag">
-                        <div className="gsap-reveal">
+                    <div className="offset-layout-left">
+                        <div className="gsap-img-reveal offset-img-container">
+                            <Image src="/images/industries/home-global.jpg" alt="Cross-Discipline Applications" fill style={{ objectFit: "cover" }} />
+                        </div>
+                        <div className="gsap-reveal offset-text-container">
                             <span className="section-label">Real World Context</span>
                             <h2 className="section-title">Scaling Legal and Logistics Frameworks</h2>
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.15rem", textAlign: "justify" }}>
@@ -532,15 +628,12 @@ export default function Home() {
                                     In Legal, an agent reviews contracts, extracts key terms, cross-references against precedent databases (via LangChain RAG), and produces annotated summaries in minutes instead of hours. A solicitor reviews the analysis, makes judgment calls, and approves. Time savings: 70-80% on routine contract review. Better decisions: the agent never forgets your precedent patterns. 
                                 </p>
                                 <p style={{ marginBottom: "1.5rem" }}>
-                                    In Logistics, an autonomous dispatcher optimises routes, coordinates with vendors via n8n integrations, updates inventory in real-time, and forecasts demand using historical patterns. Routes are optimised overnight; drivers have their day's plan by 6am. If a new urgent order arrives at 2pm, the agent recalculates the afternoon route in seconds and alerts affected drivers. Fuel efficiency improves 12-18%, on-time performance hits 98%+, and cost per delivery drops 15-20%. 
+                                    In Logistics, an autonomous dispatcher optimises routes, coordinates with vendors via n8n integrations, updates inventory in real-time, and forecasts demand using historical patterns. Routes are optimised overnight; drivers have their day's plan by 6am. If a new urgent order arrives at 2pm, the agent recalculates the afternoon route in seconds.
                                 </p>
                                 <p style={{ fontWeight: 700, color: "var(--text)" }}>
-                                    These aren't theoretical exercises. These are production agents handling £millions in transaction value, managing legal IP portfolios, and orchestrating thousands of shipments weekly. They're supervised—audit trails are absolute, human oversight is built in—but they operate 24/7 without fatigue, bias, or inconsistency. That's the FI Digital difference.
+                                    These aren't theoretical exercises. These are production agents handling £millions in transaction value, managing legal IP portfolios, and orchestrating thousands of shipments weekly.
                                 </p>
                             </div>
-                        </div>
-                        <div className="gsap-img-reveal" style={PlaceholderStyle}>
-                            [Image Placeholder: Cross-Discipline Applications - Logistics Routing, Finance Reconciliations, Legal Contracts]
                         </div>
                     </div>
                 </div>
@@ -568,9 +661,9 @@ export default function Home() {
                                 </p>
                             </div>
                         </div>
-                        <div className="gsap-img-reveal" style={PlaceholderStyle}>
-                            [Image Placeholder: 12-16 Week Embedded AI Deployment Timeline Graphic]
-                        </div>
+                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
+    <img src="/images/delivery-hero.png" alt="12-16 Week Embedded AI Deployment Timeline Graphic" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+</div>
                     </div>
                 </div>
             </section>
@@ -579,9 +672,9 @@ export default function Home() {
              <section id="framework-2" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zig">
-                        <div className="gsap-img-reveal" style={PlaceholderStyle}>
-                            [Image Placeholder: AI Agent Build & Operate Framework Dashboard]
-                        </div>
+                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
+    <img src="/images/industries/home-ecosystem.jpg" alt="AI Agent Build & Operate Framework Dashboard" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "32px" }} />
+</div>
                         <div className="gsap-reveal">
                             <span className="section-label">Deploy & Scale</span>
                             <h2 className="section-title">The Operational Handover</h2>
@@ -601,74 +694,70 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Section 4A: Industries - Finance & Legal (Zag) */}
-            <section id="expertise-1" style={{ padding: "120px 1.5rem 60px", background: "var(--bg)" }}>
+            {/* Section 4: Industries (Bento Grid) */}
+            <section id="expertise-bento" style={{ padding: "120px 1.5rem", background: "var(--bg)" }}>
+                {/* Styles hoisted to component root to prevent nested styled-jsx */}
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="gsap-reveal" style={{ textAlign: "center", marginBottom: "5rem" }}>
+                        <span className="section-label">Expertise</span>
                         <h2 className="section-title" style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)" }}>Industries We Serve</h2>
                     </div>
-                    <div className="responsive-grid zag">
-                        <div className="gsap-reveal">
-                            <span className="section-label">Expertise</span>
-                            <h2 className="section-title">Financial & Legal Services</h2>
-                            <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.15rem", textAlign: "justify" }}>
-                                <p style={{ marginBottom: "1.5rem" }}>
-                                    <strong>Financial Services:</strong> Invoice processing, expense categorisation, reconciliation, cash flow forecasting, AML screening, payment exception handling. Our agents process £2.4bn traversing 47 clients. One mid-market firm went from 12-day to 5-day month-end close. Another saved £2,100/month in manual processing while improving accuracy from 94% to 99.2%. We integrate with Xero, QuickBooks, Sage, Zoho Books, and HR systems. Your team focuses on analysis and strategy.
-                                </p>
-                                <p style={{ marginBottom: "1.5rem" }}>
-                                    <strong>Legal:</strong> Contract review, due diligence, compliance monitoring, precedent search, KYC. Our Legal agents have reviewed 18,000+ contracts using LangChain-powered RAG and Claude. A mid-tier law firm reduced due diligence time from 2-3 weeks to 4-5 days.
-                                </p>
-                                <p style={{ fontWeight: 700, color: "var(--text)" }}>
-                                    We integrate securely with document management systems (iManage, ShareFile) and your contract repository. The SRA expects supervision; we rigorously architect compliance into every agent.
+                    
+                    <div className="bento-grid">
+                        {/* Finance & Legal (Large Vertical Pane) */}
+                        <div className="bento-large gsap-reveal" style={{ position: "relative", borderRadius: "32px", overflow: "hidden", border: "1px solid var(--border)", display: "flex", flexDirection: "column", background: "var(--card-bg)", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }}>
+                            <div style={{ padding: "clamp(2rem, 4vw, 3.5rem)", zIndex: 2, position: "relative" }}>
+                                <div style={{ fontSize: "1.5rem", fontWeight: 900, marginBottom: "1.5rem", color: "var(--text)" }}>Financial & Legal Services</div>
+                                <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.05rem" }}>
+                                    <p style={{ marginBottom: "1.5rem" }}>
+                                        <strong>Financial Services:</strong> Invoice processing, expense categorisation, reconciliation, AML screening. Our agents process £2.4bn across 47 clients. One mid-market firm went from 12-day to 5-day month-end close. We integrate with Xero, QuickBooks, Sage, and SAP.
+                                    </p>
+                                    <p>
+                                        <strong>Legal:</strong> Contract review, due diligence, compliance monitoring. A mid-tier law firm reduced due diligence time from 2-3 weeks to 4-5 days. We integrate securely with document management systems (iManage, ShareFile). 
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="gsap-img-reveal" style={{ flex: 1, position: "relative", minHeight: "400px" }}>
+                                <Image src="/images/industries/home-finance-legal.jpg" alt="Financial & Legal Services AI Framework" fill style={{ objectFit: "cover" }} />
+                                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, var(--card-bg) 0%, transparent 40%)" }} />
+                            </div>
+                        </div>
+
+                        {/* Logistics Text (Top Row) */}
+                        <div className="gsap-reveal" style={{ position: "relative", borderRadius: "32px", overflow: "hidden", border: "1px solid var(--border)", background: "var(--card-bg)", padding: "clamp(2rem, 4vw, 3.5rem)", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }}>
+                            <div style={{ fontSize: "1.5rem", fontWeight: 900, marginBottom: "1.5rem", color: "var(--text)" }}>Logistics & Manufacturing</div>
+                            <div style={{ color: "var(--text-muted)", lineHeight: 1.7, fontSize: "1.05rem" }}>
+                                <p>
+                                    Route optimisation, demand forecasting, supplier coordination, and exception handling. Agents dynamically reduce delivery times by 12-18% and cut fuel costs by 8-14%. The agent aggressively optimises routes while your operations team handles human exceptions and vendor relationships.
                                 </p>
                             </div>
                         </div>
-                        <div className="gsap-img-reveal" style={PlaceholderStyle}>
-                            [Image Placeholder: Key Sectors Map - Financial Services processing £2.4bn, Legal Due Diligence]
+
+                        {/* Logistics Image (Bottom Row) */}
+                        <div className="gsap-img-reveal" style={{ position: "relative", borderRadius: "32px", overflow: "hidden", border: "1px solid var(--border)", minHeight: "350px", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }}>
+                            <Image src="/images/industries/home-logistics-mfg.jpg" alt="Logistics AI Optimization" fill style={{ objectFit: "cover" }} />
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Section 4B: Industries - Logistics (Zig) */}
-            <section id="expertise-2" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)" }}>
-                <div className="container" style={{ maxWidth: "1250px" }}>
-                    <div className="responsive-grid zig">
-                        <div className="gsap-img-reveal" style={PlaceholderStyle}>
-                            [Image Placeholder: Advanced Logistics Routing Map & Supply Chain Orchestration]
-                        </div>
-                        <div className="gsap-reveal">
-                            <span className="section-label">Operations</span>
-                            <h2 className="section-title">Logistics & Manufacturing</h2>
-                            <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.15rem", textAlign: "justify" }}>
-                                <p style={{ marginBottom: "1.5rem" }}>
-                                    <strong>Logistics & Manufacturing:</strong> Route optimisation, demand forecasting, supplier coordination, inventory management, exception handling. Agents dynamically reduce delivery times by 12-18%, cut fuel costs by 8-14%, and strictly improve on-time performance to 98%+.
-                                </p>
-                                <p style={{ marginBottom: "1.5rem" }}>
-                                    A London-based courier with 35 drivers increased delivery capacity by 28% without adding vehicles. We integrate natively with your fleet management system (Tookan, Onfleet, Samsara), your inventory system (Zoho Inventory, SAP), and your order platform (Shopify, custom API). 
-                                </p>
-                                <p style={{ fontWeight: 700, color: "var(--text)" }}>
-                                    The agent aggressively optimises routes while your operations team handles human exceptions and vendor relationships. These aren't one-off pilots. They're operational workhorses embedded in mission-critical workflows, handling real P&L impact every single day.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Section 5A: Global Delivery (Zag) */}
+            {/* Section 5A: Global Delivery (Offset Right) */}
             <section id="global-delivery-1" style={{ padding: "120px 1.5rem 60px", background: "var(--bg)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="gsap-reveal" style={{ textAlign: "center", marginBottom: "5rem" }}>
                         <h2 className="section-title" style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)" }}>Global Delivery, UK Focused</h2>
                     </div>
-                    <div className="responsive-grid zag">
-                        <div className="gsap-reveal">
+                    
+                    <div className="offset-layout-right">
+                        <div className="gsap-img-reveal offset-img-container">
+                            <Image src="/images/industries/home-security-compliance.jpg" alt="Local Compliance & Security Guardrails" fill style={{ objectFit: "cover" }} />
+                        </div>
+                        <div className="gsap-reveal offset-text-container">
                             <span className="section-label">Digital Synergy Ventures UK</span>
                             <h2 className="section-title">Local Compliance & Security</h2>
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.15rem", textAlign: "justify" }}>
                                 <p style={{ marginBottom: "1.5rem" }}>
-                                    FI Digital UK is Digital Synergy Ventures UK Limited—a UK-registered entity backed by 200+ engineers across 4 countries: Australia (HQ), India (engineering, 150+ staff), UAE (regional hub), and UK (enterprise relationships and support). 
+                                    FI Digital UK is Digital Synergy Ventures UK Limited—a UK-registered entity backed by 200+ engineers across 4 countries: Australia (HQ), India (engineering), UAE (regional hub), and UK (enterprise relationships). 
                                 </p>
                                 <p style={{ marginBottom: "1.5rem" }}>
                                     Ten years building AI automation systems for enterprises means we've seen every compliance framework, every integration nightmare, every edge case twice. We understand FCA regulations for Finance, SRA ethics for Legal, and GDPR for everything. 
@@ -678,21 +767,18 @@ export default function Home() {
                                 </p>
                             </div>
                         </div>
-                        <div className="gsap-img-reveal" style={PlaceholderStyle}>
-                            [Image Placeholder: World Map Distribution - London Enterprise, Sydney HQ, Pune Engineering, Dubai Hub]
-                        </div>
                     </div>
                 </div>
             </section>
 
-            {/* Section 5B: Accountability (Zig) */}
-            <section id="global-delivery-2" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)" }}>
+            {/* Section 5B: Accountability (Offset Left) */}
+            <section id="global-delivery-2" style={{ padding: "60px 1.5rem 120px", background: "var(--bg)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
-                    <div className="responsive-grid zig">
-                        <div className="gsap-img-reveal" style={PlaceholderStyle}>
-                            [Image Placeholder: UK Engineering Partnership Dashboard & Slack Integration]
+                    <div className="offset-layout-left">
+                        <div className="gsap-img-reveal offset-img-container">
+                            <Image src="/images/industries/home-accountability.jpg" alt="Engineering Partnership Accountability" fill style={{ objectFit: "cover" }} />
                         </div>
-                        <div className="gsap-reveal">
+                        <div className="gsap-reveal offset-text-container">
                             <span className="section-label">Partnership</span>
                             <h2 className="section-title">Engineering Accountability</h2>
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.15rem", textAlign: "justify" }}>
@@ -711,53 +797,48 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Section 6A: AI Readiness Assessment (Zig) */}
-            <section id="assessment-1" style={{ padding: "120px 1.5rem 60px", background: "var(--bg-secondary)" }}>
-                <div className="container" style={{ maxWidth: "1250px" }}>
-                    <div className="gsap-reveal" style={{ textAlign: "center", marginBottom: "5rem" }}>
-                        <h2 className="section-title" style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)" }}>Take the AI Readiness Assessment</h2>
-                    </div>
-                    <div className="responsive-grid zig">
-                        <div className="gsap-img-reveal" style={PlaceholderStyle}>
-                            [Image Placeholder: AI Readiness Assessment Interface Mockup showing dimensions mapping]
-                        </div>
-                        <div className="gsap-reveal">
-                            <span className="section-label">Evaluation Mechanics</span>
-                            <h2 className="section-title">Are You Ready For AI?</h2>
-                            <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.15rem", textAlign: "justify" }}>
-                                <p style={{ marginBottom: "1.5rem" }}>
-                                    Not every process benefits from AI. Some should. Others shouldn't. We've built a 5-minute assessment that scores your readiness across 12 dimensions: process repeatability (are the steps consistent?), data quality (can we parse and understand your data?), volume/cost impact (how much manual labour is involved?), compliance complexity (are there regulatory constraints?), legacy system integration (how connected is your tech stack?), and team capacity (are you stretched thin?).
-                                </p>
-                                <p>
-                                    Answer 15 questions, get an immediate score (0-100), and a personalised report showing which of your operations would benefit most from automation.
-                                </p>
-                            </div>
+            {/* Section 6: AI Readiness & ROI (Glassmorphism & Edge-to-Edge) */}
+            <section id="assessment-parallax" style={{ padding: "0 0 120px 0", background: "var(--bg)" }}>
+                {/* Immense Edge-to-Edge Image with Glassmorphism Overlay */}
+                <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "80vh", minHeight: "600px", overflow: "hidden" }}>
+                    <Image src="/images/industries/home-readiness-ui.jpg" alt="AI Readiness Interface" fill style={{ objectFit: "cover", filter: "brightness(0.7)" }} />
+                    <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, var(--bg) 0%, transparent 60%)" }} />
+                    
+                    {/* Centered Glass Container */}
+                    <div style={{ position: "absolute", top: "45%", left: "50%", transform: "translate(-50%, -50%)", width: "90%", maxWidth: "800px", padding: "clamp(2rem, 5vw, 4rem)", borderRadius: "32px", background: "rgba(11, 15, 25, 0.6)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)", border: "1px solid rgba(255,255,255,0.1)", textAlign: "center", boxShadow: "0 30px 60px rgba(0,0,0,0.5)" }} className="gsap-reveal">
+                        <span className="section-label" style={{ border: "none", background: "rgba(79, 70, 229, 0.2)", color: "#a5b4fc" }}>Evaluation Mechanics</span>
+                        <h2 className="section-title" style={{ color: "white", fontSize: "clamp(2rem, 4vw, 3.5rem)" }}>Are You Ready For AI?</h2>
+                        <div style={{ color: "rgba(255,255,255,0.85)", lineHeight: 1.8, fontSize: "1.15rem" }}>
+                            <p style={{ marginBottom: "1.5rem" }}>
+                                Not every process benefits from AI. Some should. Others shouldn't. We've built a 5-minute assessment that scores your readiness across 12 dimensions: process repeatability, data quality, volume/cost impact, compliance complexity, legacy system integration, and team capacity.
+                            </p>
+                            <p>
+                                Answer 15 questions, get an immediate score (0-100), and a personalised report showing which of your operations would benefit most from automation.
+                            </p>
                         </div>
                     </div>
                 </div>
-            </section>
 
-            {/* Section 6B: Assessment Results (Zag) */}
-            <section id="assessment-2" style={{ padding: "120px 1.5rem", background: "var(--bg)" }}>
-                <div className="container" style={{ maxWidth: "1250px" }}>
-                    <div className="responsive-grid zag">
-                        <div className="gsap-reveal">
+                {/* Return to flow: ROI Data Text offset overlapping the bottom */}
+                <div className="container" style={{ maxWidth: "1250px", marginTop: "clamp(-100px, -10vh, -150px)", position: "relative", zIndex: 10 }}>
+                    <div className="offset-layout-left">
+                        <div className="gsap-img-reveal offset-img-container" style={{ boxShadow: "0 40px 80px rgba(0,0,0,0.6)", background: "var(--card-bg)", aspectRatio: "16/9" }}>
+                            <Image src="/images/industries/home-roi-data.jpg" alt="ROI Personalised Data" fill style={{ objectFit: "cover" }} />
+                        </div>
+                        <div className="gsap-reveal offset-text-container" style={{ paddingTop: "clamp(2.5rem, 4vw, 4rem)" }}>
                             <span className="section-label">Valuable Insights</span>
                             <h2 className="section-title">No Sales Pitch. Just Data.</h2>
                             <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.15rem", textAlign: "justify" }}>
                                 <p style={{ marginBottom: "1.5rem" }}>
                                     73% of assessments surface a high-impact automation opportunity within 90 days. Some clients discover they're already AI-ready (all preconditions met, can deploy in 8-10 weeks); others learn they need 6 months of data prep first (messy source systems, poor process documentation). 
                                 </p>
-                                <p style={{ marginBottom: "1.5rem" }}>
+                                <p style={{ marginBottom: "2.5rem" }}>
                                     Both are valuable insights. The assessment is free, takes 5 minutes, and the insights are yours to keep. Many clients share the results with their CFO or COO to build the business case for the engagement.
                                 </p>
-                                <Link href="/assessment" className="btn-primary" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "1rem 2rem", background: "#4F46E5", color: "white", borderRadius: "12px", textDecoration: "none" }}>
+                                <Link href="/assessment" className="btn-primary" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "1rem 2rem", background: "#4F46E5", color: "white", borderRadius: "12px", textDecoration: "none", fontWeight: 700 }}>
                                     Take the Assessment <ArrowRight size={20} />
                                 </Link>
                             </div>
-                        </div>
-                        <div className="gsap-img-reveal" style={PlaceholderStyle}>
-                            [Image Placeholder: Personalized ROI Report Output Dashboard Example]
                         </div>
                     </div>
                 </div>

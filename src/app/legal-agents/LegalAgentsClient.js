@@ -430,11 +430,11 @@ export default function LegalAgentsClient() {
                     <div className="responsive-grid zig" style={{ gap: "4rem" }}>
                         <div className="gsap-img-reveal">
                             <Image 
-                                src="/assets/legal/hero.png"
+                                src="/images/industries/legal-dw-problem.jpg"
                                 alt="Legal AI Contract Review"
                                 width={800}
                                 height={600}
-                                style={{ borderRadius: "48px", width: "100%", height: "auto", boxShadow: "0 20px 40px rgba(0,0,0,0.2)" }}
+                                style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }}
                             />
                         </div>
                         <div className="gsap-reveal">
@@ -499,11 +499,11 @@ export default function LegalAgentsClient() {
                     <div className="responsive-grid zig" style={{ gap: "4rem" }}>
                         <div className="gsap-img-reveal">
                              <Image 
-                                src="/assets/legal/compliance.png"
+                                src="/images/industries/legal-dw-workflow.jpg"
                                 alt="AI Contract Review Logic"
                                 width={800}
                                 height={600}
-                                style={{ borderRadius: "48px", width: "100%", height: "auto", boxShadow: "0 20px 40px rgba(0,0,0,0.2)" }}
+                                style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }}
                             />
                         </div>
                         <div className="gsap-reveal">
@@ -565,11 +565,11 @@ export default function LegalAgentsClient() {
                     <div className="responsive-grid zig" style={{ gap: "4rem" }}>
                         <div className="gsap-img-reveal">
                              <Image 
-                                src="/assets/legal/compliance_monitoring.png"
+                                src="/images/industries/legal-dw-discovery.jpg"
                                 alt="AI Legal Compliance Monitoring"
                                 width={800}
                                 height={600}
-                                style={{ borderRadius: "48px", width: "100%", height: "auto", boxShadow: "0 20px 40px rgba(0,0,0,0.2)" }}
+                                style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }}
                             />
                         </div>
                         <div className="gsap-reveal">
@@ -614,11 +614,11 @@ export default function LegalAgentsClient() {
                         </div>
                         <div className="gsap-img-reveal">
                             <Image 
-                                src="/assets/legal/claude_logic.png"
+                                src="/images/reasoning-routing.png"
                                 alt="Claude Legal Reasoning"
                                 width={800}
-                                height={800}
-                                style={{ borderRadius: "48px", width: "100%", height: "auto", boxShadow: "0 20px 40px rgba(0,0,0,0.4)" }}
+                                height={600}
+                                style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }}
                             />
                         </div>
                     </div>
@@ -705,11 +705,11 @@ export default function LegalAgentsClient() {
                     <div className="responsive-grid zig" style={{ gap: "4rem" }}>
                         <div className="gsap-img-reveal">
                             <Image 
-                                src="/assets/legal/rag.png"
+                                src="/images/industries/legal-dw-secure.jpg"
                                 alt="AI Legal Memory & RAG"
                                 width={800}
-                                height={800}
-                                style={{ borderRadius: "48px", width: "100%", height: "auto", boxShadow: "0 20px 40px rgba(0,0,0,0.4)" }}
+                                height={600}
+                                style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }}
                             />
                         </div>
                         <div className="gsap-reveal">
@@ -894,12 +894,12 @@ export default function LegalAgentsClient() {
                             </div>
                         </div>
                         <div className="gsap-img-reveal">
-                              <Image 
-                                src="/assets/legal/roi.png"
+                            <Image 
+                                src="/images/industries/legal-casestudy.jpg"
                                 alt="Legal AI Economic Outcomes"
                                 width={800}
                                 height={600}
-                                style={{ borderRadius: "48px", width: "100%", height: "auto", boxShadow: "0 20px 40px rgba(0,0,0,0.2)" }}
+                                style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }}
                             />
                         </div>
                     </div>
@@ -915,12 +915,12 @@ export default function LegalAgentsClient() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zig" style={{ gap: "4rem" }}>
                         <div className="gsap-img-reveal">
-                              <Image 
-                                src="/assets/legal/compliance.png"
+                            <Image 
+                                src="/images/industries/legal-dw-workflow.jpg"
                                 alt="SRA Compliance Framework"
                                 width={800}
                                 height={600}
-                                style={{ borderRadius: "48px", width: "100%", height: "auto", boxShadow: "0 20px 40px rgba(0,0,0,0.2)" }}
+                                style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }}
                             />
                         </div>
                         <div className="gsap-reveal">
@@ -981,12 +981,12 @@ export default function LegalAgentsClient() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zig" style={{ gap: "4rem" }}>
                         <div className="gsap-img-reveal">
-                              <Image 
-                                src="/assets/legal/audit_trail.png"
+                            <Image 
+                                src="/images/cicd-pipeline.png"
                                 alt="Private Legal AI Infrastructure"
                                 width={800}
                                 height={600}
-                                style={{ borderRadius: "48px", width: "100%", height: "auto", boxShadow: "0 20px 40px rgba(0,0,0,0.2)" }}
+                                style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }}
                             />
                         </div>
                         <div className="gsap-reveal">

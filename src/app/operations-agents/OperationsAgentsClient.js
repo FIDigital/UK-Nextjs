@@ -305,8 +305,9 @@ export default function OperationsAgentsClient() {
                                 </p>
                             </div>
                         </div>
-                        <div className="gsap-img-reveal">
-                            <div style={{ background: "var(--bg-secondary)", border: "1px solid var(--border)", borderRadius: "48px", padding: "3rem" }}>
+                        <div className="gsap-img-reveal" style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+                            <Image src="/images/industries/ops-dw-problem.jpg" width={800} height={450} style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }} alt="Logistics Manual Friction" />
+                            <div style={{ background: "var(--bg-secondary)", border: "1px solid var(--border)", borderRadius: "32px", padding: "2.5rem" }}>
                                 <div style={{ fontSize: "0.85rem", fontWeight: 800, color: "var(--primary)", marginBottom: "2rem", textTransform: "uppercase" }}>Manual Friction Metrics</div>
                                 <div style={{ display: "grid", gap: "1.5rem" }}>
                                     {[
@@ -330,8 +331,10 @@ export default function OperationsAgentsClient() {
              <section style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)", borderTop: "1px solid var(--border)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zag">
-                        <div className="gsap-img-reveal" style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-                            <div style={{ background: "var(--bg)", border: "1px solid var(--border)", borderRadius: "32px", padding: "2.5rem" }}>
+                        <div className="gsap-img-reveal" style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+                            <Image src="/images/industries/ops-dw-predictive.jpg" width={800} height={450} style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }} alt="Predictive Operations Margin" />
+                            <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+                                <div style={{ background: "var(--bg)", border: "1px solid var(--border)", borderRadius: "32px", padding: "2.5rem" }}>
                                 <div style={{ fontSize: "0.7rem", fontWeight: 800, color: "var(--primary)", marginBottom: "1.5rem" }}>REAL-TIME MARGIN TRACKING</div>
                                 <div style={{ display: "flex", alignItems: "baseline", gap: "1rem", marginBottom: "0.5rem" }}>
                                     <span style={{ fontSize: "3rem", fontWeight: 900 }}>+11.2%</span>
@@ -350,6 +353,7 @@ export default function OperationsAgentsClient() {
                                     <div style={{ fontSize: "0.6rem", opacity: 0.5 }}>AVG. STOP ROI</div>
                                     <div style={{ fontSize: "1.2rem", fontWeight: 800 }}>£18.42</div>
                                 </div>
+                            </div>
                             </div>
                         </div>
                         <div className="gsap-reveal">
@@ -384,8 +388,9 @@ export default function OperationsAgentsClient() {
                                     </p>
                                 </div>
                         </div>
-                        <div className="gsap-img-reveal">
-                            <div style={{ background: "var(--bg-secondary)", border: "1px solid var(--border)", borderRadius: "48px", padding: "3rem" }}>
+                        <div className="gsap-img-reveal" style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+                            <Image src="/images/industries/ops-dw-supply.jpg" width={800} height={450} style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }} alt="Digital Worker Dispatch" />
+                            <div style={{ background: "var(--bg-secondary)", border: "1px solid var(--border)", borderRadius: "32px", padding: "2.5rem" }}>
                                 <div style={{ fontSize: "0.85rem", fontWeight: 800, color: "var(--primary)", marginBottom: "2rem", textTransform: "uppercase" }}>5AM Dispatch Timeline</div>
                                 <div style={{ position: "relative", paddingLeft: "2rem", borderLeft: "2px solid rgba(79, 70, 229, 0.2)" }}>
                                     {[
@@ -448,8 +453,9 @@ export default function OperationsAgentsClient() {
              <section style={{ padding: "120px 1.5rem", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zig">
-                        <div className="gsap-img-reveal">
-                            <div style={{ background: "rgba(79, 70, 229, 0.05)", border: "1px solid var(--primary)", borderRadius: "48px", padding: "3rem", textAlign: "center" }}>
+                        <div className="gsap-img-reveal" style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+                            <Image src="/images/industries/ops-dw-roi.jpg" width={800} height={450} style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }} alt="Operations ROI Output" />
+                            <div style={{ background: "rgba(79, 70, 229, 0.05)", border: "1px solid var(--primary)", borderRadius: "32px", padding: "2.5rem", textAlign: "center" }}>
                                 <div style={{ fontSize: "0.8rem", color: "var(--primary)", fontWeight: 800, textTransform: "uppercase", marginBottom: "2rem" }}>Delivery Cost Breakdown</div>
                                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "2rem" }}>
                                     <div style={{ flex: 1 }}>
