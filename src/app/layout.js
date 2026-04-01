@@ -38,7 +38,7 @@ const jsonLd = {
   },
   "sameAs": [
     "https://fidigital.com.au",
-    "https://www.linkedin.com/company/fidigital"
+    "https://www.linkedin.com/showcase/fi-digital-uk/"
   ],
   "areaServed": ["GB", "AU", "AE", "IN"],
   "knowsAbout": ["AI Agents", "LangChain", "Claude AI", "n8n", "Enterprise Automation", "Azure OpenAI"]

@@ -117,7 +117,7 @@ const FAQItem = ({ question, answer }) => {
                     alignItems: "center", 
                     background: "none", 
                     border: "none", 
-                    color: "white", 
+                    color: "var(--text)", 
                     cursor: "pointer",
                     textAlign: "left"
                 }}>
@@ -218,11 +218,15 @@ export default function EnterpriseWorkflowClient() {
                     .responsive-grid.zag {
                         grid-template-columns: 0.9fr 1.1fr;
                     }
+                    .hero-background-wrapper { width: 65% !important; }
                 }
                 .hero-section {
-                    padding: 180px 1.5rem 120px;
+                    padding: 160px 1.5rem 100px;
                     position: relative;
                     z-index: 1;
+                    min-height: 90vh;
+                    display: flex;
+                    align-items: center;
                 }
                 .section-label {
                     font-size: 0.9rem;
@@ -239,9 +243,10 @@ export default function EnterpriseWorkflowClient() {
                     line-height: 1.1;
                     margin-bottom: 2.5rem;
                     letter-spacing: -0.02em;
+                    color: var(--text);
                 }
                 .text-secondary {
-                    color: rgba(255, 255, 255, 0.4);
+                    color: var(--text-muted);
                 }
                 .pillar-card {
                     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -266,37 +271,86 @@ export default function EnterpriseWorkflowClient() {
                 .faq-item:hover {
                     border-color: rgba(79, 70, 229, 0.3);
                 }
+                .hero-image-mask {
+                    mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+                    -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+                }
+                @keyframes pulse {
+                    0% { transform: scale(1); opacity: 1; }
+                    50% { transform: scale(1.5); opacity: 0.5; }
+                    100% { transform: scale(1); opacity: 1; }
+                }
+                .pulse-dot {
+                    animation: pulse 2s infinite;
+                }
             `}</style>
 
             <TechMeshBackground />
 
             {/* Hero Section */}
             <section className="hero-section">
-                <div className="container" style={{ maxWidth: "1250px" }}>
-                    <div style={{ maxWidth: "900px" }}>
+                {/* Background Image Container */}
+                <div className="hero-background-wrapper" style={{ 
+                    position: "absolute", 
+                    top: "0", 
+                    right: "0", 
+                    width: "100%", 
+                    height: "100%", 
+                    zIndex: -1,
+                    overflow: "hidden",
+                    opacity: 0.8
+                }}>
+                    <div className="hero-image-mask" style={{ width: "100%", height: "100%", position: "relative" }}>
+                        <Image 
+                            src="/images/workflows/hero-workflow-core.png"
+                            alt="Enterprise Workflow Visualization"
+                            fill
+                            style={{ objectFit: "cover", objectPosition: "center right" }}
+                            priority
+                        />
+                        <div style={{ 
+                            position: "absolute", 
+                            inset: 0, 
+                            background: "radial-gradient(circle at 20% 50%, var(--bg) 0%, transparent 100%)" 
+                        }} />
+                    </div>
+                </div>
+
+                <div className="container" style={{ 
+                    position: "relative", 
+                    zIndex: 1, 
+                    display: "flex", 
+                    flexDirection: "column", 
+                    alignItems: "flex-start", 
+                    textAlign: "left", 
+                    width: "100%", 
+                    maxWidth: "1250px", 
+                    margin: "0 auto" 
+                }}>
+                    <div style={{ maxWidth: "850px" }}>
                         <div className="hero-title-line" style={{ 
                             display: "inline-flex", alignItems: "center", gap: "0.75rem", padding: "0.6rem 1.2rem", 
                             background: "rgba(79, 70, 229, 0.1)", borderRadius: "100px", 
-                            border: "1px solid rgba(79, 70, 229, 0.2)", marginBottom: "2.5rem", 
+                            border: "1px solid var(--primary)", marginBottom: "2.5rem", 
                             color: "var(--primary)", fontSize: "0.9rem", fontWeight: 700, letterSpacing: "0.05em"
                         }}>
-                            <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "var(--primary)", boxShadow: "0 0 10px var(--primary)" }} />
-                            ENTERPRISE AUTOMATION
+                            <div className="pulse-dot" style={{ width: "8px", height: "8px", borderRadius: "50%", background: "var(--primary)", boxShadow: "0 0 10px var(--primary)" }} />
+                            ENTERPRISE WORKFLOW AUTOMATION
                         </div>
-                        <h1 style={{ fontSize: "clamp(2.3rem, 5vw, 4.2rem)", fontWeight: 950, lineHeight: 1.1, marginBottom: "2rem", letterSpacing: "-0.03em" }}>
-                            <span className="hero-title-line" style={{ display: "block" }}>Automate Your Enterprise</span>
-                            <span className="hero-title-line" style={{ display: "block", color: "var(--primary)" }}>Without SaaS Lock-In or</span>
-                            <span className="hero-title-line" style={{ display: "block" }}>Per-Execution Pricing</span>
+                        <h1 style={{ fontSize: "clamp(2.5rem, 6vw, 4.8rem)", fontWeight: 950, lineHeight: 1.05, marginBottom: "2rem", letterSpacing: "-0.04em" }}>
+                            <span className="hero-title-line" style={{ display: "block" }}>Architect Your</span>
+                            <span className="hero-title-line" style={{ display: "block", color: "var(--primary)" }}>Enterprise Orchestration</span>
+                            <span className="hero-title-line" style={{ display: "block" }}>Without SaaS Lock-In</span>
                         </h1>
-                        <p className="hero-subtitle" style={{ fontSize: "clamp(1.1rem, 2vw, 1.4rem)", color: "var(--text-muted)", lineHeight: 1.6, marginBottom: "3rem", maxWidth: "800px" }}>
-                            Open-source n8n deployed on UK infrastructure. 400+ integrations including Zoho, Salesforce, SAP, Microsoft 365. No per-execution fees. Complete control.
+                        <p className="hero-subtitle" style={{ fontSize: "clamp(1.1rem, 2.2vw, 1.35rem)", color: "var(--text-muted)", lineHeight: 1.6, marginBottom: "3.5rem", maxWidth: "750px", fontWeight: 450 }}>
+                            De-risk your automation strategy with open-source n8n. UK-hosted, fixed-cost infrastructure with 400+ native integrations. Control your data, eliminate execution taxes, and scale infinitely.
                         </p>
                         <div className="hero-cta" style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap", alignItems: "center" }}>
-                            <Link href="/discovery-audit" className="btn-primary" style={{ padding: "1.2rem 2.5rem", background: "#4F46E5", color: "white", borderRadius: "12px", textDecoration: "none", fontWeight: 700, display: "inline-flex", alignItems: "center", gap: "0.75rem" }}>
-                                Start Your Agent Discovery <ArrowRight size={20} />
+                            <Link href="/discovery-audit" className="btn-primary" style={{ padding: "1.25rem 2.8rem", background: "var(--primary)", color: "white", borderRadius: "14px", textDecoration: "none", fontWeight: 700, display: "inline-flex", alignItems: "center", gap: "0.8rem", transition: "all 0.3s ease", boxShadow: "0 10px 30px -10px rgba(79, 70, 229, 0.5)" }}>
+                                Start Audit <ArrowRight size={20} />
                             </Link>
-                            <Link href="/technology" style={{ padding: "1.2rem 2.5rem", background: "transparent", color: "var(--text)", borderRadius: "12px", textDecoration: "none", fontWeight: 700, border: "1px solid var(--border)" }}>
-                                View Our Tech Stack
+                            <Link href="/technology" style={{ padding: "1.25rem 2.8rem", background: "transparent", color: "var(--text)", borderRadius: "14px", textDecoration: "none", fontWeight: 700, border: "1px solid var(--border)", transition: "all 0.3s ease" }}>
+                                View Tech Stack
                             </Link>
                         </div>
                     </div>
@@ -333,22 +387,36 @@ export default function EnterpriseWorkflowClient() {
                                 <div style={{ position: "absolute", top: 0, right: 0, width: "100%", height: "100%", background: "radial-gradient(circle at 70% 30%, rgba(79, 70, 229, 0.1), transparent)", pointerEvents: "none" }} />
                                 <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.5rem", position: "relative", zIndex: 1 }}>
                                     {[
-                                        { name: "Salesforce", icon: <Database size={24} /> },
-                                        { name: "Zoho", icon: <Layers size={24} /> },
-                                        { name: "SAP", icon: <Server size={24} /> },
-                                        { name: "Slack", icon: <Network size={24} /> },
-                                        { name: "Jira", icon: <Activity size={24} /> },
-                                        { name: "Workday", icon: <Lock size={24} /> }
+                                        { name: "Salesforce", src: "/images/brands/Salesforce.png" },
+                                        { name: "Zoho", src: "/images/brands/zoho.png" },
+                                        { name: "SAP", src: "/images/brands/SAP.png" },
+                                        { name: "Slack", src: "/images/brands/slack.png" },
+                                        { name: "Jira", src: "/images/brands/jira.png" },
+                                        { name: "Workday", src: "/images/brands/workday.png" }
                                     ].map((tool, i) => (
-                                        <div key={i} style={{ 
-                                            background: "var(--bg)", 
+                                        <div key={i} className="brand-logo-card" style={{ 
+                                            background: "#FFFFFF", 
                                             padding: "1.5rem", 
                                             borderRadius: "20px", 
-                                            border: "1px solid var(--border)",
-                                            textAlign: "center"
+                                            border: "1px solid rgba(0,0,0,0.05)",
+                                            textAlign: "center",
+                                            aspectRatio: "1.2/1",
+                                            display: "flex",
+                                            flexDirection: "column",
+                                            alignItems: "center",
+                                            justifyContent: "center",
+                                            boxShadow: "0 4px 12px rgba(0,0,0,0.03)",
+                                            transition: "all 0.3s ease"
                                         }}>
-                                            <div style={{ color: "var(--primary)", marginBottom: "0.75rem", display: "flex", justifyContent: "center" }}>{tool.icon}</div>
-                                            <div style={{ fontSize: "0.8rem", fontWeight: 800 }}>{tool.name}</div>
+                                            <div style={{ position: "relative", width: "40px", height: "40px", marginBottom: "0.75rem" }}>
+                                                <Image 
+                                                    src={tool.src} 
+                                                    alt={tool.name} 
+                                                    fill 
+                                                    style={{ objectFit: "contain" }} 
+                                                />
+                                            </div>
+                                            <div style={{ fontSize: "0.75rem", fontWeight: 800, color: "#1e293b" }}>{tool.name}</div>
                                         </div>
                                     ))}
                                 </div>
@@ -374,7 +442,7 @@ export default function EnterpriseWorkflowClient() {
                                 textAlign: "center"
                             }}>
                                 <div style={{ color: "var(--primary)", fontSize: "0.8rem", fontWeight: 900, textTransform: "uppercase", marginBottom: "1.5rem" }}>The Per-Execution Tax</div>
-                                <div style={{ fontSize: "4.5rem", fontWeight: 950, color: "white", marginBottom: "0.5rem", lineHeight: 1 }}>£40k</div>
+                                <div style={{ fontSize: "4.5rem", fontWeight: 950, color: "var(--text)", marginBottom: "0.5rem", lineHeight: 1 }}>£40k</div>
                                 <div style={{ fontSize: "1.2rem", fontWeight: 700, color: "var(--text-muted)", marginBottom: "3rem" }}>Annual SaaS Integration Leak</div>
                                 <div style={{ height: "1px", background: "var(--border)", marginBottom: "3rem" }} />
                                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
@@ -423,18 +491,19 @@ export default function EnterpriseWorkflowClient() {
                             </div>
                         </div>
                         <div className="gsap-img-reveal">
-                            <div style={{ background: "linear-gradient(135deg, #0F172A 0%, #1E1B4B 100%)", borderRadius: "48px", border: "1px solid var(--primary)", padding: "3rem", position: "relative" }}>
-                                <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+                            <div style={{ background: "var(--bg-secondary)", borderRadius: "48px", border: "1px solid var(--primary)", padding: "3rem", position: "relative", overflow: "hidden" }}>
+                                <div style={{ position: "absolute", inset: 0, background: "radial-gradient(circle at 70% 30%, rgba(79, 70, 229, 0.1), transparent)", pointerEvents: "none" }} />
+                                <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem", position: "relative", zIndex: 1 }}>
                                     {[
                                         { title: "Zero Execution Fees", val: "Unlimited Runs", icon: <TrendingUp size={20} /> },
                                         { title: "Self-Hosted Security", val: "UK Infrastructure", icon: <ShieldCheck size={20} /> },
                                         { title: "Open-Source Core", val: "No Vendor Lock-In", icon: <Workflow size={20} /> }
                                     ].map((feat, i) => (
-                                        <div key={i} style={{ display: "flex", alignItems: "center", gap: "1.5rem", padding: "1.5rem", background: "rgba(255,255,255,0.03)", borderRadius: "20px", border: "1px solid rgba(255,255,255,0.05)" }}>
+                                        <div key={i} style={{ display: "flex", alignItems: "center", gap: "1.5rem", padding: "1.5rem", background: "var(--bg)", borderRadius: "20px", border: "1px solid var(--border)" }}>
                                             <div style={{ width: "40px", height: "40px", borderRadius: "10px", background: "rgba(79, 70, 229, 0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--primary)" }}>{feat.icon}</div>
                                             <div>
-                                                <div style={{ fontSize: "0.8rem", fontWeight: 800, textTransform: "uppercase", opacity: 0.5 }}>{feat.title}</div>
-                                                <div style={{ fontSize: "1.1rem", fontWeight: 900 }}>{feat.val}</div>
+                                                <div style={{ fontSize: "0.8rem", fontWeight: 800, textTransform: "uppercase", color: "var(--text-muted)", opacity: 0.8 }}>{feat.title}</div>
+                                                <div style={{ fontSize: "1.1rem", fontWeight: 900, color: "var(--text)" }}>{feat.val}</div>
                                             </div>
                                         </div>
                                     ))}
@@ -450,21 +519,31 @@ export default function EnterpriseWorkflowClient() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zag" style={{ gap: "6rem" }}>
                         <div className="gsap-img-reveal">
-                            <div style={{ background: "rgba(16, 185, 129, 0.05)", border: "1px solid rgba(16, 185, 129, 0.2)", borderRadius: "48px", padding: "3rem" }}>
-                                <div style={{ fontSize: "0.8rem", fontWeight: 900, color: "#10b981", textTransform: "uppercase", marginBottom: "1.5rem" }}>Case Study: Financial Services</div>
-                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "2rem" }}>
-                                    <div>
-                                        <div style={{ fontSize: "0.8rem", opacity: 0.6, marginBottom: "0.5rem" }}>Legacy (Make/Zapier)</div>
-                                        <div style={{ fontSize: "1.8rem", fontWeight: 900, textDecoration: "line-through", opacity: 0.5 }}>£12,000<span style={{ fontSize: "0.8rem" }}>/mo</span></div>
-                                    </div>
-                                    <div style={{ textAlign: "right" }}>
-                                        <div style={{ fontSize: "0.8rem", color: "#10b981", fontWeight: 800, marginBottom: "0.5rem" }}>FI Digital (n8n)</div>
-                                        <div style={{ fontSize: "2.5rem", fontWeight: 950, color: "white" }}>£2,800<span style={{ fontSize: "1rem" }}>/mo</span></div>
-                                    </div>
+                            <div style={{ background: "rgba(16, 185, 129, 0.05)", border: "1px solid rgba(16, 185, 129, 0.2)", borderRadius: "48px", padding: "3rem", position: "relative", overflow: "hidden" }}>
+                                <div style={{ position: "absolute", inset: 0, zIndex: 0, opacity: 0.4 }}>
+                                    <Image 
+                                        src="/images/workflows/roi-chart.png"
+                                        alt="ROI Savings Chart"
+                                        fill
+                                        style={{ objectFit: "cover" }}
+                                    />
                                 </div>
-                                <div style={{ background: "rgba(16, 185, 129, 0.1)", padding: "1.5rem", borderRadius: "20px", textAlign: "center", border: "1px dashed rgba(16, 185, 129, 0.3)" }}>
-                                    <div style={{ fontSize: "2rem", fontWeight: 950, color: "white" }}>£110,400</div>
-                                    <div style={{ fontSize: "0.8rem", color: "#10b981", fontWeight: 800 }}>ANNUAL SAVINGS</div>
+                                <div style={{ position: "relative", zIndex: 1 }}>
+                                    <div style={{ fontSize: "0.8rem", fontWeight: 900, color: "#10b981", textTransform: "uppercase", marginBottom: "1.5rem" }}>Case Study: Financial Services</div>
+                                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "2rem" }}>
+                                        <div>
+                                            <div style={{ fontSize: "0.8rem", color: "var(--text-muted)", marginBottom: "0.5rem" }}>Legacy (Make/Zapier)</div>
+                                            <div style={{ fontSize: "1.8rem", fontWeight: 900, textDecoration: "line-through", color: "var(--text-muted)", opacity: 0.6 }}>£12,000<span style={{ fontSize: "0.8rem" }}>/mo</span></div>
+                                        </div>
+                                        <div style={{ textAlign: "right" }}>
+                                            <div style={{ fontSize: "0.8rem", color: "#10b981", fontWeight: 800, marginBottom: "0.5rem" }}>FI Digital (n8n)</div>
+                                            <div style={{ fontSize: "2.5rem", fontWeight: 950, color: "var(--text)" }}>£2,800<span style={{ fontSize: "1rem" }}>/mo</span></div>
+                                        </div>
+                                    </div>
+                                    <div style={{ background: "rgba(16, 185, 129, 0.1)", padding: "1.5rem", borderRadius: "20px", textAlign: "center", border: "1px dashed rgba(16, 185, 129, 0.3)", backdropFilter: "blur(10px)" }}>
+                                        <div style={{ fontSize: "2rem", fontWeight: 950, color: "var(--text)" }}>£110,400</div>
+                                        <div style={{ fontSize: "0.8rem", color: "#10b981", fontWeight: 800 }}>ANNUAL SAVINGS</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -493,17 +572,17 @@ export default function EnterpriseWorkflowClient() {
                             </div>
                         </div>
                         <div className="gsap-img-reveal">
-                            <div style={{ background: "#0F172A", border: "1px solid var(--border)", borderRadius: "48px", padding: "3rem", position: "relative" }}>
+                            <div style={{ background: "var(--bg-secondary)", border: "1px solid var(--border)", borderRadius: "48px", padding: "3rem", position: "relative" }}>
                                 <div style={{ border: "2px dashed var(--primary)", borderRadius: "24px", padding: "2rem", textAlign: "center", position: "relative" }}>
-                                    <div style={{ position: "absolute", top: "-12px", left: "50%", transform: "translateX(-50%)", background: "var(--bg)", padding: "0 1rem", color: "var(--primary)", fontSize: "0.7rem", fontWeight: 900 }}>VPC BOUNDARY</div>
+                                    <div style={{ position: "absolute", top: "-12px", left: "50%", transform: "translateX(-50%)", background: "var(--bg-secondary)", padding: "0 1rem", color: "var(--primary)", fontSize: "0.7rem", fontWeight: 900 }}>VPC BOUNDARY</div>
                                     <div style={{ display: "flex", gap: "1rem", justifyContent: "center", marginBottom: "2rem" }}>
-                                        <div style={{ padding: "1rem", background: "rgba(255,255,255,0.05)", borderRadius: "12px", border: "1px solid var(--border)" }}><Server size={24} color="var(--primary)" /></div>
-                                        <div style={{ padding: "1rem", background: "rgba(255,255,255,0.05)", borderRadius: "12px", border: "1px solid var(--border)" }}><Database size={24} color="var(--primary)" /></div>
-                                        <div style={{ padding: "1rem", background: "rgba(255,255,255,0.05)", borderRadius: "12px", border: "1px solid var(--border)" }}><Terminal size={24} color="var(--primary)" /></div>
+                                        <div style={{ padding: "1rem", background: "var(--bg)", borderRadius: "12px", border: "1px solid var(--border)" }}><Server size={24} color="var(--primary)" /></div>
+                                        <div style={{ padding: "1rem", background: "var(--bg)", borderRadius: "12px", border: "1px solid var(--border)" }}><Database size={24} color="var(--primary)" /></div>
+                                        <div style={{ padding: "1rem", background: "var(--bg)", borderRadius: "12px", border: "1px solid var(--border)" }}><Terminal size={24} color="var(--primary)" /></div>
                                     </div>
-                                    <div style={{ position: "relative", height: "100px", background: "rgba(255,255,255,0.02)", borderRadius: "16px", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid rgba(255,255,255,0.05)" }}>
+                                    <div style={{ position: "relative", height: "100px", background: "rgba(79, 70, 229, 0.02)", borderRadius: "16px", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid var(--border)" }}>
                                         <Lock size={32} color="#10b981" />
-                                        <div style={{ position: "absolute", bottom: "10px", fontSize: "0.7rem", fontWeight: 700, opacity: 0.5 }}>Zero Data Egress</div>
+                                        <div style={{ position: "absolute", bottom: "10px", fontSize: "0.7rem", fontWeight: 700, color: "var(--text-muted)", opacity: 0.5 }}>Zero Data Egress</div>
                                     </div>
                                 </div>
                             </div>
@@ -518,17 +597,46 @@ export default function EnterpriseWorkflowClient() {
                     <div className="responsive-grid zag" style={{ gap: "6rem" }}>
                         <div className="gsap-img-reveal">
                              <div style={{ background: "var(--bg)", border: "1px solid var(--border)", borderRadius: "48px", padding: "3rem" }}>
-                                <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1rem", marginBottom: "2rem" }}>
-                                    {["SAP", "ZOHO", "SFS", "MSFT", "AWS", "JIRA", "XERO", "STRIPE"].map((n, i) => (
-                                        <div key={i} style={{ aspectRatio: "1", background: "rgba(255,255,255,0.02)", border: "1px solid var(--border)", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.7rem", fontWeight: 900, opacity: 0.6 }}>{n}</div>
+                                <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1.25rem", marginBottom: "2.5rem" }}>
+                                    {[
+                                        { name: "SAP", src: "/images/brands/SAP.png" },
+                                        { name: "Zoho", src: "/images/brands/zoho.png" },
+                                        { name: "Salesforce", src: "/images/brands/Salesforce.png" },
+                                        { name: "Azure", src: "/images/brands/Azure.jpg" },
+                                        { name: "AWS", src: "/images/brands/Amazon.png" },
+                                        { name: "Jira", src: "/images/brands/jira.png" },
+                                        { name: "Xero", src: "/images/brands/xero.png" },
+                                        { name: "Stripe", src: "/images/brands/stripe.png" }
+                                    ].map((brand, i) => (
+                                        <div key={i} className="brand-logo-card" style={{ 
+                                            aspectRatio: "1", 
+                                            background: "#FFFFFF", 
+                                            border: "1px solid rgba(0,0,0,0.05)", 
+                                            borderRadius: "16px", 
+                                            display: "flex", 
+                                            alignItems: "center", 
+                                            justifyContent: "center",
+                                            padding: "1rem",
+                                            boxShadow: "0 4px 12px rgba(0,0,0,0.03)",
+                                            transition: "all 0.3s ease"
+                                        }}>
+                                            <div style={{ position: "relative", width: "100%", height: "100%" }}>
+                                                <Image 
+                                                    src={brand.src} 
+                                                    alt={brand.name} 
+                                                    fill 
+                                                    style={{ objectFit: "contain", filter: "none" }} 
+                                                />
+                                            </div>
+                                        </div>
                                     ))}
                                 </div>
-                                <div style={{ height: "120px", background: "#0F172A", borderRadius: "16px", border: "1px solid var(--border)", padding: "1rem", overflow: "hidden" }}>
+                                <div style={{ height: "120px", background: "var(--bg-secondary)", borderRadius: "16px", border: "1px solid var(--border)", padding: "1rem", overflow: "hidden" }}>
                                     <div style={{ display: "flex", gap: "0.5rem", marginBottom: "1rem" }}>
                                         <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#4ade80" }} />
-                                        <div style={{ fontSize: "0.6rem", fontWeight: 700, opacity: 0.4 }}>LIVE EXECUTION LOGS</div>
+                                        <div style={{ fontSize: "0.6rem", fontWeight: 700, color: "var(--text-muted)", opacity: 0.6 }}>LIVE EXECUTION LOGS</div>
                                     </div>
-                                    <div style={{ fontSize: "0.7rem", fontFamily: "monospace", opacity: 0.6 }}>
+                                    <div style={{ fontSize: "0.7rem", fontFamily: "monospace", color: "var(--text-muted)", opacity: 0.8 }}>
                                         {`[10:42:01] Processing Order #7782...`} <br/>
                                         {`[10:42:02] Querying Zoho CRM: SUCCESS`} <br/>
                                         {`[10:42:03] Generating SAP XML: SUCCESS`} <br/>
@@ -567,7 +675,7 @@ export default function EnterpriseWorkflowClient() {
                         ].map((tier, i) => (
                             <div key={i} className="pillar-card gsap-reveal" style={{ background: "var(--bg-secondary)", borderRadius: "32px", border: "1px solid var(--border)", padding: "3rem", textAlign: "center" }}>
                                 <div style={{ fontSize: "0.8rem", fontWeight: 900, color: "var(--primary)", textTransform: "uppercase", marginBottom: "1rem" }}>{tier.name}</div>
-                                <div style={{ fontSize: "3rem", fontWeight: 950, color: "white", marginBottom: "0.5rem" }}>{tier.cost}<span style={{ fontSize: "1rem", opacity: 0.5 }}>/mo</span></div>
+                                <div style={{ fontSize: "3rem", fontWeight: 950, color: "var(--text)", marginBottom: "0.5rem" }}>{tier.cost}<span style={{ fontSize: "1rem", color: "var(--text-muted)", opacity: 0.5 }}>/mo</span></div>
                                 <div style={{ fontSize: "0.9rem", color: "#10b981", fontWeight: 800, marginBottom: "2rem" }}>{tier.capacity} Executions</div>
                                 <p style={{ color: "var(--text-muted)", fontSize: "0.95rem", lineHeight: 1.6 }}>{tier.desc}</p>
                             </div>
@@ -593,17 +701,17 @@ export default function EnterpriseWorkflowClient() {
                                 <div style={{ fontSize: "0.8rem", fontWeight: 900, color: "#ff4d4d", textTransform: "uppercase", marginBottom: "1.5rem" }}>Manual Baseline</div>
                                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
                                     <div>
-                                        <div style={{ fontSize: "2.5rem", fontWeight: 950, color: "white" }}>7 Days</div>
-                                        <div style={{ fontSize: "0.8rem", opacity: 0.6 }}>Processing Time</div>
+                                        <div style={{ fontSize: "2.5rem", fontWeight: 950, color: "var(--text)" }}>7 Days</div>
+                                        <div style={{ fontSize: "0.8rem", color: "var(--text-muted)", opacity: 0.6 }}>Processing Time</div>
                                     </div>
                                     <div>
-                                        <div style={{ fontSize: "2.5rem", fontWeight: 950, color: "white" }}>3.2%</div>
-                                        <div style={{ fontSize: "0.8rem", opacity: 0.6 }}>Error Rate</div>
+                                        <div style={{ fontSize: "2.5rem", fontWeight: 950, color: "var(--text)" }}>3.2%</div>
+                                        <div style={{ fontSize: "0.8rem", color: "var(--text-muted)", opacity: 0.6 }}>Error Rate</div>
                                     </div>
                                 </div>
                                 <div style={{ marginTop: "2rem", padding: "1.5rem", background: "rgba(255, 77, 77, 0.1)", borderRadius: "20px" }}>
-                                    <div style={{ fontSize: "1.2rem", fontWeight: 900 }}>£200,000 / Year</div>
-                                    <div style={{ fontSize: "0.7rem", opacity: 0.6 }}>Manual Labor Costs (4 FTE)</div>
+                                    <div style={{ fontSize: "1.2rem", fontWeight: 900, color: "var(--text)" }}>£200,000 / Year</div>
+                                    <div style={{ fontSize: "0.7rem", color: "var(--text-muted)", opacity: 0.6 }}>Manual Labor Costs (4 FTE)</div>
                                 </div>
                             </div>
                         </div>
@@ -616,7 +724,7 @@ export default function EnterpriseWorkflowClient() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zag" style={{ gap: "6rem" }}>
                         <div className="gsap-img-reveal">
-                            <div style={{ background: "#0F172A", border: "1px solid var(--primary)", borderRadius: "48px", padding: "3rem" }}>
+                            <div style={{ background: "var(--bg-secondary)", border: "1px solid var(--primary)", borderRadius: "48px", padding: "3rem" }}>
                                 <div style={{ fontSize: "0.85rem", fontWeight: 800, color: "var(--primary)", marginBottom: "2rem", textTransform: "uppercase" }}>Intelligent 42-Step Workflow</div>
                                 <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
                                     {[
@@ -626,7 +734,7 @@ export default function EnterpriseWorkflowClient() {
                                         "Tiered Slack Signal Routing",
                                         "Audit Trail Archival (Post-Approval)"
                                     ].map((step, i) => (
-                                        <div key={i} style={{ display: "flex", alignItems: "center", gap: "1rem", color: "var(--text-muted)", fontSize: "0.9rem", padding: "1rem", background: "rgba(255,255,255,0.02)", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.05)" }}>
+                                        <div key={i} style={{ display: "flex", alignItems: "center", gap: "1rem", color: "var(--text-muted)", fontSize: "0.9rem", padding: "1rem", background: "var(--bg)", borderRadius: "12px", border: "1px solid var(--border)" }}>
                                             <div style={{ width: "24px", height: "24px", borderRadius: "50%", background: "var(--primary)", color: "white", fontSize: "0.7rem", display: "flex", alignItems: "center", justifyContent: "center" }}>{i+1}</div>
                                             {step}
                                         </div>
@@ -671,16 +779,16 @@ export default function EnterpriseWorkflowClient() {
                             }}>
                                 <div style={{ fontSize: "0.80rem", fontWeight: 800, color: stat.color, textTransform: "uppercase", marginBottom: "1.5rem" }}>{stat.label}</div>
                                 <div style={{ display: "flex", gap: "2rem", alignItems: "center", flexWrap: "wrap" }}>
-                                    <div style={{ opacity: 0.5, textDecoration: "line-through", fontSize: "1.2rem" }}>{stat.before}</div>
-                                    <ArrowRight size={20} style={{ opacity: 0.4 }} />
-                                    <div style={{ fontSize: "2.5rem", fontWeight: 950, color: "white" }}>{stat.after}</div>
+                                    <div style={{ opacity: 0.5, textDecoration: "line-through", fontSize: "1.2rem", color: "var(--text-muted)" }}>{stat.before}</div>
+                                    <ArrowRight size={20} style={{ opacity: 0.4, color: "var(--text-muted)" }} />
+                                    <div style={{ fontSize: "2.5rem", fontWeight: 950, color: "var(--text)" }}>{stat.after}</div>
                                 </div>
                             </div>
                         ))}
                     </div>
-                    <div className="gsap-reveal" style={{ marginTop: "4rem", textAlign: "center", padding: "4rem", background: "linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(79, 70, 229, 0.1))", borderRadius: "48px", border: "1px solid rgba(16, 185, 129, 0.2)" }}>
+                    <div className="gsap-reveal" style={{ marginTop: "4rem", textAlign: "center", padding: "4rem", background: "linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(79, 70, 229, 0.1))", borderRadius: "48px", border: "1px solid rgba(16, 185, 129, 0.2)", backdropFilter: "blur(20px)" }}>
                         <div style={{ fontSize: "1.2rem", fontWeight: 800, color: "#10b981", marginBottom: "1rem" }}>Total Annual Savings</div>
-                        <div style={{ fontSize: "clamp(3rem, 6vw, 5rem)", fontWeight: 950, color: "white", marginBottom: "1.5rem" }}>£200,200</div>
+                        <div style={{ fontSize: "clamp(3rem, 6vw, 5rem)", fontWeight: 950, color: "var(--text)", marginBottom: "1.5rem" }}>£200,200</div>
                         <p style={{ color: "var(--text-muted)", fontSize: "1.1rem", maxWidth: "600px", margin: "0 auto" }}>
                             Saving £110k on execution costs and £190k on labor. 13x ROI in Year 1 on a £26k deployment.
                         </p>

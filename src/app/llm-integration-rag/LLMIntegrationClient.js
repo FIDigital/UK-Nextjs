@@ -62,8 +62,9 @@ const TechMeshBackground = () => {
         const animate = () => {
             if (!ctx) return;
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = "rgba(79, 70, 229, 0.2)";
-            ctx.strokeStyle = "rgba(79, 70, 229, 0.05)";
+            ctx.fillStyle = "var(--primary)";
+            ctx.strokeStyle = "var(--primary)";
+            ctx.globalAlpha = 0.15;
 
             dots.forEach((dot, i) => {
                 dot.x += dot.vx;
@@ -109,7 +110,7 @@ const TechMeshBackground = () => {
                 width: "100%",
                 height: "100%",
                 zIndex: 0,
-                opacity: 0.5,
+                opacity: 0.3,
                 pointerEvents: "none"
             }}
         />
@@ -396,60 +397,117 @@ export default function LLMIntegrationClient() {
                     box-shadow: var(--card-shadow);
                     transform: translateY(-5px);
                 }
+                .hero-image-mask {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: radial-gradient(circle at 80% 50%, transparent, var(--bg) 75%);
+                    pointer-events: none;
+                    z-index: 1;
+                }
+                @keyframes pulse-soft {
+                    0% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4); }
+                    70% { box-shadow: 0 0 0 10px rgba(79, 70, 229, 0); }
+                    100% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0); }
+                }
+                .brand-logo-card {
+                    background: #FFFFFF;
+                    border: 1px solid rgba(0,0,0,0.05);
+                    border-radius: 16px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 1.5rem;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+                    transition: all 0.3s ease;
+                    height: 80px;
+                    width: 100%;
+                }
+                .brand-logo-card:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+                }
             `}</style>
             
             {/* HERO SECTION */}
              <header style={{ 
+                 minHeight: "100vh",
                  padding: "clamp(120px, 15vh, 160px) 1.5rem 60px", 
                  display: "flex", 
                  alignItems: "center", 
                  position: "relative", 
-                 overflow: "hidden" 
+                 overflow: "hidden",
+                 background: "var(--bg)"
              }}>
-                  <TechMeshBackground />
                   <div style={{
                       position: "absolute",
-                      top: 0, left: 0, width: "100%", height: "100%",
-                      background: "radial-gradient(circle at 70% 50%, transparent, var(--bg) 70%)",
-                      pointerEvents: "none"
-                  }} />
+                      top: 0,
+                      right: 0,
+                      width: "60%",
+                      height: "100%",
+                      zIndex: 0,
+                      opacity: 0.6
+                  }}>
+                      <Image 
+                          src="/images/rag/hero-llm-rag.png" 
+                          alt="LLM & RAG Architecture" 
+                          fill 
+                          style={{ objectFit: "cover", objectPosition: "center right" }}
+                          priority
+                      />
+                      <div className="hero-image-mask" />
+                  </div>
 
-                  <div className="container" style={{ position: "relative", zIndex: 1, maxWidth: "1250px" }}>
-                       <div className="hero-grid" style={{ display: "grid", gap: "4rem", alignItems: "center" }}>
-                            <div style={{ maxWidth: "900px" }}>
-                                <div className="hero-title-line" style={{ 
-                                    display: "inline-flex", alignItems: "center", gap: "0.75rem", padding: "0.6rem 1.2rem", background: "rgba(79, 70, 229, 0.1)", borderRadius: "100px", border: "1px solid rgba(79, 70, 229, 0.2)", marginBottom: "2.5rem", color: "var(--primary)", fontSize: "0.9rem", fontWeight: 700, letterSpacing: "0.05em"
+                  <TechMeshBackground />
+                  
+                  <div className="container" style={{ position: "relative", zIndex: 2, maxWidth: "1250px", width: "100%" }}>
+                       <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", textAlign: "left" }}>
+                            <div className="hero-title-line" style={{ 
+                                display: "inline-flex", 
+                                alignItems: "center", 
+                                gap: "0.75rem", 
+                                padding: "0.6rem 1.2rem", 
+                                background: "var(--bg-secondary)", 
+                                borderRadius: "100px", 
+                                border: "1px solid var(--border)", 
+                                marginBottom: "2.5rem", 
+                                color: "var(--primary)", 
+                                fontSize: "0.9rem", 
+                                fontWeight: 700, 
+                                letterSpacing: "0.05em",
+                                animation: "pulse-soft 2s infinite"
+                            }}>
+                                <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "var(--primary)", boxShadow: "0 0 10px var(--primary)" }} />
+                                LLM & RAG ARCHITECTURE
+                            </div>
+                            <h1 style={{ fontSize: "clamp(2.3rem, 6vw, 4.8rem)", fontWeight: 950, lineHeight: 1.05, marginBottom: "2.5rem", letterSpacing: "-0.04em", maxWidth: "900px" }}>
+                                <span className="hero-title-line" style={{ display: "block", color: "var(--text)" }}>Intelligent Systems</span>
+                                <span className="hero-title-line" style={{ display: "block", color: "var(--primary)" }}>That Learn From Your Data</span>
+                            </h1>
+                            <p className="hero-subtitle" style={{ fontSize: "clamp(1.1rem, 2vw, 1.4rem)", color: "var(--text-muted)", marginBottom: "3.5rem", lineHeight: 1.6, maxWidth: "650px", fontWeight: 500 }}>
+                                Multi-model orchestration (Claude, GPT-4o, Gemini). RAG architecture grounded in your enterprise knowledge. Production-grade hallucination reduction for regulated industries.
+                            </p>
+
+                            <div className="hero-cta" style={{ display: "flex", gap: "1.25rem", alignItems: "center", flexWrap: "wrap" }}>
+                                <Link href="/contact" style={{ 
+                                    display: "inline-flex", alignItems: "center", gap: "0.75rem", 
+                                    padding: "1.25rem 2.5rem", background: "var(--primary)", color: "white", 
+                                    fontWeight: 700, borderRadius: "14px", textDecoration: "none", 
+                                    boxShadow: "0 10px 30px rgba(79, 70, 229, 0.3)", transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)" 
                                 }}>
-                                    <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "var(--primary)", boxShadow: "0 0 10px var(--primary)" }} />
-                                    LLM & RAG ARCHITECTURE
-                                </div>
-                                <h1 style={{ fontSize: "clamp(2.3rem, 5vw, 4.2rem)", fontWeight: 950, lineHeight: 1.1, marginBottom: "2rem", letterSpacing: "-0.03em" }}>
-                                    <span className="hero-title-line" style={{ display: "block" }}>Intelligent Systems That Learn</span>
-                                    <span className="hero-title-line" style={{ display: "block", color: "var(--primary)" }}>From Your Company&apos;s Data</span>
-                                </h1>
-                                <p className="hero-subtitle" style={{ fontSize: "clamp(1.1rem, 2vw, 1.35rem)", color: "var(--text-muted)", marginBottom: "3rem", lineHeight: 1.6, maxWidth: "750px" }}>
-                                    Multi-model LLM integration (Claude, GPT-4o, Gemini). RAG architecture combining foundation models with your proprietary knowledge. Production-grade hallucination reduction.
-                                </p>
-
-                                <div className="hero-cta" style={{ display: "flex", gap: "1rem", alignItems: "center", flexWrap: "wrap" }}>
-                                    <Link href="/contact" style={{ 
-                                        display: "inline-flex", alignItems: "center", gap: "0.5rem", 
-                                        padding: "1.1rem 2.2rem", background: "#4F46E5", color: "white", 
-                                        fontWeight: 700, borderRadius: "12px", textDecoration: "none", 
-                                        boxShadow: "0 10px 30px rgba(79, 70, 229, 0.3)", transition: "all 0.3s ease" 
-                                    }}>
-                                        Start Your RAG Pilot <ArrowRight size={20} />
-                                    </Link>
-                                    <Link href="/why-fi-digital" style={{ 
-                                        display: "inline-flex", alignItems: "center", justifyContent: "center",
-                                        padding: "1.1rem 2.2rem", background: "var(--card-bg)", color: "var(--text)", 
-                                        fontWeight: 700, borderRadius: "12px", textDecoration: "none",
-                                        transition: "all 0.3s ease",
-                                        border: "1px solid var(--border)"
-                                    }}>
-                                        Engineering Methodology
-                                    </Link>
-                                </div>
+                                    Start Your RAG Pilot <ArrowRight size={20} />
+                                </Link>
+                                <Link href="/why-fi-digital" style={{ 
+                                    display: "inline-flex", alignItems: "center", justifyContent: "center",
+                                    padding: "1.25rem 2.5rem", background: "var(--bg-secondary)", color: "var(--text)", 
+                                    fontWeight: 700, borderRadius: "14px", textDecoration: "none",
+                                    transition: "all 0.3s ease",
+                                    border: "1px solid var(--border)"
+                                }}>
+                                    Engineering Methodology
+                                </Link>
                             </div>
                        </div>
                   </div>
@@ -469,15 +527,27 @@ export default function LLMIntegrationClient() {
                         </div>
                         <div className="gsap-img-reveal">
                             <div style={{ background: "var(--card-bg)", border: "1px solid var(--border)", borderRadius: "48px", padding: "3rem" }}>
-                                <div style={{ fontSize: "0.85rem", fontWeight: 800, color: "var(--primary)", marginBottom: "2rem", textTransform: "uppercase" }}>Model Ecosystem</div>
-                                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem" }}>
-                                    {["CLAUDE 3.5", "GPT-4o", "GEMINI 1.5", "LLAMA 3.1"].map((m, i) => (
-                                        <div key={i} style={{ padding: "1.5rem", background: "var(--bg)", borderRadius: "16px", border: "1px solid var(--border)", textAlign: "center" }}>
-                                            <div style={{ fontWeight: 800, fontSize: "0.9rem" }}>{m}</div>
+                                <div style={{ fontSize: "0.85rem", fontWeight: 800, color: "var(--primary)", marginBottom: "2.5rem", textTransform: "uppercase", textAlign: "center" }}>Model Ecosystem</div>
+                                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.25rem" }}>
+                                    {[
+                                        { name: "CLAUDE 3.5", src: "/images/brands/claude.png", scale: 1.8 },
+                                        { name: "GPT-4o", src: "/images/brands/OpenAI.png", scale: 0.8 },
+                                        { name: "GEMINI 1.5", src: "/images/brands/Google_Gemini.png", scale: 1.1 },
+                                        { name: "LLAMA 3.1", src: "/images/brands/llama.png", scale: 1.5 }
+                                    ].map((m, i) => (
+                                        <div key={i} className="brand-logo-card">
+                                            <div style={{ position: "relative", width: "100%", height: "50px", transform: `scale(${m.scale})` }}>
+                                                <Image 
+                                                    src={m.src} 
+                                                    alt={m.name} 
+                                                    fill 
+                                                    style={{ objectFit: "contain" }} 
+                                                />
+                                            </div>
                                         </div>
                                     ))}
                                 </div>
-                                <div style={{ marginTop: "2rem", textAlign: "center", color: "var(--text-muted)", fontSize: "0.8rem" }}>
+                                <div style={{ marginTop: "2rem", textAlign: "center", color: "var(--text-muted)", fontSize: "0.85rem", fontWeight: 600 }}>
                                     Optimized based on Task Reasoning Requirements
                                 </div>
                             </div>
@@ -491,7 +561,7 @@ export default function LLMIntegrationClient() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zag" style={{ gap: "6rem" }}>
                         <div className="gsap-img-reveal">
-                            <div style={{ background: "rgba(79, 70, 229, 0.05)", border: "1px solid var(--primary)", borderRadius: "48px", padding: "3rem" }}>
+                            <div style={{ background: "var(--bg-secondary)", border: "1px solid var(--border)", borderRadius: "48px", padding: "3rem" }}>
                                 <div style={{ fontSize: "0.85rem", fontWeight: 800, color: "var(--primary)", marginBottom: "2rem", textTransform: "uppercase" }}>Accuracy vs Naturalness</div>
                                 <div style={{ display: "grid", gap: "1.5rem" }}>
                                     <div style={{ padding: "1.5rem", background: "var(--bg)", borderRadius: "20px", border: "1px solid var(--border)" }}>
@@ -543,7 +613,7 @@ export default function LLMIntegrationClient() {
                         <div className="gsap-img-reveal">
                             <div style={{ background: "var(--card-bg)", border: "1px solid var(--border)", borderRadius: "48px", padding: "3.5rem", textAlign: "center" }}>
                                 <div style={{ color: "#10b981", fontSize: "0.85rem", fontWeight: 900, textTransform: "uppercase", marginBottom: "1.5rem" }}>Orchestration Benefit</div>
-                                <div style={{ fontSize: "5rem", fontWeight: 950, color: "white", marginBottom: "0.5rem", lineHeight: 1 }}>18%</div>
+                                <div style={{ fontSize: "5rem", fontWeight: 950, color: "var(--text)", marginBottom: "0.5rem", lineHeight: 1 }}>18%</div>
                                 <div style={{ fontSize: "1.2rem", fontWeight: 700, color: "var(--text-muted)", marginBottom: "3rem" }}>Average Cost Reduction</div>
                                 <div style={{ height: "1px", background: "var(--border)", marginBottom: "3rem" }} />
                                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
@@ -567,39 +637,39 @@ export default function LLMIntegrationClient() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zag" style={{ gap: "6rem" }}>
                         <div className="gsap-img-reveal">
-                            <div style={{ background: "rgba(79, 70, 229, 0.03)", border: "1px solid var(--border)", borderRadius: "48px", padding: "3rem", position: "relative", overflow: "hidden" }}>
+                            <div style={{ background: "var(--card-bg)", border: "1px solid var(--border)", borderRadius: "48px", padding: "3rem", position: "relative", overflow: "hidden" }}>
                                 <div style={{ fontSize: "0.85rem", fontWeight: 800, color: "var(--primary)", marginBottom: "2rem", textTransform: "uppercase" }}>Context Capacity</div>
                                 <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
                                     <div style={{ padding: "1.5rem", background: "var(--bg)", borderRadius: "16px", border: "1px solid var(--border)" }}>
-                                        <div style={{ fontSize: "2.5rem", fontWeight: 950, color: "white" }}>200K</div>
-                                        <div style={{ fontSize: "0.8rem", opacity: 0.6 }}>Context Tokens (Claude)</div>
+                                        <div style={{ fontSize: "2.5rem", fontWeight: 950, color: "var(--text)" }}>200K</div>
+                                        <div style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>Context Tokens (Claude)</div>
                                     </div>
-                                    <div style={{ padding: "1.5rem", background: "rgba(255,255,255,0.02)", borderRadius: "16px", border: "1px solid var(--border)" }}>
-                                        <div style={{ fontSize: "1.5rem", fontWeight: 900, opacity: 0.3 }}>128K</div>
-                                        <div style={{ fontSize: "0.7rem", opacity: 0.3 }}>GPT-4o Baseline</div>
+                                    <div style={{ padding: "1.5rem", background: "var(--bg-secondary)", borderRadius: "16px", border: "1px solid var(--border)", opacity: 0.6 }}>
+                                        <div style={{ fontSize: "1.5rem", fontWeight: 900, color: "var(--text)" }}>128K</div>
+                                        <div style={{ fontSize: "0.7rem", color: "var(--text-muted)" }}>GPT-4o Baseline</div>
                                     </div>
                                 </div>
-                                <div style={{ marginTop: "2rem", height: "4px", width: "100%", background: "rgba(255,255,255,0.05)", borderRadius: "2px" }}>
+                                <div style={{ marginTop: "2rem", height: "4px", width: "100%", background: "var(--border)", borderRadius: "2px" }}>
                                     <div style={{ width: "100%", height: "100%", background: "var(--primary)" }} />
                                 </div>
-                                <div style={{ marginTop: "0.5rem", fontSize: "0.7rem", opacity: 0.5, textAlign: "right" }}>+400% Reasoning Depth</div>
+                                <div style={{ marginTop: "0.5rem", fontSize: "0.7rem", color: "var(--text-muted)", textAlign: "right" }}>+400% Reasoning Depth</div>
                             </div>
                         </div>
                         <div className="gsap-reveal">
                             <span className="section-label">DEPTH OF REASONING</span>
                             <h2 className="section-title">Claude: When Reasoning and <br /><span style={{ color: "var(--primary)" }}>Accuracy Are Paramount</span></h2>
                             <div style={{ display: "grid", gap: "2rem" }}>
-                                <div style={{ padding: "1.5rem", background: "rgba(255,255,255,0.03)", borderRadius: "20px", border: "1px solid var(--border)" }}>
+                                <div style={{ padding: "1.5rem", background: "var(--bg-secondary)", borderRadius: "20px", border: "1px solid var(--border)" }}>
                                     <p style={{ color: "var(--text-muted)", lineHeight: 1.6, fontSize: "1rem" }}>
                                         Claude (Anthropic&apos;s flagship model, currently on version 3.5 Sonnet and Opus) is the gold standard for reasoning-intensive tasks. Here&apos;s why. Context window: Claude handles 200,000 tokens of context (roughly 150,000 words). That&apos;s 4x more than GPT-4o.
                                     </p>
                                 </div>
-                                <div style={{ padding: "1.5rem", background: "rgba(255,255,255,0.03)", borderRadius: "20px", border: "1px solid var(--border)" }}>
+                                <div style={{ padding: "1.5rem", background: "var(--bg-secondary)", borderRadius: "20px", border: "1px solid var(--border)" }}>
                                     <p style={{ color: "var(--text-muted)", lineHeight: 1.6, fontSize: "1rem" }}>
                                         For enterprises, this is transformative. You can feed an entire annual report, all contract clauses, complete email thread history, and months of case notes into a single Claude prompt. The model reasons about all of it simultaneously.
                                     </p>
                                 </div>
-                                <div style={{ padding: "1.5rem", background: "rgba(255,255,255,0.03)", borderRadius: "20px", border: "1px solid var(--border)" }}>
+                                <div style={{ padding: "1.5rem", background: "var(--bg-secondary)", borderRadius: "20px", border: "1px solid var(--border)" }}>
                                     <p style={{ color: "var(--text-muted)", lineHeight: 1.6, fontSize: "1rem" }}>
                                         We tested this against GPT-4o: given a contract with 200 pages of related documents, Claude found 23 unusual clauses and risks, GPT-4o found 18. The difference is depth of reasoning with complete context.
                                     </p>
@@ -619,7 +689,7 @@ export default function LLMIntegrationClient() {
                             <h2 className="section-title">94.2% Accuracy: <br /><span style={{ color: "var(--primary)" }}>Hallucination Resistance</span></h2>
                             <div style={{ display: "grid", gap: "2rem" }}>
                                 <div style={{ padding: "2rem", background: "var(--card-bg)", borderRadius: "24px", border: "1px solid var(--border)" }}>
-                                    <h4 style={{ fontSize: "1.1rem", fontWeight: 800, marginBottom: "1rem", color: "white" }}>Enterprise Benchmarks</h4>
+                                    <h4 style={{ fontSize: "1.1rem", fontWeight: 800, marginBottom: "1rem", color: "var(--text)" }}>Enterprise Benchmarks</h4>
                                     <p style={{ color: "var(--text-muted)", lineHeight: 1.6, fontSize: "1rem" }}>
                                         Accuracy on complex tasks: We benchmarked Claude and GPT-4o on 127 enterprise tasks (contract analysis, compliance review, technical decision-making, financial forecasting). Claude achieved 94.2% accuracy average, GPT-4o achieved 89.7%. On financial services tasks specifically, Claude&apos;s advantage widens to 5.8 percentage points. For legal work, 6.2 points.
                                     </p>
@@ -638,13 +708,13 @@ export default function LLMIntegrationClient() {
                                 <div style={{ display: "grid", gap: "2rem" }}>
                                     {[
                                         { l: "Enterprise Task Avg", label: "CLAUDE", v: "94.2%", c: "var(--primary)" },
-                                        { l: "Enterprise Task Avg", label: "GPT-4o", v: "89.7%", c: "rgba(255,255,255,0.4)" },
+                                        { l: "Enterprise Task Avg", label: "GPT-4o", v: "89.7%", c: "var(--text-muted)" },
                                         { l: "Legal Specific Delta", label: "CLAUDE EDGE", v: "+6.2%", c: "#10b981" }
                                     ].map((m, i) => (
                                         <div key={i} style={{ padding: "1.5rem", background: "var(--bg)", borderRadius: "20px", border: "1px solid var(--border)" }}>
-                                            <div style={{ fontSize: "0.75rem", opacity: 0.5, marginBottom: "0.5rem" }}>{m.l}</div>
+                                            <div style={{ fontSize: "0.75rem", color: "var(--text-muted)", marginBottom: "0.5rem" }}>{m.l}</div>
                                             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
-                                                <span style={{ fontWeight: 800 }}>{m.label}</span>
+                                                <span style={{ fontWeight: 800, color: "var(--text)" }}>{m.label}</span>
                                                 <span style={{ fontWeight: 950, fontSize: "2rem", color: m.c }}>{m.v}</span>
                                             </div>
                                         </div>
@@ -661,19 +731,19 @@ export default function LLMIntegrationClient() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zag" style={{ gap: "6rem" }}>
                         <div className="gsap-img-reveal">
-                            <div style={{ background: "rgba(16, 185, 129, 0.05)", border: "1px solid rgba(16, 185, 129, 0.2)", borderRadius: "48px", padding: "3rem" }}>
+                            <div style={{ background: "var(--bg-secondary)", border: "1px solid var(--border)", borderRadius: "48px", padding: "3rem" }}>
                                 <div style={{ fontSize: "0.85rem", fontWeight: 800, color: "#10b981", marginBottom: "2.5rem", textTransform: "uppercase" }}>Strategic Use Cases</div>
                                 <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
                                     {["Merger Agreements", "NDAs / Vendor Terms", "Compliance Overhaul", "Financial Forecasting"].map((use, i) => (
-                                        <div key={i} style={{ display: "flex", alignItems: "center", gap: "1rem", color: "white", fontWeight: 600, fontSize: "0.9rem", padding: "1.2rem", background: "rgba(255,255,255,0.03)", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.05)" }}>
+                                        <div key={i} style={{ display: "flex", alignItems: "center", gap: "1rem", color: "var(--text)", fontWeight: 600, fontSize: "0.9rem", padding: "1.2rem", background: "var(--bg)", borderRadius: "12px", border: "1px solid var(--border)" }}>
                                             <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#10b981" }} />
                                             {use}
                                         </div>
                                     ))}
                                 </div>
-                                <div style={{ marginTop: "2rem", padding: "1.5rem", background: "rgba(255,255,255,0.05)", borderRadius: "20px", textAlign: "center" }}>
+                                <div style={{ marginTop: "2rem", padding: "1.5rem", background: "var(--bg)", borderRadius: "20px", textAlign: "center", border: "1px solid var(--border)" }}>
                                     <div style={{ fontSize: "0.7rem", opacity: 0.5, marginBottom: "0.25rem" }}>EST. SESSION COST (50K TOKENS)</div>
-                                    <div style={{ fontSize: "1.8rem", fontWeight: 900 }}>£0.15 - £0.75</div>
+                                    <div style={{ fontSize: "1.8rem", fontWeight: 900, color: "var(--text)" }}>£0.15 - £0.75</div>
                                 </div>
                             </div>
                         </div>
@@ -707,15 +777,16 @@ export default function LLMIntegrationClient() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zag" style={{ gap: "6rem" }}>
                         <div className="gsap-img-reveal">
-                            <div style={{ background: "rgba(79, 70, 229, 0.05)", border: "1px solid var(--primary)", borderRadius: "48px", padding: "4rem", textAlign: "center" }}>
-                                <div style={{ color: "var(--primary)", fontSize: "0.85rem", fontWeight: 900, textTransform: "uppercase", marginBottom: "1.5rem" }}>Knowledge Retrieval</div>
-                                <div style={{ display: "flex", justifyContent: "center", gap: "1rem", marginBottom: "2rem" }}>
-                                    <div style={{ width: "60px", height: "80px", background: "rgba(255,255,255,0.05)", borderRadius: "8px", border: "1px solid var(--border)" }} />
-                                    <ArrowRight size={32} style={{ marginTop: "25px", color: "var(--primary)" }} />
-                                    <BrainCircuit size={80} color="var(--primary)" />
+                            <div style={{ background: "var(--card-bg)", border: "1px solid var(--border)", borderRadius: "48px", overflow: "hidden", position: "relative", minHeight: "450px" }}>
+                                <Image 
+                                    src="/images/rag/corporate-memory.png" 
+                                    alt="Corporate Memory Grounding" 
+                                    fill 
+                                    style={{ objectFit: "cover" }} 
+                                />
+                                <div style={{ position: "absolute", bottom: 0, left: 0, width: "100%", padding: "2rem", background: "linear-gradient(transparent, rgba(0,0,0,0.8))", zIndex: 1 }}>
+                                    <div style={{ color: "white", fontSize: "0.85rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em" }}>Knowledge Retrieval Layer</div>
                                 </div>
-                                <div style={{ fontSize: "1.1rem", fontWeight: 700, color: "white" }}>Yesterday&apos;s Documents</div>
-                                <div style={{ fontSize: "0.8rem", color: "var(--text-muted)", marginTop: "0.5rem" }}>Grounding for Real-Time Reasoning</div>
                             </div>
                         </div>
                         <div className="gsap-reveal">
@@ -757,21 +828,13 @@ export default function LLMIntegrationClient() {
                             </div>
                         </div>
                         <div className="gsap-img-reveal">
-                            <div style={{ background: "var(--card-bg)", border: "1px solid var(--border)", borderRadius: "48px", padding: "3rem" }}>
-                                <div style={{ fontSize: "0.85rem", fontWeight: 800, color: "var(--primary)", marginBottom: "2rem", textTransform: "uppercase" }}>Semantic Search Flow</div>
-                                <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-                                    {[
-                                        { s: "Chunking", d: "400-500 Tokens" },
-                                        { s: "Embedding", d: "1,536 Dimensions" },
-                                        { s: "Vector Index", d: "Pinecone / Milvus" },
-                                        { s: "Reasoning", d: "Grounded Prompting" }
-                                    ].map((step, i) => (
-                                        <div key={i} style={{ padding: "1rem 1.5rem", background: "var(--bg)", borderRadius: "12px", border: "1px solid var(--border)", display: "flex", justifyContent: "space-between" }}>
-                                            <span style={{ opacity: 0.6 }}>{step.s}</span>
-                                            <span style={{ fontWeight: 800, color: "var(--primary)" }}>{step.d}</span>
-                                        </div>
-                                    ))}
-                                </div>
+                            <div style={{ background: "var(--card-bg)", border: "1px solid var(--border)", borderRadius: "48px", overflow: "hidden", position: "relative", minHeight: "400px" }}>
+                                <Image 
+                                    src="/images/rag/rag-pipeline.png" 
+                                    alt="RAG Semantic Pipeline" 
+                                    fill 
+                                    style={{ objectFit: "cover" }} 
+                                />
                             </div>
                         </div>
                     </div>
@@ -783,18 +846,18 @@ export default function LLMIntegrationClient() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zag" style={{ gap: "6rem" }}>
                         <div className="gsap-img-reveal">
-                            <div style={{ background: "rgba(16, 185, 129, 0.05)", border: "1px solid #10b981", borderRadius: "48px", padding: "4rem", textAlign: "center" }}>
+                            <div style={{ background: "var(--bg-secondary)", border: "1px solid #10b981", borderRadius: "48px", padding: "4rem", textAlign: "center" }}>
                                 <div style={{ color: "#10b981", fontSize: "0.85rem", fontWeight: 900, textTransform: "uppercase", marginBottom: "1.5rem" }}>Hallucination Reduction</div>
-                                <div style={{ fontSize: "5rem", fontWeight: 950, color: "white", marginBottom: "0.5rem", lineHeight: 1 }}>67%</div>
+                                <div style={{ fontSize: "5rem", fontWeight: 950, color: "var(--text)", marginBottom: "0.5rem", lineHeight: 1 }}>67%</div>
                                 <div style={{ fontSize: "1.2rem", fontWeight: 700, color: "var(--text-muted)" }}>Accuracy Lift over Baseline</div>
                                 <div style={{ marginTop: "3rem", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
                                     <div>
                                         <div style={{ fontSize: "1.5rem", fontWeight: 900, color: "#ef4444" }}>3.8%</div>
-                                        <div style={{ fontSize: "0.75rem", opacity: 0.6 }}>Standard LLM</div>
+                                        <div style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>Standard LLM</div>
                                     </div>
                                     <div>
                                         <div style={{ fontSize: "1.5rem", fontWeight: 900, color: "#10b981" }}>1.2%</div>
-                                        <div style={{ fontSize: "0.75rem", opacity: 0.6 }}>RAG Grounded</div>
+                                        <div style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>RAG Grounded</div>
                                     </div>
                                 </div>
                             </div>
@@ -826,17 +889,17 @@ export default function LLMIntegrationClient() {
                             <span className="section-label">LOGISTICS & SCALE</span>
                             <h2 className="section-title">Infrastructure Economics: <br /><span style={{ color: "var(--primary)" }}>Deployment & Strategy</span></h2>
                             <div style={{ display: "grid", gap: "1.5rem" }}>
-                                <div style={{ padding: "1.5rem", borderLeft: "4px solid var(--primary)", background: "rgba(255,255,255,0.02)" }}>
+                                <div style={{ padding: "1.5rem", borderLeft: "4px solid var(--primary)", background: "var(--bg)", border: "1px solid var(--border)", borderLeftWidth: "4px", borderRadius: "0 16px 16px 0" }}>
                                     <p style={{ color: "var(--text-muted)", lineHeight: 1.6, fontSize: "0.95rem" }}>
                                         Key components: Embedding model (£0.13 per 1M tokens). Vector database (Pinecone at £400/mo for 1M vectors, or Milvus self-hosted). Chunking strategy (400-token chunks with 100-token overlap). Retrieval pipeline (re-rank to score relevance and keep top-3; improves quality 12-18%).
                                     </p>
                                 </div>
-                                <div style={{ padding: "1.5rem", borderLeft: "4px solid var(--primary)", background: "rgba(255,255,255,0.02)" }}>
+                                <div style={{ padding: "1.5rem", borderLeft: "4px solid var(--primary)", background: "var(--bg)", border: "1px solid var(--border)", borderLeftWidth: "4px", borderRadius: "0 16px 16px 0" }}>
                                     <p style={{ color: "var(--text-muted)", lineHeight: 1.6, fontSize: "0.95rem" }}>
                                         Implementation: We build RAG pipelines using LlamaIndex (orchestration), Pinecone or Milvus (vector storage), and LLMs of choice. A typical pipeline for 10,000 documents (100GB) takes 2-3 weeks to implement, test, and optimize.
                                     </p>
                                 </div>
-                                <div style={{ padding: "1.5rem", borderLeft: "4px solid var(--primary)", background: "rgba(255,255,255,0.02)" }}>
+                                <div style={{ padding: "1.5rem", borderLeft: "4px solid var(--primary)", background: "var(--bg)", border: "1px solid var(--border)", borderLeftWidth: "4px", borderRadius: "0 16px 16px 0" }}>
                                     <p style={{ color: "var(--text-muted)", lineHeight: 1.6, fontSize: "0.95rem" }}>
                                         Cost is £18,000-28,000 for implementation, then £400-2,000/month in vector database costs depending on scale.
                                     </p>
@@ -867,9 +930,9 @@ export default function LLMIntegrationClient() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zag" style={{ gap: "6rem" }}>
                         <div className="gsap-img-reveal">
-                            <div style={{ background: "rgba(79, 70, 229, 0.05)", border: "1px solid var(--border)", borderRadius: "48px", padding: "4rem", textAlign: "center" }}>
+                            <div style={{ background: "var(--bg-secondary)", border: "1px solid var(--border)", borderRadius: "48px", padding: "4rem", textAlign: "center" }}>
                                 <div style={{ color: "var(--primary)", fontSize: "0.85rem", fontWeight: 900, textTransform: "uppercase", marginBottom: "1.5rem" }}>The Bottleneck</div>
-                                <div style={{ fontSize: "clamp(3rem, 6vw, 4.5rem)", fontWeight: 950, color: "white", marginBottom: "0.5rem", lineHeight: 1 }}>300-500</div>
+                                <div style={{ fontSize: "clamp(3rem, 6vw, 4.5rem)", fontWeight: 950, color: "var(--text)", marginBottom: "0.5rem", lineHeight: 1 }}>300-500</div>
                                 <div style={{ fontSize: "1.2rem", fontWeight: 700, color: "var(--text-muted)" }}>Deal Documents per Case</div>
                                 <div style={{ marginTop: "3rem", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
                                     <div>
@@ -928,8 +991,8 @@ export default function LLMIntegrationClient() {
                         ].map((item, i) => (
                             <div key={i} className="gsap-card solution-card" style={{ 
                                 padding: "3rem 2.5rem", 
-                                background: "rgba(255, 255, 255, 0.04)", 
-                                border: "1px solid rgba(255, 255, 255, 0.1)",
+                                background: "var(--card-bg)", 
+                                border: "1px solid var(--border)",
                                 borderRadius: "32px",
                                 textAlign: "center",
                                 display: "flex",
@@ -942,14 +1005,14 @@ export default function LLMIntegrationClient() {
                                 <div style={{ 
                                     color: "var(--primary)", 
                                     marginBottom: "2rem", 
-                                    background: "rgba(79, 70, 229, 0.15)", 
+                                    background: "var(--bg-secondary)", 
                                     width: "64px",
                                     height: "64px",
                                     display: "flex",
                                     alignItems: "center",
                                     justifyContent: "center",
                                     borderRadius: "16px",
-                                    border: "1px solid rgba(79, 70, 229, 0.2)"
+                                    border: "1px solid var(--border)"
                                 }}>{item.icon}</div>
                                 <p style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1rem", margin: 0, flexGrow: 1 }}>
                                     {item.text}
@@ -983,9 +1046,9 @@ export default function LLMIntegrationClient() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zag" style={{ gap: "6rem" }}>
                         <div className="gsap-img-reveal">
-                            <div style={{ background: "rgba(16, 185, 129, 0.05)", border: "1px solid #10b981", borderRadius: "48px", padding: "4rem", textAlign: "center" }}>
+                            <div style={{ background: "var(--bg-secondary)", border: "1px solid #10b981", borderRadius: "48px", padding: "4rem", textAlign: "center" }}>
                                 <div style={{ color: "#10b981", fontSize: "0.85rem", fontWeight: 900, textTransform: "uppercase", marginBottom: "1.5rem" }}>Deal Throughput</div>
-                                <div style={{ fontSize: "5rem", fontWeight: 950, color: "white", marginBottom: "0.5rem", lineHeight: 1 }}>85%</div>
+                                <div style={{ fontSize: "5rem", fontWeight: 950, color: "var(--text)", marginBottom: "0.5rem", lineHeight: 1 }}>85%</div>
                                 <div style={{ fontSize: "1.2rem", fontWeight: 700, color: "var(--text-muted)" }}>Reduction in Lawyer Hours</div>
                                 <div style={{ marginTop: "3rem", height: "1px", background: "var(--border)", marginBottom: "3rem" }} />
                                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
@@ -1044,7 +1107,7 @@ export default function LLMIntegrationClient() {
                              Stop waiting for vendor roadmaps. Deploy multi-model RAG architecture that works on your infrastructure, with your data, under your security protocols.
                          </p>
                          <div style={{ display: "flex", gap: "1.5rem", justifyContent: "center", flexWrap: "wrap", alignItems: "center" }}>
-                             <Link href="/discovery-audit" style={{ padding: "1.2rem 2.5rem", background: "#4F46E5", color: "white", borderRadius: "12px", textDecoration: "none", fontWeight: 700, boxShadow: "0 10px 30px rgba(79, 70, 229, 0.2)" }}>
+                             <Link href="/discovery-audit" style={{ padding: "1.2rem 2.5rem", background: "var(--primary)", color: "white", borderRadius: "12px", textDecoration: "none", fontWeight: 700, boxShadow: "0 10px 30px rgba(79, 70, 229, 0.2)" }}>
                                  Multi-Model LLM Assessment
                              </Link>
                              <Link href="/technology" style={{ padding: "1.2rem 2.5rem", background: "transparent", color: "var(--text)", borderRadius: "12px", textDecoration: "none", fontWeight: 700, border: "1px solid var(--border)" }}>
