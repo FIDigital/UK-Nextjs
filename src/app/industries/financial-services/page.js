@@ -366,7 +366,7 @@ export default function FinancialServicesPage() {
 
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
                             <Image
-                                src="/images/industries/finance-solutions.jpg.png"
+                                src="/images/industries/finance-solutions.png"
                                 alt="Automated Pipeline with AI Decision Points"
                                 fill
                                 style={{ objectFit: "cover" }}
@@ -382,7 +382,7 @@ export default function FinancialServicesPage() {
                     <div className="zig-grid">
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
                             <Image
-                                src="/images/industries/finance-compliance.jpg"
+                                src="/images/industries/finance-compliance.png"
                                 alt="Compliance Safe AI Flowchart Audit Log"
                                 fill
                                 style={{ objectFit: "cover", objectPosition: "left center" }}
@@ -462,7 +462,7 @@ export default function FinancialServicesPage() {
                     <div className="zig-grid">
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
                             <Image
-                                src="/images/industries/finance-global.jpg"
+                                src="/images/industries/finance-global.png"
                                 alt="Australian APRA ASIC Experience"
                                 fill
                                 style={{ objectFit: "cover", objectPosition: "left center" }}
