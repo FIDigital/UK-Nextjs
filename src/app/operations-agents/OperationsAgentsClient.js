@@ -115,7 +115,7 @@ const FAQItem = ({ question, answer }) => {
             });
             gsap.to(containerRef.current, {
                 borderColor: "var(--primary)",
-                backgroundColor: "rgba(79, 70, 229, 0.05)",
+                backgroundColor: "var(--hover-bg)",
                 duration: 0.3
             });
         } else {
@@ -127,7 +127,7 @@ const FAQItem = ({ question, answer }) => {
             });
             gsap.to(containerRef.current, {
                 borderColor: "var(--border)",
-                backgroundColor: "transparent",
+                backgroundColor: "var(--card-bg)",
                 duration: 0.3
             });
         }
@@ -147,7 +147,7 @@ const FAQItem = ({ question, answer }) => {
             onClick={() => setIsOpen(!isOpen)}
         >
             <div style={{ padding: "1.5rem", display: "flex", justifyContent: "space-between", alignItems: "center", gap: "2rem" }}>
-                <h3 style={{ fontSize: "1.1rem", fontWeight: 700, margin: 0, color: "white" }}>{question}</h3>
+                <h3 style={{ fontSize: "1.1rem", fontWeight: 700, margin: 0, color: "var(--text)" }}>{question}</h3>
                 <ChevronDown size={20} style={{ transform: isOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.3s ease", color: "var(--primary)" }} />
             </div>
             <div ref={contentRef} style={{ height: 0, opacity: 0, overflow: "hidden" }}>
@@ -256,6 +256,42 @@ export default function OperationsAgentsClient() {
                         width: 65%;
                     }
                 }
+                .brand-logo-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                    gap: 1.25rem;
+                }
+                .brand-logo-card {
+                    background: var(--card-bg);
+                    width: 100%;
+                    position: relative;
+                    aspect-ratio: 1/1;
+                    border-radius: 20px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    box-shadow: var(--card-shadow);
+                    border: 1px solid var(--border);
+                    transition: transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28), box-shadow 0.3s ease;
+                }
+                .brand-logo-card:hover {
+                    transform: translateY(-8px) scale(1.05);
+                    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.2);
+                    z-index: 2;
+                    border-color: var(--primary);
+                }
+                .brand-logo-img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                    transition: filter 0.3s ease;
+                }
+                [data-theme='dark'] .logo-invert-dark {
+                    filter: invert(1) brightness(1.5);
+                }
+                [data-theme='dark'] .logo-brighten-dark {
+                    filter: brightness(1.3) contrast(1.1);
+                }
             `}</style>
             <TechMeshBackground />
 
@@ -280,7 +316,7 @@ export default function OperationsAgentsClient() {
                 {/* Right-aligned Faded Hero Image Background */}
                 <div className="hero-background hero-background-wrapper">
                     <Image
-                        src="/images/agents/ops-agent-hero.jpg"
+                        src="/images/agents/ops-agent-hero.png"
                         alt="Operations AI Agents"
                         fill
                         style={{ objectFit: "cover", objectPosition: "left center", maskImage: "radial-gradient(circle at right, black, transparent 80%)", WebkitMaskImage: "radial-gradient(circle at right, black, transparent 80%)" }}
@@ -305,10 +341,10 @@ export default function OperationsAgentsClient() {
                             Move beyond spreadsheets. Deploy Operations Agents that orchestrate dispatch, manage inventory, and optimize last-mile margin in real-time.
                         </p>
                         <div className="hero-reveal" style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap" }}>
-                            <Link href="/assessment" className="btn-primary" style={{ padding: "1.2rem 2.5rem", background: "var(--primary)", border: "none", borderRadius: "12px", color: "white", textDecoration: "none", fontWeight: 700, fontSize: "1.1rem" }}>
+                            <Link href="/assessment" className="btn-primary" style={{ padding: "1.2rem 2.5rem", borderRadius: "12px", textDecoration: "none" }}>
                                 Calculate Dispatch ROI
                             </Link>
-                            <Link href="#architecture" style={{ padding: "1.2rem 2.5rem", background: "rgba(255,255,255,0.05)", border: "1px solid var(--border)", borderRadius: "12px", color: "white", textDecoration: "none", fontWeight: 700, fontSize: "1.1rem" }}>
+                            <Link href="#architecture" className="btn-secondary" style={{ padding: "1.2rem 2.5rem", borderRadius: "12px", textDecoration: "none" }}>
                                 Technical Architecture
                             </Link>
                         </div>
@@ -347,17 +383,17 @@ export default function OperationsAgentsClient() {
                             </div>
                         </div>
                         <div className="gsap-img-reveal" style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
-                            <Image src="/images/industries/ops-dw-problem.png" width={800} height={450} style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }} alt="Logistics Manual Friction" />
-                            <div style={{ background: "var(--bg-secondary)", border: "1px solid var(--border)", borderRadius: "32px", padding: "2.5rem" }}>
+                            <Image src="/images/industries/ops-dw-problem.png" width={800} height={450} style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "var(--card-shadow)" }} alt="Logistics Manual Friction" />
+                            <div style={{ background: "var(--card-bg)", border: "1px solid var(--border)", borderRadius: "32px", padding: "2.5rem", boxShadow: "var(--card-shadow)" }}>
                                 <div style={{ fontSize: "0.85rem", fontWeight: 800, color: "var(--primary)", marginBottom: "2rem", textTransform: "uppercase" }}>Manual Friction Metrics</div>
                                 <div style={{ display: "grid", gap: "1.5rem" }}>
                                     {[
                                         { l: "Route Planning Time", v: "4.5 Hours", c: "#ef4444" },
                                         { l: "Fuel Waste (Dead Miles)", v: "14%", c: "#ef4444" },
-                                        { l: "Customer Notification Latency", v: "12 Mins", c: "white" }
+                                        { l: "Customer Notification Latency", v: "12 Mins", c: "var(--text)" }
                                     ].map((m, i) => (
                                         <div key={i} style={{ padding: "1.5rem", background: "var(--bg)", borderRadius: "16px", border: "1px solid var(--border)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                                            <span style={{ fontWeight: 600 }}>{m.l}</span>
+                                            <span style={{ fontWeight: 600, color: "var(--text)" }}>{m.l}</span>
                                             <span style={{ fontWeight: 900, color: m.c }}>{m.v}</span>
                                         </div>
                                     ))}
@@ -373,26 +409,26 @@ export default function OperationsAgentsClient() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zag">
                         <div className="gsap-img-reveal" style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
-                            <Image src="/images/industries/ops-dw-predictive.png" width={800} height={450} style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }} alt="Predictive Operations Margin" />
+                            <Image src="/images/industries/ops-dw-predictive.png" width={800} height={450} style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "var(--card-shadow)" }} alt="Predictive Operations Margin" />
                             <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-                                <div style={{ background: "var(--bg)", border: "1px solid var(--border)", borderRadius: "32px", padding: "2.5rem" }}>
+                                <div style={{ background: "var(--card-bg)", border: "1px solid var(--border)", borderRadius: "32px", padding: "2.5rem", boxShadow: "var(--card-shadow)" }}>
                                     <div style={{ fontSize: "0.7rem", fontWeight: 800, color: "var(--primary)", marginBottom: "1.5rem" }}>REAL-TIME MARGIN TRACKING</div>
                                     <div style={{ display: "flex", alignItems: "baseline", gap: "1rem", marginBottom: "0.5rem" }}>
-                                        <span style={{ fontSize: "3rem", fontWeight: 900 }}>+11.2%</span>
+                                        <span style={{ fontSize: "3rem", fontWeight: 900, color: "var(--text)" }}>+11.2%</span>
                                         <span style={{ color: "#10b981", fontWeight: 700 }}>↑ Net Margin Lift</span>
                                     </div>
-                                    <div style={{ height: "4px", width: "100%", background: "rgba(255,255,255,0.05)", borderRadius: "2px" }}>
+                                    <div style={{ height: "4px", width: "100%", background: "var(--border)", borderRadius: "2px" }}>
                                         <div style={{ width: "75%", height: "100%", background: "var(--primary)" }} />
                                     </div>
                                 </div>
                                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
-                                    <div style={{ background: "var(--bg)", border: "1px solid var(--border)", borderRadius: "24px", padding: "1.5rem" }}>
-                                        <div style={{ fontSize: "0.6rem", opacity: 0.5 }}>CO2 SAVED</div>
-                                        <div style={{ fontSize: "1.2rem", fontWeight: 800 }}>4.2 Tons/Mo</div>
+                                    <div style={{ background: "var(--card-bg)", border: "1px solid var(--border)", borderRadius: "24px", padding: "1.5rem", boxShadow: "var(--card-shadow)" }}>
+                                        <div style={{ fontSize: "0.6rem", color: "var(--text-muted)", textTransform: "uppercase" }}>CO2 SAVED</div>
+                                        <div style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--text)" }}>4.2 Tons/Mo</div>
                                     </div>
-                                    <div style={{ background: "var(--bg)", border: "1px solid var(--border)", borderRadius: "24px", padding: "1.5rem" }}>
-                                        <div style={{ fontSize: "0.6rem", opacity: 0.5 }}>AVG. STOP ROI</div>
-                                        <div style={{ fontSize: "1.2rem", fontWeight: 800 }}>£18.42</div>
+                                    <div style={{ background: "var(--card-bg)", border: "1px solid var(--border)", borderRadius: "24px", padding: "1.5rem", boxShadow: "var(--card-shadow)" }}>
+                                        <div style={{ fontSize: "0.6rem", color: "var(--text-muted)", textTransform: "uppercase" }}>AVG. STOP ROI</div>
+                                        <div style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--text)" }}>£18.42</div>
                                     </div>
                                 </div>
                             </div>
@@ -430,10 +466,10 @@ export default function OperationsAgentsClient() {
                             </div>
                         </div>
                         <div className="gsap-img-reveal" style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
-                            <Image src="/images/industries/ops-dw-supply.png" width={800} height={450} style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }} alt="Digital Worker Dispatch" />
-                            <div style={{ background: "var(--bg-secondary)", border: "1px solid var(--border)", borderRadius: "32px", padding: "2.5rem" }}>
+                            <Image src="/images/industries/ops-dw-supply.png" width={800} height={450} style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "var(--card-shadow)" }} alt="Digital Worker Dispatch" />
+                            <div style={{ background: "var(--card-bg)", border: "1px solid var(--border)", borderRadius: "32px", padding: "2.5rem", boxShadow: "var(--card-shadow)" }}>
                                 <div style={{ fontSize: "0.85rem", fontWeight: 800, color: "var(--primary)", marginBottom: "2rem", textTransform: "uppercase" }}>5AM Dispatch Timeline</div>
-                                <div style={{ position: "relative", paddingLeft: "2rem", borderLeft: "2px solid rgba(79, 70, 229, 0.2)" }}>
+                                <div style={{ position: "relative", paddingLeft: "2rem", borderLeft: "2px solid var(--primary)", opacity: 0.8 }}>
                                     {[
                                         { t: "04:00", d: "Order ingestion & stock lock" },
                                         { t: "04:15", d: "Route optimization (12,000 permutations)" },
@@ -443,7 +479,7 @@ export default function OperationsAgentsClient() {
                                         <div key={i} style={{ marginBottom: "2rem", position: "relative" }}>
                                             <div style={{ position: "absolute", left: "-2.45rem", top: "0.2rem", width: "12px", height: "12px", borderRadius: "50%", background: "var(--primary)" }} />
                                             <div style={{ fontWeight: 800, fontSize: "0.75rem", color: "var(--primary)", marginBottom: "0.25rem" }}>{step.t}</div>
-                                            <div style={{ fontSize: "1rem", color: "white" }}>{step.d}</div>
+                                            <div style={{ fontSize: "1rem", color: "var(--text)" }}>{step.d}</div>
                                         </div>
                                     ))}
                                 </div>
@@ -464,6 +500,7 @@ export default function OperationsAgentsClient() {
                     </div>
 
                     <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))", gap: "2rem" }}>
+                        {/* Architecture Loop Cards */}
                         {[
                             { step: "01", t: "Ingestion", d: "Pulls order data from Shopify, Zoho, or SAP. Geocodes precisely to UK postcodes." },
                             { step: "02", t: "Constraint Match", d: "Checks vehicle weight, driver licenses, and time-window restrictions." },
@@ -474,15 +511,16 @@ export default function OperationsAgentsClient() {
                         ].map((item, i) => (
                             <div key={i} className="gsap-card" style={{
                                 padding: "2.5rem",
-                                background: "var(--bg)",
+                                background: "var(--card-bg)",
                                 border: "1px solid var(--border)",
                                 borderRadius: "24px",
                                 height: "100%",
                                 display: "flex",
-                                flexDirection: "column"
+                                flexDirection: "column",
+                                boxShadow: "var(--card-shadow)"
                             }}>
                                 <div style={{ fontSize: "2rem", fontWeight: 950, color: "var(--primary)", opacity: 0.3, marginBottom: "1rem" }}>{item.step}</div>
-                                <h4 style={{ fontSize: "1.4rem", fontWeight: 800, marginBottom: "1rem" }}>{item.t}</h4>
+                                <h4 style={{ fontSize: "1.4rem", fontWeight: 800, marginBottom: "1rem", color: "var(--text)" }}>{item.t}</h4>
                                 <p style={{ color: "var(--text-muted)", margin: 0, lineHeight: 1.6, flexGrow: 1 }}>{item.d}</p>
                             </div>
                         ))}
@@ -495,24 +533,24 @@ export default function OperationsAgentsClient() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zig">
                         <div className="gsap-img-reveal" style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
-                            <Image src="/images/industries/ops-dw-roi.png" width={800} height={450} style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }} alt="Operations ROI Output" />
-                            <div style={{ background: "rgba(79, 70, 229, 0.05)", border: "1px solid var(--primary)", borderRadius: "32px", padding: "2.5rem", textAlign: "center" }}>
+                            <Image src="/images/industries/ops-dw-roi.png" width={800} height={450} style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "var(--card-shadow)" }} alt="Operations ROI Output" />
+                            <div style={{ background: "var(--card-bg)", border: "1px solid var(--primary)", borderRadius: "32px", padding: "2.5rem", textAlign: "center", boxShadow: "var(--card-shadow)" }}>
                                 <div style={{ fontSize: "0.8rem", color: "var(--primary)", fontWeight: 800, textTransform: "uppercase", marginBottom: "2rem" }}>Delivery Cost Breakdown</div>
                                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "2rem" }}>
                                     <div style={{ flex: 1 }}>
-                                        <div style={{ height: "140px", background: "rgba(255,255,255,0.05)", borderRadius: "8px", position: "relative" }}>
+                                        <div style={{ height: "140px", background: "var(--bg-secondary)", borderRadius: "8px", position: "relative" }}>
                                             <div style={{ position: "absolute", bottom: 0, width: "100%", height: "90%", background: "#ff4d4d", borderRadius: "8px", opacity: 0.6 }} />
                                         </div>
-                                        <div style={{ marginTop: "1rem", fontSize: "0.8rem" }}>Manual (£16.00)</div>
+                                        <div style={{ marginTop: "1rem", fontSize: "0.8rem", color: "var(--text-muted)" }}>Manual (£16.00)</div>
                                     </div>
                                     <div style={{ flex: 1, marginLeft: "1rem" }}>
-                                        <div style={{ height: "140px", background: "rgba(255,255,255,0.05)", borderRadius: "8px", position: "relative" }}>
+                                        <div style={{ height: "140px", background: "var(--bg-secondary)", borderRadius: "8px", position: "relative" }}>
                                             <div style={{ position: "absolute", bottom: 0, width: "100%", height: "65%", background: "var(--primary)", borderRadius: "8px" }} />
                                         </div>
-                                        <div style={{ marginTop: "1rem", fontSize: "0.8rem", fontWeight: 800 }}>Agent (£14.66)</div>
+                                        <div style={{ marginTop: "1rem", fontSize: "0.8rem", fontWeight: 800, color: "var(--text)" }}>Agent (£14.66)</div>
                                     </div>
                                 </div>
-                                <div style={{ fontSize: "0.75rem", opacity: 0.5 }}>Estimated savings per 10k monthly deliveries: £13,400</div>
+                                <div style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>Estimated savings per 10k monthly deliveries: £13,400</div>
                             </div>
                         </div>
                         <div className="gsap-reveal">
@@ -524,9 +562,9 @@ export default function OperationsAgentsClient() {
                                 <p style={{ marginBottom: "1.5rem" }}>
                                     Inventory variance drops from 12% to 2%—freeing up tied-up capital and improving cash flow. Proactive vendor ordering eliminates premium panic-buy costs.
                                 </p>
-                                <div style={{ background: "rgba(79, 70, 229, 0.1)", padding: "2.5rem", borderRadius: "24px", border: "1px solid rgba(79, 70, 229, 0.2)" }}>
-                                    <h4 style={{ color: "white", marginBottom: "1rem", fontSize: "1.4rem", fontWeight: 800 }}>Payback Period: 8 Months</h4>
-                                    <p style={{ margin: 0, color: "rgba(255,255,255,0.7)" }}>Deployment: £32k | Monthly benefit: £4.5k | Positive ROI within 1st year.</p>
+                                <div style={{ background: "var(--hover-bg)", padding: "2.5rem", borderRadius: "24px", border: "1px solid var(--border)", boxShadow: "var(--card-shadow)" }}>
+                                    <h4 style={{ color: "var(--text)", marginBottom: "1rem", fontSize: "1.4rem", fontWeight: 800 }}>Payback Period: 8 Months</h4>
+                                    <p style={{ margin: 0, color: "var(--text-muted)" }}>Deployment: £32k | Monthly benefit: £4.5k | Positive ROI within 1st year.</p>
                                 </div>
                             </div>
                         </div>
@@ -541,34 +579,15 @@ export default function OperationsAgentsClient() {
                         <h2 className="section-title">Operations Integration Stack</h2>
                     </div>
 
-                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
-                        {[
-                            { title: "Fleet Management", items: ["Samsara Telematics", "Onfleet Dispatch", "Tookan", "Webfleet"] },
-                            { title: "Inventory & ERP", items: ["Zoho Inventory", "SAP S/4HANA", "Oracle NetSuite", "Microsoft BC"] },
-                            { title: "Order Ingestion", items: ["Shopify Plus", "Amazon Global", "WooCommerce", "EDI Gateways"] },
-                            { title: "Communications", items: ["Twilio SMS", "SendGrid", "Slack Operations", "WhatsApp Business"] }
-                        ].map((group, i) => (
-                            <div key={i} className="gsap-card" style={{
-                                padding: "2.5rem",
-                                background: "var(--bg)",
-                                borderRadius: "24px",
-                                border: "1px solid var(--border)",
-                                transition: "all 0.3s ease",
-                                height: "100%",
-                                display: "flex",
-                                flexDirection: "column"
-                            }}>
-                                <h4 style={{ fontSize: "1.2rem", fontWeight: 850, marginBottom: "1.5rem", color: "var(--primary)" }}>{group.title}</h4>
-                                <ul style={{ listStyle: "none", padding: 0, margin: 0, flexGrow: 1 }}>
-                                    {group.items.map((item, j) => (
-                                        <li key={j} style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.85rem", color: "rgba(255,255,255,0.7)", fontSize: "0.95rem" }}>
-                                            <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "var(--primary)", opacity: 0.5 }} />
-                                            {item}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        ))}
+                    <div className="brand-logo-grid" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
+                        <div className="brand-logo-card"><Image src="/images/brands/zoho.png" fill className="brand-logo-img" alt="Zoho" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
+                        <div className="brand-logo-card"><Image src="/images/brands/SAP.png" fill className="brand-logo-img" alt="SAP" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
+                        <div className="brand-logo-card"><Image src="/images/brands/oracle.jpg" fill className="brand-logo-img" alt="Oracle" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
+                        <div className="brand-logo-card"><Image src="/images/brands/Amazon.png" fill className="brand-logo-img" alt="Amazon" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
+                        <div className="brand-logo-card"><Image src="/images/brands/slack.png" fill className="brand-logo-img" alt="Slack" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
+                        <div className="brand-logo-card"><Image src="/images/brands/N8n.png" fill className="brand-logo-img logo-invert-dark" alt="n8n" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
+                        <div className="brand-logo-card"><Image src="/images/brands/OpenAI.png" fill className="brand-logo-img logo-invert-dark" alt="OpenAI" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
+                        <div className="brand-logo-card"><Image src="/images/brands/Hubspot.png" fill className="brand-logo-img" alt="HubSpot" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
                     </div>
                 </div>
             </section>
@@ -597,14 +616,14 @@ export default function OperationsAgentsClient() {
                                         ].map((stat, i) => (
                                             <div key={i}>
                                                 <div style={{ fontSize: "0.65rem", fontWeight: 800, color: "var(--primary)", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "0.5rem" }}>{stat.l}</div>
-                                                <div style={{ fontSize: "1.5rem", fontWeight: 950, color: "white" }}>{stat.v}</div>
+                                                <div style={{ fontSize: "1.5rem", fontWeight: 950, color: "var(--text)" }}>{stat.v}</div>
                                             </div>
                                         ))}
                                     </div>
                                 </div>
                             </div>
                             <div style={{ background: "rgba(79, 70, 229, 0.05)", padding: "5rem", borderLeft: "1px solid var(--border)", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-                                <div style={{ background: "var(--bg)", border: "1px solid var(--border)", borderRadius: "24px", padding: "3rem" }}>
+                                <div style={{ background: "var(--card-bg)", border: "1px solid var(--border)", borderRadius: "24px", padding: "3rem", boxShadow: "var(--card-shadow)" }}>
                                     <h4 style={{ color: "var(--primary)", fontWeight: 800, textTransform: "uppercase", fontSize: "0.8rem", marginBottom: "2rem" }}>Financial Performance Lift</h4>
                                     <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
                                         {[
@@ -614,10 +633,10 @@ export default function OperationsAgentsClient() {
                                         ].map((row, i) => (
                                             <div key={i}>
                                                 <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.75rem" }}>
-                                                    <span style={{ fontSize: "0.9rem", fontWeight: 700 }}>{row.label}</span>
+                                                    <span style={{ fontSize: "0.9rem", fontWeight: 700, color: "var(--text)" }}>{row.label}</span>
                                                     <span style={{ fontSize: "0.9rem", fontWeight: 800, color: row.accent }}>{row.after}</span>
                                                 </div>
-                                                <div style={{ height: "4px", background: "rgba(255,255,255,0.05)", borderRadius: "2px", overflow: "hidden" }}>
+                                                <div style={{ height: "4px", background: "var(--bg-secondary)", borderRadius: "2px", overflow: "hidden" }}>
                                                     <div style={{ width: "85%", height: "100%", background: row.accent, opacity: 0.6 }} />
                                                 </div>
                                             </div>
@@ -658,17 +677,21 @@ export default function OperationsAgentsClient() {
                         ].map((link, idx) => (
                             <Link key={idx} href={link.href} style={{
                                 padding: "2rem",
-                                background: "var(--bg-secondary)",
+                                background: "var(--card-bg)",
                                 borderRadius: "16px",
                                 border: "1px solid var(--border)",
-                                color: "white",
+                                color: "var(--text)",
                                 textDecoration: "none",
                                 fontWeight: 700,
                                 textAlign: "center",
-                                transition: "all 0.3s ease"
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                transition: "all 0.3s ease",
+                                boxShadow: "var(--card-shadow)"
                             }}
-                                onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--primary)"; e.currentTarget.style.transform = "translateY(-4px)"; }}
-                                onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.transform = "none"; }}
+                                onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--primary)"; e.currentTarget.style.color = "var(--primary)"; e.currentTarget.style.transform = "translateY(-4px)"; }}
+                                onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.color = "var(--text)"; e.currentTarget.style.transform = "none"; }}
                             >
                                 {link.title}
                             </Link>
@@ -688,12 +711,12 @@ export default function OperationsAgentsClient() {
                             Scale your operational capacity without adding headcount. Deploy an autonomous worker that never sleeps and always optimises.
                         </p>
                         <div style={{ display: "flex", gap: "1.5rem", justifyContent: "center", flexWrap: "wrap", alignItems: "center" }}>
-                            <Link href="/assessment" className="btn-primary" style={{ padding: "1.2rem 2.5rem", background: "var(--primary)", color: "white", borderRadius: "12px", textDecoration: "none", fontWeight: 700 }}>
+                            <Link href="/assessment" className="btn-primary" style={{ padding: "1.2rem 2.5rem", borderRadius: "12px", textDecoration: "none" }}>
                                 Calculate Your ROI Opportunity
                             </Link>
-                            <Link href="/case-studies" style={{ padding: "1.2rem 2.5rem", background: "transparent", color: "white", borderRadius: "12px", textDecoration: "none", fontWeight: 700, border: "1px solid var(--border)" }}>
+                            {/* <Link href="/case-studies" className="btn-secondary" style={{ padding: "1.2rem 2.5rem", borderRadius: "12px", textDecoration: "none" }}>
                                 Explore Case Studies
-                            </Link>
+                            </Link> */}
                         </div>
                     </div>
                 </div>

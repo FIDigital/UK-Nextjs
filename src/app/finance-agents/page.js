@@ -438,7 +438,7 @@ export default function FinanceAgents() {
                 {/* Right-aligned Faded Hero Image Background */}
                 <div className="hero-background hero-background-wrapper">
                     <Image
-                        src="/images/agents/finance-agent-hero.jpg"
+                        src="/images/agents/finance-agent-hero.png"
                         alt="Financial AI Agents"
                         fill
                         style={{ objectFit: "cover", objectPosition: "left center", maskImage: "radial-gradient(circle at right, black, transparent 80%)", WebkitMaskImage: "radial-gradient(circle at right, black, transparent 80%)" }}
@@ -495,14 +495,14 @@ export default function FinanceAgents() {
                         }}>
                             See Finance Agent Demo <ArrowRight size={20} />
                         </Link>
-                        <Link href="/case-studies/finance-pdf" style={{
+                        {/* <Link href="/case-studies/finance-pdf" style={{
                             display: "inline-flex", alignItems: "center", justifyContent: "center",
                             padding: "1rem 2rem", background: "#0F172A", color: "white",
                             fontWeight: 700, borderRadius: "12px", textDecoration: "none",
                             transition: "all 0.3s ease"
                         }}>
                             Download Finance Case Study
-                        </Link>
+                        </Link> */}
                     </div>
                 </div>
             </header>
@@ -593,11 +593,12 @@ export default function FinanceAgents() {
                                 <div className="brand-logo-card">
                                     <Image src="/images/microsoft-azure-logo.webp" fill className="brand-logo-img" alt="Azure" style={{ objectFit: 'contain', padding: '1.5rem' }} />
                                 </div>
+                                
                                 <div className="brand-logo-card">
-                                    <strong style={{ color: "#000", fontSize: "1.2rem", fontWeight: 900 }}>GPT-4o</strong>
+                                    <Image src="/images/brands/OpenAI.png" fill className="brand-logo-img" alt="openai" style={{ objectFit: 'contain', padding: '1.5rem' }} />
                                 </div>
                                 <div className="brand-logo-card">
-                                    <strong style={{ color: "#EA4335", fontSize: "1.5rem", fontWeight: 900 }}>n8n</strong>
+                                    <Image src="/images/brands/N8n.png" fill className="brand-logo-img" alt="n8n" style={{ objectFit: 'contain', padding: '1.5rem' }} />
                                 </div>
                             </div>
                         </div>
@@ -694,7 +695,7 @@ export default function FinanceAgents() {
                                 <div className="brand-logo-card"><Image src="/images/logo_google_cloud.png" fill className="brand-logo-img" alt="Google Cloud" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
                                 <div className="brand-logo-card"><Image src="/images/Anthropic-Logo.wine.png" fill className="brand-logo-img" alt="Claude Anthropic" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
                                 <div className="brand-logo-card"><Image src="/images/zoho-logo.webp" fill className="brand-logo-img" alt="Zoho" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
-                                <div className="brand-logo-card"><strong style={{ color: "#1880e6", fontSize: "1.5rem", fontWeight: 900 }}>Xero</strong></div>
+                                <div className="brand-logo-card"><Image src="/images/brands/xero1.png" fill className="brand-logo-img" alt="Xero" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
                             </div>
                         </div>
 
@@ -847,9 +848,9 @@ export default function FinanceAgents() {
                             <Link href="/demo/finance" className="btn-primary" style={{ padding: "0 2.5rem", background: "#1d4ed8", boxShadow: "0 10px 30px rgba(29, 78, 216, 0.3)" }}>
                                 See Finance Agent Demo <ArrowRight size={20} />
                             </Link>
-                            <Link href="/case-studies/finance-pdf" className="btn-secondary" style={{ padding: "0 2.5rem", border: "1px solid rgba(255,255,255,0.2)", color: "white" }}>
+                            {/* <Link href="/case-studies/finance-pdf" className="btn-secondary" style={{ padding: "0 2.5rem", border: "1px solid rgba(255,255,255,0.2)", color: "white" }}>
                                 Download Finance Case Study
-                            </Link>
+                            </Link> */}
                         </div>
                     </div>
                 </div>
