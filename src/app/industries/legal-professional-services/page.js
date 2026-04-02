@@ -541,7 +541,7 @@ export default function LegalServicesPage() {
                         <Link href="/contact?intent=legal-services-demo" className="btn-primary" style={{ padding: "1rem 2.5rem", borderRadius: "14px", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
                             Book SRA Compliance Demo <ArrowRight size={20} />
                         </Link>
-                        <Link href="/resources/legal-services-case-study.pdf" style={{
+                        {/* <Link href="/resources/legal-services-case-study.pdf" style={{
                             display: "inline-flex",
                             alignItems: "center",
                             gap: "0.5rem",
@@ -556,7 +556,7 @@ export default function LegalServicesPage() {
                             transition: "all 0.3s ease"
                         }}>
                             Download Case Study
-                        </Link>
+                        </Link> */}
                     </div>
 
                     <div style={{ marginTop: "4rem", paddingTop: "2rem", borderTop: "1px solid var(--border)", display: "flex", gap: "2rem", justifyContent: "center", flexWrap: "wrap", fontSize: "0.9rem", fontWeight: 600 }}>

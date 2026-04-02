@@ -299,7 +299,7 @@ export default function FinancialServicesPage() {
                     <div className="zig-grid">
                         <div className="gsap-img-wrapper" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "2816/1536", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center" }}>
                             <Image
-                                src="/images/industries/finance-challenge.jpg.png"
+                                src="/images/industries/finance-challenge.png"
                                 alt="Dashboard showing FCA compliance metrics, audit trails, and KYC workflow stages"
                                 fill
                                 style={{ objectFit: "cover" }}
@@ -541,7 +541,7 @@ export default function FinancialServicesPage() {
                         <Link href="/contact?intent=financial-services-demo" className="btn-primary" style={{ padding: "1rem 2.5rem", borderRadius: "14px", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
                             Schedule FCA Compliance Consultation <ArrowRight size={20} />
                         </Link>
-                        <Link href="/resources/financial-services-ai-compliance.pdf" style={{
+                        {/* <Link href="/resources/financial-services-ai-compliance.pdf" style={{
                             display: "inline-flex",
                             alignItems: "center",
                             gap: "0.5rem",
@@ -556,7 +556,7 @@ export default function FinancialServicesPage() {
                             transition: "all 0.3s ease"
                         }}>
                             Download Whitepaper
-                        </Link>
+                        </Link> */}
                     </div>
 
                     <div style={{ marginTop: "4rem", paddingTop: "2rem", borderTop: "1px solid var(--border)", display: "flex", gap: "2rem", justifyContent: "center", flexWrap: "wrap", fontSize: "0.9rem", fontWeight: 600 }}>

@@ -929,9 +929,9 @@ export default function AiNativeProductClient() {
                                 <Link href="/contact" className="btn-primary" style={{ padding: "1.2rem 2.8rem", background: "var(--primary)", color: "white", borderRadius: "14px", textDecoration: "none", fontWeight: 700, boxShadow: "0 10px 40px rgba(79, 70, 229, 0.3)" }}>
                                     Build Your AI Product
                                 </Link>
-                                <Link href="/work" style={{ padding: "1.2rem 2.5rem", background: "var(--bg-secondary)", color: "var(--text)", borderRadius: "14px", textDecoration: "none", fontWeight: 700, border: "1px solid var(--border)" }}>
+                                {/* <Link href="/work" style={{ padding: "1.2rem 2.5rem", background: "var(--bg-secondary)", color: "var(--text)", borderRadius: "14px", textDecoration: "none", fontWeight: 700, border: "1px solid var(--border)" }}>
                                     View Our Portfolio
-                                </Link>
+                                </Link> */}
                             </div>
                        </div>
                   </div>

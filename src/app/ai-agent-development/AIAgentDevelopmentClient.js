@@ -44,8 +44,8 @@ const TechMeshBackground = () => {
         const animate = () => {
             if (!ctx) return;
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = "rgba(79, 70, 229, 0.2)";
-            ctx.strokeStyle = "rgba(79, 70, 229, 0.05)";
+            ctx.fillStyle = "rgba(79, 70, 229, 0.15)";
+            ctx.strokeStyle = "rgba(79, 70, 229, 0.04)";
 
             dots.forEach((dot, i) => {
                 dot.x += dot.vx;
@@ -295,9 +295,12 @@ export default function AIAgentDevelopmentClient() {
                     max-width: 100%;
                     max-height: 100%;
                     object-fit: contain;
-                    filter: grayscale(1) brightness(1.5);
-                    opacity: 0.6;
-                    transition: all 0.3s ease;
+                    filter: "grayscale(1) brightness(1.2)",
+                    opacity: 0.6,
+                    transition: "all 0.3s ease",
+                }
+                [data-theme='dark'] .brand-logo-img {
+                    filter: grayscale(1) brightness(1.8);
                 }
                 .brand-logo-img:hover {
                     filter: none !important;
@@ -347,8 +350,8 @@ export default function AIAgentDevelopmentClient() {
                 }} />
                 
                 <div className="container" style={{ position: "relative", zIndex: 3, display: "flex", flexDirection: "column", alignItems: "flex-start", textAlign: "left", width: "100%", maxWidth: "1250px", margin: "0 auto" }}>
-                    <div className="hero-title-line" style={{ display: "inline-flex", alignItems: "center", gap: "0.75rem", padding: "0.6rem 1.2rem", background: "rgba(16, 185, 129, 0.1)", borderRadius: "100px", border: "1px solid rgba(16, 185, 129, 0.2)", marginBottom: "2.5rem", color: "#10b981", fontSize: "0.9rem", fontWeight: 700, letterSpacing: "0.05em" }}>
-                        <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#10b981", boxShadow: "0 0 10px #10b981" }} />
+                    <div className="hero-title-line" style={{ display: "inline-flex", alignItems: "center", gap: "0.75rem", padding: "0.6rem 1.2rem", background: "var(--hover-bg)", borderRadius: "100px", border: "1px solid var(--border)", marginBottom: "2.5rem", color: "var(--primary)", fontSize: "0.9rem", fontWeight: 700, letterSpacing: "0.05em" }}>
+                        <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "var(--primary)", boxShadow: "0 0 10px var(--primary)" }} />
                         AGENTIC AI ENGINEERING
                     </div>
                     <h1 className="hero-title-line" style={{ fontSize: "clamp(2.5rem, 8vw, 4.8rem)", fontWeight: 950, lineHeight: 1.1, marginBottom: "2.5rem", letterSpacing: "-0.03em", color: "var(--text)" }}>
@@ -359,11 +362,11 @@ export default function AIAgentDevelopmentClient() {
                     </p>
 
                     <div className="hero-cta" style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap", alignItems: "center" }}>
-                        <Link href="/assessment" style={{ 
+                        <Link href="/assessment" className="btn-primary" style={{ 
                             display: "inline-flex", alignItems: "center", gap: "0.75rem", 
-                            padding: "1.2rem 2.8rem", background: "#4F46E5", color: "white", 
+                            padding: "1.2rem 2.8rem", background: "var(--primary)", color: "white", 
                             fontWeight: 800, borderRadius: "14px", textDecoration: "none", 
-                            boxShadow: "0 10px 30px rgba(79, 70, 229, 0.3)", transition: "all 0.3s ease",
+                            boxShadow: "0 10px 30px var(--card-shadow)", transition: "all 0.3s ease",
                             fontSize: "1.1rem"
                         }}>
                              Start Architect Call <ArrowRight size={22} />
@@ -399,8 +402,9 @@ export default function AIAgentDevelopmentClient() {
                                     <div key={i} style={{ 
                                         padding: "2rem", 
                                         borderRadius: "24px", 
-                                        background: box.primary ? "rgba(79, 70, 229, 0.1)" : "var(--bg-secondary)",
+                                        background: box.primary ? "var(--hover-bg)" : "var(--bg-secondary)",
                                         border: box.primary ? "1px solid var(--primary)" : "1px solid var(--border)",
+                                        boxShadow: box.primary ? "var(--card-shadow)" : "none",
                                         textAlign: "center"
                                     }}>
                                         <div style={{ fontSize: "0.8rem", textTransform: "uppercase", fontWeight: 800, color: box.primary ? "var(--primary)" : "var(--text-muted)", marginBottom: "0.5rem" }}>{box.label}</div>
@@ -424,14 +428,14 @@ export default function AIAgentDevelopmentClient() {
                                 alt="Five Pillars of AI Agency Diagram"
                                 width={800}
                                 height={600}
-                                style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)" }}
+                                style={{ borderRadius: "32px", width: "100%", height: "auto", aspectRatio: "16/9", objectFit: "cover", boxShadow: "var(--card-shadow)" }}
                             />
                         </div>
                         <div className="gsap-reveal">
                             <div className="gsap-reveal" style={{ display: "grid", gridTemplateColumns: "1fr", gap: "1.50rem", marginTop: "2rem" }}>
                                 {pillars.map((pillar, i) => (
-                                    <div key={i} className="pillar-card" style={{ padding: "1.25rem", borderRadius: "20px", background: "var(--bg-secondary)", border: "1px solid var(--border)", display: "flex", gap: "1rem", alignItems: "center" }}>
-                                        <div style={{ padding: "0.6rem", background: "rgba(79, 70, 229, 0.1)", borderRadius: "10px", color: "var(--primary)" }}>{pillar.icon}</div>
+                                    <div key={i} className="pillar-card" style={{ padding: "1.25rem", borderRadius: "20px", background: "var(--bg-secondary)", border: "1px solid var(--border)", boxShadow: "var(--card-shadow)", display: "flex", gap: "1rem", alignItems: "center" }}>
+                                        <div style={{ padding: "0.6rem", background: "var(--hover-bg)", borderRadius: "10px", color: "var(--primary)" }}>{pillar.icon}</div>
                                         <div>
                                             <div style={{ fontWeight: 800, fontSize: "1rem", color: "var(--text)" }}>{pillar.title}</div>
                                             <div style={{ fontSize: "0.85rem", color: "var(--text-muted)", lineHeight: 1.4 }}>{pillar.desc}</div>
@@ -477,7 +481,7 @@ export default function AIAgentDevelopmentClient() {
                 <div className="container" style={{ maxWidth: "1250px" }}>
                     <div className="responsive-grid zig" style={{ gap: "4rem" }}>
                         <div className="gsap-img-reveal" style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                            <div style={{ width: "100%", position: "relative", aspectRatio: "16/9", borderRadius: "40px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "0 20px 40px -10px rgba(0,0,0,0.5)" }}>
+                            <div style={{ width: "100%", position: "relative", aspectRatio: "16/9", borderRadius: "40px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "var(--card-shadow)" }}>
                                 <Image 
                                     src="/images/ai-agents/reliability-shield.png"
                                     alt="Reliability Engineering Visualization"
@@ -527,7 +531,7 @@ export default function AIAgentDevelopmentClient() {
                                 flexDirection: "column",
                                 justifyContent: "center"
                             }}>
-                                <div style={{ position: "absolute", top: 0, right: 0, width: "300px", height: "300px", background: "radial-gradient(circle at top right, rgba(79, 70, 229, 0.05), transparent 70%)" }} />
+                                <div style={{ position: "absolute", top: 0, right: 0, width: "300px", height: "300px", background: "radial-gradient(circle at top right, var(--hover-bg), transparent 70%)" }} />
                                 
                                 <div style={{ position: "relative", zIndex: 1 }}>
                                     <div style={{ fontSize: "0.8rem", textTransform: "uppercase", fontWeight: 800, color: "var(--primary)", marginBottom: "1.5rem" }}>Reliability Metrics</div>
@@ -570,7 +574,7 @@ export default function AIAgentDevelopmentClient() {
                                 <p style={{ marginBottom: "1.5rem" }}>
                                     Each tool is rigorously typed with clear input/output specifications. Sloppy tool definitions are one of the top causes of agent failure in production.
                                 </p>
-                                <div style={{ background: "var(--bg-secondary)", padding: "2rem", borderRadius: "24px", border: "1px solid var(--border)" }}>
+                                <div style={{ background: "var(--bg-secondary)", padding: "2rem", borderRadius: "24px", border: "1px solid var(--border)", boxShadow: "var(--card-shadow)" }}>
                                     <div style={{ fontSize: "0.85rem", fontWeight: 800, textTransform: "uppercase", color: "var(--primary)", marginBottom: "1rem" }}>Runtime Specifications</div>
                                     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", fontSize: "0.95rem" }}>
                                         <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}><Server size={16} /> Python 3.11 / FastAPI</div>
@@ -585,13 +589,14 @@ export default function AIAgentDevelopmentClient() {
                              <div style={{ 
                                 width: "100%", 
                                 aspectRatio: "4/3",
-                                background: "var(--bg-secondary)", 
+                                background: "var(--card-bg)", 
                                 borderRadius: "48px", 
                                 border: "1px solid var(--border)",
                                 padding: "2.5rem",
                                 display: "flex",
                                 flexDirection: "column",
-                                justifyContent: "center"
+                                justifyContent: "center",
+                                boxShadow: "var(--card-shadow)"
                              }}>
                                 <div style={{ fontFamily: "monospace", fontSize: "0.9rem", color: "var(--text-muted)" }}>
                                     <div style={{ color: "var(--primary)", marginBottom: "0.5rem" }}># Execution Layer Handler</div>
@@ -625,8 +630,8 @@ export default function AIAgentDevelopmentClient() {
                                     { label: "Medium-term", desc: "Session Summaries & Prior Decisions", icon: <Layers size={20} /> },
                                     { label: "Long-term", desc: "Vector Embeddings & Global Context", icon: <Database size={20} /> }
                                 ].map((mem, i) => (
-                                    <div key={i} className="pillar-card" style={{ padding: "1.5rem", borderRadius: "24px", background: "var(--bg-secondary)", border: "1px solid var(--border)", display: "flex", gap: "1.25rem", alignItems: "center" }}>
-                                        <div style={{ padding: "0.75rem", background: "rgba(79, 70, 229, 0.1)", borderRadius: "12px", color: "var(--primary)" }}>{mem.icon}</div>
+                                    <div key={i} className="pillar-card" style={{ padding: "1.5rem", borderRadius: "24px", background: "var(--bg-secondary)", border: "1px solid var(--border)", boxShadow: "var(--card-shadow)", display: "flex", gap: "1.25rem", alignItems: "center" }}>
+                                        <div style={{ padding: "0.75rem", background: "var(--hover-bg)", borderRadius: "12px", color: "var(--primary)" }}>{mem.icon}</div>
                                         <div>
                                             <div style={{ fontWeight: 800, marginBottom: "0.25rem", color: "var(--text)" }}>{mem.label}</div>
                                             <div style={{ fontSize: "0.9rem", color: "var(--text-muted)", lineHeight: 1.4 }}>{mem.desc}</div>
@@ -650,24 +655,25 @@ export default function AIAgentDevelopmentClient() {
 
                     {/* Wide Card: LlamaIndex & RAG */}
                     <div className="gsap-reveal" style={{ 
-                        background: "linear-gradient(135deg, #0F172A 0%, #1E1B4B 100%)", 
+                        background: "var(--card-bg)", 
                         borderRadius: "48px", 
                         padding: "5rem 4rem", 
-                        border: "1px solid rgba(79, 70, 229, 0.3)",
+                        border: "1px solid var(--primary)",
+                        boxShadow: "var(--card-shadow)",
                         position: "relative",
                         overflow: "hidden"
                     }}>
-                        <div style={{ position: "absolute", top: 0, right: 0, width: "40%", height: "100%", background: "radial-gradient(circle at 100% 0%, rgba(79, 70, 229, 0.2), transparent)", pointerEvents: "none" }} />
+                        <div style={{ position: "absolute", top: 0, right: 0, width: "40%", height: "100%", background: "radial-gradient(circle at 100% 0%, var(--hover-bg), transparent)", pointerEvents: "none" }} />
                         <div style={{ position: "relative", zIndex: 1, textAlign: "center", maxWidth: "900px", margin: "0 auto" }}>
                             <span style={{ fontSize: "0.9rem", fontWeight: 800, color: "var(--primary)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "1.5rem", display: "block" }}>Semantic Intelligence</span>
-                            <h3 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 950, color: "white", marginBottom: "2rem" }}>LlamaIndex + LangChain: Hallucination-Free RAG</h3>
-                            <p style={{ color: "rgba(255,255,255,0.7)", fontSize: "1.2rem", lineHeight: 1.8, marginBottom: "3rem" }}>
+                            <h3 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 950, color: "var(--text)", marginBottom: "2rem" }}>LlamaIndex + LangChain: Hallucination-Free RAG</h3>
+                            <p style={{ color: "var(--text-muted)", fontSize: "1.2rem", lineHeight: 1.8, marginBottom: "3rem" }}>
                                 We layer LlamaIndex on top of LangChain for retrieval-augmented generation (RAG). This gives agents access to your entire document corpus, allowing them to pull relevant contract clauses, compliance policies, or historical precedents in real-time.
                             </p>
-                            <div style={{ display: "inline-flex", background: "rgba(16, 185, 129, 0.1)", padding: "2rem 3rem", borderRadius: "32px", border: "1px solid rgba(16, 185, 129, 0.2)" }}>
+                            <div style={{ display: "inline-flex", background: "var(--hover-bg)", padding: "2rem 3rem", borderRadius: "32px", border: "1px solid var(--border)", boxShadow: "var(--card-shadow)" }}>
                                 <div style={{ textAlign: "center" }}>
-                                    <div style={{ fontSize: "3.5rem", fontWeight: 950, color: "#10b981", lineHeight: 1 }}>67%</div>
-                                    <div style={{ fontSize: "1rem", color: "rgba(255,255,255,0.6)", fontWeight: 700, marginTop: "0.5rem" }}>Reduction in Model Hallucinations</div>
+                                    <div style={{ fontSize: "3.5rem", fontWeight: 950, color: "var(--primary)", lineHeight: 1 }}>67%</div>
+                                    <div style={{ fontSize: "1rem", color: "var(--text-muted)", fontWeight: 700, marginTop: "0.5rem" }}>Reduction in Model Hallucinations</div>
                                 </div>
                             </div>
                         </div>
@@ -727,7 +733,7 @@ export default function AIAgentDevelopmentClient() {
                                             ].map((item, i) => (
                                                 <div key={i} style={{ display: "flex", justifyContent: "space-between", paddingBottom: "1rem", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
                                                     <span style={{ color: "var(--text-muted)", fontSize: "0.95rem" }}>{item.label}</span>
-                                                    <span style={{ color: "white", fontWeight: 700, fontSize: "0.95rem" }}>{item.val}</span>
+                                                    <span style={{ color: "var(--text)", fontWeight: 700, fontSize: "0.95rem" }}>{item.val}</span>
                                                 </div>
                                             ))}
                                         </div>
@@ -735,10 +741,10 @@ export default function AIAgentDevelopmentClient() {
                                 </div>
                                 <div>
                                     <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.5rem" }}>
-                                        <div style={{ width: "40px", height: "40px", borderRadius: "10px", background: "rgba(79, 70, 229, 0.1)", border: "1px solid var(--primary)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--primary)", fontWeight: 900 }}>01</div>
+                                        <div style={{ width: "40px", height: "40px", borderRadius: "10px", background: "var(--hover-bg)", border: "1px solid var(--primary)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--primary)", fontWeight: 900 }}>01</div>
                                         <span style={{ fontWeight: 800, color: "var(--primary)", fontSize: "0.85rem", textTransform: "uppercase" }}>WEEKS 1-2</span>
                                     </div>
-                                    <h3 style={{ fontSize: "2.2rem", fontWeight: 950, color: "white", marginBottom: "1.5rem" }}>Phase 1: Requirements & Agent Specification</h3>
+                                    <h3 style={{ fontSize: "2.2rem", fontWeight: 950, color: "var(--text)", marginBottom: "1.5rem" }}>Phase 1: Requirements & Agent Specification</h3>
                                     <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
                                         <p style={{ marginBottom: "1.25rem" }}>We conduct 6-8 structured interviews with stakeholders: the people currently doing the work the agent will automate, the systems they interact with, the edge cases they handle, and the failure modes that keep them up at night.</p>
                                         <p>We document 120-180 specific tasks the agent must handle, prioritised by business impact. We also define what correct looks like: what metrics matter, what's acceptable error rate, what requires human escalation versus autonomous handling.</p>
@@ -798,10 +804,10 @@ export default function AIAgentDevelopmentClient() {
                                 </div>
                                 <div>
                                     <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.5rem" }}>
-                                        <div style={{ width: "40px", height: "40px", borderRadius: "10px", background: "rgba(79, 70, 229, 0.1)", border: "1px solid var(--primary)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--primary)", fontWeight: 900 }}>02</div>
+                                        <div style={{ width: "40px", height: "40px", borderRadius: "10px", background: "var(--hover-bg)", border: "1px solid var(--primary)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--primary)", fontWeight: 900 }}>02</div>
                                         <span style={{ fontWeight: 800, color: "var(--primary)", fontSize: "0.85rem", textTransform: "uppercase" }}>WEEKS 2-3</span>
                                     </div>
-                                    <h3 style={{ fontSize: "2.2rem", fontWeight: 950, color: "white", marginBottom: "1.5rem" }}>Phase 2: Architecture & Tool Design</h3>
+                                    <h3 style={{ fontSize: "2.2rem", fontWeight: 950, color: "var(--text)", marginBottom: "1.5rem" }}>Phase 2: Architecture & Tool Design</h3>
                                     <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
                                         <p style={{ marginBottom: "1.25rem" }}>Based on requirements, we design the agent's architecture: which LLM (Claude, GPT-4o, Gemini — we run comparative benchmarks), which tools it needs, how to structure memory, where to add human checkpoints.</p>
                                         <p>We also map all system integrations. If you're using Salesforce, SAP, Zoho, ServiceNow, or custom APIs, we document the exact payloads the agent will send and receive. We design the data pipeline and transaction integrity models.</p>
@@ -844,10 +850,10 @@ export default function AIAgentDevelopmentClient() {
                                 </div>
                                 <div>
                                     <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.5rem" }}>
-                                        <div style={{ width: "40px", height: "40px", borderRadius: "10px", background: "rgba(79, 70, 229, 0.1)", border: "1px solid var(--primary)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--primary)", fontWeight: 900 }}>03</div>
+                                        <div style={{ width: "40px", height: "40px", borderRadius: "10px", background: "var(--hover-bg)", border: "1px solid var(--primary)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--primary)", fontWeight: 900 }}>03</div>
                                         <span style={{ fontWeight: 800, color: "var(--primary)", fontSize: "0.85rem", textTransform: "uppercase" }}>WEEKS 3-7</span>
                                     </div>
-                                    <h3 style={{ fontSize: "2.2rem", fontWeight: 950, color: "white", marginBottom: "1.5rem" }}>Phase 3: Build & Integration</h3>
+                                    <h3 style={{ fontSize: "2.2rem", fontWeight: 950, color: "var(--text)", marginBottom: "1.5rem" }}>Phase 3: Build & Integration</h3>
                                     <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
                                         <p style={{ marginBottom: "1.25rem" }}>Our team implements the agent core in Python, integrates all tools, sets up the LangChain orchestration logic, and builds the memory systems. We integrate with your actual systems using specific, rotated API keys.</p>
                                         <p>We implement retry logic, timeout handling, and graceful degradation. Every decision is backed by comprehensive logging, ensuring full auditability from day one.</p>
@@ -870,9 +876,9 @@ export default function AIAgentDevelopmentClient() {
                         onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.boxShadow = "none"; }}>
                             <div className="responsive-grid" style={{ gridTemplateColumns: "1.1fr 1fr", gap: "4rem", alignItems: "center" }}>
                                 <div className="gsap-img-reveal">
-                                    <div style={{ textAlign: "center", padding: "2rem", background: "rgba(16, 185, 129, 0.05)", borderRadius: "24px", border: "1px solid rgba(16, 185, 129, 0.2)" }}>
-                                        <div style={{ fontSize: "0.75rem", fontWeight: 800, color: "#10b981", textTransform: "uppercase", marginBottom: "0.5rem" }}>Verification Level</div>
-                                        <div style={{ fontSize: "3.5rem", fontWeight: 950, color: "white" }}>95%+</div>
+                                    <div style={{ textAlign: "center", padding: "2rem", background: "var(--hover-bg)", borderRadius: "24px", border: "1px solid var(--border)" }}>
+                                        <div style={{ fontSize: "0.75rem", fontWeight: 800, color: "var(--primary)", textTransform: "uppercase", marginBottom: "0.5rem" }}>Verification Level</div>
+                                        <div style={{ fontSize: "3.5rem", fontWeight: 950, color: "var(--text)" }}>95%+</div>
                                         <div style={{ fontSize: "0.9rem", color: "var(--text-muted)", marginTop: "0.5rem" }}>Required Accuracy Threshold</div>
                                         <div style={{ height: "1px", background: "rgba(255,255,255,0.1)", margin: "1.5rem 0" }} />
                                         <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.8rem", color: "var(--text-muted)" }}>
@@ -883,10 +889,10 @@ export default function AIAgentDevelopmentClient() {
                                 </div>
                                 <div>
                                     <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.5rem" }}>
-                                        <div style={{ width: "40px", height: "40px", borderRadius: "10px", background: "rgba(79, 70, 229, 0.1)", border: "1px solid var(--primary)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--primary)", fontWeight: 900 }}>04</div>
+                                        <div style={{ width: "40px", height: "40px", borderRadius: "10px", background: "var(--hover-bg)", border: "1px solid var(--primary)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--primary)", fontWeight: 900 }}>04</div>
                                         <span style={{ fontWeight: 800, color: "var(--primary)", fontSize: "0.85rem", textTransform: "uppercase" }}>WEEKS 7-10</span>
                                     </div>
-                                    <h3 style={{ fontSize: "2.2rem", fontWeight: 950, color: "white", marginBottom: "1.5rem" }}>Phase 4: Evaluation & Refinement</h3>
+                                    <h3 style={{ fontSize: "2.2rem", fontWeight: 950, color: "var(--text)", marginBottom: "1.5rem" }}>Phase 4: Evaluation & Refinement</h3>
                                     <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
                                         <p style={{ marginBottom: "1.25rem" }}>We create 200-500 test cases based on the requirements from Phase 1. We run the agent against these test cases and measure success rate. We're looking for 95%+ accuracy on routine cases and zero critical failures on edge cases. </p>
                                         <p>When it fails, we iterate: adjust prompts, refine tool specifications, add additional context to memory, sometimes swap models. We benchmark against human performance; your agent should be within 2-5% of top performer accuracy.</p>
@@ -918,9 +924,9 @@ export default function AIAgentDevelopmentClient() {
                                                 { label: "Lat.", val: "<1.2s" },
                                                 { label: "Rel.", val: "98.8%" }
                                             ].map((m, i) => (
-                                                <div key={i} style={{ padding: "1rem", background: "rgba(255,255,255,0.02)", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.05)" }}>
+                                                <div key={i} style={{ padding: "1rem", background: "var(--bg-secondary)", borderRadius: "12px", border: "1px solid var(--border)", boxShadow: "var(--card-shadow)" }}>
                                                     <div style={{ fontSize: "0.65rem", color: "var(--text-muted)", textTransform: "uppercase" }}>{m.label}</div>
-                                                    <div style={{ fontSize: "1.1rem", fontWeight: 900, color: "white" }}>{m.val}</div>
+                                                    <div style={{ fontSize: "1.1rem", fontWeight: 900, color: "var(--text)" }}>{m.val}</div>
                                                 </div>
                                             ))}
                                         </div>
@@ -928,10 +934,10 @@ export default function AIAgentDevelopmentClient() {
                                 </div>
                                 <div>
                                     <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.5rem" }}>
-                                        <div style={{ width: "40px", height: "40px", borderRadius: "10px", background: "rgba(79, 70, 229, 0.1)", border: "1px solid var(--primary)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--primary)", fontWeight: 900 }}>05</div>
+                                        <div style={{ width: "40px", height: "40px", borderRadius: "10px", background: "var(--hover-bg)", border: "1px solid var(--primary)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--primary)", fontWeight: 900 }}>05</div>
                                         <span style={{ fontWeight: 800, color: "var(--primary)", fontSize: "0.85rem", textTransform: "uppercase" }}>WEEKS 10-14</span>
                                     </div>
-                                    <h3 style={{ fontSize: "2.2rem", fontWeight: 950, color: "white", marginBottom: "1.5rem" }}>Phase 5: Production Deployment & Hypercare</h3>
+                                    <h3 style={{ fontSize: "2.2rem", fontWeight: 950, color: "var(--text)", marginBottom: "1.5rem" }}>Phase 5: Production Deployment & Hypercare</h3>
                                     <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
                                         <p style={{ marginBottom: "1.25rem" }}>We containerise the agent, set up deployment pipelines, configure monitoring, establish on-call rotations, and run it in production with an engineer embedded full-time for the first 4 weeks. </p>
                                         <p>We collect real-world data, refine based on actual usage patterns, and tune thresholds. After 4 weeks and 10,000+ real transactions, we transition to 24/7 monitoring and escalation protocols.</p>
@@ -942,7 +948,7 @@ export default function AIAgentDevelopmentClient() {
                     </div>
 
                     {/* Closing Note */}
-                    <div className="gsap-reveal" style={{ textAlign: "center", marginTop: "6rem", padding: "4rem", background: "rgba(255,255,255,0.02)", borderRadius: "40px", border: "1px solid var(--border)" }}>
+                    <div className="gsap-reveal" style={{ textAlign: "center", marginTop: "6rem", padding: "4rem", background: "var(--bg-secondary)", borderRadius: "40px", border: "1px solid var(--border)", boxShadow: "var(--card-shadow)" }}>
                          <p style={{ color: "var(--text-muted)", fontSize: "1.25rem", lineHeight: 1.8, margin: 0, fontStyle: "italic", maxWidth: "900px", margin: "0 auto" }}>
                             "This isn't a one-shot deployment. Agents improve continuously in their first 12 months. Real production data reveals edge cases no test suite could predict. We iterate monthly, shipping improvements to production continuously."
                          </p>
@@ -956,7 +962,7 @@ export default function AIAgentDevelopmentClient() {
                     <div className="gsap-reveal" style={{ textAlign: "center", marginBottom: "5rem" }}>
                          <span className="section-label">ENTERPRISE-GRADE</span>
                          <h2 className="section-title" style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)", fontWeight: 950, marginBottom: "2rem" }}>
-                            SectiProduction Deployment: What Makes Our Agents Enterprise-Grade
+                            Production Deployment: What Makes Our Agents Enterprise-Grade
                          </h2>
                          <p style={{ color: "var(--text-muted)", maxWidth: "800px", margin: "0 auto", fontSize: "1.2rem", lineHeight: 1.6 }}>
                             There's a massive gap between an agent that works in development and one that works in production handling your real data. We've learned every lesson the hard way.
@@ -966,10 +972,10 @@ export default function AIAgentDevelopmentClient() {
                     <div className="responsive-grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))", gap: "2.5rem", alignItems: "stretch" }}>
                         {/* Pillar 1: Monitoring */}
                         <div className="gsap-reveal pillar-card" style={{ background: "var(--bg)", border: "1px solid var(--border)", borderRadius: "32px", padding: "3rem", display: "flex", flexDirection: "column", gap: "1.5rem", height: "100%" }}>
-                            <div style={{ width: "50px", height: "50px", borderRadius: "12px", background: "rgba(79, 70, 229, 0.1)", border: "1px solid var(--primary)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--primary)" }}>
+                            <div style={{ width: "50px", height: "50px", borderRadius: "12px", background: "var(--hover-bg)", border: "1px solid var(--primary)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--primary)" }}>
                                 <Activity size={24} />
                             </div>
-                            <h3 style={{ fontSize: "1.5rem", fontWeight: 800, color: "white" }}>Monitoring & Economic Health</h3>
+                            <h3 style={{ fontSize: "1.5rem", fontWeight: 800, color: "var(--text)" }}>Monitoring & Economic Health</h3>
                             <div style={{ color: "var(--text-muted)", fontSize: "1rem", lineHeight: 1.6, flex: 1 }}>
                                 <p style={{ marginBottom: "1rem" }}>Every agent action is logged with timestamp, reasoning steps, tool calls, and outputs. We send logs to Prometheus and ELK stack aggregation platforms.</p>
                                 <p>Our dashboard shows agent health in real-time, process latency, and cost per transaction. We also monitor <strong>economic health</strong>: if an agent costs more than the automation saves, we detect that automatically.</p>
@@ -978,10 +984,10 @@ export default function AIAgentDevelopmentClient() {
 
                         {/* Pillar 2: Fallback */}
                         <div className="gsap-reveal pillar-card" style={{ background: "var(--bg)", border: "1px solid var(--border)", borderRadius: "32px", padding: "3rem", display: "flex", flexDirection: "column", gap: "1.5rem", height: "100%" }}>
-                            <div style={{ width: "50px", height: "50px", borderRadius: "12px", background: "rgba(79, 70, 229, 0.1)", border: "1px solid var(--primary)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--primary)" }}>
+                            <div style={{ width: "50px", height: "50px", borderRadius: "12px", background: "var(--hover-bg)", border: "1px solid var(--primary)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--primary)" }}>
                                 <ShieldCheck size={24} />
                             </div>
-                            <h3 style={{ fontSize: "1.5rem", fontWeight: 800, color: "white" }}>Fallback Mechanisms (HITL)</h3>
+                            <h3 style={{ fontSize: "1.5rem", fontWeight: 800, color: "var(--text)" }}>Fallback Mechanisms (HITL)</h3>
                             <div style={{ color: "var(--text-muted)", fontSize: "1rem", lineHeight: 1.6, flex: 1 }}>
                                 <p style={{ marginBottom: "1rem" }}>Tier 1 (95%): Autonomous handling. Tier 2 (4-5%): Uncertainty triggers human review. The agent's reasoning is transparent, so 80% of corrects are instant.</p>
                                 <p>Tier 3 (0.5-1%): Failure to proceed safely escalates to management. These tiers ensure no agent ever "hallucinates" a high-impact business decision blindly.</p>
@@ -990,10 +996,10 @@ export default function AIAgentDevelopmentClient() {
 
                         {/* Pillar 3: Audit Logging */}
                         <div className="gsap-reveal pillar-card" style={{ background: "var(--bg)", border: "1px solid var(--border)", borderRadius: "32px", padding: "3rem", display: "flex", flexDirection: "column", gap: "1.5rem", height: "100%" }}>
-                            <div style={{ width: "50px", height: "50px", borderRadius: "12px", background: "rgba(79, 70, 229, 0.1)", border: "1px solid var(--primary)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--primary)" }}>
+                            <div style={{ width: "50px", height: "50px", borderRadius: "12px", background: "var(--hover-bg)", border: "1px solid var(--primary)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--primary)" }}>
                                 <FileSearch size={24} />
                             </div>
-                            <h3 style={{ fontSize: "1.5rem", fontWeight: 800, color: "white" }}>Immutable Audit Logging</h3>
+                            <h3 style={{ fontSize: "1.5rem", fontWeight: 800, color: "var(--text)" }}>Immutable Audit Logging</h3>
                             <div style={{ color: "var(--text-muted)", fontSize: "1rem", lineHeight: 1.6, flex: 1 }}>
                                 <p style={{ marginBottom: "1rem" }}>Every decision is logged to immutable storage with a full chain of evidence. Crucial for financial services (Why did this transaction happen?) or Legal (Why was this flagged?).</p>
                                 <p>We sign logs with agent identity and timestamp everything, making regulatory audits a simple query of the transaction thread.</p>
@@ -1002,10 +1008,10 @@ export default function AIAgentDevelopmentClient() {
 
                         {/* Pillar 4: Rate Limiting */}
                         <div className="gsap-reveal pillar-card" style={{ background: "var(--bg)", border: "1px solid var(--border)", borderRadius: "32px", padding: "3rem", display: "flex", flexDirection: "column", gap: "1.5rem", height: "100%" }}>
-                            <div style={{ width: "50px", height: "50px", borderRadius: "12px", background: "rgba(79, 70, 229, 0.1)", border: "1px solid var(--primary)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--primary)" }}>
+                            <div style={{ width: "50px", height: "50px", borderRadius: "12px", background: "var(--hover-bg)", border: "1px solid var(--primary)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--primary)" }}>
                                 <Zap size={24} />
                             </div>
-                            <h3 style={{ fontSize: "1.5rem", fontWeight: 800, color: "white" }}>Rate Limiting & Circuit Breakers</h3>
+                            <h3 style={{ fontSize: "1.5rem", fontWeight: 800, color: "var(--text)" }}>Rate Limiting & Circuit Breakers</h3>
                             <div style={{ color: "var(--text-muted)", fontSize: "1rem", lineHeight: 1.6, flex: 1 }}>
                                 <p style={{ marginBottom: "1rem" }}>We implement circuit breakers to prevent catastrophic loops. If an agent hits an error threshold, we kill the API call instead of hammering the service.</p>
                                 <p>Every agent is rate-limited: a single agent processes max N transactions per second. If thresholds are exceeded, requests are queued for stability.</p>
@@ -1014,7 +1020,7 @@ export default function AIAgentDevelopmentClient() {
 
                         {/* Pillar 5: Security */}
                         <div className="gsap-reveal pillar-card" style={{ background: "var(--bg)", border: "1px solid var(--border)", borderRadius: "32px", padding: "3rem", display: "flex", flexDirection: "column", gap: "1.5rem", height: "100%" }}>
-                            <div style={{ width: "50px", height: "50px", borderRadius: "12px", background: "rgba(79, 70, 229, 0.1)", border: "1px solid var(--primary)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--primary)" }}>
+                            <div style={{ width: "50px", height: "50px", borderRadius: "12px", background: "var(--hover-bg)", border: "1px solid var(--primary)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--primary)" }}>
                                 <Lock size={24} />
                             </div>
                             <h3 style={{ fontSize: "1.5rem", fontWeight: 800, color: "var(--text)" }}>Security & Data Isolation</h3>
@@ -1026,7 +1032,7 @@ export default function AIAgentDevelopmentClient() {
 
                         {/* Pillar 6: SLA Guarantees */}
                         <div className="gsap-reveal pillar-card" style={{ background: "var(--bg)", border: "1px solid var(--border)", borderRadius: "32px", padding: "3rem", display: "flex", flexDirection: "column", gap: "1.5rem", height: "100%" }}>
-                            <div style={{ width: "50px", height: "50px", borderRadius: "12px", background: "rgba(79, 70, 229, 0.1)", border: "1px solid var(--primary)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--primary)" }}>
+                            <div style={{ width: "50px", height: "50px", borderRadius: "12px", background: "var(--hover-bg)", border: "1px solid var(--primary)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--primary)" }}>
                                 <CheckCircle size={24} />
                             </div>
                             <h3 style={{ fontSize: "1.5rem", fontWeight: 800, color: "var(--text)" }}>SLA Guarantees</h3>
@@ -1045,7 +1051,7 @@ export default function AIAgentDevelopmentClient() {
                     <div className="gsap-reveal" style={{ textAlign: "center", marginBottom: "5rem" }}>
                          <span className="section-label">BANKING CASE STUDY</span>
                          <h2 className="section-title" style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)", fontWeight: 950, marginBottom: "2rem" }}>
-                            Section 5: Case Study: Trade Settlement Agent
+                            Case Study: Trade Settlement Agent
                          </h2>
                     </div>
 
@@ -1061,12 +1067,12 @@ export default function AIAgentDevelopmentClient() {
                                 </div>
 
                                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
-                                    <div style={{ padding: "2rem", background: "rgba(16, 185, 129, 0.05)", borderRadius: "24px", border: "1px solid rgba(16, 185, 129, 0.2)" }}>
-                                        <div style={{ fontSize: "0.8rem", fontWeight: 900, color: "#10b981", textTransform: "uppercase", marginBottom: "0.5rem" }}>Annual ROI</div>
+                                    <div style={{ padding: "2rem", background: "var(--hover-bg)", borderRadius: "24px", border: "1px solid var(--border)", boxShadow: "var(--card-shadow)" }}>
+                                        <div style={{ fontSize: "0.8rem", fontWeight: 900, color: "var(--primary)", textTransform: "uppercase", marginBottom: "0.5rem" }}>Annual ROI</div>
                                         <div style={{ fontSize: "2.5rem", fontWeight: 950, color: "var(--text)" }}>£1.3M+</div>
                                         <div style={{ fontSize: "0.9rem", color: "var(--text-muted)", marginTop: "0.5rem" }}>Labor + Error Recovery</div>
                                     </div>
-                                    <div style={{ padding: "2rem", background: "rgba(79, 70, 229, 0.05)", borderRadius: "24px", border: "1px solid rgba(79, 70, 229, 0.2)" }}>
+                                    <div style={{ padding: "2rem", background: "var(--hover-bg)", borderRadius: "24px", border: "1px solid var(--border)", boxShadow: "var(--card-shadow)" }}>
                                         <div style={{ fontSize: "0.8rem", fontWeight: 900, color: "var(--primary)", textTransform: "uppercase", marginBottom: "0.5rem" }}>Breakeven</div>
                                         <div style={{ fontSize: "2.5rem", fontWeight: 950, color: "var(--text)" }}>2.3 Mo</div>
                                         <div style={{ fontSize: "0.9rem", color: "var(--text-muted)", marginTop: "0.5rem" }}>On £185k Initial Cost</div>
@@ -1093,7 +1099,7 @@ export default function AIAgentDevelopmentClient() {
                                             </div>
                                         ))}
                                     </div>
-                                    <div style={{ marginTop: "2rem", padding: "1.5rem", background: "rgba(79, 70, 229, 0.1)", borderRadius: "16px", border: "1px solid var(--primary)", textAlign: "center" }}>
+                                    <div style={{ marginTop: "2rem", padding: "1.5rem", background: "var(--hover-bg)", borderRadius: "16px", border: "1px solid var(--primary)", textAlign: "center", boxShadow: "var(--card-shadow)" }}>
                                         <div style={{ fontSize: "1.2rem", fontWeight: 900, color: "var(--text)" }}>2.2M Trades Processed</div>
                                         <div style={{ fontSize: "0.75rem", color: "var(--text-muted)", opacity: 0.6 }}>0.04% Unhandled Error Rate</div>
                                     </div>
@@ -1147,7 +1153,7 @@ export default function AIAgentDevelopmentClient() {
                                 Stop experimenting. Start deploying. We help you build the autonomous systems that will define your next generation of operations.
                             </p>
                             <div style={{ display: "flex", gap: "1.5rem", justifyContent: "center", flexWrap: "wrap", alignItems: "center" }}>
-                                <Link href="/discovery-audit" className="btn-primary" style={{ padding: "1.2rem 2.5rem", background: "#4F46E5", color: "white", borderRadius: "12px", textDecoration: "none", fontWeight: 700 }}>
+                                <Link href="/discovery-audit" className="btn-primary" style={{ padding: "1.2rem 2.5rem", background: "var(--primary)", color: "white", borderRadius: "12px", textDecoration: "none", fontWeight: 700, boxShadow: "var(--card-shadow)" }}>
                                     Start Your Agent Discovery
                                 </Link>
                                 <Link href="/technology" style={{ padding: "1.2rem 2.5rem", background: "transparent", color: "var(--text)", borderRadius: "12px", textDecoration: "none", fontWeight: 700, border: "1px solid var(--border)" }}>
@@ -1177,7 +1183,7 @@ export default function AIAgentDevelopmentClient() {
                                 padding: "1.5rem", 
                                 background: "var(--bg)", 
                                 borderRadius: "16px", 
-                                border: "1px solid rgba(255,255,255,0.05)",
+                                border: "1px solid var(--border)",
                                 textDecoration: "none",
                                 transition: "all 0.3s ease",
                                 display: "flex",
@@ -1187,7 +1193,7 @@ export default function AIAgentDevelopmentClient() {
                                 textAlign: "center",
                                 fontWeight: 700,
                                 color: "var(--text)",
-                                boxShadow: "0 4px 6px rgba(0,0,0,0.1)"
+                                boxShadow: "var(--card-shadow)"
                             }} 
                             onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--primary)"; e.currentTarget.style.color = "var(--primary)"; e.currentTarget.style.transform = "translateY(-4px)"; }}
                             onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)"; e.currentTarget.style.color = "var(--text)"; e.currentTarget.style.transform = "none"; }}

@@ -499,7 +499,7 @@ export default function LLMIntegrationClient() {
                                 }}>
                                     Start Your RAG Pilot <ArrowRight size={20} />
                                 </Link>
-                                <Link href="/why-fi-digital" style={{ 
+                                {/* <Link href="/why-fi-digital" style={{ 
                                     display: "inline-flex", alignItems: "center", justifyContent: "center",
                                     padding: "1.25rem 2.5rem", background: "var(--bg-secondary)", color: "var(--text)", 
                                     fontWeight: 700, borderRadius: "14px", textDecoration: "none",
@@ -507,7 +507,7 @@ export default function LLMIntegrationClient() {
                                     border: "1px solid var(--border)"
                                 }}>
                                     Engineering Methodology
-                                </Link>
+                                </Link> */}
                             </div>
                        </div>
                   </div>
@@ -1110,9 +1110,9 @@ export default function LLMIntegrationClient() {
                              <Link href="/discovery-audit" style={{ padding: "1.2rem 2.5rem", background: "var(--primary)", color: "white", borderRadius: "12px", textDecoration: "none", fontWeight: 700, boxShadow: "0 10px 30px rgba(79, 70, 229, 0.2)" }}>
                                  Multi-Model LLM Assessment
                              </Link>
-                             <Link href="/technology" style={{ padding: "1.2rem 2.5rem", background: "transparent", color: "var(--text)", borderRadius: "12px", textDecoration: "none", fontWeight: 700, border: "1px solid var(--border)" }}>
+                             {/* <Link href="/technology" style={{ padding: "1.2rem 2.5rem", background: "transparent", color: "var(--text)", borderRadius: "12px", textDecoration: "none", fontWeight: 700, border: "1px solid var(--border)" }}>
                                  RAG Architecture Design
-                             </Link>
+                             </Link> */}
                          </div>
                      </div>
                 </div>
