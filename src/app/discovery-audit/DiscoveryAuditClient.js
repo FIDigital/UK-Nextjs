@@ -709,7 +709,7 @@ export default function DiscoveryAuditClient() {
                         </p>
                         <div style={{ display: "flex", gap: "1.5rem", justifyContent: "center", flexWrap: "wrap" }}>
                             <Link href="/contact" style={{ padding: "1.2rem 3rem", background: "var(--primary)", color: "white", borderRadius: "14px", fontWeight: 700, textDecoration: "none", boxShadow: "0 10px 40px rgba(79, 70, 229, 0.3)" }}>Start Your Discovery Today</Link>
-                            <Link href="/resources/discovery-overview" style={{ padding: "1.2rem 3rem", background: "transparent", color: "var(--text)", borderRadius: "14px", fontWeight: 700, textDecoration: "none", border: "1px solid var(--border)" }}>Download Discovery Overview</Link>
+                            {/* <Link href="/resources/discovery-overview" style={{ padding: "1.2rem 3rem", background: "transparent", color: "var(--text)", borderRadius: "14px", fontWeight: 700, textDecoration: "none", border: "1px solid var(--border)" }}>Download Discovery Overview</Link> */}
                         </div>
                     </div>
                 </div>

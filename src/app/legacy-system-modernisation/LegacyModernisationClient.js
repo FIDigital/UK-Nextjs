@@ -3,18 +3,18 @@
 import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { 
-    ArrowRight, 
-    Database, 
-    Layers, 
-    ShieldCheck, 
-    Zap, 
-    Cpu, 
-    ChevronDown, 
-    TrendingUp, 
-    Briefcase, 
-    Users, 
-    FileText, 
+import {
+    ArrowRight,
+    Database,
+    Layers,
+    ShieldCheck,
+    Zap,
+    Cpu,
+    ChevronDown,
+    TrendingUp,
+    Briefcase,
+    Users,
+    FileText,
     Settings,
     History,
     CheckCircle2,
@@ -120,23 +120,23 @@ export default function LegacyModernisationClient() {
 
     useGSAP(() => {
         gsap.config({ nullTargetWarn: false });
-        
+
         // Hero timeline
         const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
         tl.fromTo(".hero-title-line",
             { y: 60, opacity: 0 },
             { y: 0, opacity: 1, duration: 1.2, stagger: 0.2 }
         )
-        .fromTo(".hero-subtitle",
-            { y: 30, opacity: 0 },
-            { y: 0, opacity: 1, duration: 1 },
-            "-=0.6"
-        )
-        .fromTo(".hero-cta",
-            { y: 20, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.8, stagger: 0.15 },
-            "-=0.6"
-        );
+            .fromTo(".hero-subtitle",
+                { y: 30, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1 },
+                "-=0.6"
+            )
+            .fromTo(".hero-cta",
+                { y: 20, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.8, stagger: 0.15 },
+                "-=0.6"
+            );
 
         // Section reveals
         const revealElements = gsap.utils.toArray(".gsap-reveal");
@@ -179,7 +179,7 @@ export default function LegacyModernisationClient() {
     }, { scope: containerRef });
 
     return (
-            <div ref={containerRef} style={{ background: "var(--bg)", color: "var(--text)", minHeight: "100vh" }}>
+        <div ref={containerRef} style={{ background: "var(--bg)", color: "var(--text)", minHeight: "100vh" }}>
             <style jsx>{`
                 .container {
                     max-width: 1250px;
@@ -238,9 +238,9 @@ export default function LegacyModernisationClient() {
             `}</style>
 
             {/* HERO SECTION */}
-            <header style={{ 
-                padding: "clamp(120px, 15vh, 180px) 0 100px", 
-                position: "relative", 
+            <header style={{
+                padding: "clamp(120px, 15vh, 180px) 0 100px",
+                position: "relative",
                 overflow: "hidden",
                 background: "var(--bg)"
             }}>
@@ -251,12 +251,12 @@ export default function LegacyModernisationClient() {
                     pointerEvents: "none",
                     opacity: 0.8
                 }}>
-                    <Image 
-                        src="/images/modernisation/hero-legacy-modernisation.png" 
-                        alt="Legacy System Modernisation" 
-                        fill 
-                        style={{ objectFit: "cover", objectPosition: "center right" }} 
-                        priority 
+                    <Image
+                        src="/images/modernisation/hero-legacy-modernisation.png"
+                        alt="Legacy System Modernisation"
+                        fill
+                        style={{ objectFit: "cover", objectPosition: "center right" }}
+                        priority
                     />
                     <div style={{
                         position: "absolute",
@@ -349,7 +349,7 @@ export default function LegacyModernisationClient() {
                                     Keep your existing system and add AI on top. We&apos;ve done this 40+ times with Zoho, SAP, Oracle, and Salesforce clients.
                                 </p>
                                 <p style={{ marginBottom: "2rem" }}>
-                                    The pattern is identical: assess what your system does, identify where AI adds value, layer intelligent agents and automation on top, and <strong>keep the underlying system intact</strong>. 
+                                    The pattern is identical: assess what your system does, identify where AI adds value, layer intelligent agents and automation on top, and <strong>keep the underlying system intact</strong>.
                                 </p>
                                 <div style={{ padding: "1.5rem", background: "var(--bg-secondary)", borderRadius: "16px", border: "1px solid var(--border)" }}>
                                     <p style={{ margin: 0, fontSize: "1rem", color: "var(--text)", fontWeight: 500 }}>
@@ -435,7 +435,7 @@ export default function LegacyModernisationClient() {
                 </div>
             </section>
 
-        
+
             {/* SECTION 2: OUR ZOHO EXPERTISE (Detailed) */}
             <section style={{ padding: "120px 0", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
                 <div className="container">
@@ -512,24 +512,24 @@ export default function LegacyModernisationClient() {
                         ].map((item, i) => (
                             <div key={i} className="gsap-reveal glass-card" style={{ display: "flex", flexDirection: "column", gap: "1.5rem", background: "var(--card-bg)", border: "1px solid var(--border)" }}>
                                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
-                                    <div style={{ 
-                                        position: "relative", 
-                                        width: "120px", 
-                                        height: "60px", 
-                                        background: "white", 
-                                        borderRadius: "12px", 
-                                        padding: "0.8rem", 
-                                        display: "flex", 
-                                        alignItems: "center", 
+                                    <div style={{
+                                        position: "relative",
+                                        width: "120px",
+                                        height: "60px",
+                                        background: "white",
+                                        borderRadius: "12px",
+                                        padding: "0.8rem",
+                                        display: "flex",
+                                        alignItems: "center",
                                         justifyContent: "center",
                                         boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
                                         border: "1px solid rgba(0,0,0,0.05)"
                                     }}>
-                                        <Image 
-                                            src={`/images/zoho/${item.logo}`} 
-                                            alt={item.product} 
-                                            fill 
-                                            style={{ objectFit: "contain", padding: "0.6rem" }} 
+                                        <Image
+                                            src={`/images/zoho/${item.logo}`}
+                                            alt={item.product}
+                                            fill
+                                            style={{ objectFit: "contain", padding: "0.6rem" }}
                                         />
                                     </div>
                                     <span className="accent-pill" style={{ background: "var(--bg-secondary)", color: "var(--primary)", border: "1px solid var(--border)" }}>{item.count}</span>
@@ -730,8 +730,8 @@ export default function LegacyModernisationClient() {
 
                     <div style={{ position: "relative", maxWidth: "1000px", margin: "0 auto" }}>
                         {/* Timeline Line */}
-                        <div style={{ 
-                            position: "absolute", left: "20px", top: 0, bottom: 0, width: "2px", 
+                        <div style={{
+                            position: "absolute", left: "20px", top: 0, bottom: 0, width: "2px",
                             background: "linear-gradient(to bottom, var(--primary), transparent)",
                             opacity: 0.3
                         }} />
@@ -775,8 +775,8 @@ export default function LegacyModernisationClient() {
                             }
                         ].map((item, i) => (
                             <div key={i} className="gsap-reveal" style={{ position: "relative", paddingLeft: "60px", marginBottom: "4rem" }}>
-                                <div style={{ 
-                                    position: "absolute", left: "10px", top: "0", width: "22px", height: "22px", 
+                                <div style={{
+                                    position: "absolute", left: "10px", top: "0", width: "22px", height: "22px",
                                     borderRadius: "50%", background: "var(--bg)", border: "4px solid var(--primary)",
                                     boxShadow: "0 0 15px var(--primary)", zIndex: 1
                                 }} />
@@ -1021,7 +1021,7 @@ export default function LegacyModernisationClient() {
                         </p>
                         <div style={{ display: "flex", gap: "1.5rem", justifyContent: "center", flexWrap: "wrap" }}>
                             <Link href="/discovery-audit" style={{ padding: "1.2rem 3rem", background: "var(--primary)", color: "white", borderRadius: "14px", fontWeight: 700, textDecoration: "none", boxShadow: "0 10px 40px rgba(79, 70, 229, 0.3)" }}>Assess Your System</Link>
-                            <Link href="/work" style={{ padding: "1.2rem 3rem", background: "transparent", color: "var(--text)", borderRadius: "14px", fontWeight: 700, textDecoration: "none", border: "1px solid var(--border)" }}>View Zoho Portfolio</Link>
+                            {/* <Link href="/work" style={{ padding: "1.2rem 3rem", background: "transparent", color: "var(--text)", borderRadius: "14px", fontWeight: 700, textDecoration: "none", border: "1px solid var(--border)" }}>View Zoho Portfolio</Link> */}
                         </div>
                     </div>
                 </div>
@@ -1035,8 +1035,8 @@ export default function LegacyModernisationClient() {
                         { title: "Discovery Audit", href: "/discovery-audit" },
                         { title: "Zoho Portfolio & Case Studies", href: "/work" }
                     ].map((link, i) => (
-                        <Link key={i} href={link.href} style={{ 
-                            padding: "2rem", background: "var(--card-bg)", borderRadius: "24px", border: "1px solid var(--border)", textDecoration: "none", color: "var(--text)", fontWeight: 800, fontSize: "1rem", transition: "all 0.3s ease", display: "flex", alignItems: "center", justifyContent: "space-between" 
+                        <Link key={i} href={link.href} style={{
+                            padding: "2rem", background: "var(--card-bg)", borderRadius: "24px", border: "1px solid var(--border)", textDecoration: "none", color: "var(--text)", fontWeight: 800, fontSize: "1rem", transition: "all 0.3s ease", display: "flex", alignItems: "center", justifyContent: "space-between"
                         }}>
                             {link.title}
                             <ArrowUpRight size={22} color="var(--primary)" />

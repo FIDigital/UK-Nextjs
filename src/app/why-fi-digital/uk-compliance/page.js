@@ -557,7 +557,7 @@ export default function ComplianceDataPage() {
                         }}>
                             Schedule Compliance Deep Dive <ArrowRight size={20} />
                         </Link>
-                        <Link href="/resources/uk-compliance-data-residency.pdf" style={{
+                        {/* <Link href="/resources/uk-compliance-data-residency.pdf" style={{
                             display: "inline-flex",
                             alignItems: "center",
                             gap: "0.5rem",
@@ -572,7 +572,7 @@ export default function ComplianceDataPage() {
                             transition: "all 0.3s ease"
                         }}>
                             Download UK Compliance Whitepaper
-                        </Link>
+                        </Link> */}
                     </div>
 
                     <div style={{ marginTop: "4rem", paddingTop: "2rem", borderTop: "1px solid var(--border)", display: "flex", gap: "2rem", justifyContent: "center", flexWrap: "wrap", fontSize: "0.9rem", fontWeight: 600 }}>

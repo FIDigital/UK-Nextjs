@@ -657,7 +657,7 @@ export default function PartnershipsPage() {
                         }}>
                             Explore Technology Stack <ArrowRight size={20} />
                         </Link>
-                        <Link href="/resources/partnerships-certifications.pdf" style={{
+                        {/* <Link href="/resources/partnerships-certifications.pdf" style={{
                             display: "inline-flex",
                             alignItems: "center",
                             gap: "0.5rem",
@@ -672,7 +672,7 @@ export default function PartnershipsPage() {
                             transition: "all 0.3s ease"
                         }}>
                             Download Partnership Whitepaper
-                        </Link>
+                        </Link> */}
                     </div>
 
                     <div style={{ marginTop: "4rem", paddingTop: "2rem", borderTop: "1px solid var(--border)", display: "flex", gap: "2rem", justifyContent: "center", flexWrap: "wrap", fontSize: "0.9rem", fontWeight: 600 }}>

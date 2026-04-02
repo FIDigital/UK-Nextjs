@@ -852,9 +852,9 @@ export default function EnterpriseWorkflowClient() {
                             <Link href="/discovery-audit" className="btn-primary" style={{ padding: "1.2rem 2.5rem", background: "#4F46E5", color: "white", borderRadius: "12px", textDecoration: "none", fontWeight: 700 }}>
                                 Get n8n Cost Analysis
                             </Link>
-                            <Link href="/integrations" style={{ padding: "1.2rem 2.5rem", background: "transparent", color: "var(--text)", borderRadius: "12px", textDecoration: "none", fontWeight: 700, border: "1px solid var(--border)" }}>
+                            {/* <Link href="/integrations" style={{ padding: "1.2rem 2.5rem", background: "transparent", color: "var(--text)", borderRadius: "12px", textDecoration: "none", fontWeight: 700, border: "1px solid var(--border)" }}>
                                 Explore Integrations
-                            </Link>
+                            </Link> */}
                         </div>
                     </div>
                 </div>

@@ -541,7 +541,7 @@ export default function LogisticsManufacturingPage() {
                         <Link href="/contact?intent=logistics-demo" className="btn-primary" style={{ padding: "1rem 2.5rem", borderRadius: "14px", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
                             Request Logistics Optimization Demo <ArrowRight size={20} />
                         </Link>
-                        <Link href="/resources/logistics-manufacturing-ai.pdf" style={{
+                        {/* <Link href="/resources/logistics-manufacturing-ai.pdf" style={{
                             display: "inline-flex",
                             alignItems: "center",
                             gap: "0.5rem",
@@ -556,7 +556,7 @@ export default function LogisticsManufacturingPage() {
                             transition: "all 0.3s ease"
                         }}>
                             Download Whitepaper
-                        </Link>
+                        </Link> */}
                     </div>
 
                     <div style={{ marginTop: "4rem", paddingTop: "2rem", borderTop: "1px solid var(--border)", display: "flex", gap: "2rem", justifyContent: "center", flexWrap: "wrap", fontSize: "0.9rem", fontWeight: 600 }}>

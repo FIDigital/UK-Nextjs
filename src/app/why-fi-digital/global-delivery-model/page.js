@@ -512,7 +512,7 @@ export default function GlobalDeliveryModelPage() {
                         }}>
                             Meet Our Global Team <ArrowRight size={20} />
                         </Link>
-                        <Link href="/resources/global-delivery-model.pdf" style={{
+                        {/* <Link href="/resources/global-delivery-model.pdf" style={{
                             display: "inline-flex",
                             alignItems: "center",
                             gap: "0.5rem",
@@ -527,7 +527,7 @@ export default function GlobalDeliveryModelPage() {
                             transition: "all 0.3s ease"
                         }}>
                             Download Guide
-                        </Link>
+                        </Link> */}
                     </div>
 
                     <div style={{ marginTop: "4rem", paddingTop: "2rem", borderTop: "1px solid var(--border)", display: "flex", gap: "2rem", justifyContent: "center", flexWrap: "wrap", fontSize: "0.9rem", fontWeight: 600 }}>
