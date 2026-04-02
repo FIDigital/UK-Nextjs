@@ -383,7 +383,7 @@ export default function SalesAgentsClient() {
                     gap: 1.25rem;
                 }
                 .brand-logo-card {
-                    background: #ffffff;
+                    background: var(--card-bg);
                     width: 100%;
                     position: relative;
                     aspect-ratio: 1/1;
@@ -391,19 +391,27 @@ export default function SalesAgentsClient() {
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05), 0 10px 30px -5px rgba(0,0,0,0.1);
+                    box-shadow: var(--card-shadow);
+                    border: 1px solid var(--border);
                     transition: transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28), box-shadow 0.3s ease;
                 }
                 .brand-logo-card:hover {
                     transform: translateY(-8px) scale(1.05);
-                    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05), 0 20px 40px -10px rgba(0,0,0,0.2);
+                    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.2);
                     z-index: 2;
+                    border-color: var(--primary);
                 }
                 .brand-logo-img {
                     width: 100%;
                     height: 100%;
                     object-fit: contain;
-                    filter: none !important;
+                    transition: filter 0.3s ease;
+                }
+                [data-theme='dark'] .logo-invert-dark {
+                    filter: invert(1) brightness(1.5);
+                }
+                [data-theme='dark'] .logo-brighten-dark {
+                    filter: brightness(1.3) contrast(1.1);
                 }
                 .hero-background-wrapper {
                     position: absolute;
@@ -462,21 +470,22 @@ export default function SalesAgentsClient() {
                     <div className="hero-cta" style={{ display: "flex", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
                         <Link href="/demo/sales" style={{
                             display: "inline-flex", alignItems: "center", gap: "0.5rem",
-                            padding: "1rem 2rem", background: "#4F46E5", color: "white",
+                            padding: "1rem 2rem", background: "var(--primary)", color: "white",
                             fontWeight: 700, borderRadius: "12px", textDecoration: "none",
-                            boxShadow: "0 10px 30px rgba(79, 70, 229, 0.3)", transition: "all 0.3s ease"
+                            boxShadow: "0 10px 30px rgba(29, 78, 216, 0.3)", transition: "all 0.3s ease"
                         }}>
                             See Sales Agent Demo <ArrowRight size={20} />
                         </Link>
-                        <Link href="/case-studies/sales-pdf" style={{
+                        {/* <Link href="/case-studies/sales-pdf" style={{
                             display: "inline-flex", alignItems: "center", justifyContent: "center",
-                            padding: "1rem 2rem", background: "#0F172A", color: "white",
+                            padding: "1rem 2rem", background: "var(--bg)", color: "var(--text)",
                             fontWeight: 700, borderRadius: "12px", textDecoration: "none",
                             transition: "all 0.3s ease",
-                            border: "1px solid rgba(255,255,255,0.1)"
+                            border: "1px solid var(--border)",
+                            boxShadow: "var(--card-shadow)"
                         }}>
                             Download Sales Case Study
-                        </Link>
+                        </Link> */}
                     </div>
                 </div>
             </header>
@@ -485,7 +494,7 @@ export default function SalesAgentsClient() {
             <section id="problem" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)" }}>
                 <div className="container">
                     <div className="responsive-grid zig">
-                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
+                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "var(--card-shadow)", background: "var(--card-bg)" }}>
                             <Image src="/images/industries/sales-dw-problem.png" alt="The Problem - Sales rep at desk overwhelmed with browser tabs, email notifications, spreadsheets" fill style={{ objectFit: "cover", borderRadius: "32px" }} />
                         </div>
                         <div className="gsap-reveal">
@@ -526,7 +535,7 @@ export default function SalesAgentsClient() {
                                 </p>
                             </div>
                         </div>
-                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
+                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "var(--card-shadow)", background: "var(--card-bg)" }}>
                             <Image src="/images/industries/sales-dw-lead.png" alt="Contrast - Clean automated CRM pipeline vs cluttered manual CRM pipeline" fill style={{ objectFit: "cover", borderRadius: "32px" }} />
                         </div>
                     </div>
@@ -541,7 +550,7 @@ export default function SalesAgentsClient() {
                         <h2 className="section-title">Meet Your Sales Digital Worker</h2>
                     </div>
                     <div className="responsive-grid zig">
-                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
+                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "var(--card-shadow)", background: "var(--card-bg)" }}>
                             <Image src="/images/agents/sales-dq-qualification.png" alt="Autonomous Lead Qualification Interface" fill style={{ objectFit: "cover", borderRadius: "32px" }} />
                         </div>
                         <div className="gsap-reveal">
@@ -582,7 +591,7 @@ export default function SalesAgentsClient() {
                                 </p>
                             </div>
                         </div>
-                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
+                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "var(--card-shadow)", background: "var(--card-bg)" }}>
                             <Image src="/images/agents/sales-outreach-sequence.png" alt="AI-Generated Intelligent Outreach Sequence Flow" fill style={{ objectFit: "cover", borderRadius: "32px" }} />
                         </div>
                     </div>
@@ -593,7 +602,7 @@ export default function SalesAgentsClient() {
             <section id="pipeline" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)" }}>
                 <div className="container">
                     <div className="responsive-grid zig">
-                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
+                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "var(--card-shadow)", background: "var(--card-bg)" }}>
                             <Image src="/images/agents/sales-pipeline-visibility.png" alt="Total Sales Pipeline Dashboard sync" fill style={{ objectFit: "cover", borderRadius: "32px" }} />
                         </div>
                         <div className="gsap-reveal">
@@ -638,7 +647,7 @@ export default function SalesAgentsClient() {
                                 </p>
                             </div>
                         </div>
-                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
+                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "var(--card-shadow)", background: "var(--card-bg)" }}>
                             <Image src="/images/agents/sales-data-enrichment.png" alt="Data Enrichment Architecture - High-speed data conduits pulling from Crunchbase, LinkedIn" fill style={{ objectFit: "cover", borderRadius: "32px" }} />
                         </div>
                     </div>
@@ -649,7 +658,7 @@ export default function SalesAgentsClient() {
             <section id="orchestration-2" style={{ padding: "120px 1.5rem", background: "var(--bg-secondary)" }}>
                 <div className="container">
                     <div className="responsive-grid zig">
-                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
+                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "var(--card-shadow)", background: "var(--card-bg)" }}>
                             <Image src="/images/agents/sales-ai-copywriting.png" alt="Dynamic AI Copywriting Structure - generating ultra-personalized sequences" fill style={{ objectFit: "cover", borderRadius: "32px" }} />
                         </div>
                         <div className="gsap-reveal">
@@ -683,34 +692,34 @@ export default function SalesAgentsClient() {
                     </div>
 
                     <div className="gsap-reveal metrics-grid">
-                        <div className="gsap-card" style={{ padding: "2rem", background: "var(--bg-secondary)", borderRadius: "32px", border: "1px solid var(--border)", display: "flex", flexDirection: "column", height: "100%" }}>
+                        <div className="gsap-card" style={{ padding: "2rem", background: "var(--card-bg)", borderRadius: "32px", border: "1px solid var(--border)", display: "flex", flexDirection: "column", height: "100%", boxShadow: "var(--card-shadow)" }}>
                             <h4 style={{ color: "var(--primary)", fontWeight: 900, marginBottom: "0.5rem", fontSize: "1.7rem" }}>20-35%</h4>
-                            <div style={{ fontWeight: 800, marginBottom: "0.5rem", color: "white", fontSize: "1.2rem" }}>Conversion Uplift</div>
+                            <div style={{ fontWeight: 800, marginBottom: "0.5rem", color: "var(--text)", fontSize: "1.2rem" }}>Conversion Uplift</div>
                             <p style={{ color: "var(--text-muted)", fontSize: "0.95rem", lineHeight: 1.6, flexGrow: 1 }}>Leads that go through automated qualification and research see a 20-35% higher conversion rate than manually qualified leads. Why? Because your rep knows the lead is real, the company is a fit, and the trigger is fresh. Less time wasted on dead-end conversations.</p>
                         </div>
-                        <div className="gsap-card" style={{ padding: "2rem", background: "var(--bg-secondary)", borderRadius: "32px", border: "1px solid var(--border)", display: "flex", flexDirection: "column", height: "100%" }}>
+                        <div className="gsap-card" style={{ padding: "2rem", background: "var(--card-bg)", borderRadius: "32px", border: "1px solid var(--border)", display: "flex", flexDirection: "column", height: "100%", boxShadow: "var(--card-shadow)" }}>
                             <h4 style={{ color: "var(--primary)", fontWeight: 900, marginBottom: "0.5rem", fontSize: "1.7rem" }}>&lt;2 Min</h4>
-                            <div style={{ fontWeight: 800, marginBottom: "0.5rem", color: "white", fontSize: "1.2rem" }}>Sales Velocity</div>
+                            <div style={{ fontWeight: 800, marginBottom: "0.5rem", color: "var(--text)", fontSize: "1.2rem" }}>Sales Velocity</div>
                             <p style={{ color: "var(--text-muted)", fontSize: "0.95rem", lineHeight: 1.6, flexGrow: 1 }}>Average time from inbound lead to first touch drops from 4-6 hours (manual) to &lt;2 minutes (agent). Early response matters in B2B—HubSpot data shows response time under 5 minutes increases conversion by 30%. Your agent ensures you're first, always.</p>
                         </div>
-                        <div className="gsap-card" style={{ padding: "2rem", background: "var(--bg-secondary)", borderRadius: "32px", border: "1px solid var(--border)", display: "flex", flexDirection: "column", height: "100%" }}>
+                        <div className="gsap-card" style={{ padding: "2rem", background: "var(--card-bg)", borderRadius: "32px", border: "1px solid var(--border)", display: "flex", flexDirection: "column", height: "100%", boxShadow: "var(--card-shadow)" }}>
                             <h4 style={{ color: "var(--primary)", fontWeight: 900, marginBottom: "0.5rem", fontSize: "1.7rem" }}>60-80</h4>
-                            <div style={{ fontWeight: 800, marginBottom: "0.5rem", color: "white", fontSize: "1.2rem" }}>Added Conversations</div>
+                            <div style={{ fontWeight: 800, marginBottom: "0.5rem", color: "var(--text)", fontSize: "1.2rem" }}>Added Conversations</div>
                             <p style={{ color: "var(--text-muted)", fontSize: "0.95rem", lineHeight: 1.6, flexGrow: 1 }}>A rep freed from 15-18 hours per week of manual admin can take 60-80 additional qualified conversations per month. At average conversion rates and deal values, that's an additional £225k-£1m per month in pipeline for a single rep.</p>
                         </div>
-                        <div className="gsap-card" style={{ padding: "2rem", background: "var(--bg-secondary)", borderRadius: "32px", border: "1px solid var(--border)", display: "flex", flexDirection: "column", height: "100%" }}>
+                        <div className="gsap-card" style={{ padding: "2rem", background: "var(--card-bg)", borderRadius: "32px", border: "1px solid var(--border)", display: "flex", flexDirection: "column", height: "100%", boxShadow: "var(--card-shadow)" }}>
                             <h4 style={{ color: "var(--primary)", fontWeight: 900, marginBottom: "0.5rem", fontSize: "1.7rem" }}>85-90%</h4>
-                            <div style={{ fontWeight: 800, marginBottom: "0.5rem", color: "white", fontSize: "1.2rem" }}>Forecast Accuracy</div>
+                            <div style={{ fontWeight: 800, marginBottom: "0.5rem", color: "var(--text)", fontSize: "1.2rem" }}>Forecast Accuracy</div>
                             <p style={{ color: "var(--text-muted)", fontSize: "0.95rem", lineHeight: 1.6, flexGrow: 1 }}>Your CRM stops being a fiction novel. Stalled deals get identified within 2-3 days, not discovered at month-end. Your forecast improves because you have robust qualitative visibility. Teams report forecast accuracy improving from 65-70% up to 85-90%.</p>
                         </div>
-                        <div className="gsap-card" style={{ padding: "2rem", background: "var(--bg-secondary)", borderRadius: "32px", border: "1px solid var(--border)", display: "flex", flexDirection: "column", height: "100%" }}>
+                        <div className="gsap-card" style={{ padding: "2rem", background: "var(--card-bg)", borderRadius: "32px", border: "1px solid var(--border)", display: "flex", flexDirection: "column", height: "100%", boxShadow: "var(--card-shadow)" }}>
                             <h4 style={{ color: "var(--primary)", fontWeight: 900, marginBottom: "0.5rem", fontSize: "1.7rem" }}>25-40%</h4>
-                            <div style={{ fontWeight: 800, marginBottom: "0.5rem", color: "white", fontSize: "1.2rem" }}>Lower CPA</div>
+                            <div style={{ fontWeight: 800, marginBottom: "0.5rem", color: "var(--text)", fontSize: "1.2rem" }}>Lower CPA</div>
                             <p style={{ color: "var(--text-muted)", fontSize: "0.95rem", lineHeight: 1.6, flexGrow: 1 }}>A £50k lead generation budget (ads, events, tools) goes structurally further because more leads are actually qualified and rigorously worked on time. Consequently, your entire macro cost per newly qualified opportunity drops by 25-40% year-over-year.</p>
                         </div>
-                        <div className="gsap-card" style={{ padding: "2rem", background: "var(--bg-secondary)", borderRadius: "32px", border: "1px solid var(--border)", display: "flex", flexDirection: "column", height: "100%" }}>
+                        <div className="gsap-card" style={{ padding: "2rem", background: "var(--card-bg)", borderRadius: "32px", border: "1px solid var(--border)", display: "flex", flexDirection: "column", height: "100%", boxShadow: "var(--card-shadow)" }}>
                             <h4 style={{ color: "var(--primary)", fontWeight: 900, marginBottom: "0.5rem", fontSize: "1.7rem" }}>3-4 Mo</h4>
-                            <div style={{ fontWeight: 800, marginBottom: "0.5rem", color: "white", fontSize: "1.2rem" }}>Faster Ramp Time</div>
+                            <div style={{ fontWeight: 800, marginBottom: "0.5rem", color: "var(--text)", fontSize: "1.2rem" }}>Faster Ramp Time</div>
                             <p style={{ color: "var(--text-muted)", fontSize: "0.95rem", lineHeight: 1.6, flexGrow: 1 }}>A new sales rep typically takes 6 months to build pipeline and product knowledge. With the agent autonomously providing enriched leads and clear playbooks, ramp time drops cleanly to 3-4 months. New reps are productive by week 3, not month 6.</p>
                         </div>
                     </div>
@@ -726,18 +735,19 @@ export default function SalesAgentsClient() {
                     </div>
                     <div className="responsive-grid zig">
 
-                        <div className="gsap-img-reveal" style={{ background: 'var(--card-bg)', padding: '3rem', borderRadius: '32px', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.5)', border: '1px solid rgba(255,255,255,0.05)' }}>
+                        <div className="gsap-img-reveal" style={{ background: 'var(--card-bg)', padding: '3rem', borderRadius: '32px', boxShadow: 'var(--card-shadow)', border: '1px solid var(--border)' }}>
                             <h3 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "1.5rem", textAlign: "center" }}>Supported Ecosystems</h3>
                             <div className="brand-logo-grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
                                 <div className="brand-logo-card"><Image src="/images/aws.jpg" fill className="brand-logo-img" alt="AWS" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
                                 <div className="brand-logo-card"><Image src="/images/microsoft-azure-logo.webp" fill className="brand-logo-img" alt="Azure" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
                                 <div className="brand-logo-card"><Image src="/images/logo_google_cloud.png" fill className="brand-logo-img" alt="Google Cloud" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
-                                <div className="brand-logo-card"><Image src="/images/Anthropic-Logo.wine.png" fill className="brand-logo-img" alt="Claude Anthropic" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
-                                <div className="brand-logo-card"><Image src="/images/zoho-logo.webp" fill className="brand-logo-img" alt="Zoho" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
-                                <div className="brand-logo-card"><strong style={{ color: "#0091da", fontSize: "1.2rem", fontWeight: 900 }}>Salesforce</strong></div>
-                                <div className="brand-logo-card"><strong style={{ color: "#ff7a59", fontSize: "1.3rem", fontWeight: 900 }}>HubSpot</strong></div>
-                                <div className="brand-logo-card"><strong style={{ color: "#000", fontSize: "1.2rem", fontWeight: 900 }}>LinkedIn</strong></div>
-                                <div className="brand-logo-card"><strong style={{ color: "#EA4335", fontSize: "1.5rem", fontWeight: 900 }}>n8n</strong></div>
+                                <div className="brand-logo-card"><Image src="/images/Anthropic-Logo.wine.png" fill className="brand-logo-img logo-invert-dark" alt="Claude Anthropic" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
+                                <div className="brand-logo-card"><Image src="/images/zoho-logo.webp" fill className="brand-logo-img logo-brighten-dark" alt="Zoho" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
+                            
+                                <div className="brand-logo-card"><Image src="/images/brands/Salesforce.png" fill className="brand-logo-img" alt="Salesforce" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
+                                <div className="brand-logo-card"><Image src="/images/brands/Hubspot.png" fill className="brand-logo-img" alt="HubSpot" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
+                                <div className="brand-logo-card"><Image src="/images/brands/Linkedin.png" fill className="brand-logo-img" alt="LinkedIn" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
+                                <div className="brand-logo-card"><Image src="/images/brands/n8n.png" fill className="brand-logo-img" alt="n8n" style={{ objectFit: 'contain', padding: '1.5rem' }} /></div>
                             </div>
                         </div>
 
@@ -779,7 +789,7 @@ export default function SalesAgentsClient() {
                                 </p>
                             </div>
                         </div>
-                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
+                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "var(--card-shadow)", background: "var(--card-bg)" }}>
                             <Image src="/images/observability-realistic.png" alt="Omnichannel Feedback Diagram depicting email, LinkedIn, and SMS looping back to scoring models" fill style={{ objectFit: "cover", borderRadius: "32px" }} />
                         </div>
                     </div>
@@ -794,7 +804,7 @@ export default function SalesAgentsClient() {
                         <h2 className="section-title">Case Study: B2B SaaS Company, 5-Rep Sales Team</h2>
                     </div>
                     <div className="responsive-grid zig">
-                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
+                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "var(--card-shadow)", background: "var(--card-bg)" }}>
                             <Image src="/images/industries/sales-dw-roi.png" alt="Case Study Overview - SaaS company metrics dashboard £1.8m ARR" fill style={{ objectFit: "cover", borderRadius: "32px" }} />
                         </div>
                         <div className="gsap-reveal">
@@ -835,7 +845,7 @@ export default function SalesAgentsClient() {
                                 </p>
                             </div>
                         </div>
-                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)", background: "var(--card-bg)" }}>
+                        <div className="gsap-img-reveal" style={{ position: "relative", width: "100%", height: "auto", aspectRatio: "16/9", borderRadius: "32px", overflow: "hidden", display: "flex", alignItems: "center", boxShadow: "var(--card-shadow)", background: "var(--card-bg)" }}>
                             <Image src="/images/agents/sales-case-study.png" alt="Case Study - Before/After metrics: 6-8 hrs → &lt;2 min response, £2.1m → £3.8m pipeline, 2.3 month payback" fill style={{ objectFit: "cover", borderRadius: "32px" }} />
                         </div>
                     </div>
@@ -874,7 +884,7 @@ export default function SalesAgentsClient() {
                         ].map((link, idx) => (
                             <Link key={idx} href={link.href} style={{
                                 padding: "1.5rem",
-                                background: "var(--bg)",
+                                background: "var(--card-bg)",
                                 borderRadius: "16px",
                                 border: "1px solid var(--border)",
                                 color: "var(--text)",
@@ -885,7 +895,7 @@ export default function SalesAgentsClient() {
                                 alignItems: "center",
                                 justifyContent: "center",
                                 transition: "all 0.3s ease",
-                                boxShadow: "0 4px 6px rgba(0,0,0,0.1)"
+                                boxShadow: "var(--card-shadow)"
                             }}
                                 onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--primary)"; e.currentTarget.style.color = "var(--primary)"; e.currentTarget.style.transform = "translateY(-2px)"; }}
                                 onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.color = "var(--text)"; e.currentTarget.style.transform = "none"; }}
@@ -908,12 +918,12 @@ export default function SalesAgentsClient() {
                             Integrate intelligent tracking mechanisms to dramatically scale rep communication velocity securely.
                         </p>
                         <div style={{ display: "flex", gap: "1.5rem", justifyContent: "center", flexWrap: "wrap", alignItems: "center" }}>
-                            <Link href="/demo/sales" className="btn-primary" style={{ padding: "1rem 2.5rem", background: "#1d4ed8", color: "white", borderRadius: "12px", textDecoration: "none", fontWeight: 700, boxShadow: "0 10px 30px rgba(29, 78, 216, 0.3)" }}>
+                            <Link href="/demo/sales" className="btn-primary" style={{ padding: "1rem 2.5rem", borderRadius: "12px", textDecoration: "none" }}>
                                 See Sales Agent Demo <ArrowRight size={20} />
                             </Link>
-                            <Link href="/case-studies/sales-pdf" className="btn-secondary" style={{ padding: "1rem 2.5rem", border: "1px solid rgba(255,255,255,0.2)", color: "white", borderRadius: "12px", textDecoration: "none", fontWeight: 700 }}>
+                            {/* <Link href="/case-studies/sales-pdf" className="btn-secondary" style={{ padding: "1rem 2.5rem", borderRadius: "12px", textDecoration: "none" }}>
                                 Download Sales Case Study
-                            </Link>
+                            </Link> */}
                         </div>
                     </div>
                 </div>
