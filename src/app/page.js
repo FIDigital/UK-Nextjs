@@ -504,7 +504,7 @@ export default function Home() {
                         }}>
                             See WhatsApp Demo <ArrowRight size={20} />
                         </Link>
-                        <Link href="/case-studies" style={{
+                        {/* <Link href="/case-studies" style={{
                             display: "inline-flex", alignItems: "center", justifyContent: "center",
                             padding: "1rem 2rem", background: "var(--card-bg)", color: "var(--text)",
                             border: "1px solid var(--border)",
@@ -512,7 +512,7 @@ export default function Home() {
                             transition: "all 0.3s ease"
                         }}>
                             Explore Global Case Studies
-                        </Link>
+                        </Link> */}
                     </div>
                 </div>
             </header>
