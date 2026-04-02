@@ -349,9 +349,9 @@ export default function EnterpriseWorkflowClient() {
                             <Link href="/discovery-audit" className="btn-primary" style={{ padding: "1.25rem 2.8rem", background: "var(--primary)", color: "white", borderRadius: "14px", textDecoration: "none", fontWeight: 700, display: "inline-flex", alignItems: "center", gap: "0.8rem", transition: "all 0.3s ease", boxShadow: "0 10px 30px -10px rgba(79, 70, 229, 0.5)" }}>
                                 Start Audit <ArrowRight size={20} />
                             </Link>
-                            <Link href="/technology" style={{ padding: "1.25rem 2.8rem", background: "transparent", color: "var(--text)", borderRadius: "14px", textDecoration: "none", fontWeight: 700, border: "1px solid var(--border)", transition: "all 0.3s ease" }}>
+                            {/* <Link href="/technology" style={{ padding: "1.25rem 2.8rem", background: "transparent", color: "var(--text)", borderRadius: "14px", textDecoration: "none", fontWeight: 700, border: "1px solid var(--border)", transition: "all 0.3s ease" }}>
                                 View Tech Stack
-                            </Link>
+                            </Link> */}
                         </div>
                     </div>
                 </div>

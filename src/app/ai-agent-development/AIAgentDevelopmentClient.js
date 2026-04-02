@@ -1156,9 +1156,9 @@ export default function AIAgentDevelopmentClient() {
                                 <Link href="/discovery-audit" className="btn-primary" style={{ padding: "1.2rem 2.5rem", background: "var(--primary)", color: "white", borderRadius: "12px", textDecoration: "none", fontWeight: 700, boxShadow: "var(--card-shadow)" }}>
                                     Start Your Agent Discovery
                                 </Link>
-                                <Link href="/technology" style={{ padding: "1.2rem 2.5rem", background: "transparent", color: "var(--text)", borderRadius: "12px", textDecoration: "none", fontWeight: 700, border: "1px solid var(--border)" }}>
+                                {/* <Link href="/technology" style={{ padding: "1.2rem 2.5rem", background: "transparent", color: "var(--text)", borderRadius: "12px", textDecoration: "none", fontWeight: 700, border: "1px solid var(--border)" }}>
                                     View Our Tech Stack
-                                </Link>
+                                </Link> */}
                             </div>
                        </div>
                   </div>

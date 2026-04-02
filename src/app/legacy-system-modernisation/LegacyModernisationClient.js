@@ -272,7 +272,7 @@ export default function LegacyModernisationClient() {
                             <span style={{ fontSize: "0.9rem", fontWeight: 800, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--primary)" }}>Modernization Strategy</span>
                         </div>
                         <h1 className="hero-title-line" style={{ fontSize: "clamp(2.8rem, 6vw, 5.2rem)", fontWeight: 950, lineHeight: 1.05, marginBottom: "2.5rem", letterSpacing: "-0.04em", color: "var(--text)" }}>
-                            Don&apos;t Rip and Replace — <br />
+                            Don&apos;t Rip and Replace<br />
                             <span style={{ color: "var(--primary)" }}>Layer AI on Top</span> <br />
                             of What Works
                         </h1>
@@ -281,7 +281,7 @@ export default function LegacyModernisationClient() {
                         </p>
                         <div className="hero-cta" style={{ display: "flex", gap: "1.2rem", flexWrap: "wrap" }}>
                             <Link href="/contact" style={{ padding: "1.25rem 2.8rem", background: "var(--primary)", color: "white", borderRadius: "14px", fontWeight: 700, textDecoration: "none", boxShadow: "0 10px 40px rgba(79, 70, 229, 0.3)" }}>Modernize Your Stack</Link>
-                            <Link href="/discovery-audit" style={{ padding: "1.25rem 2.8rem", background: "transparent", color: "var(--text)", borderRadius: "14px", fontWeight: 700, textDecoration: "none", border: "1px solid var(--border)" }}>Technical Discovery</Link>
+                            {/* <Link href="/discovery-audit" style={{ padding: "1.25rem 2.8rem", background: "transparent", color: "var(--text)", borderRadius: "14px", fontWeight: 700, textDecoration: "none", border: "1px solid var(--border)" }}>Technical Discovery</Link> */}
                         </div>
                     </div>
                 </div>
