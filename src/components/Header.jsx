@@ -20,7 +20,7 @@ const navLinks = [
         ]
     },
     {
-        label: "Services",
+        label: "AI Services",
         subLinks: [
             { href: "/ai-agent-development", label: "Custom AI Agent Development" },
             { href: "/enterprise-workflow-automation", label: "Enterprise Workflow Automation" },
@@ -30,6 +30,72 @@ const navLinks = [
             { href: "/ai-native-product-development", label: "AI-Native Product Development" },
         ]
     },
+    // {
+    //     label: "Zoho Services",
+    //     href: "/service",
+    //     subLinks: [
+    //         { href: "/app-development-agency", label: "App Development Agency" },
+    //         { href: "/custom-app-development", label: "Custom App Development" },
+    //         { href: "/app-development-company", label: "App Development Company" },
+    //         { href: "/small-business-app-development", label: "Small Business App Development" },
+    //         { href: "/sales", label: "Sales" },
+    //         { href: "/marketing", label: "Marketing" },
+    //         { href: "/zoho-marketing-automation", label: "Zoho Marketing Automation" },
+    //         { href: "/customer-experience-consulting", label: "Customer Experience Consulting" },
+    //     ]
+    // },
+    // {
+    //     label: "Zoho CRM Implementation",
+    //     href: "/zoho-crm-implementation",
+    //     subLinks: [
+    //         { href: "/zoho-crm-integration-partner", label: "Zoho CRM Integration Partner" },
+    //         { href: "/zoho-crm-consulting-partner", label: "Zoho CRM Consulting Partner" },
+    //         { href: "/zoho-crm-partners-uk", label: "Zoho CRM Partners UK" },
+    //         { href: "/zoho-one-implementation", label: "Zoho One Implementation" },
+    //         { href: "/zoho-desk-implementation", label: "Zoho Desk Implementation" },
+    //         { href: "/zoho-analytics-partners-uk", label: "Zoho Analytics Partners UK" },
+    //         { href: "/certified-zoho-analytics-partner", label: "Certified Zoho Analytics Partner" },
+    //         { href: "/zoho-implementation-partner-uk", label: "Zoho Implementation Partner UK" },
+    //         { href: "/zoho-creator-development", label: "Zoho Creator Development" },
+    //         { href: "/zoho-creator-partner", label: "Zoho Creator Partner" },
+    //     ]
+    // },
+    // {
+    //     label: "Zoho Partnership",
+    //     subLinks: [
+    //         { href: "/zoho-authorised-partner", label: "Zoho Authorised Partner" },
+    //         { href: "/zoho-authorized-partner-uk", label: "Zoho Authorized Partner UK" },
+    //         { href: "/zoho-premium-partner", label: "Zoho Premium Partner" },
+    //         { href: "/zoho-advanced-partner", label: "Zoho Advanced Partner" },
+    //         { href: "/zoho-certified-partner-uk", label: "Zoho Certified Partner UK" },
+    //         { href: "/zoho-reseller-partner", label: "Zoho Reseller Partner" },
+    //         { href: "/zoho-software-partners-uk", label: "Zoho Software Partners UK" },
+    //         { href: "/zoho-partner-berkshire", label: "Zoho Partner Berkshire" },
+    //         { href: "/zoho-partner-buckinghamshire", label: "Zoho Partner Buckinghamshire" },
+    //         { href: "/zoho-partner-hampshire", label: "Zoho Partner Hampshire" },
+    //         { href: "/zoho-partner-london", label: "Zoho Partner London" },
+    //         { href: "/zoho-partner-oxfordshire", label: "Zoho Partner Oxfordshire" },
+    //         { href: "/zoho-partner-portsmouth", label: "Zoho Partner Portsmouth" },
+    //         { href: "/zoho-partner-surrey", label: "Zoho Partner Surrey" },
+    //         { href: "/zoho-partner-sussex", label: "Zoho Partner Sussex" },
+    //     ]
+    // },
+    // {
+    //     label: "Consulting",
+    //     subLinks: [
+    //         { href: "/zoho-consulting-partner-uk", label: "Zoho Consulting Partner UK" },
+    //         { href: "/zoho-consulting-services", label: "Zoho Consulting Services" },
+    //         { href: "/certified-zoho-consultant", label: "Certified Zoho Consultant" },
+    //     ]
+    // },
+    // {
+    //     label: "Managed Services",
+    //     subLinks: [
+    //         { href: "/zoho-managed-services", label: "Zoho Managed Services" },
+    //         { href: "/zoho-integration-partner", label: "Zoho Integration Partner" },
+    //     ]
+    // },
+    // { href: "/privacy-policy", label: "Privacy Policy" },
     {
         label: "Industries",
         subLinks: [
@@ -111,37 +177,37 @@ export default function Header() {
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "space-between",
-                        height: "100%",
+                        height: "auto",
+                        minHeight: "100%",
                     }}
                 >
                     <Link href="/" aria-label="FI Digital – Home" style={{ display: "flex", alignItems: "center", height: "100%", textDecoration: "none", minWidth: "200px" }}>
                         <Logo variant="theme" width="200px" height="60px" />
                     </Link>
 
-                    <div style={{ display: "flex", alignItems: "center", gap: "2rem", height: "100%" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "1.5rem", flex: 1, justifyContent: "center", padding: "0.5rem 0" }}>
                         <nav
                             className="nav-desktop"
                             aria-label="Main navigation"
-                            style={{ display: "flex", alignItems: "center", gap: "0.5rem", height: "100%" }}
+                            style={{ display: "flex", alignItems: "center", gap: "0.25rem", flexWrap: "wrap", justifyContent: "center" }}
                         >
                             {navLinks.map((link) => (
-                                <div key={link.label} className="nav-item-wrapper" style={{ height: "100%", position: "relative" }}>
-                                    <div style={{ display: "flex", alignItems: "center", height: "100%" }}>
+                                <div key={link.label} className="nav-item-wrapper" style={{ position: "relative" }}>
+                                    <div style={{ display: "flex", alignItems: "center" }}>
                                         {link.href ? (
                                             <Link
                                                 href={link.href}
                                                 className={`nav-link ${pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href)) ? "active" : ""}`}
                                                 style={{
                                                     color: "var(--text)",
-                                                    fontSize: "0.85rem",
+                                                    fontSize: "0.8rem",
                                                     fontWeight: 700,
                                                     letterSpacing: "0.01em",
                                                     textDecoration: "none",
                                                     display: "flex",
                                                     alignItems: "center",
-                                                    gap: "0.4rem",
-                                                    height: "100%",
-                                                    padding: "0 1rem",
+                                                    gap: "0.3rem",
+                                                    padding: "0.5rem 0.75rem",
                                                     whiteSpace: "nowrap"
                                                 }}
                                             >
@@ -153,15 +219,14 @@ export default function Header() {
                                                 className={`nav-link ${link.subLinks?.some(sub => pathname === sub.href) ? "active" : ""}`}
                                                 style={{
                                                     color: "var(--text)",
-                                                    fontSize: "0.85rem",
+                                                    fontSize: "0.8rem",
                                                     fontWeight: 700,
                                                     letterSpacing: "0.01em",
                                                     cursor: "default",
                                                     display: "flex",
                                                     alignItems: "center",
-                                                    gap: "0.4rem",
-                                                    height: "100%",
-                                                    padding: "0 1rem",
+                                                    gap: "0.3rem",
+                                                    padding: "0.5rem 0.75rem",
                                                     whiteSpace: "nowrap"
                                                 }}
                                             >
@@ -392,12 +457,21 @@ export default function Header() {
                 border: 1px solid var(--border);
                 border-radius: 16px;
                 min-width: 260px;
+                max-height: 70vh;
+                overflow-y: auto;
                 padding: 1rem;
                 box-shadow: 0 20px 40px rgba(0,0,0,0.12);
                 opacity: 0;
                 visibility: hidden;
                 transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
                 z-index: 1000;
+              }
+               .dropdown-menu::-webkit-scrollbar {
+                width: 6px;
+              }
+              .dropdown-menu::-webkit-scrollbar-thumb {
+                background-color: var(--border);
+                border-radius: 4px;
               }
               .nav-item-wrapper:hover .dropdown-menu {
                 opacity: 1;
