@@ -1,5 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
+import Script from "next/script";
 import { ArrowRight, BarChart3, Database, PieChart, ShieldCheck, TrendingUp, ChevronDown, CheckCircle2, Layout, Monitor, Headphones } from "lucide-react";
+
 import { metadata as pageMetadata } from './meta';
 export const metadata = pageMetadata;
 
@@ -50,134 +53,163 @@ const faqs = [
   {
     q: "Can you provide ongoing support?",
     a: "Yes. Our managed services include ongoing support, system audits, dashboard enhancements, and new report creation."
-  },
-  {
-    q: "Ready to Unlock the Power of Your Data?",
-    a: "Transform your business with actionable insights powered by Zoho Analytics. Partner with FI Digital—your certified, trusted Zoho Analytics Partner in the UK—and start making data-driven decisions today."
   }
 ];
 
-export default function Page() {
+export default function CertifiedZohoAnalyticsPartnerPage() {
   return (
     <div style={{ background: "var(--bg)", minHeight: "100vh" }}>
+      <style dangerouslySetInnerHTML={{ __html: `
+        .hero-background-wrapper {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 0;
+          opacity: 0.8;
+          pointer-events: none;
+        }
+        @media (min-width: 900px) {
+          .hero-background-wrapper {
+            width: 65%;
+          }
+        }
+        @media (max-width: 899px) {
+          .hero-background-wrapper {
+            opacity: 0.4;
+          }
+          .hero-grid {
+            grid-template-columns: 1fr !important;
+            text-align: center;
+          }
+          .hero-text-content {
+            margin: 0 auto;
+          }
+          .hero-cta-button {
+             margin: 0 auto;
+          }
+        }
+      `}} />
+
       {/* Hero Section */}
       <section style={{
         position: "relative",
-        minHeight: "70vh",
+        minHeight: "90vh",
         display: "flex",
         alignItems: "center",
-        padding: "clamp(120px, 15vh, 140px) 1.5rem 80px",
+        padding: "clamp(120px, 15vh, 160px) 1.5rem 60px",
         background: "var(--bg)",
         overflow: "hidden",
       }}>
+        {/* Right-aligned Faded Hero Image Background (Home Page Match) */}
+        <div className="hero-background-wrapper">
+          <Image
+            src="/images1/analytics1.jpg"
+            alt="Zoho Analytics Partner Background"
+            fill
+            style={{ 
+              objectFit: "cover", 
+              objectPosition: "left center", 
+              maskImage: "radial-gradient(circle at right, black, transparent 80%)", 
+              WebkitMaskImage: "radial-gradient(circle at right, black, transparent 80%)" 
+            }}
+            priority
+          />
+        </div>
+
         <div style={{ position: "relative", zIndex: 1, maxWidth: "1250px", margin: "0 auto", width: "100%" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))", gap: "4rem", alignItems: "center" }}>
-            <div>
+          <div className="hero-grid" style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: "4rem", alignItems: "center" }}>
+            <div className="wow animate__animated animate__fadeIn hero-text-content">
               <div style={{
                 display: "inline-flex", alignItems: "center", gap: "0.75rem",
                 padding: "0.6rem 1.2rem", background: "rgba(79, 70, 229, 0.1)",
                 borderRadius: "100px", border: "1px solid rgba(79, 70, 229, 0.2)",
-                marginBottom: "2rem", color: "var(--primary)", fontSize: "0.85rem",
-                fontWeight: 700, letterSpacing: "0.01em", textTransform: "uppercase"
+                marginBottom: "2.5rem", color: "var(--primary)", fontSize: "0.85rem",
+                fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase"
               }}>
                 <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "var(--primary)", boxShadow: "0 0 10px var(--primary)" }} />
-                Zoho Authorized Partner UK
+                Authorized Partner UK
               </div>
               <h1 style={{
-                fontSize: "clamp(2.5rem, 5vw, 4rem)",
+                fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
                 fontWeight: 950,
                 lineHeight: 1.1,
-                marginBottom: "1.5rem",
+                marginBottom: "2rem",
                 letterSpacing: "-0.03em",
-                color: "var(--text)",
+                color: "var(--text)"
               }}>
-                Certified Zoho Analytics
-                <br />
-                <span style={{ color: "var(--primary)" }}>Partners in the UK</span>
+                Certified Zoho Analytics <span style={{ color: "var(--primary)" }}>Partners in the UK</span>
               </h1>
               <p style={{
-                fontSize: "clamp(1rem, 1.15vw, 1.2rem)",
+                fontSize: "clamp(1.1rem, 1.8vw, 1.35rem)",
                 color: "var(--text-muted)",
                 marginBottom: "1.5rem",
                 lineHeight: 1.7,
-                maxWidth: "600px",
+                maxWidth: "680px"
               }}>
-                Is your business struggling to make sense of the data scattered across multiple systems? FI Digital is a trusted and certified Zoho Analytics Partner in the UK, helping businesses transform raw data into clear, actionable insights.
+                Is your business struggling to make sense of scattered data? FI Digital is a trusted Zoho Analytics Partner, helping you transform raw data into actionable insights for smarter decisions.
               </p>
               <p style={{
-                fontSize: "clamp(1rem, 1.15vw, 1.2rem)",
+                fontSize: "clamp(1.1rem, 1.8vw, 1.35rem)",
                 color: "var(--text-muted)",
-                marginBottom: "2.5rem",
+                marginBottom: "3rem",
                 lineHeight: 1.7,
-                maxWidth: "600px",
+                maxWidth: "680px"
               }}>
-                As one of the leading Zoho Analytics partners, we assist organisations across the UK in connecting, visualising, and analysing their data—enabling smarter, faster, and data-driven decision-making.
+                We assists UK organisations in connecting, visualising, and analysing data across all departments—enabling faster and data-driven business growth.
               </p>
-              <Link href="/contact" style={{
+              <Link href="/contact" className="hero-cta-button" style={{
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "0.5rem",
-                padding: "1rem 2.5rem",
+                padding: "1.2rem 3rem",
                 background: "var(--primary)",
                 color: "white",
                 fontWeight: 700,
-                fontSize: "1rem",
-                borderRadius: "14px",
+                fontSize: "1.1rem",
+                borderRadius: "16px",
                 textDecoration: "none",
-                boxShadow: "0 10px 30px rgba(79, 70, 229, 0.3)",
+                boxShadow: "0 10px 40px rgba(79, 70, 229, 0.4)",
               }}>
-                Get Started Today! <ArrowRight size={18} />
+                Get Started Today! <ArrowRight size={20} />
               </Link>
-            </div>
-            <div style={{ position: "relative", borderRadius: "30px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "var(--card-shadow)" }}>
-                <img src="/images1/saas/classic01.png" alt="Zoho Analytics Partner" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
             </div>
           </div>
         </div>
       </section>
 
       {/* Why Partner Section */}
-      <section style={{ padding: "80px 1.5rem", background: "var(--bg-secondary)" }}>
+      <section style={{ padding: "100px 1.5rem", background: "var(--bg-secondary)" }}>
         <div style={{ maxWidth: "1250px", margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))", gap: "4rem", alignItems: "center" }}>
-            <div style={{ position: "relative", borderRadius: "30px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "var(--card-shadow)" }}>
-                <img src="/images1/saas/classic02.png" alt="Why Partner with Zoho" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "5rem", alignItems: "center" }}>
+            <div style={{ position: "relative", borderRadius: "30px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "var(--card-shadow)" }} className="wow animate__animated animate__fadeInLeft">
+                <Image src="/images1/Partner2.jpg" alt="Why Partner with Zoho" width={600} height={400} style={{ width: "100%", height: "auto", objectFit: "cover" }} />
             </div>
-            <div>
-              <h2 style={{
-                fontSize: "clamp(1.8rem, 3vw, 2.5rem)",
-                fontWeight: 800,
-                marginBottom: "1.5rem",
-                color: "var(--text)",
-                letterSpacing: "-0.02em",
-              }}>
+            <div className="wow animate__animated animate__fadeInRight">
+              <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.5rem)", fontWeight: 850, color: "var(--text)", marginBottom: "1.5rem", lineHeight: 1.2 }}>
                 Why Partner with Zoho Analytics Experts?
               </h2>
-              <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
-                <p style={{ marginBottom: "1.5rem" }}>
-                  Zoho Analytics is a powerful, self-service Business Intelligence (BI) and analytics platform that enables businesses to:
-                </p>
-                <p style={{ fontWeight: 600, color: "var(--text)", marginBottom: "1rem" }}>
-                  Being an authorised partner means:
-                </p>
-                <ul style={{ listStyleType: "none", padding: 0, display: "flex", flexDirection: "column", gap: "1rem" }}>
-                  {[
-                    "Consolidate data from multiple sources",
-                    "Create insightful dashboards & reports",
-                    "Automate data analysis",
-                    "Forecast trends & identify anomalies",
-                    "Empower teams with real-time visibility"
-                  ].map((item, i) => (
-                    <li key={i} style={{ display: "flex", alignItems: "center", gap: "0.75rem", color: "var(--text)" }}>
-                      <CheckCircle2 size={20} style={{ color: "var(--primary)" }} />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <p style={{ marginTop: "2rem", fontWeight: 600, color: "var(--text)" }}>
-                  However, implementing Zoho Analytics to its full potential requires technical expertise, data strategy, and industry experience. That’s where FI Digital, your trusted Zoho Analytics Partner in the UK, comes in.
-                </p>
-              </div>
+              <p style={{ color: "var(--text-muted)", fontSize: "1.1rem", lineHeight: 1.8, marginBottom: "1.5rem" }}>
+                Zoho Analytics is a powerful, self-service BI platform that allows you to consolidate data from multiple sources and create real-time visibility across your business.
+              </p>
+              <p style={{ color: "var(--text-muted)", fontSize: "1.1rem", lineHeight: 1.8, fontWeight: 700, marginBottom: "1.5rem" }}>
+                Being a certified partner means we ensure your implementation delivers maximum ROI through industry-leading data strategy:
+              </p>
+              <ul style={{ display: "grid", gap: "1rem" }}>
+                {[
+                  "Consolidate data from Zoho, ERP, and accounting platforms.",
+                  "Create insightful, multi-functional dashboards and reports.",
+                  "Automate data analysis and complex trend forecasting.",
+                  "Empower teams with role-based, secure data visibility.",
+                  "Cleanse and validate data for cross-departmental accuracy."
+                ].map((item, i) => (
+                  <li key={i} style={{ display: "flex", gap: "1rem", color: "var(--text-muted)", fontSize: "1.1rem" }}>
+                    <div style={{ marginTop: "6px" }}><CheckCircle2 size={18} className="text-primary" /></div>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
@@ -186,41 +218,19 @@ export default function Page() {
       {/* Services Grid */}
       <section style={{ padding: "100px 1.5rem", background: "var(--bg)" }}>
         <div style={{ maxWidth: "1250px", margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: "4rem" }}>
-            <h2 style={{
-              fontSize: "clamp(2rem, 4vw, 3rem)",
-              fontWeight: 800,
-              marginBottom: "1rem",
-              color: "var(--text)",
-              letterSpacing: "-0.02em",
-            }}>
-              What We Do as Your Zoho Analytics Partner
+          <div style={{ textAlign: "center", marginBottom: "5rem" }}>
+            <h2 style={{ fontSize: "clamp(2rem, 3.5vw, 3rem)", fontWeight: 850, color: "var(--text)", marginBottom: "1.5rem" }}>
+              Our Expert Analytics Services
             </h2>
-            <p style={{ fontSize: "1.1rem", color: "var(--text-muted)", maxWidth: "800px", margin: "0 auto", lineHeight: 1.6 }}>
-              We help UK businesses at every step of their data analytics journey with certified expertise and comprehensive solutions:
+            <p style={{ color: "var(--text-muted)", fontSize: "1.15rem", maxWidth: "800px", margin: "0 auto" }}>
+              Helping UK businesses at every stage of their data journey with certified expertise and end-to-end reporting solutions.
             </p>
           </div>
-          
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))",
-            gap: "2rem"
-          }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))", gap: "2rem" }}>
             {services.map((svc, i) => (
-              <div key={i} style={{
-                background: "var(--card-bg)",
-                border: "1px solid var(--border)",
-                borderRadius: "24px",
-                padding: "2.5rem",
-                transition: "all 0.3s ease",
-                boxShadow: "var(--card-shadow)",
-              }}>
-                <h3 style={{ fontSize: "1.25rem", fontWeight: 800, color: "var(--text)", marginBottom: "1.25rem" }}>
-                  {svc.title}
-                </h3>
-                <p style={{ color: "var(--text-muted)", lineHeight: 1.7, fontSize: "0.95rem" }}>
-                  {svc.content}
-                </p>
+              <div key={i} style={{ padding: "2.5rem", borderRadius: "24px", border: "1px solid var(--border)", background: "var(--card-bg)", boxShadow: "var(--card-shadow)" }} className="wow animate__animated animate__fadeInUp">
+                <h4 style={{ fontSize: "1.25rem", fontWeight: 800, color: "var(--text)", marginBottom: "1.25rem" }}>{svc.title}</h4>
+                <p style={{ color: "var(--text-muted)", fontSize: "1rem", lineHeight: 1.7 }}>{svc.content}</p>
               </div>
             ))}
           </div>
@@ -228,22 +238,19 @@ export default function Page() {
       </section>
 
       {/* Why FI Digital & Industries */}
-      <section style={{ padding: "80px 1.5rem", background: "var(--bg-secondary)" }}>
+      <section style={{ padding: "100px 1.5rem", background: "var(--bg-secondary)" }}>
         <div style={{ maxWidth: "1250px", margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))", gap: "4rem" }}>
-            
-            <div style={{ background: "var(--card-bg)", padding: "3rem", borderRadius: "32px", border: "1px solid var(--border)", boxShadow: "var(--card-shadow)" }}>
-                <h3 style={{ fontSize: "1.75rem", fontWeight: 800, color: "var(--text)", marginBottom: "1.5rem" }}>Why FI Digital is the Leading Partner</h3>
-                <ul style={{ listStyleType: "none", padding: 0, display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))", gap: "5rem", alignItems: "start" }}>
+            <div style={{ padding: "3rem", borderRadius: "32px", border: "1px solid var(--border)", background: "var(--card-bg)", boxShadow: "var(--card-shadow)" }} className="wow animate__animated animate__fadeInLeft">
+                <h3 style={{ fontSize: "1.75rem", fontWeight: 850, color: "var(--text)", marginBottom: "2rem" }}>Why Choose FI Digital?</h3>
+                <ul style={{ display: "grid", gap: "1.5rem" }}>
                     {[
-                      "Officially certified Zoho Analytics Partner",
-                      "UK-based team with local market expertise",
-                      "Strong data strategy & BI consulting capabilities",
-                      "Proven track record of successful analytics projects",
-                      "GDPR-compliant data handling",
-                      "Custom dashboard development expertise",
-                      "End-to-end data integration & support services",
-                      "Long-term strategic relationship approach"
+                      "Officially certified Zoho Analytics Partner.",
+                      "UK-based team with local market expertise.",
+                      "Strong data strategy & BI consulting capabilities.",
+                      "GDPR-compliant and secure data handling.",
+                      "Custom dashboard development for every role.",
+                      "End-to-end integration with third-party apps."
                     ].map((item, i) => (
                       <li key={i} style={{ display: "flex", gap: "1rem", color: "var(--text)", fontWeight: 600 }}>
                         <div style={{ color: "var(--primary)", flexShrink: 0, marginTop: "4px" }}><CheckCircle2 size={24} /></div>
@@ -251,119 +258,62 @@ export default function Page() {
                       </li>
                     ))}
                 </ul>
-                <p style={{ marginTop: "2rem", color: "var(--text-muted)", fontStyle: "italic" }}>
-                    We don’t just implement Zoho Analytics—we help you build a data-driven business culture.
+                <p style={{ marginTop: "2.5rem", color: "var(--text-muted)", fontStyle: "italic", lineHeight: 1.6 }}>
+                    We don’t just implement software—we help you build a data-driven business culture that thrives on actionable insights.
                 </p>
             </div>
 
-            <div>
-              <h2 style={{ fontSize: "2rem", fontWeight: 800, marginBottom: "1.5rem", color: "var(--text)" }}>Industries We Serve</h2>
-              <p style={{ color: "var(--text-muted)", marginBottom: "1.5rem" }}>We have delivered Zoho Analytics solutions across sectors such as:</p>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
+            <div className="wow animate__animated animate__fadeInRight">
+              <h2 style={{ fontSize: "2.2rem", fontWeight: 850, marginBottom: "2rem", color: "var(--text)" }}>Industries We Serve</h2>
+               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "3rem" }}>
                 {[
-                  "Financial Services & Mortgage Broking",
-                  "Retail & E-commerce",
-                  "Manufacturing & Distribution",
-                  "Professional Services & Consulting",
-                  "Healthcare & Wellness",
-                  "Education & Training",
+                  "Financial Services",
+                  "E-commerce",
+                  "Manufacturing",
+                  "Professional Services",
+                  "Healthcare",
+                  "Education",
                   "IT & SaaS Providers"
                 ].map((ind, i) => (
-                  <div key={i} style={{ display: "flex", alignItems: "center", gap: "0.5rem", color: "var(--text-muted)", fontWeight: 500 }}>
-                    <div style={{ width: "6px", height: "6px", background: "var(--primary)", borderRadius: "50%" }} />
+                  <div key={i} style={{ display: "flex", alignItems: "center", gap: "0.75rem", color: "var(--text)", fontWeight: 600 }}>
+                    <div style={{ width: "8px", height: "8px", background: "var(--primary)", borderRadius: "50%" }} />
                     {ind}
                   </div>
                 ))}
               </div>
 
-              <div style={{ marginTop: "3rem" }}>
-                <h3 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "1.5rem", color: "var(--text)" }}>Real Success Stories</h3>
-                <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+               <h3 style={{ fontSize: "1.5rem", fontWeight: 850, marginBottom: "1.5rem", color: "var(--text)" }}>Success Stories</h3>
+               <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
                     {[
-                      { t: "E-commerce Retailer – London", c: "Integrated Zoho Analytics with Shopify, Zoho CRM, and Google Ads. Impact: Increased visibility into campaign ROI." },
-                      { t: "Professional Services – Manchester", c: "Implemented across sales, finance, and operations. Result: Real-time reporting and improved decision-making." },
-                      { t: "Healthcare Group – Midlands", c: "Patient service quality dashboards via Zoho Desk & CRM. Outcome: Enhanced patient experience monitoring." }
+                      { t: "E-commerce – London", c: "Integrated Analytics with Shopify & Zoho CRM. Result: 30% increase in campaign ROI." },
+                      { t: "Professional Services – Manchester", c: "Real-time reporting across finance and operations. Result: Data-driven strategic growth." },
+                      { t: "Healthcare – Midlands", c: "Patient quality dashboards via Desk & CRM. Outcome: Enhanced patient experience monitoring." }
                     ].map((story, i) => (
                       <div key={i} style={{ borderLeft: "4px solid var(--primary)", paddingLeft: "1.5rem" }}>
-                        <h4 style={{ fontWeight: 700, color: "var(--text)" }}>{story.t}</h4>
-                        <p style={{ fontSize: "0.95rem", color: "var(--text-muted)" }}>{story.c}</p>
+                        <h4 style={{ fontWeight: 800, color: "var(--text)", marginBottom: "0.25rem" }}>{story.t}</h4>
+                        <p style={{ fontSize: "1rem", color: "var(--text-muted)", lineHeight: 1.5 }}>{story.c}</p>
                       </div>
                     ))}
                 </div>
-              </div>
             </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section style={{ padding: "80px 1.5rem", background: "var(--bg)" }}>
-        <div style={{ maxWidth: "1250px", margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: "4rem" }}>
-            <h2 style={{ fontSize: "2.5rem", fontWeight: 800, color: "var(--text)" }}>Key Benefits of Zoho Analytics</h2>
-            <p style={{ color: "var(--text-muted)", marginTop: "1rem" }}>By partnering with us, you can unlock the following benefits:</p>
-          </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "2rem" }}>
-            {[
-              { t: "Unified BI", d: "One platform for all your data needs" },
-              { t: "Real-Time Insights", d: "No more waiting for manual reports" },
-              { t: "Role-Based Access", d: "Secure, GDPR-compliant data visibility" },
-              { t: "Actionable Dashboards", d: "Visuals that drive better business decisions" },
-              { t: "Reduced Reporting Time", d: "Automation saves hours of manual effort" }
-            ].map((benefit, i) => (
-              <div key={i} style={{ background: "var(--card-bg)", padding: "2rem", borderRadius: "20px", border: "1px solid var(--border)", textAlign: "center" }}>
-                <CheckCircle2 size={32} style={{ color: "var(--primary)", margin: "0 auto 1.5rem" }} />
-                <h4 style={{ fontWeight: 800, color: "var(--text)", marginBottom: "0.5rem" }}>{benefit.t}</h4>
-                <p style={{ fontSize: "0.95rem", color: "var(--text-muted)" }}>{benefit.d}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section style={{ padding: "80px 1.5rem", background: "var(--bg-secondary)" }}>
+      <section style={{ padding: "100px 1.5rem", background: "var(--bg)" }}>
         <div style={{ maxWidth: "850px", margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: "4rem" }}>
-            <h2 style={{
-              fontSize: "clamp(2rem, 4vw, 3rem)",
-              fontWeight: 800,
-              color: "var(--text)",
-              letterSpacing: "-0.02em",
-            }}>
-              FAQ – Zoho Analytics Partners UK
-            </h2>
-          </div>
-          
-          <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+          <h2 style={{ fontSize: "clamp(2rem, 3.5vw, 2.5rem)", fontWeight: 850, color: "var(--text)", marginBottom: "4rem", textAlign: "center" }}>
+            FAQ – Certified Analytics Partners
+          </h2>
+          <div style={{ display: "grid", gap: "1.25rem" }}>
             {faqs.map((faq, i) => (
-              <details key={i} style={{
-                background: "var(--card-bg)",
-                border: "1px solid var(--border)",
-                borderRadius: "20px",
-                overflow: "hidden",
-                cursor: "pointer"
-              }}>
-                <summary style={{
-                  padding: "1.75rem",
-                  fontWeight: 700,
-                  fontSize: "1.15rem",
-                  color: "var(--text)",
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  listStyle: "none"
-                }}>
+              <details key={i} style={{ background: "var(--card-bg)", padding: "1.75rem", borderRadius: "20px", border: "1px solid var(--border)", cursor: "pointer" }}>
+                <summary style={{ fontWeight: 750, fontSize: "1.15rem", color: "var(--text)", display: "flex", justifyContent: "space-between", alignItems: "center", listStyle: "none" }}>
                   {faq.q}
                   <ChevronDown size={22} style={{ color: "var(--primary)" }} />
                 </summary>
-                <div style={{
-                  padding: "0 1.75rem 1.75rem",
-                  color: "var(--text-muted)",
-                  lineHeight: 1.8,
-                  fontSize: "1.1rem"
-                }}>
+                <div style={{ padding: "1.5rem 0 0", color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
                   {faq.a}
                 </div>
               </details>
@@ -372,48 +322,47 @@ export default function Page() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section style={{ padding: "100px 1.5rem", background: "var(--bg)", display: "flex", justifyContent: "center" }}>
-        <div style={{ 
-          maxWidth: "1100px", 
-          width: "100%", 
-          background: "rgba(30, 58, 138, 1)",
-          borderRadius: "40px",
-          padding: "5rem 3rem",
-          textAlign: "center",
-          color: "white",
-          boxShadow: "0 25px 50px -12px rgba(30, 58, 138, 0.5)",
-          position: "relative",
-          overflow: "hidden"
-        }}>
-          <h2 style={{
-            fontSize: "clamp(2rem, 4vw, 3rem)",
-            fontWeight: 800,
-            marginBottom: "1.5rem",
-            color: "white",
-          }}>
-            Ready to Work with an Official Zoho Authorized Partner in the UK?
+      {/* Fixed CTA Section */}
+      <section style={{ padding: "120px 1.5rem", background: "var(--primary)", textAlign: "center", color: "white" }}>
+        <div style={{ maxWidth: "1100px", margin: "0 auto", position: "relative" }}>
+          <h2 style={{ fontSize: "clamp(2.1rem, 4.5vw, 3.5rem)", fontWeight: 950, marginBottom: "2.5rem", lineHeight: 1.2, color: "white" }}>
+             Ready to Work with a Certified Zoho Partner?
           </h2>
-          <p style={{ fontSize: "1.2rem", color: "rgba(255,255,255,0.9)", marginBottom: "3rem", lineHeight: 1.7, maxWidth: "850px", margin: "0 auto 3.5rem" }}>
-            Make the most of your Zoho investment with FI Digital—your certified and trusted Zoho Authorized Partner in the UK. Whether you need implementation, optimisation, or long-term support, our team is ready to help you succeed.
+          <p style={{ fontSize: "1.25rem", color: "rgba(255,255,255,0.9)", marginBottom: "4rem", lineHeight: 1.7, maxWidth: "850px", margin: "0 auto 4rem" }}>
+             Make the most of your investment with FI Digital—your trusted Zoho Authorized Partner in the UK. Start transforming your business data into strategic growth today.
           </p>
-          <Link href="/zoho-crm-implementation" style={{
+          <Link href="/contact" style={{
             display: "inline-flex",
             alignItems: "center",
             gap: "0.75rem",
             padding: "1.2rem 3.5rem",
-            background: "var(--primary)",
-            color: "white",
+            background: "white",
+            color: "var(--primary)",
             fontWeight: 800,
-            fontSize: "1.1rem",
+            fontSize: "1.2rem",
             borderRadius: "16px",
             textDecoration: "none",
-            boxShadow: "0 10px 30px rgba(79, 70, 229, 0.4)",
+            boxShadow: "0 10px 40px rgba(0, 0, 0, 0.2)",
+            transition: "transform 0.3s ease",
           }}>
-            Get Started Today! <ArrowRight size={20} />
+            Request Your Free Consultation <ArrowRight size={20} />
           </Link>
         </div>
       </section>
+
+      {/* Zoho SalesIQ Integration */}
+      <Script id="zoho-salesiq" strategy="afterInteractive">
+        {`
+          window.$zoho=window.$zoho || {};
+          $zoho.salesiq=$zoho.salesiq||{ready:function(){}};
+          var d=document;
+          var s=d.createElement("script");
+          s.id="zsiqscript";
+          s.src="https://salesiq.zohopublic.com/widget?wc=siqd5554e2b4cb32464c280697bfa50a51cc07229c8920b4b9dc4247500c1733a43";
+          s.defer=true;
+          d.getElementsByTagName("head")[0].appendChild(s);
+        `}
+      </Script>
     </div>
   );
 }

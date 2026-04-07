@@ -1,7 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
+import Script from "next/script";
 import { ArrowRight, ChevronDown, CheckCircle2, Server, Users, Layers, Zap, Headphones, BarChart3, Repeat, Code, Briefcase, Mail, Shield, Book } from "lucide-react";
-import { metadata as pageMetadata } from './meta';
 
+import { metadata as pageMetadata } from './meta';
 export const metadata = pageMetadata;
 
 const resellerServices = [
@@ -11,8 +13,8 @@ const resellerServices = [
     icon: <Users size={24} />
   },
   {
-    title: "Flexible Licensing & Subscription Management",
-    content: "We handle all billing, renewal notifications, license management, and upgrades, allowing your teams to remain focused on core business activities.",
+    title: "Licensing & Subscription Management",
+    content: "We handle all billing, renewal notifications, and upgrades, allowing your teams to remain focused on core business growth activities.",
     icon: <Repeat size={24} />
   },
   {
@@ -21,13 +23,13 @@ const resellerServices = [
     icon: <Layers size={24} />
   },
   {
-    title: "Seamless Zoho Procurement & Deployment",
-    content: "Our services streamline your procurement process, ensuring smooth activation of your licenses with comprehensive onboarding assistance.",
+    title: "Procurement & Deployment",
+    content: "Our services streamline your procurement process, ensuring smooth activation of your licenses with comprehensive tactical onboarding assistance.",
     icon: <Zap size={24} />
   },
   {
-    title: "Dedicated UK-Based Support & Training",
-    content: "Direct access to local support teams offering priority response, comprehensive user training, and proactive issue resolution.",
+    title: "UK-Based Support & Training",
+    content: "Direct access to local support teams offering priority response, comprehensive user training, and proactive cross-platform issue resolution.",
     icon: <Shield size={24} />
   }
 ];
@@ -41,306 +43,305 @@ const popularSolutions = [
   { t: "Zoho One", d: "Comprehensive suite of 50+ integrated Zoho applications." }
 ];
 
-const successStories = [
-  {
-    title: "Retail & E-commerce Company",
-    content: "Provided tailored Zoho CRM and Zoho Marketing Automation licenses.",
-    benefit: "Achieving significant marketing ROI improvement and increased customer retention."
-  },
-  {
-    title: "Manufacturing & Distribution",
-    content: "Bundled Zoho One suite for multiple business units.",
-    benefit: "Delivering comprehensive operational efficiency, cost savings, and enhanced productivity."
-  },
-  {
-    title: "Financial & Professional Services Firm",
-    content: "Procured customised Zoho Books and CRM packages.",
-    benefit: "Enabling seamless integration with existing systems and improved client management."
-  }
-];
-
-const faqs = [
-  {
-    q: "Can we buy Zoho directly, or should we buy through a reseller?",
-    a: "Buying through a UK reseller partner like FI Digital provides flexible terms, discounted pricing, expert advice, simplified subscription management, and responsive local support."
-  },
-  {
-    q: "Do you offer discounts or special packages for larger Zoho implementations?",
-    a: "Yes, FI Digital offers customised bundles, flexible licensing terms, and volume discounts, providing significant cost savings for larger implementations."
-  },
-  {
-    q: "How quickly can we activate Zoho licenses after purchasing through FI Digital?",
-    a: "Typically, your Zoho licenses can be activated within 24–48 hours following purchase, ensuring rapid deployment and minimal disruption."
-  }
-];
-
-export default function Page() {
+export default function ZohoResellerPartnerPage() {
   return (
     <div style={{ background: "var(--bg)", minHeight: "100vh" }}>
       <style dangerouslySetInnerHTML={{ __html: `
-        .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: center; }
+        .hero-background-wrapper {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 0;
+          opacity: 0.8;
+          pointer-events: none;
+        }
+        @media (min-width: 900px) {
+          .hero-background-wrapper {
+            width: 65%;
+          }
+        }
+        @media (max-width: 899px) {
+          .hero-background-wrapper {
+            opacity: 0.4;
+          }
+          .hero-grid {
+            grid-template-columns: 1fr !important;
+            text-align: center;
+          }
+          .hero-text-content {
+            margin: 0 auto;
+          }
+          .hero-cta-button {
+             margin: 0 auto;
+          }
+        }
         .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
-        .advantage-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: flex-start; }
-        .cta-container { padding: 4rem 2rem; border-radius: 40px; }
-        .bullet-list { list-style: disc; padding-left: 1.5rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 1rem; }
-        
-        @media (max-width: 1024px) {
-          .hero-grid, .advantage-grid { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
-          .hero-content { display: flex; flex-direction: column; align-items: center; }
-          .advantage-content { display: flex; flex-direction: column; align-items: center; }
-          .bullet-list { text-align: left; }
-        }
-        
-        @media (max-width: 640px) {
-          .feature-grid { grid-template-columns: 1fr; }
-          .cta-container { padding: 3rem 1.5rem; }
-          .hero-title { font-size: 2.2rem !important; }
-        }
       `}} />
 
       {/* Hero Section */}
       <section style={{
         position: "relative",
-        minHeight: "85vh",
+        minHeight: "90vh",
         display: "flex",
         alignItems: "center",
-        padding: "clamp(120px, 15vh, 140px) 1.5rem 80px",
+        padding: "clamp(120px, 15vh, 160px) 1.5rem 60px",
         background: "var(--bg)",
         overflow: "hidden",
       }}>
+        {/* Right-aligned Faded Hero Image Background (Home Page Match) */}
+        <div className="hero-background-wrapper">
+          <Image
+            src="/images1/software.jpg"
+            alt="Zoho Reseller Partner UK Background"
+            fill
+            style={{ 
+              objectFit: "cover", 
+              objectPosition: "left center", 
+              maskImage: "radial-gradient(circle at right, black, transparent 80%)", 
+              WebkitMaskImage: "radial-gradient(circle at right, black, transparent 80%)" 
+            }}
+            priority
+          />
+        </div>
+
         <div style={{ position: "relative", zIndex: 1, maxWidth: "1250px", margin: "0 auto", width: "100%" }}>
-          <div className="hero-grid">
-            <div className="hero-content text-left">
+          <div className="hero-grid" style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: "4rem", alignItems: "center" }}>
+            <div className="wow animate__animated animate__fadeIn hero-text-content">
               <div style={{
                 display: "inline-flex", alignItems: "center", gap: "0.75rem",
-                padding: "0.6rem 1.2rem", background: "rgba(29, 78, 216, 0.1)",
-                borderRadius: "100px", border: "1px solid rgba(29, 78, 216, 0.2)",
-                marginBottom: "2rem", color: "#1d4ed8", fontSize: "0.85rem",
-                fontWeight: 700, letterSpacing: "0.01em", textTransform: "uppercase"
+                padding: "0.6rem 1.2rem", background: "rgba(79, 70, 229, 0.1)",
+                borderRadius: "100px", border: "1px solid rgba(79, 70, 229, 0.2)",
+                marginBottom: "2.5rem", color: "var(--primary)", fontSize: "0.85rem",
+                fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase"
               }}>
-                <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#1d4ed8", boxShadow: "0 0 10px #1d4ed8" }} />
+                <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "var(--primary)", boxShadow: "0 0 10px var(--primary)" }} />
                 Official UK Reseller
               </div>
-              <h1 className="hero-title" style={{
-                fontSize: "clamp(2.5rem, 5vw, 4rem)",
+              <h1 style={{
+                fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
                 fontWeight: 950,
                 lineHeight: 1.1,
-                marginBottom: "1.5rem",
+                marginBottom: "2rem",
                 letterSpacing: "-0.03em",
-                color: "var(--text)",
+                color: "var(--text)"
               }}>
-                Zoho Reseller
-                <br />
-                <span style={{ color: "#1d4ed8" }}>Partner in the UK</span>
+                Zoho Reseller <span style={{ color: "var(--primary)" }}>Partner in the UK</span>
               </h1>
               <p style={{
-                fontSize: "1.2rem",
+                fontSize: "clamp(1.1rem, 1.8vw, 1.35rem)",
                 color: "var(--text-muted)",
                 marginBottom: "1.5rem",
                 lineHeight: 1.7,
-                maxWidth: "650px",
+                maxWidth: "680px"
               }}>
-                Are you looking for a trusted UK-based Zoho Reseller Partner who can guide your business through selecting, purchasing, and successfully implementing Zoho software? FI Digital is your ideal partner, helping businesses purchase solutions efficiently and cost-effectively.
+                Searching for a trusted UK-based Zoho Reseller who can guide your licensing selection and successful deployment? FI Digital helps businesses purchase effectively.
               </p>
               <p style={{
-                fontSize: "1.1rem",
+                fontSize: "clamp(1.1rem, 1.8vw, 1.35rem)",
                 color: "var(--text-muted)",
-                marginBottom: "2.5rem",
+                marginBottom: "3rem",
                 lineHeight: 1.7,
-                maxWidth: "650px",
+                maxWidth: "680px"
               }}>
-                As an authorised Zoho Reseller, we provide expert advice, flexible licensing options, and dedicated UK-based support, ensuring your business achieves maximum value and productivity from every deployment.
+                As an authorised reseller, we provide strategic licensing options and dedicated local support, ensuring your business achieves maximum ROI from every Zoho application.
               </p>
-              <Link href="/contact" style={{
+              <Link href="/contact" className="hero-cta-button" style={{
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "0.5rem",
-                padding: "1rem 2.5rem",
-                background: "#1d4ed8",
+                padding: "1.2rem 3rem",
+                background: "var(--primary)",
                 color: "white",
                 fontWeight: 700,
-                fontSize: "1rem",
-                borderRadius: "14px",
+                fontSize: "1.1rem",
+                borderRadius: "16px",
                 textDecoration: "none",
-                boxShadow: "0 10px 30px rgba(29, 78, 216, 0.3)",
+                boxShadow: "0 10px 40px rgba(79, 70, 229, 0.4)",
               }}>
-                Get Started Today! <ArrowRight size={18} />
+                Get Started Today! <ArrowRight size={20} />
               </Link>
-            </div>
-            <div style={{ position: "relative" }}>
-                 <img src="/images1/saas/classic01.png" alt="Zoho Reseller" style={{ width: "100%", height: "auto", borderRadius: "30px", border: "1px solid var(--border)", boxShadow: "var(--card-shadow)" }} />
             </div>
           </div>
         </div>
       </section>
 
       {/* Definition Section */}
-      <section style={{ padding: "80px 1.5rem", background: "var(--bg-secondary)" }}>
+      <section style={{ padding: "100px 1.5rem", background: "var(--bg-secondary)" }}>
         <div style={{ maxWidth: "1250px", margin: "0 auto" }}>
-          <div className="hero-grid" style={{ direction: "rtl" }}>
-            <div style={{ direction: "ltr", position: "relative", borderRadius: "30px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "var(--card-shadow)" }}>
-                <img src="/images1/saas/classic02.png" alt="Partner Definition" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))", gap: "5rem", alignItems: "center" }}>
+            <div style={{ position: "relative", borderRadius: "30px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "var(--card-shadow)" }} className="wow animate__animated animate__fadeInLeft">
+                <Image src="/images1/Business2.jpg" alt="Partner Definition" width={600} height={400} style={{ width: "100%", height: "auto", objectFit: "cover" }} />
             </div>
-            <div style={{ direction: "ltr" }} className="hero-content">
-              <h2 style={{
-                fontSize: "clamp(1.8rem, 3vw, 2.5rem)",
-                fontWeight: 800,
-                marginBottom: "1.5rem",
-                color: "var(--text)",
-                letterSpacing: "-0.02em",
-              }}>
+            <div className="wow animate__animated animate__fadeInRight">
+              <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.5rem)", fontWeight: 850, color: "var(--text)", marginBottom: "1.5rem", lineHeight: 1.2 }}>
                 What is a Zoho Reseller Partner?
               </h2>
-              <p style={{ color: "var(--text-muted)", marginBottom: "1.5rem", fontSize: "1.1rem", lineHeight: 1.7 }}>
-                A Zoho Reseller Partner is authorised by Zoho Corporation to sell licenses for Zoho’s powerful business software, providing businesses with tailored licensing options, strategic advice, and direct localised support.
+              <p style={{ color: "var(--text-muted)", fontSize: "1.1rem", lineHeight: 1.8, marginBottom: "1.5rem" }}>
+                A Zoho Reseller Partner is authorised to sell licenses for Zoho’s entire software suite, providing businesses with tailored bundles and localized UK support.
               </p>
-              <p style={{ color: "var(--text)", fontWeight: 800, fontSize: "1.1rem", lineHeight: 1.7 }}>
-                FI Digital’s Zoho Reseller Partner status ensures your UK organisation receives expert guidance and optimal value when purchasing products, from Zoho CRM and Zoho One to Zoho Creator, Desk, Books, and more. We simplify the process and ensure cost-efficiency.
+              <p style={{ color: "var(--text-muted)", fontSize: "1.1rem", lineHeight: 1.8, fontWeight: 700, marginBottom: "1.5rem" }}>
+                Working with a reseller simplifies your procurement and ensures you have a direct point of contact for tactical business help:
               </p>
+              <ul style={{ display: "grid", gap: "1rem" }}>
+                {[
+                  "Volume-based discounting and flexible licensing terms.",
+                  "Direct UK-based billing and localized account management.",
+                  "Strategic help selecting the right tier for your specific growth.",
+                  "Seamless priority activation of new enterprise instances.",
+                  "Onboarding assistance to ensure zero-downtime adoption."
+                ].map((item, i) => (
+                  <li key={i} style={{ display: "flex", gap: "1.5rem", color: "var(--text-muted)", fontSize: "1.05rem" }}>
+                    <div style={{ marginTop: "6px" }}><CheckCircle2 size={18} className="text-primary" /></div>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
       {/* Services Grid */}
-      <section style={{ padding: "80px 1.5rem", background: "var(--bg)" }}>
+      <section style={{ padding: "100px 1.5rem", background: "var(--bg)" }}>
         <div style={{ maxWidth: "1250px", margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: "4rem" }}>
-            <h2 style={{ fontSize: "clamp(2rem, 3vw, 2.5rem)", fontWeight: 800, color: "var(--text)" }}>
-                Our Zoho Reseller Services in the UK
+          <div style={{ textAlign: "center", marginBottom: "5rem" }}>
+            <h2 style={{ fontSize: "clamp(2rem, 3.5vw, 3rem)", fontWeight: 850, color: "var(--text)", marginBottom: "1.5rem" }}>
+              Tailored Reseller Services
             </h2>
-            <p style={{ color: "var(--text-muted)", maxWidth: "800px", margin: "1rem auto" }}>
-                FI Digital provides comprehensive reseller services, ensuring your business purchases the ideal Zoho solutions at optimal pricing, with outstanding support.
+            <p style={{ color: "var(--text-muted)", fontSize: "1.15rem", maxWidth: "800px", margin: "0 auto" }}>
+              Ensuring your organisation purchases the ideal Zoho solutions at optimal pricing with outstanding local support.
             </p>
           </div>
-          
           <div className="feature-grid">
             {resellerServices.map((svc, i) => (
-                <div key={i} style={{ background: "var(--card-bg)", border: "1px solid var(--border)", borderRadius: "24px", padding: "2.5rem", boxShadow: "var(--card-shadow)" }}>
-                    <div style={{ color: "#1d4ed8", marginBottom: "1.5rem" }}>{svc.icon}</div>
-                    <h4 style={{ fontSize: "1.3rem", fontWeight: 800, color: "var(--text)", marginBottom: "1.25rem" }}>{svc.title}</h4>
-                    <p style={{ color: "var(--text-muted)", lineHeight: 1.7 }}>{svc.content}</p>
+              <div key={i} style={{ padding: "2.5rem", borderRadius: "24px", border: "1px solid var(--border)", background: "var(--card-bg)", boxShadow: "var(--card-shadow)" }} className="wow animate__animated animate__fadeInUp">
+                <div style={{ width: "56px", height: "56px", borderRadius: "14px", background: "rgba(79, 70, 229, 0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--primary)", marginBottom: "1.5rem" }}>
+                   {svc.icon}
                 </div>
+                <h4 style={{ fontSize: "1.25rem", fontWeight: 800, color: "var(--text)", marginBottom: "1rem" }}>{svc.title}</h4>
+                <p style={{ color: "var(--text-muted)", fontSize: "1rem", lineHeight: 1.6 }}>{svc.content}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section style={{ padding: "80px 1.5rem", background: "var(--bg-secondary)" }}>
+      {/* Popular Solutions Combined logic */}
+      <section style={{ padding: "100px 1.5rem", background: "var(--bg-secondary)" }}>
         <div style={{ maxWidth: "1250px", margin: "0 auto" }}>
-          <div className="advantage-grid">
-            <div>
-              <h3 style={{ fontSize: "2.2rem", fontWeight: 800, color: "var(--text)", marginBottom: "2rem" }}>Benefits of Buying Through a UK Reseller</h3>
-              <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-                {[
-                  { t: "Optimised Costs & Savings", d: "Tailored subscription plans and discounts maximise your ROI." },
-                  { t: "Localised UK Support", d: "Dedicated UK-based teams for quick resolution and training." },
-                  { t: "Expert Advice & Guidance", d: "Certified consultants helping you choose products tailored to your needs." },
-                  { t: "Simplified Procurement", d: "Reduced administrative complexity through streamlined billing." },
-                  { t: "Seamless Deployment", d: "Onboarding support ensuring minimal disruption and immediate value." }
-                ].map((benefit, i) => (
-                  <div key={i} style={{ display: "flex", gap: "1rem" }}>
-                    <CheckCircle2 style={{ color: "#1d4ed8", flexShrink: 0 }} />
-                    <div>
-                      <div style={{ fontWeight: 800, color: "var(--text)" }}>{benefit.t}</div>
-                      <div style={{ color: "var(--text-muted)" }}>{benefit.d}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div style={{ position: "relative" }}>
-                 <img src="/images1/saas/corporate2.jpg" alt="Benefits" style={{ width: "100%", borderRadius: "30px", boxShadow: "var(--card-shadow)" }} />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Popular Solutions */}
-      <section style={{ padding: "80px 1.5rem", background: "var(--bg)" }}>
-        <div style={{ maxWidth: "1250px", margin: "0 auto" }}>
-          <div className="hero-grid" style={{ direction: "rtl" }}>
-            <div style={{ direction: "ltr" }}>
-                <img src="/images1/saas/classic01.png" alt="Solutions" style={{ width: "100%", borderRadius: "30px", boxShadow: "var(--card-shadow)" }} />
-            </div>
-            <div style={{ direction: "ltr" }} className="hero-content">
-              <h3 style={{ fontSize: "2.2rem", fontWeight: 800, color: "var(--text)", marginBottom: "2rem" }}>Popular Zoho Solutions</h3>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "1.5rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))", gap: "5rem", alignItems: "start" }}>
+            <div className="wow animate__animated animate__fadeInLeft">
+              <h2 style={{ fontSize: "2.5rem", fontWeight: 900, color: "var(--text)", marginBottom: "1.5rem" }}>Popular Soho Solutions</h2>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "1rem" }}>
                 {popularSolutions.map((sol, i) => (
-                    <div key={i} style={{ padding: "1.5rem", background: "var(--card-bg)", borderRadius: "20px", border: "1px solid var(--border)" }}>
-                        <div style={{ fontWeight: 800, color: "#1d4ed8", fontSize: "1.1rem" }}>{sol.t}</div>
-                        <div style={{ color: "var(--text-muted)", fontSize: "0.95rem" }}>{sol.d}</div>
+                    <div key={i} style={{ display: "flex", gap: "1rem", alignItems: "center", padding: "1rem", background: "var(--card-bg)", borderRadius: "15px", border: "1px solid var(--border)" }}>
+                        <div style={{ color: "var(--primary)" }}><CheckCircle2 size={20} /></div>
+                        <div>
+                            <div style={{ fontWeight: 800, color: "var(--text)" }}>{sol.t}</div>
+                            <div style={{ color: "var(--text-muted)", fontSize: "0.9rem" }}>{sol.d}</div>
+                        </div>
                     </div>
                 ))}
               </div>
+            </div>
+            
+            <div style={{ background: "rgba(30, 58, 138, 1)", padding: "3.5rem", borderRadius: "40px", color: "white", boxShadow: "0 25px 50px -12px rgba(30, 58, 138, 0.4)" }} className="wow animate__animated animate__fadeInRight">
+                <h3 style={{ fontSize: "2rem", fontWeight: 900, marginBottom: "2.5rem" }}>Success Stats</h3>
+                <div style={{ display: "flex", flexDirection: "column", gap: "2.5rem" }}>
+                    {[
+                        { label: "Retail Operations", val: "Consolidated 4 licenses into 1 Zoho One hub for 30% cost savings." },
+                        { label: "Med-Tech Startup", val: "Launched full CRM + Desk environment in under 48 hours." },
+                        { label: "FinServ Consultancy", val: "Optimised Zoho Books licensing for UK-specific tax compliance." }
+                    ].map((stat, i) => (
+                        <div key={i} style={{ borderLeft: "4px solid var(--primary)", paddingLeft: "1.5rem" }}>
+                            <div style={{ fontWeight: 800, fontSize: "1.2rem", marginBottom: "0.5rem" }}>{stat.label}</div>
+                            <div style={{ color: "rgba(255,255,255,0.8)", fontSize: "0.95rem", lineHeight: 1.5 }}>{stat.val}</div>
+                        </div>
+                    ))}
+                </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Success Stories */}
-      <section style={{ padding: "80px 1.5rem", background: "var(--bg-secondary)" }}>
-        <div style={{ maxWidth: "1250px", margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: "4rem" }}>
-            <h2 style={{ fontSize: "2.2rem", fontWeight: 800, color: "var(--text)" }}>Success Stories</h2>
-          </div>
-          <div className="feature-grid">
-            {successStories.map((story, i) => (
-                <div key={i} style={{ background: "#1d4ed8", color: "white", padding: "2.5rem", borderRadius: "30px", boxShadow: "0 20px 40px rgba(29, 78, 216, 0.2)" }}>
-                    <h5 style={{ fontSize: "1.25rem", fontWeight: 900, marginBottom: "1rem" }}>{story.title}</h5>
-                    <p style={{ opacity: 0.9, marginBottom: "1rem" }}>{story.content}</p>
-                    <div style={{ fontWeight: 700, borderTop: "1px solid rgba(255,255,255,0.2)", paddingTop: "1rem" }}>{story.benefit}</div>
-                </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section style={{ padding: "80px 1.5rem", background: "var(--bg)" }}>
+      {/* FAQ Section */}
+      <section style={{ padding: "100px 1.5rem", background: "var(--bg)" }}>
         <div style={{ maxWidth: "850px", margin: "0 auto" }}>
-          <h2 style={{ textAlign: "center", fontSize: "2.5rem", fontWeight: 800, marginBottom: "4rem" }}>FAQ – Zoho Reseller</h2>
-          <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+          <h2 style={{ fontSize: "clamp(2rem, 3.5vw, 2.5rem)", fontWeight: 850, color: "var(--text)", marginBottom: "4rem", textAlign: "center" }}>
+            FAQ – Zoho Reseller
+          </h2>
+          <div style={{ display: "grid", gap: "1.25rem" }}>
             {faqs.map((faq, i) => (
-              <details key={i} style={{ background: "var(--card-bg)", border: "1px solid var(--border)", borderRadius: "20px", overflow: "hidden", cursor: "pointer" }}>
-                <summary style={{ padding: "1.5rem", fontWeight: 700, fontSize: "1.1rem", color: "var(--text)", display: "flex", justifyContent: "space-between", alignItems: "center", listStyle: "none" }}>
+              <details key={i} style={{ background: "var(--card-bg)", padding: "1.75rem", borderRadius: "20px", border: "1px solid var(--border)", cursor: "pointer" }}>
+                <summary style={{ fontWeight: 750, fontSize: "1.15rem", color: "var(--text)", display: "flex", justifyContent: "space-between", alignItems: "center", listStyle: "none" }}>
                   {faq.q}
-                  <ChevronDown size={20} style={{ color: "#1d4ed8" }} />
+                  <ChevronDown size={22} style={{ color: "var(--primary)" }} />
                 </summary>
-                <div style={{ padding: "0 1.5rem 1.5rem", color: "var(--text-muted)", lineHeight: 1.8 }}>{faq.a}</div>
+                <div style={{ padding: "1.5rem 0 0", color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
+                  {faq.a}
+                </div>
               </details>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section style={{ padding: "80px 1.5rem", background: "var(--bg)", display: "flex", justifyContent: "center" }}>
-        <div className="cta-container" style={{ maxWidth: "1100px", width: "100%", background: "#1d4ed8", textAlign: "center", color: "white", boxShadow: "0 25px 50px -12px rgba(29, 78, 216, 0.5)" }}>
-          <h2 style={{ fontSize: "clamp(1.8rem, 4vw, 2.5rem)", fontWeight: 900, marginBottom: "1.5rem", lineHeight: 1.2 }}>
-            Ready to Purchase Zoho with Expert Support?
+      {/* Improved Final CTA Section (Matching Integration Partner Style) */}
+      <section style={{ padding: "120px 1.5rem", background: "var(--primary)", textAlign: "center", color: "white" }}>
+        <div style={{ maxWidth: "1100px", margin: "0 auto", position: "relative" }}>
+          <h2 style={{ 
+            fontSize: "clamp(2.1rem, 4.5vw, 3.5rem)", 
+            fontWeight: 950, 
+            marginBottom: "2.5rem", 
+            lineHeight: 1.1,
+            color: "white"
+          }}>
+             Ready to Purchase with Expert Support?
           </h2>
-          <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.9)", marginBottom: "3rem", maxWidth: "850px", margin: "0 auto 3rem" }}>
-            Simplify your Zoho purchasing process and maximise the value of your software investment with FI Digital. Contact our expert consultants today.
+          <p style={{ 
+            fontSize: "1.25rem", 
+            color: "rgba(255,255,255,0.9)", 
+            marginBottom: "4rem", 
+            lineHeight: 1.7, 
+            maxWidth: "850px", 
+            margin: "0 auto 4rem" 
+          }}>
+             Simplify your procurement and maximise the value of your software investment with FI Digital—your official Zoho Reseller in the UK.
           </p>
           <Link href="/contact" style={{
             display: "inline-flex",
             alignItems: "center",
             gap: "0.75rem",
-            padding: "1.1rem 3rem",
+            padding: "1.2rem 3.5rem",
             background: "white",
-            color: "#1d4ed8",
+            color: "var(--primary)",
             fontWeight: 800,
-            fontSize: "1.1rem",
-            borderRadius: "15px",
+            fontSize: "1.2rem",
+            borderRadius: "16px",
             textDecoration: "none",
-            boxShadow: "0 15px 35px rgba(0, 0, 0, 0.1)",
+            boxShadow: "0 10px 40px rgba(0, 0, 0, 0.2)",
+            transition: "transform 0.3s ease",
           }}>
-            Request Your Free Consultation <ArrowRight size={20} />
+            Schedule Your Free Consultation <ArrowRight size={20} />
           </Link>
         </div>
       </section>
+
+      {/* Zoho SalesIQ Integration */}
+      <Script id="zoho-salesiq" strategy="afterInteractive">
+        {`
+          window.$zoho=window.$zoho || {};
+          $zoho.salesiq=$zoho.salesiq||{ready:function(){}};
+          var d=document;
+          var s=d.createElement("script");
+          s.id="zsiqscript";
+          s.src="https://salesiq.zohopublic.com/widget?wc=siqd5554e2b4cb32464c280697bfa50a51cc07229c8920b4b9dc4247500c1733a43";
+          s.defer=true;
+          d.getElementsByTagName("head")[0].appendChild(s);
+        `}
+      </Script>
     </div>
   );
 }

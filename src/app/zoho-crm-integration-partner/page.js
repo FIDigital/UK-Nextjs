@@ -1,471 +1,375 @@
 import Link from "next/link";
-import { ArrowRight, Server, Users, Layout, Database, Settings, Headphones, CheckCircle2, ChevronDown } from "lucide-react";
+import Image from "next/image";
+import Script from "next/script";
+import { ArrowRight, Server, Users, ImageIcon, Layout, BarChart3, ShieldCheck, HelpCircle } from "lucide-react";
+
 import { metadata as pageMetadata } from './meta';
 export const metadata = pageMetadata;
 
-const services = [
-  {
-    title: "Integration Strategy & Consultation",
-    description: "Our certified consultants start by understanding your existing technology stack, business objectives, and integration requirements. We develop a detailed integration strategy, identifying key systems, data flows, and automation opportunities.",
-    icon: <Server size={24} />
-  },
-  {
-    title: "Custom API Integrations",
-    description: "For bespoke or legacy systems, we develop custom API integrations tailored to your unique business needs. Our developers ensure secure, reliable data exchange between Zoho CRM and your existing internal systems.",
-    icon: <Users size={24} />
-  },
-  {
-    title: "Zoho Suite Integration",
-    description: "We integrate Zoho CRM with other Zoho applications such as Zoho Desk, Zoho Books, Zoho Analytics, Zoho Creator, Zoho People, and Zoho Marketing Automation. This creates a unified, fully integrated business platform.",
-    icon: <Layout size={24} />
-  },
-  {
-    title: "Data Migration & Integrity Assurance",
-    description: "Our integration services include secure data migration from your existing systems into Zoho CRM. We ensure accurate, complete, and GDPR-compliant data transfer, preserving data integrity and minimising downtime.",
-    icon: <Database size={24} />
-  },
-  {
-    title: "Automation & Workflow Configuration",
-    description: "We configure automated workflows across integrated systems to reduce manual tasks, eliminate duplication, and improve response times. From lead assignment and deal updates to automated billing and reporting.",
-    icon: <Settings size={24} />
-  },
-  {
-    title: "Ongoing Support & Maintenance",
-    description: "FI Digital provides comprehensive post-integration support, ensuring your integrations remain secure, reliable, and up to date. Our UK-based support team handles ongoing maintenance, troubleshooting, and continuous optimisation.",
-    icon: <Headphones size={24} />
-  }
-];
-
-const faqs = [
-  {
-    q: "How long does a Zoho CRM integration project take?",
-    a: "The duration depends on project complexity and the number of systems involved. Most integration projects are completed within 4 to 12 weeks, including planning, development, testing, and deployment."
-  },
-  {
-    q: "Can you integrate Zoho CRM with custom-built systems?",
-    a: "Yes. Our developers specialise in custom API integrations, allowing us to connect Zoho CRM with bespoke or legacy systems used by your organisation."
-  },
-  {
-    q: "Will we receive training on how to use the integrated systems?",
-    a: "Absolutely. FI Digital provides comprehensive user training and documentation to ensure your teams fully understand and benefit from the integrated environment."
-  },
-  {
-    q: "Do you provide ongoing support after the integration is completed?",
-    a: "Yes. We offer managed support packages to maintain, monitor, and optimise your integrations, ensuring continuous performance and security."
-  }
-];
-
-export default function Page() {
+export default function ZohoCrmIntegrationPartnerPage() {
   return (
     <div style={{ background: "var(--bg)", minHeight: "100vh" }}>
+      <style dangerouslySetInnerHTML={{ __html: `
+        .hero-background-wrapper {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 0;
+          opacity: 0.8;
+          pointer-events: none;
+        }
+        @media (min-width: 900px) {
+          .hero-background-wrapper {
+            width: 65%;
+          }
+        }
+        @media (max-width: 899px) {
+          .hero-background-wrapper {
+            opacity: 0.4;
+          }
+          .hero-grid {
+            grid-template-columns: 1fr !important;
+            text-align: center;
+          }
+          .hero-text-content {
+            margin: 0 auto;
+          }
+        }
+      `}} />
+
       {/* Hero Section */}
       <section style={{
         position: "relative",
-        minHeight: "70vh",
+        minHeight: "90vh",
         display: "flex",
         alignItems: "center",
-        padding: "clamp(120px, 15vh, 140px) 1.5rem 80px",
+        padding: "clamp(120px, 15vh, 160px) 1.5rem 60px",
         background: "var(--bg)",
         overflow: "hidden",
       }}>
+        {/* Right-aligned Faded Hero Image Background (Home Page Match) */}
+        <div className="hero-background-wrapper">
+          <Image
+            src="/images1/Business2.jpg"
+            alt="Zoho CRM Integration Background"
+            fill
+            style={{ 
+              objectFit: "cover", 
+              objectPosition: "left center", 
+              maskImage: "radial-gradient(circle at right, black, transparent 80%)", 
+              WebkitMaskImage: "radial-gradient(circle at right, black, transparent 80%)" 
+            }}
+            priority
+          />
+        </div>
+
         <div style={{ position: "relative", zIndex: 1, maxWidth: "1250px", margin: "0 auto", width: "100%" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))", gap: "4rem", alignItems: "center" }}>
-            <div>
+          <div className="hero-grid" style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: "4rem", alignItems: "center" }}>
+            <div className="wow animate__animated animate__fadeIn hero-text-content">
               <div style={{
                 display: "inline-flex", alignItems: "center", gap: "0.75rem",
                 padding: "0.6rem 1.2rem", background: "rgba(79, 70, 229, 0.1)",
                 borderRadius: "100px", border: "1px solid rgba(79, 70, 229, 0.2)",
-                marginBottom: "2rem", color: "var(--primary)", fontSize: "0.85rem",
-                fontWeight: 700, letterSpacing: "0.01em", textTransform: "uppercase"
+                marginBottom: "2.5rem", color: "var(--primary)", fontSize: "0.85rem",
+                fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase"
               }}>
                 <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "var(--primary)", boxShadow: "0 0 10px var(--primary)" }} />
-                Zoho CRM Integration Partner
+                Nurture & Convert
               </div>
               <h1 style={{
-                fontSize: "clamp(2.5rem, 5vw, 4rem)",
+                fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
                 fontWeight: 950,
                 lineHeight: 1.1,
-                marginBottom: "1.5rem",
+                marginBottom: "2rem",
                 letterSpacing: "-0.03em",
-                color: "var(--text)",
+                color: "var(--text)"
               }}>
-                Zoho CRM Integration
-                <br />
-                <span style={{ color: "var(--primary)" }}>Partner in the UK</span>
+                Zoho CRM Integration <span style={{ color: "var(--primary)" }}>Partner in the UK</span>
               </h1>
               <p style={{
-                fontSize: "clamp(1rem, 1.1vw, 1.1rem)",
+                fontSize: "clamp(1.1rem, 1.8vw, 1.35rem)",
                 color: "var(--text-muted)",
-                marginBottom: "1rem",
+                marginBottom: "1.5rem",
                 lineHeight: 1.7,
-                maxWidth: "600px",
+                maxWidth: "680px"
               }}>
-                Is your business looking to connect Zoho CRM seamlessly with your existing systems to achieve a 360-degree customer view and operational efficiency? FI Digital is a trusted Zoho CRM Integration Partner in the UK, helping businesses integrate Zoho CRM with third-party systems, ERP platforms, accounting software, marketing tools, and internal databases.
+                Is your business looking to connect Zoho CRM seamlessly with your existing systems to achieve a 360-degree customer view and operational efficiency? FI Digital is a trusted Zoho CRM Integration Partner in the UK.
               </p>
               <p style={{
-                fontSize: "clamp(1rem, 1.1vw, 1.1rem)",
+                fontSize: "clamp(1.1rem, 1.8vw, 1.35rem)",
                 color: "var(--text-muted)",
-                marginBottom: "2.5rem",
+                marginBottom: "3rem",
                 lineHeight: 1.7,
-                maxWidth: "600px",
+                maxWidth: "680px"
               }}>
-                Our certified consultants ensure smooth, secure, and strategic integration of Zoho CRM, ensuring data flows effortlessly across your systems, improving productivity, reducing manual tasks, and empowering your sales and service teams with real-time, accurate information.
+                Our certified consultants ensure smooth, secure, and strategic integration, ensuring data flows effortlessly across your systems, improving productivity, and reducing manual tasks.
               </p>
               <Link href="/contact" style={{
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "0.5rem",
-                padding: "1rem 2.5rem",
+                padding: "1.2rem 3rem",
                 background: "var(--primary)",
                 color: "white",
                 fontWeight: 700,
-                fontSize: "1rem",
-                borderRadius: "14px",
+                fontSize: "1.1rem",
+                borderRadius: "16px",
                 textDecoration: "none",
-                boxShadow: "0 10px 30px rgba(79, 70, 229, 0.3)",
+                boxShadow: "0 10px 40px rgba(79, 70, 229, 0.4)",
               }}>
-                Get Started Today! <ArrowRight size={18} />
+                Get Started Today! <ArrowRight size={20} />
               </Link>
             </div>
-            <div style={{ position: "relative", borderRadius: "30px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "var(--card-shadow)" }}>
-                <img src="/images1/saas/classic01.png" alt="Zoho CRM Integration Dashboard" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Content Section 1: Why Essential... */}
-      <section style={{ padding: "80px 1.5rem", background: "var(--bg-secondary)" }}>
+      {/* Why Essential Section */}
+      <section style={{ padding: "100px 1.5rem", background: "var(--bg-secondary)" }}>
         <div style={{ maxWidth: "1250px", margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))", gap: "4rem", alignItems: "center" }}>
-            <div style={{ position: "relative", borderRadius: "30px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "var(--card-shadow)" }}>
-                <img src="/images1/saas/classic02.png" alt="Business Solutions" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "5rem", alignItems: "center" }}>
+            <div style={{ position: "relative", borderRadius: "30px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "var(--card-shadow)" }} className="wow animate__animated animate__fadeInLeft">
+                <Image src="/images1/Business1.jpg" alt="Why Integration is Essential" width={600} height={400} style={{ width: "100%", height: "auto", objectFit: "cover" }} />
             </div>
-            <div>
-              <h2 style={{
-                fontSize: "clamp(1.8rem, 3vw, 2.5rem)",
-                fontWeight: 800,
-                marginBottom: "1.5rem",
-                color: "var(--text)",
-                letterSpacing: "-0.02em",
-              }}>
+            <div className="wow animate__animated animate__fadeInRight">
+              <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.5rem)", fontWeight: 850, color: "var(--text)", marginBottom: "1.5rem", lineHeight: 1.2 }}>
                 Why Zoho CRM Integration is Essential for UK Businesses
               </h2>
-              <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
-                <p style={{ marginBottom: "1rem" }}>
-                  In today’s fast-paced business environment, data often resides in multiple systems—CRM, ERP, accounting, marketing automation, customer support, and more. Without proper integration, these systems operate in silos, leading to:
-                </p>
-                <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", margin: "1.5rem 0" }}>
-                  {["Inefficient processes", "Duplicated data entry", "Lack of real-time visibility", "Missed sales opportunities", "Poor customer experience"].map((item, i) => (
-                    <div key={i} style={{ display: "flex", alignItems: "center", gap: "0.75rem", color: "var(--text)" }}>
-                      <CheckCircle2 size={20} style={{ color: "var(--primary)" }} />
-                      <span style={{ fontWeight: 500 }}>{item}</span>
-                    </div>
-                  ))}
-                </div>
-                <p style={{ fontWeight: 600, color: "var(--text)" }}>
-                  Zoho CRM integration solves these challenges by ensuring all your critical business systems work together seamlessly, providing a unified platform for managing customer relationships, sales, marketing, and support operations.
-                </p>
-              </div>
+              <p style={{ color: "var(--text-muted)", fontSize: "1.1rem", lineHeight: 1.8, marginBottom: "1.5rem" }}>
+                In today&apos;s fast-paced environment, data often resides in silos—CRM, ERP, accounting, and more. Without integration, this leads to inefficient processes and duplicated entry.
+              </p>
+              <p style={{ color: "var(--text-muted)", fontSize: "1.1rem", lineHeight: 1.8, fontWeight: 700, marginBottom: "1.5rem" }}>
+                Zoho CRM integration ensures all your critical systems work together seamlessly, providing a unified platform for managing customer relationships and operations.
+              </p>
+              <ul style={{ display: "grid", gap: "1rem" }}>
+                {[
+                  "Eliminate inefficient manual processes.",
+                  "Remove redundant or duplicated data entry.",
+                  "Gain real-time visibility across all departments.",
+                  "Capture every sales opportunity with consolidated data.",
+                  "Deliver a superior, unified customer experience."
+                ].map((item, i) => (
+                  <li key={i} style={{ display: "flex", gap: "1rem", color: "var(--text-muted)", fontSize: "1.05rem" }}>
+                    <div style={{ marginTop: "6px" }}><ArrowRight size={18} className="text-primary" /></div>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Grid Section */}
+      {/* Integration Services Grid */}
       <section style={{ padding: "100px 1.5rem", background: "var(--bg)" }}>
         <div style={{ maxWidth: "1250px", margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: "4rem" }}>
-            <h2 style={{
-              fontSize: "clamp(2rem, 4vw, 3rem)",
-              fontWeight: 800,
-              marginBottom: "1rem",
-              color: "var(--text)",
-              letterSpacing: "-0.02em",
-            }}>
+          <div style={{ textAlign: "center", marginBottom: "5rem" }}>
+            <h2 style={{ fontSize: "clamp(2rem, 3.5vw, 3rem)", fontWeight: 850, color: "var(--text)", marginBottom: "1.5rem" }}>
               Our Zoho CRM Integration Services
             </h2>
-            <p style={{ fontSize: "1.1rem", color: "var(--text-muted)", maxWidth: "700px", margin: "0 auto", lineHeight: 1.6 }}>
-              FI Digital provides comprehensive, end-to-end Zoho CRM integration services tailored specifically for UK businesses:
+            <p style={{ color: "var(--text-muted)", fontSize: "1.1rem", maxWidth: "800px", margin: "0 auto" }}>
+              Comprehensive, end-to-end integration services tailored specifically for the unique needs of UK businesses.
             </p>
           </div>
-          
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))",
-            gap: "2rem"
-          }}>
-            {services.map((svc, i) => (
-              <div key={i} style={{
-                background: "var(--card-bg)",
-                border: "1px solid var(--border)",
-                borderRadius: "24px",
-                padding: "2.5rem",
-                transition: "all 0.3s ease",
-                boxShadow: "var(--card-shadow)",
-                position: "relative",
-                overflow: "hidden"
-              }}>
-                <div style={{
-                  width: "60px",
-                  height: "60px",
-                  borderRadius: "16px",
-                  background: "rgba(79, 70, 229, 0.1)",
-                  color: "var(--primary)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  marginBottom: "1.5rem"
-                }}>
-                  {svc.icon}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))", gap: "2rem" }}>
+            {[
+              { icon: <Layout size={24} />, title: "Integration Strategy & Consultation", body: "We understand your technology stack and business objectives to develop a detailed strategy for maximum value." },
+              { icon: <Server size={24} />, title: "Custom API Integrations", body: "For bespoke or legacy systems, our developers create secure, reliable data exchange between Zoho CRM and internal systems." },
+              { icon: <Users size={24} />, title: "Zoho Suite Integration", body: "Unify Zoho CRM with Desk, Books, Analytics, Creator, and Marketing Automation for a fully integrated business platform." },
+              { icon: <ShieldCheck size={24} />, title: "Data Migration & Integrity", body: "Secure, GDPR-compliant data migration ensuring accurate transfer and minimal downtime during the transition." },
+              { icon: <ArrowRight size={24} />, title: "Automation & Workflow Configuration", body: "Configure automated workflows across systems to reduce manual tasks, eliminate duplication, and improve response times." },
+              { icon: <HelpCircle size={24} />, title: "Ongoing Support & Maintenance", body: "UK-based support handling ongoing maintenance and continuous optimisation to ensure reliability." }
+            ].map((card, i) => (
+              <div key={i} style={{ padding: "2.5rem", borderRadius: "24px", border: "1px solid var(--border)", background: "var(--card-bg)", boxShadow: "var(--card-shadow)" }} className="wow animate__animated animate__fadeInUp">
+                <div style={{ width: "56px", height: "56px", borderRadius: "14px", background: "rgba(79, 70, 229, 0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--primary)", marginBottom: "1.5rem" }}>
+                   {card.icon}
                 </div>
-                <h3 style={{ fontSize: "1.25rem", fontWeight: 700, color: "var(--text)", marginBottom: "1rem" }}>
-                  {svc.title}
-                </h3>
-                <p style={{ color: "var(--text-muted)", lineHeight: 1.7, fontSize: "0.95rem" }}>
-                  {svc.description}
-                </p>
+                <h4 style={{ fontSize: "1.25rem", fontWeight: 800, color: "var(--text)", marginBottom: "1rem" }}>{card.title}</h4>
+                <p style={{ color: "var(--text-muted)", fontSize: "1rem", lineHeight: 1.6 }}>{card.body}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Third Party Integration Section */}
-      <section style={{ padding: "80px 1.5rem", background: "var(--bg-secondary)" }}>
+      {/* Third Party Apps Section */}
+      <section style={{ padding: "100px 1.5rem", background: "var(--bg-secondary)" }}>
         <div style={{ maxWidth: "1250px", margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))", gap: "4rem", alignItems: "center" }}>
-            <div>
-              <h2 style={{
-                fontSize: "clamp(1.8rem, 3vw, 2.5rem)",
-                fontWeight: 800,
-                marginBottom: "1.5rem",
-                color: "var(--text)",
-                letterSpacing: "-0.02em",
-              }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "5rem", alignItems: "center" }}>
+            <div style={{ position: "relative", borderRadius: "30px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "var(--card-shadow)" }} className="wow animate__animated animate__fadeInLeft">
+                <Image src="/images1/Business3.jpg" alt="Third Party Apps" width={600} height={400} style={{ width: "100%", height: "auto", objectFit: "cover" }} />
+            </div>
+            <div className="wow animate__animated animate__fadeInRight">
+              <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.5rem)", fontWeight: 850, color: "var(--text)", marginBottom: "1.5rem", lineHeight: 1.2 }}>
                 Third-Party Application Integration
               </h2>
-              <div style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem" }}>
-                <p style={{ marginBottom: "1.5rem" }}>
-                  We integrate Zoho CRM with a wide range of third-party applications commonly used by UK businesses, including:
-                </p>
-                <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-                  <div style={{ display: "flex", gap: "0.75rem" }}>
-                    <div style={{ color: "var(--primary)", marginTop: "3px" }}><CheckCircle2 size={20} /></div>
-                    <div><strong style={{ color: "var(--text)" }}>Accounting & Finance:</strong> QuickBooks, Xero, Sage, SAP, Oracle Financials</div>
+              <p style={{ color: "var(--text-muted)", fontSize: "1.1rem", lineHeight: 1.8, marginBottom: "2rem" }}>
+                We integrate Zoho CRM with a wide range of third-party applications commonly used by UK businesses:
+              </p>
+              <div style={{ display: "grid", gap: "1.5rem" }}>
+                {[
+                  { t: "Accounting & Finance", d: "QuickBooks, Xero, Sage, SAP, Oracle Financials" },
+                  { t: "Marketing Platforms", d: "Mailchimp, HubSpot, Google Ads, Zoho Marketing Automation" },
+                  { t: "Communication", d: "Twilio, RingCentral, Microsoft Teams, Zoom" },
+                  { t: "E-commerce", d: "Shopify, WooCommerce, Magento, Amazon Marketplace" },
+                  { t: "ERP & Projects", d: "SAP, Microsoft Dynamics, Zoho Projects, Trello" }
+                ].map((item, i) => (
+                  <div key={i} style={{ display: "flex", gap: "1rem" }}>
+                    <div style={{ marginTop: "6px" }}><ArrowRight size={18} className="text-primary" /></div>
+                    <div>
+                      <strong style={{ color: "var(--text)" }}>{item.t}:</strong>
+                      <span style={{ color: "var(--text-muted)", marginLeft: "0.5rem" }}>{item.d}</span>
+                    </div>
                   </div>
-                  <div style={{ display: "flex", gap: "0.75rem" }}>
-                    <div style={{ color: "var(--primary)", marginTop: "3px" }}><CheckCircle2 size={20} /></div>
-                    <div><strong style={{ color: "var(--text)" }}>Marketing Platforms:</strong> Mailchimp, HubSpot, Google Ads, Zoho Marketing Automation</div>
-                  </div>
-                  <div style={{ display: "flex", gap: "0.75rem" }}>
-                    <div style={{ color: "var(--primary)", marginTop: "3px" }}><CheckCircle2 size={20} /></div>
-                    <div><strong style={{ color: "var(--text)" }}>Communication & Telephony:</strong> Twilio, RingCentral, Microsoft Teams, Zoom</div>
-                  </div>
-                  <div style={{ display: "flex", gap: "0.75rem" }}>
-                    <div style={{ color: "var(--primary)", marginTop: "3px" }}><CheckCircle2 size={20} /></div>
-                    <div><strong style={{ color: "var(--text)" }}>E-commerce:</strong> Shopify, WooCommerce, Magento, Amazon Marketplace</div>
-                  </div>
-                  <div style={{ display: "flex", gap: "0.75rem" }}>
-                    <div style={{ color: "var(--primary)", marginTop: "3px" }}><CheckCircle2 size={20} /></div>
-                    <div><strong style={{ color: "var(--text)" }}>ERP & Project Management:</strong> SAP, Microsoft Dynamics, Zoho Projects, Trello</div>
-                  </div>
-                </div>
+                ))}
               </div>
-            </div>
-            <div style={{ position: "relative", borderRadius: "30px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "var(--card-shadow)" }}>
-                <img src="/images1/saas/classic03.png" alt="Third-Party Integrations" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Additional Content Blocks (Benefits, Choose Us, Stories) */}
-      <section style={{ padding: "80px 1.5rem", background: "var(--bg)" }}>
-        <div style={{ maxWidth: "800px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "4rem" }}>
-          
-          {/* Benefits Block */}
-          <div>
-            <h2 style={{
-              fontSize: "clamp(1.5rem, 2.5vw, 2.2rem)",
-              fontWeight: 800,
-              marginBottom: "1.5rem",
-              color: "var(--text)",
-            }}>
-              Benefits of Working with a Zoho CRM Integration Partner
-            </h2>
-            <p style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem", marginBottom: "1.5rem" }}>
-              Partnering with FI Digital for Zoho CRM integration delivers substantial business benefits:
-            </p>
-            <ul style={{ listStyleType: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+      {/* Benefits Content */}
+      <section style={{ padding: "100px 1.5rem", background: "var(--bg)" }}>
+        <div style={{ maxWidth: "1250px", margin: "0 auto" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "5rem", alignItems: "start" }}>
+            <div className="wow animate__animated animate__fadeInLeft">
+              <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.5rem)", fontWeight: 850, color: "var(--text)", marginBottom: "1.5rem", lineHeight: 1.2 }}>
+                Benefits of Working with a Partner
+              </h2>
+              <ul style={{ display: "grid", gap: "1.2rem" }}>
                 {[
-                  { title: "Unified Customer Data", desc: "Achieve a single source of truth for all customer interactions, improving decision-making and customer engagement." },
-                  { title: "Operational Efficiency", desc: "Automate repetitive tasks and streamline workflows across departments." },
-                  { title: "Real-Time Insights", desc: "Access real-time data across integrated systems, enabling proactive business decisions." },
-                  { title: "Reduced Errors & Manual Work", desc: "Eliminate manual data entry and data duplication, reducing errors and saving valuable time." },
-                  { title: "Enhanced Customer Experience", desc: "Deliver personalised, consistent, and timely customer communications across all channels." },
-                  { title: "Cost Savings", desc: "Reduced administrative overhead, faster sales cycles, and improved team collaboration result in significant cost efficiencies." }
-                ].map((item, i) => (
-                  <li key={i} style={{ display: "flex", gap: "0.75rem", color: "var(--text-muted)", lineHeight: 1.8 }}>
-                    <CheckCircle2 size={20} style={{ color: "var(--primary)", marginTop: "4px" }} />
-                    <div><strong style={{ color: "var(--text)" }}>{item.title}:</strong> {item.desc}</div>
+                  { t: "Unified Customer Data", d: "Achieve a single source of truth for all interactions and decision-making." },
+                  { t: "Operational Efficiency", d: "Automate repetitive tasks and streamline workflows across departments." },
+                  { t: "Real-Time Insights", d: "Access real-time data across integrated systems for proactive decisions." },
+                  { t: "Reduced Errors", d: "Eliminate manual data entry and duplication errors, saving valuable time." }
+                ].map((benefit, i) => (
+                  <li key={i} style={{ display: "flex", gap: "1rem", color: "var(--text-muted)" }}>
+                    <div style={{ marginTop: "6px" }}><ArrowRight size={18} className="text-primary" /></div>
+                    <div><strong className="text-text">{benefit.t}:</strong> {benefit.d}</div>
                   </li>
                 ))}
-            </ul>
-          </div>
-
-          {/* Why Choose Block */}
-          <div>
-            <h2 style={{
-              fontSize: "clamp(1.5rem, 2.5vw, 2.2rem)",
-              fontWeight: 800,
-              marginBottom: "1.5rem",
-              color: "var(--text)",
-            }}>
-              Why Choose FI Digital as Your Zoho CRM Integration Partner?
-            </h2>
-            <p style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem", marginBottom: "1.5rem" }}>
-              FI Digital is a trusted Zoho CRM Integration Partner in the UK with a proven track record of delivering seamless, strategic integrations for businesses across sectors:
-            </p>
-            <ul style={{ listStyleType: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+              </ul>
+            </div>
+            <div className="wow animate__animated animate__fadeInRight">
+              <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.5rem)", fontWeight: 850, color: "var(--text)", marginBottom: "1.5rem", lineHeight: 1.2 }}>
+                Why Choose FI Digital?
+              </h2>
+              <ul style={{ display: "grid", gap: "1.2rem" }}>
                 {[
-                  { title: "Certified Zoho CRM Experts", desc: "Our consultants are officially certified by Zoho, ensuring best-practice implementation and integration." },
-                  { title: "Extensive UK Market Experience", desc: "We understand the unique regulatory requirements (including GDPR), operational challenges, and market dynamics of UK businesses." },
-                  { title: "Customised Solutions", desc: "Every integration project is tailored to your specific business needs, workflows, and existing systems." },
-                  { title: "Proven Integration Methodology", desc: "Our structured, phased approach ensures seamless integration, minimal disruption, and rapid value realisation." },
-                  { title: "Comprehensive Support", desc: "We provide ongoing managed services and UK-based support, ensuring your Zoho CRM integrations remain secure, reliable, and optimised." }
-                ].map((item, i) => (
-                  <li key={i} style={{ display: "flex", gap: "0.75rem", color: "var(--text-muted)", lineHeight: 1.8 }}>
-                    <CheckCircle2 size={20} style={{ color: "var(--primary)", marginTop: "4px" }} />
-                    <div><strong style={{ color: "var(--text)" }}>{item.title}:</strong> {item.desc}</div>
+                  { t: "Certified Experts", d: "Officially certified by Zoho for best-practice implementation." },
+                  { t: "UK Market Experience", d: "Deeply familiar with local regulations like GDPR and market dynamics." },
+                  { t: "Customised Solutions", d: "Tailored to your specific workflows and existing internal systems." },
+                  { t: "Comprehensive Support", d: "Ongoing managed services and UK-based support for optimization." }
+                ].map((why, i) => (
+                  <li key={i} style={{ display: "flex", gap: "1rem", color: "var(--text-muted)" }}>
+                    <div style={{ marginTop: "6px" }}><ArrowRight size={18} className="text-primary" /></div>
+                    <div><strong className="text-text">{why.t}:</strong> {why.d}</div>
                   </li>
                 ))}
-            </ul>
+              </ul>
+            </div>
           </div>
+        </div>
+      </section>
 
-          {/* Success Stories Block */}
-          <div>
-            <h2 style={{
-              fontSize: "clamp(1.5rem, 2.5vw, 2.2rem)",
-              fontWeight: 800,
-              marginBottom: "1.5rem",
-              color: "var(--text)",
-            }}>
-              Real-World Success Stories
-            </h2>
-            <p style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "1.1rem", marginBottom: "1.5rem" }}>
-              FI Digital has successfully delivered Zoho CRM integration services to numerous UK businesses, driving measurable business outcomes:
-            </p>
-            <ul style={{ listStyleType: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+      {/* Success Stories Section */}
+      <section style={{ padding: "100px 1.5rem", background: "var(--bg-secondary)" }}>
+        <div style={{ maxWidth: "1250px", margin: "0 auto" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "5rem", alignItems: "center" }}>
+            <div style={{ position: "relative", borderRadius: "30px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "var(--card-shadow)" }} className="wow animate__animated animate__fadeInLeft">
+                <Image src="/images1/corporate2.jpg" alt="Success Stories" width={600} height={400} style={{ width: "100%", height: "auto", objectFit: "cover" }} />
+            </div>
+            <div className="wow animate__animated animate__fadeInRight">
+              <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.5rem)", fontWeight: 850, color: "var(--text)", marginBottom: "1.5rem", lineHeight: 1.2 }}>
+                Real-World Success Stories
+              </h2>
+              <div style={{ display: "grid", gap: "1.5rem" }}>
                 {[
-                  { title: "Financial Services Organisation", desc: "Integrated Zoho CRM with their legacy ERP and accounting systems, achieving a 360-degree customer view, improving lead-to-cash cycle time by 35%, and significantly enhancing data accuracy." },
-                  { title: "E-commerce Company", desc: "Seamlessly connected Zoho CRM with their Shopify store, Google Ads, and QuickBooks systems, resulting in automated order processing, improved campaign performance tracking, and increased customer retention." },
-                  { title: "Reliable Support & Training", desc: "Comprehensive training ensures effective user adoption, and ongoing support guarantees continued success and optimal system performance." },
-                  { title: "Professional Services Firm", desc: "Implemented Zoho CRM and integrated it with Microsoft Teams, Outlook, and Zoho Desk, streamlining internal communications and client interactions, reducing response times, and boosting customer satisfaction." }
+                  { t: "Financial Services", d: "Integrated CRM with legacy ERP/accounting, improving lead-to-cash cycle by 35%." },
+                  { t: "E-commerce Growth", d: "Connected Shopify & Google Ads, resulting in automated order processing and high retention." },
+                  { t: "Professional Services", d: "Implemented Teams & Outlook integration, boosting client satisfaction and response times." }
                 ].map((item, i) => (
-                  <li key={i} style={{ display: "flex", gap: "0.75rem", color: "var(--text-muted)", lineHeight: 1.8 }}>
-                    <CheckCircle2 size={20} style={{ color: "var(--primary)", marginTop: "4px" }} />
-                    <div><strong style={{ color: "var(--text)" }}>{item.title}:</strong> {item.desc}</div>
-                  </li>
+                  <div key={i} style={{ display: "flex", gap: "1rem" }}>
+                    <div style={{ marginTop: "6px" }}><ArrowRight size={18} className="text-primary" /></div>
+                    <div>
+                      <strong style={{ color: "var(--text)" }}>{item.t}:</strong>
+                      <p style={{ color: "var(--text-muted)", marginTop: "0.2rem" }}>{item.d}</p>
+                    </div>
+                  </div>
                 ))}
-            </ul>
+              </div>
+            </div>
           </div>
-
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section style={{ padding: "80px 1.5rem", background: "var(--bg-secondary)" }}>
+      <section style={{ padding: "100px 1.5rem", background: "var(--bg)" }}>
         <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-            <h2 style={{
-              fontSize: "clamp(2rem, 4vw, 3rem)",
-              fontWeight: 800,
-              color: "var(--text)",
-              letterSpacing: "-0.02em",
-              lineHeight: 1.2
-            }}>
-              FAQ – Zoho CRM Integration
-              <br /> Partner Services
-            </h2>
-          </div>
-          
-          <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-            {faqs.map((faq, i) => (
-              <details key={i} style={{
-                background: "var(--card-bg)",
-                border: "1px solid var(--border)",
-                borderRadius: "16px",
-                overflow: "hidden",
-                cursor: "pointer"
-              }}>
-                <summary style={{
-                  padding: "1.5rem",
-                  fontWeight: 600,
-                  fontSize: "1.1rem",
-                  color: "var(--text)",
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  listStyle: "none"
-                }}>
+          <h2 style={{ fontSize: "clamp(2rem, 3.5vw, 2.5rem)", fontWeight: 850, color: "var(--text)", marginBottom: "3rem", textAlign: "center" }}>
+            FAQ – Integration Partner Services
+          </h2>
+          <div style={{ display: "grid", gap: "1rem" }}>
+            {[
+              { q: "How long does an integration project take?", a: "Depending on complexity, most projects are completed within 4 to 12 weeks, including planning, development, testing, and deployment." },
+              { q: "Can you integrate with custom-built systems?", a: "Yes. Our developers specialise in custom API integrations, connecting Zoho CRM with bespoke or legacy systems used by your organisation." },
+              { q: "Will we receive training on the integrated systems?", a: "Absolutely. FI Digital provides comprehensive user training and documentation to ensure your teams fully benefit from the integrated environment." },
+              { q: "Do you offer post-integration support?", a: "Yes. We offer managed support packages to maintain, monitor, and optimise your integrations, ensuring continuous performance and security." }
+            ].map((faq, i) => (
+              <details key={i} style={{ background: "var(--card-bg)", padding: "1.5rem", borderRadius: "16px", border: "1px solid var(--border)", cursor: "pointer" }}>
+                <summary style={{ fontWeight: 800, color: "var(--text)", fontSize: "1.1rem", listStyle: "none", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                   {faq.q}
-                  <ChevronDown size={20} style={{ color: "var(--primary)" }} />
+                  <ArrowRight size={20} className="text-primary" style={{ transform: "rotate(90deg)" }} />
                 </summary>
-                <div style={{
-                  padding: "0 1.5rem 1.5rem",
-                  color: "var(--text-muted)",
-                  lineHeight: 1.7
-                }}>
-                  {faq.a}
-                </div>
+                <p style={{ marginTop: "1rem", color: "var(--text-muted)", lineHeight: 1.6 }}>{faq.a}</p>
               </details>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section style={{ padding: "100px 1.5rem", background: "var(--bg)", display: "flex", justifyContent: "center" }}>
-        <div style={{ 
-          maxWidth: "1000px", 
-          width: "100%", 
-          background: "linear-gradient(135deg, rgba(79, 70, 229, 0.9) 0%, rgba(59, 130, 246, 0.9) 100%)",
-          borderRadius: "30px",
-          padding: "4rem 2rem",
-          textAlign: "center",
-          color: "white",
-          boxShadow: "0 20px 40px rgba(59, 130, 246, 0.3)"
-        }}>
-          <h2 style={{
-            fontSize: "clamp(1.8rem, 3vw, 2.5rem)",
-            fontWeight: 800,
-            marginBottom: "1rem",
-            color: "white",
-          }}>
-            Ready to Connect Your Business with Seamless Zoho CRM Integration?
+      {/* Final CTA Section */}
+      <section style={{ padding: "100px 1.5rem", background: "var(--primary)", textAlign: "center", color: "white" }}>
+        <div style={{ maxWidth: "900px", margin: "0 auto" }}>
+          <h2 style={{ fontSize: "clamp(2.1rem, 4.5vw, 3.5rem)", fontWeight: 950, marginBottom: "2rem", lineHeight: 1.1 }}>
+            Ready for Seamless Zoho CRM Integration?
           </h2>
-          <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.9)", marginBottom: "2.5rem", lineHeight: 1.6, maxWidth: "700px", margin: "0 auto 2.5rem" }}>
-            Unlock the full potential of your business systems and enhance your operational efficiency with seamless, strategic Zoho CRM integration services from FI Digital. Contact our certified UK-based consultants today to discuss your integration needs.
+          <p style={{ fontSize: "1.2rem", marginBottom: "3rem", opacity: 0.9, lineHeight: 1.7 }}>
+            Unlock the full potential of your business systems and enhance operational efficiency with our expert consultants. Talk to FI Digital today.
           </p>
           <Link href="/contact" style={{
             display: "inline-flex",
             alignItems: "center",
             gap: "0.5rem",
-            padding: "1rem 2.5rem",
+            padding: "1.2rem 3.5rem",
             background: "white",
-            color: "rgba(79, 70, 229, 1)",
+            color: "var(--primary)",
             fontWeight: 700,
-            fontSize: "1rem",
-            borderRadius: "14px",
+            fontSize: "1.1rem",
+            borderRadius: "16px",
             textDecoration: "none",
-            boxShadow: "0 10px 20px rgba(0, 0, 0, 0.1)",
-            transition: "transform 0.2s"
+            boxShadow: "0 10px 40px rgba(0,0,0,0.2)",
           }}>
-            Request Your Free Zoho CRM Integration Consultation <ArrowRight size={18} />
+            Request Free Consultation <ArrowRight size={20} />
           </Link>
         </div>
       </section>
+
+      {/* Zoho SalesIQ Integration */}
+      <Script id="zoho-salesiq" strategy="afterInteractive">
+        {`
+          window.$zoho=window.$zoho || {};
+          $zoho.salesiq=$zoho.salesiq||{ready:function(){}};
+          var d=document;
+          var s=d.createElement("script");
+          s.id="zsiqscript";
+          s.src="https://salesiq.zohopublic.com/widget?wc=siqd5554e2b4cb32464c280697bfa50a51cc07229c8920b4b9dc4247500c1733a43";
+          s.defer=true;
+          d.getElementsByTagName("head")[0].appendChild(s);
+        `}
+      </Script>
     </div>
   );
 }

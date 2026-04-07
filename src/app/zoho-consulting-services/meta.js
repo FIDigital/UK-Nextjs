@@ -1,4 +1,10 @@
 export const metadata = {
-  title: "Zoho Consulting Services | FI Digital UK",
-  description: "Zoho Consulting Services from FI Digital UK. Certified Zoho partner with 10+ years experience and 200+ engineers delivering expert Zoho services.",
+  title: "FI DIGITAL | Zoho Consulting & Business Process Mapping",
+  description: "FI Digital delivers expert Zoho consulting services in the UK, including business process mapping, CRM implementation, and tailored Zoho solutions. Contact for a free consultation",
+  keywords: "Zoho consulting services, Zoho consultant UK, Zoho business process mapping, Zoho consultancy",
+  authors: [{ name: "Fi Digital Private Limited" }],
+  other: {
+    website: "https://www.fidigital.co.uk",
+    email: "info@fidigital.co.uk",
+  },
 };

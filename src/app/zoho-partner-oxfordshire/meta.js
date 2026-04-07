@@ -1,4 +1,10 @@
 export const metadata = {
-  title: "Zoho Partner Oxfordshire | FI Digital UK",
-  description: "Zoho Partner Oxfordshire from FI Digital UK. Certified Zoho partner with 10+ years experience and 200+ engineers delivering expert Zoho services.",
+  title: "FI DIGITAL | Zoho Partner Oxfordshire",
+  description: "FI Digital is a certified Zoho Partner in Oxfordshire, providing expert CRM, Creator, Analytics, and Zoho One consulting services. Book your free consultation.",
+  keywords: "Zoho Partner Oxfordshire; Certified Zoho Partner Oxfordshire; Zoho CRM Oxfordshire; Zoho implementation Oxfordshire",
+  authors: [{ name: "Fi Digital Private Limited" }],
+  other: {
+    website: "https://www.fidigital.co.uk",
+    email: "info@fidigital.co.uk",
+  },
 };
