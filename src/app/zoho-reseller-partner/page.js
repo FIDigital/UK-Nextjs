@@ -43,6 +43,21 @@ const popularSolutions = [
   { t: "Zoho One", d: "Comprehensive suite of 50+ integrated Zoho applications." }
 ];
 
+const faqs = [
+  {
+    q: "What is a Zoho Reseller Partner?",
+    a: "A Zoho Reseller Partner is authorised to sell Zoho licenses and provide localised UK support, helping businesses select the right subscription plans and bundles."
+  },
+  {
+    q: "Why should I purchase licences through a partner?",
+    a: "Buying through a partner provides you with localised UK billing, expert licensing advice, renewal management, and a direct point of contact for tactical help."
+  },
+  {
+    q: "Do you offer discounts on Zoho licences?",
+    a: "As an official reseller, we can often provide strategic licensing options and volume-based consultation to ensure you get the best possible value for your investment."
+  }
+];
+
 export default function ZohoResellerPartnerPage() {
   return (
     <div style={{ background: "var(--bg)", minHeight: "100vh" }}>
