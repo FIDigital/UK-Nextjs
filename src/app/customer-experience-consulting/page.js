@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { ArrowRight, Map, Settings, GraduationCap, BarChart3, LineChart, ShieldCheck } from "lucide-react";
+import Image from "next/image";
+import Script from "next/script";
+import { ArrowRight, Server, Users, ImageIcon, Layout, BarChart3, ShieldCheck, HelpCircle } from "lucide-react";
 
 import { metadata as pageMetadata } from './meta';
 export const metadata = pageMetadata;
@@ -7,46 +9,90 @@ export const metadata = pageMetadata;
 export default function CustomerExperienceConsultingPage() {
   return (
     <div style={{ background: "var(--bg)", minHeight: "100vh" }}>
+      <style dangerouslySetInnerHTML={{ __html: `
+        .hero-background-wrapper {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 0;
+          opacity: 0.8;
+          pointer-events: none;
+        }
+        @media (min-width: 900px) {
+          .hero-background-wrapper {
+            width: 65%;
+          }
+        }
+      `}} />
+
       {/* Hero Section */}
       <section style={{
         position: "relative",
-        minHeight: "85vh",
+        minHeight: "90vh",
         display: "flex",
         alignItems: "center",
-        padding: "clamp(120px, 15vh, 140px) 1.5rem 80px",
+        padding: "clamp(120px, 15vh, 160px) 1.5rem 60px",
         background: "var(--bg)",
         overflow: "hidden",
       }}>
+        {/* Right-aligned Faded Hero Image Background (Home Page Match) */}
+        <div className="hero-background-wrapper">
+          <Image
+            src="/images1/consultant.jpg"
+            alt="Customer Experience CX Consulting Background"
+            fill
+            style={{ 
+              objectFit: "cover", 
+              objectPosition: "left center", 
+              maskImage: "radial-gradient(circle at right, black, transparent 80%)", 
+              WebkitMaskImage: "radial-gradient(circle at right, black, transparent 80%)" 
+            }}
+            priority
+          />
+        </div>
+
         <div style={{ position: "relative", zIndex: 1, maxWidth: "1250px", margin: "0 auto", width: "100%" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))", gap: "4rem", alignItems: "center" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: "4rem", alignItems: "center" }}>
             <div className="wow animate__animated animate__fadeIn">
+              <div style={{
+                display: "inline-flex", alignItems: "center", gap: "0.75rem",
+                padding: "0.6rem 1.2rem", background: "rgba(79, 70, 229, 0.1)",
+                borderRadius: "100px", border: "1px solid rgba(79, 70, 229, 0.2)",
+                marginBottom: "2.5rem", color: "var(--primary)", fontSize: "0.85rem",
+                fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase"
+              }}>
+                <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "var(--primary)", boxShadow: "0 0 10px var(--primary)" }} />
+                Nurture & Convert
+              </div>
               <h1 style={{
-                fontSize: "clamp(2.2rem, 4.5vw, 4rem)",
+                fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
                 fontWeight: 950,
                 lineHeight: 1.1,
-                marginBottom: "1.5rem",
+                marginBottom: "2rem",
                 letterSpacing: "-0.03em",
                 color: "var(--text)"
               }}>
-                Customer Experience (CX) Consulting with Zoho in the UK
+                Customer Experience (CX) Consulting with <span style={{ color: "var(--primary)" }}>Zoho in the UK</span>
               </h1>
               <p style={{
-                fontSize: "1.15rem",
+                fontSize: "clamp(1.1rem, 1.8vw, 1.35rem)",
                 color: "var(--text-muted)",
                 marginBottom: "1.5rem",
                 lineHeight: 1.7,
-                maxWidth: "750px"
+                maxWidth: "680px"
               }}>
-                In today’s competitive UK market, exceptional customer experience is a vital differentiator for businesses seeking long-term success. At FI Digital, we provide specialised Customer Experience (CX) consulting, harnessing the power of Zoho’s comprehensive suite of applications. Our CX consulting team helps you identify, map, and enhance every customer interaction, ensuring your business delivers consistently outstanding experiences at every stage of the customer journey.
+                In today&apos;s competitive UK market, exceptional customer experience is a vital differentiator. At FI Digital, we provide specialised CX consulting, harnessing the power of Zoho&apos;s comprehensive suite to identify, map, and enhance every interaction.
               </p>
               <p style={{
-                fontSize: "1.15rem",
+                fontSize: "clamp(1.1rem, 1.8vw, 1.35rem)",
                 color: "var(--text-muted)",
-                marginBottom: "2.5rem",
+                marginBottom: "3rem",
                 lineHeight: 1.7,
-                maxWidth: "750px"
+                maxWidth: "680px"
               }}>
-                From detailed customer journey mapping to implementing powerful Zoho solutions, our expert consultants help UK businesses transform their CX, driving increased loyalty, retention, and profitability.
+                From journey mapping to implementing powerful Zoho solutions, our expert consultants help UK businesses transform their CX, driving loyalty, retention, and profitability.
               </p>
               <Link href="/contact" style={{
                 display: "inline-flex",
@@ -64,78 +110,72 @@ export default function CustomerExperienceConsultingPage() {
                 Get Started Today! <ArrowRight size={20} />
               </Link>
             </div>
-            <div style={{ position: "relative", borderRadius: "30px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "var(--card-shadow)" }} className="wow animate__animated animate__fadeInRight">
-                <img src="/images1/saas/home.jpg" alt="Customer CX" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Why CX Section */}
+      {/* Why CX Matters Section */}
       <section style={{ padding: "100px 1.5rem", background: "var(--bg-secondary)" }}>
         <div style={{ maxWidth: "1250px", margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "5rem", alignItems: "center" }}>
             <div style={{ position: "relative", borderRadius: "30px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "var(--card-shadow)" }} className="wow animate__animated animate__fadeInLeft">
-                <img src="/images1/saas/classic01.png" alt="Customer Matters" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                <Image src="/images1/customer matters.png" alt="Why CX Matters" width={600} height={400} style={{ width: "100%", height: "auto", objectFit: "cover" }} />
             </div>
             <div className="wow animate__animated animate__fadeInRight">
               <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.5rem)", fontWeight: 850, color: "var(--text)", marginBottom: "1.5rem", lineHeight: 1.2 }}>
                 Why Customer Experience Matters
               </h2>
               <p style={{ color: "var(--text-muted)", fontSize: "1.1rem", lineHeight: 1.8, marginBottom: "1.5rem" }}>
-                Customer experience has become more than just customer service; it’s a strategic advantage in a crowded marketplace. Companies excelling at customer experience consistently outperform competitors, generating higher revenues, greater loyalty, and more referrals. At FI Digital, we understand the critical importance of delivering exceptional experiences in the UK market. Our tailored approach helps your business:
+                Customer experience is more than just service; it’s a strategic advantage. Companies excelling at CX consistently outperform competitors, generating higher revenues and greater loyalty.
               </p>
-              <p style={{ fontWeight: 800, color: "var(--text)", marginBottom: "1.5rem" }}>
-                FI Digital specialises in expertly deploying and configuring Zoho Analytics, ensuring your UK business can swiftly access valuable insights to drive strategic growth.
+              <p style={{ color: "var(--text-muted)", fontSize: "1.1rem", lineHeight: 1.8, fontWeight: 700, marginBottom: "1.5rem" }}>
+                FI Digital specialises in expertly deploying and configuring Zoho solutions to ensure your UK business can swiftly access valuable insights to drive strategic growth.
               </p>
-              <ul style={{ listStyle: "none", padding: 0, display: "grid", gap: "1rem" }}>
+              <ul style={{ display: "grid", gap: "1rem" }}>
                 {[
-                  "Clearly identify pain points and improvement opportunities in your existing customer interactions.",
-                  "Leverage Zoho’s integrated suite (CRM, Desk, Marketing Automation, SalesIQ, and more) to provide personalised and timely customer engagements.",
-                  "Achieve measurable improvements in customer satisfaction, loyalty, and overall business performance."
-                ].map((li, i) => (
-                  <li key={i} style={{ display: "flex", gap: "1rem", color: "var(--text-muted)", lineHeight: 1.6 }}>
-                    <ArrowRight size={18} className="text-primary" style={{ flexShrink: 0, marginTop: "4px" }} />
-                    {li}
+                  "Identify pain points and opportunities in existing customer interactions.",
+                  "Leverage Zoho’s integrated suite (CRM, Desk, Marketing Automation) for personalized engagement.",
+                  "Achieve measurable improvements in satisfaction, loyalty, and overall performance."
+                ].map((item, i) => (
+                  <li key={i} style={{ display: "flex", gap: "1rem", color: "var(--text-muted)", fontSize: "1.05rem" }}>
+                    <div style={{ marginTop: "6px" }}><ArrowRight size={18} className="text-primary" /></div>
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>
-              <p style={{ color: "var(--text-muted)", marginTop: "1.5rem", lineHeight: 1.8 }}>
-                By strategically implementing Zoho’s powerful customer engagement tools, we ensure your business stands out for the right reasons.
-              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Grid Section */}
+      {/* CX consulting services grid */}
       <section style={{ padding: "100px 1.5rem", background: "var(--bg)" }}>
         <div style={{ maxWidth: "1250px", margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: "4rem" }}>
+          <div style={{ textAlign: "center", marginBottom: "5rem" }}>
             <h2 style={{ fontSize: "clamp(2rem, 3.5vw, 3rem)", fontWeight: 850, color: "var(--text)", marginBottom: "1.5rem" }}>
               Our CX Consulting Services
             </h2>
             <p style={{ color: "var(--text-muted)", fontSize: "1.1rem", maxWidth: "800px", margin: "0 auto" }}>
-              FI Digital offers comprehensive, structured CX consulting services built specifically around your business needs, combining strategic insight with technical expertise.
+              Comprehensive, structured CX consulting services built around your business needs, combining strategic insight with technical expertise.
             </p>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))", gap: "2.5rem" }}>
-             {[
-               { icon: <Map size={24} />, title: "Customer Journey Mapping", body: "Our detailed customer journey mapping service identifies every interaction your customers have with your business. We highlight key moments of opportunity and uncover friction points that may be causing customer dissatisfaction. Through visualisation and in-depth analysis, we ensure your customer journeys become smooth, intuitive, and consistently rewarding." },
-               { icon: <Settings size={24} />, title: "Zoho CRM Plus & Zoho One Implementation", body: "FI Digital specialises in the strategic implementation of Zoho’s powerful suite—such as Zoho CRM Plus and Zoho One—to address and enhance every stage of your customer journey. Whether it's sales, customer support, marketing, or analytics, we implement the perfect blend of Zoho tools to optimise every interaction." },
-               { icon: <GraduationCap size={24} />, title: "Training Teams in CX Best Practices", body: "Our CX consultants provide comprehensive training for your staff, ensuring they fully understand customer experience principles and effectively use Zoho’s tools. This equips your team with the skills and confidence necessary to consistently deliver exceptional service and meaningful engagements." },
-               { icon: <BarChart3 size={24} />, title: "Ongoing CX Metrics & Optimisation", body: "We establish effective systems using Zoho Analytics, Zoho Survey, and custom dashboards to regularly measure CX performance. Through ongoing analysis, we identify continuous improvements, fine-tuning strategies for maximum customer satisfaction and loyalty." },
-               { icon: <ArrowRight size={24} />, title: "Tailoring Zoho for End-to-End Journey", body: "Imagine a streamlined customer journey—starting with targeted email marketing campaigns via Zoho Campaigns, seamlessly moving leads into your Zoho CRM, supported by real-time personalised engagements through Zoho SalesIQ, efficiently managed customer queries via Zoho Desk, and collecting valuable customer feedback through Zoho Survey." },
-               { icon: <ShieldCheck size={24} />, title: "UK CX Insights & Compliance", body: "FI Digital deeply understands the unique expectations and regulatory landscape of UK customers, including the importance of GDPR compliance and data privacy. Our CX consulting solutions ensure your customer interactions not only delight and engage but also comply fully with UK-specific regulations and best practices." }
-             ].map((card, i) => (
-                <div key={i} style={{ padding: "2.5rem", borderRadius: "24px", border: "1px solid var(--border)", background: "var(--card-bg)", boxShadow: "var(--card-shadow)" }} className="wow animate__animated animate__fadeInUp">
-                  <div style={{ width: "50px", height: "50px", borderRadius: "14px", background: "rgba(79, 70, 229, 0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--primary)", marginBottom: "1.5rem" }}>
-                    {card.icon}
-                  </div>
-                  <h4 style={{ fontSize: "1.25rem", fontWeight: 800, color: "var(--text)", marginBottom: "1rem" }}>{card.title}</h4>
-                  <p style={{ color: "var(--text-muted)", fontSize: "1rem", lineHeight: 1.6 }}>{card.body}</p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))", gap: "2rem" }}>
+            {[
+              { icon: <Layout size={24} />, title: "Customer Journey Mapping", body: "Identify every interaction your customers have with your business. We highlight opportunities and uncover friction points causing dissatisfaction." },
+              { icon: <Server size={24} />, title: "Zoho CRM Plus & Zoho One Implementation", body: "Strategic implementation of Zoho’s powerful suite to address every stage of your customer journey. We optimize every interaction across sales, support, and marketing." },
+              { icon: <Users size={24} />, title: "Training Teams in CX Best Practices", body: "Comprehensive training for your staff to ensure they understand CX principles and effectively use Zoho’s tools for meaningful engagements." },
+              { icon: <BarChart3 size={24} />, title: "Ongoing CX Metrics & Optimisation", body: "Establish systems using Zoho Analytics and Survey to regularly measure CX performance and identify continuous improvements." },
+              { icon: <HelpCircle size={24} />, title: "End-to-End Customer Journey Tailoring", body: "Streamline the journey from marketing via Zoho Campaigns to support via Zoho Desk, collecting feedback along the way via Zoho Survey." },
+              { icon: <ShieldCheck size={24} />, title: "UK CX Insights & Compliance", body: "Ensure your customer interactions comply with UK-specific regulations like GDPR, building trust and transparency in the local market." }
+            ].map((card, i) => (
+              <div key={i} style={{ padding: "2.5rem", borderRadius: "24px", border: "1px solid var(--border)", background: "var(--card-bg)", boxShadow: "var(--card-shadow)" }} className="wow animate__animated animate__fadeInUp">
+                <div style={{ width: "56px", height: "56px", borderRadius: "14px", background: "rgba(79, 70, 229, 0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--primary)", marginBottom: "1.5rem" }}>
+                   {card.icon}
                 </div>
-             ))}
+                <h4 style={{ fontSize: "1.25rem", fontWeight: 800, color: "var(--text)", marginBottom: "1rem" }}>{card.title}</h4>
+                <p style={{ color: "var(--text-muted)", fontSize: "1rem", lineHeight: 1.6 }}>{card.body}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -145,59 +185,62 @@ export default function CustomerExperienceConsultingPage() {
         <div style={{ maxWidth: "1250px", margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "5rem", alignItems: "center" }}>
             <div style={{ position: "relative", borderRadius: "30px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "var(--card-shadow)" }} className="wow animate__animated animate__fadeInLeft">
-                <img src="/images1/saas/classic04.png" alt="Results" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                <img src="/images1/results improved costomer exprience.webp" alt="CX Results" style={{ width: "100%", height: "auto", objectFit: "cover" }} />
             </div>
             <div className="wow animate__animated animate__fadeInRight">
               <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.5rem)", fontWeight: 850, color: "var(--text)", marginBottom: "1.5rem", lineHeight: 1.2 }}>
                 Results of Improved Customer Experience
               </h2>
-              <p style={{ color: "var(--text-muted)", fontSize: "1.1rem", lineHeight: 1.8, marginBottom: "1.5rem" }}>
-                When partnering with FI Digital for customer experience consulting and Zoho solutions implementation, your business can expect clear, measurable improvements, including:
+              <p style={{ color: "var(--text-muted)", fontSize: "1.1rem", lineHeight: 1.8, marginBottom: "2rem" }}>
+                Partnering with FI Digital for CX consulting and Zoho implementation delivers clear, measurable improvements:
               </p>
-              <ul style={{ listStyle: "none", padding: 0, display: "grid", gap: "1rem" }}>
+              <div style={{ display: "grid", gap: "1.5rem" }}>
                 {[
-                  "Enhanced Customer Loyalty: Improved interactions build stronger customer relationships and boost long-term retention.",
-                  "Higher Satisfaction Scores: Streamlined processes and responsive service lead to significantly improved NPS and customer satisfaction ratings.",
-                  "Increased Revenue: Positive customer experiences directly drive repeat business, higher spend per customer, and increased referrals.",
-                  "Reduced Customer Service Costs: More efficient processes, proactive communication, and automation lead to reduced operating costs."
-                ].map((li, i) => (
-                  <li key={i} style={{ display: "flex", gap: "1rem", color: "var(--text-muted)", lineHeight: 1.6 }}>
-                    <ArrowRight size={18} className="text-primary" style={{ flexShrink: 0, marginTop: "4px" }} />
-                    {li}
-                  </li>
+                  { t: "Enhanced Customer Loyalty", d: "Improved interactions build stronger relationships and boost long-term retention." },
+                  { t: "Higher Satisfaction Scores", d: "Streamlined processes lead to significantly improved NPS and CSAT ratings." },
+                  { t: "Increased Revenue", d: "Positive experiences drive repeat business, higher spend per customer, and referrals." },
+                  { t: "Reduced Service Costs", d: "Efficient processes and automation lead to reduced operating costs for support." }
+                ].map((item, i) => (
+                  <div key={i} style={{ display: "flex", gap: "1rem" }}>
+                    <div style={{ marginTop: "6px" }}><ArrowRight size={18} className="text-primary" /></div>
+                    <div>
+                      <strong style={{ color: "var(--text)" }}>{item.t}:</strong>
+                      <span style={{ color: "var(--text-muted)", marginLeft: "0.5rem" }}>{item.d}</span>
+                    </div>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Why Us Section */}
+      {/* Why FI Digital Section */}
       <section style={{ padding: "100px 1.5rem", background: "var(--bg)" }}>
         <div style={{ maxWidth: "1250px", margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "5rem", alignItems: "center" }}>
-             <div className="wow animate__animated animate__fadeInLeft">
+            <div style={{ order: { md: 2, base: 1 } }} className="wow animate__animated animate__fadeInLeft">
               <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.5rem)", fontWeight: 850, color: "var(--text)", marginBottom: "1.5rem", lineHeight: 1.2 }}>
                 Why FI Digital for CX Consulting?
               </h2>
-              <p style={{ color: "var(--text-muted)", fontSize: "1.1rem", lineHeight: 1.8, marginBottom: "1.5rem" }}>
-                 FI Digital uniquely combines extensive business experience, proven Zoho expertise, and a dedicated focus on UK customer experience strategies. Our clients choose us because we:
+              <p style={{ color: "var(--text-muted)", fontSize: "1.1rem", lineHeight: 1.8, marginBottom: "2rem" }}>
+                FI Digital uniquely combines extensive business experience, proven Zoho expertise, and a dedicated focus on UK customer experience strategies.
               </p>
-              <ul style={{ listStyle: "none", padding: 0, display: "grid", gap: "1rem" }}>
+              <ul style={{ display: "grid", gap: "1.5rem" }}>
                 {[
-                  "Understand UK Market Dynamics: We’re deeply familiar with UK consumer expectations, regulatory environments, and market trends, ensuring relevance and effectiveness.",
-                  "Offer Integrated Zoho Expertise: We leverage Zoho’s powerful applications strategically to support and enhance customer interactions across your business.",
-                  "Provide Proven Results: We have delivered tangible customer experience improvements for clients across diverse UK industries."
-                ].map((li, i) => (
-                  <li key={i} style={{ display: "flex", gap: "1rem", color: "var(--text-muted)", lineHeight: 1.6 }}>
-                    <ArrowRight size={18} className="text-primary" style={{ flexShrink: 0, marginTop: "4px" }} />
-                    {li}
+                  "Deeply familiar with UK consumer expectations, regulatory environments (GDPR), and market trends.",
+                  "Strategically leverage Zoho’s powerful applications to enhance interactions across your entire business.",
+                  "Proven track record delivering tangible CX improvements across financial, retail, and healthcare industries."
+                ].map((benefit, i) => (
+                  <li key={i} style={{ display: "flex", gap: "1rem", color: "var(--text-muted)", fontSize: "1.05rem" }}>
+                    <div style={{ marginTop: "6px" }}><ArrowRight size={18} className="text-primary" /></div>
+                    <span>{benefit}</span>
                   </li>
                 ))}
               </ul>
             </div>
-            <div style={{ position: "relative", borderRadius: "30px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "var(--card-shadow)" }} className="wow animate__animated animate__fadeInRight">
-                <img src="/images1/team.jpg" alt="Why us" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <div style={{ order: { md: 1, base: 2 }, position: "relative", borderRadius: "30px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "var(--card-shadow)" }} className="wow animate__animated animate__fadeInRight">
+                <img src="/images1/why4.jpg" alt="Why Choose FI Digital" style={{ width: "100%", height: "auto", objectFit: "cover" }} />
             </div>
           </div>
         </div>
@@ -209,33 +252,33 @@ export default function CustomerExperienceConsultingPage() {
           <h2 style={{ fontSize: "clamp(2rem, 3.5vw, 2.5rem)", fontWeight: 850, color: "var(--text)", marginBottom: "3rem", textAlign: "center" }}>
             FAQ – Customer Experience Consulting
           </h2>
-          <div style={{ display: "grid", gap: "1.5rem" }}>
+          <div style={{ display: "grid", gap: "1rem" }}>
             {[
-              { q: "Is Customer Experience Consulting only about software?", a: "No, CX consulting involves improving your people, processes, and strategies. Software platforms like Zoho serve as enablers, supporting streamlined interactions and providing measurable insights for continuous improvement." },
-              { q: "How do you measure CX improvement?", a: "We use metrics such as Net Promoter Score (NPS), Customer Satisfaction Scores (CSAT), customer retention rates, and response times. We configure Zoho Analytics dashboards to regularly track and measure these important CX metrics." },
-              { q: "Our company doesn’t use Zoho yet—can you still help with CX?", a: "Yes, FI Digital provides CX strategy and consulting services independent of the software you currently use. If Zoho applications can help enhance your CX, we can recommend and implement solutions tailored specifically to your requirements." },
-              { q: "Ready to Transform Your Customer Experience?", a: "Discover how FI Digital’s customer experience consulting services can elevate your UK business, enhance customer loyalty, and significantly boost profitability. Talk to our expert team today about crafting a customer experience strategy powered by Zoho solutions. Schedule Your Free CX Consultation Today" }
+              { q: "Is Customer Experience Consulting only about software?", a: "No, CX consulting involves improving people, processes, and strategies. Software platforms like Zoho serve as enablers, supporting streamlined interactions and providing insights." },
+              { q: "How do you measure CX improvement?", a: "We use metrics such as Net Promoter Score (NPS), Customer Satisfaction Scores (CSAT), retention rates, and response times, tracked via Zoho Analytics dashboards." },
+              { q: "Can you help if we don't use Zoho yet?", a: "Yes, we provide CX strategy and consulting independent of your software. If Zoho can enhance your CX, we will recommend and implement tailored solutions." },
+              { q: "Ready to Transform Your Customer Experience?", a: "Talk to our expert team today about crafting a customer experience strategy powered by Zoho solutions. Discover how we elevate UK businesses." }
             ].map((faq, i) => (
               <details key={i} style={{ background: "var(--card-bg)", padding: "1.5rem", borderRadius: "16px", border: "1px solid var(--border)", cursor: "pointer" }}>
                 <summary style={{ fontWeight: 800, color: "var(--text)", fontSize: "1.1rem", listStyle: "none", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                   {faq.q}
-                  <ArrowRight size={20} className="text-primary transform transition-transform duration-300" style={{ transform: "rotate(90deg)" }} />
+                  <ArrowRight size={20} className="text-primary" style={{ transform: "rotate(90deg)" }} />
                 </summary>
-                <div style={{ marginTop: "1rem", color: "var(--text-muted)", lineHeight: 1.6 }}>{faq.a}</div>
+                <p style={{ marginTop: "1rem", color: "var(--text-muted)", lineHeight: 1.6 }}>{faq.a}</p>
               </details>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Verbatim Zoho Creator CTA Section */}
+      {/* Final CTA Section */}
       <section style={{ padding: "100px 1.5rem", background: "var(--primary)", textAlign: "center", color: "white" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto" }}>
-          <h2 style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 900, marginBottom: "2rem" }}>
-            Next Steps – Start Building Your Custom Zoho Creator App
+          <h2 style={{ fontSize: "clamp(2.1rem, 4.5vw, 3.5rem)", fontWeight: 950, marginBottom: "2rem", lineHeight: 1.1 }}>
+            Ready to Transform Your Customer Experience?
           </h2>
           <p style={{ fontSize: "1.2rem", marginBottom: "3rem", opacity: 0.9, lineHeight: 1.7 }}>
-            Ready to streamline your business processes with powerful custom apps built on Zoho Creator? Get in touch with our expert UK-based development team today to discuss your requirements and see how quickly we can transform your business operations.
+            Discover how FI Digital&apos;s CX consulting elevate your UK business, enhance customer loyalty, and boost profitability. Schedule your free consultation today.
           </p>
           <Link href="/contact" style={{
             display: "inline-flex",
@@ -250,10 +293,24 @@ export default function CustomerExperienceConsultingPage() {
             textDecoration: "none",
             boxShadow: "0 10px 40px rgba(0,0,0,0.2)",
           }}>
-            Request Your Free Zoho Creator Consultation <ArrowRight size={20} />
+            Download Success Roadmap <ArrowRight size={20} />
           </Link>
         </div>
       </section>
+
+      {/* Zoho SalesIQ Integration */}
+      <Script id="zoho-salesiq" strategy="afterInteractive">
+        {`
+          window.$zoho=window.$zoho || {};
+          $zoho.salesiq=$zoho.salesiq||{ready:function(){}};
+          var d=document;
+          var s=d.createElement("script");
+          s.id="zsiqscript";
+          s.src="https://salesiq.zohopublic.com/widget?wc=siqd5554e2b4cb32464c280697bfa50a51cc07229c8920b4b9dc4247500c1733a43";
+          s.defer=true;
+          d.getElementsByTagName("head")[0].appendChild(s);
+        `}
+      </Script>
     </div>
   );
 }

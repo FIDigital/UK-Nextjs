@@ -1,4 +1,10 @@
 export const metadata = {
-  title: "Zoho Partner Portsmouth | FI Digital UK",
-  description: "Zoho Partner Portsmouth from FI Digital UK. Certified Zoho partner with 10+ years experience and 200+ engineers delivering expert Zoho services.",
+  title: "FI DIGITAL | Zoho Partner Portsmouth",
+  description: "FI Digital is a certified Zoho Partner in Portsmouth, providing expert CRM, Creator, Analytics, and Zoho One consulting services. Book your free consultation.",
+  keywords: "Zoho Partner Portsmouth; Certified Zoho Partner Portsmouth; Zoho CRM Portsmouth; Zoho implementation Portsmouth",
+  authors: [{ name: "Fi Digital Private Limited" }],
+  other: {
+    website: "https://www.fidigital.co.uk",
+    email: "info@fidigital.co.uk",
+  },
 };

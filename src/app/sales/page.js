@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Filter, Users, DollarSign, FileText, CheckCircle2, BarChart3 } from "lucide-react";
 
 import { metadata as pageMetadata } from './meta';
@@ -7,18 +8,52 @@ export const metadata = pageMetadata;
 export default function SalesPage() {
   return (
     <div style={{ background: "var(--bg)", minHeight: "100vh" }}>
+      <style dangerouslySetInnerHTML={{ __html: `
+        .hero-background-wrapper {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 0;
+          opacity: 0.8;
+          pointer-events: none;
+        }
+        @media (min-width: 900px) {
+          .hero-background-wrapper {
+            width: 65%;
+          }
+        }
+      `}} />
+
       {/* Hero Section */}
       <section style={{
         position: "relative",
-        minHeight: "80vh",
+        minHeight: "90vh",
         display: "flex",
         alignItems: "center",
-        padding: "clamp(120px, 15vh, 140px) 1.5rem 80px",
+        padding: "clamp(120px, 15vh, 160px) 1.5rem 60px",
         background: "var(--bg)",
         overflow: "hidden",
       }}>
+        {/* Right-aligned Faded Hero Image Background (Home Page Match) */}
+        <div className="hero-background-wrapper">
+          <Image
+            src="/images1/services.jpg"
+            alt="Zoho CRM Sales Solutions Background"
+            fill
+            style={{ 
+              objectFit: "cover", 
+              objectPosition: "left center", 
+              maskImage: "radial-gradient(circle at right, black, transparent 80%)", 
+              WebkitMaskImage: "radial-gradient(circle at right, black, transparent 80%)" 
+            }}
+            priority
+          />
+        </div>
+
         <div style={{ position: "relative", zIndex: 1, maxWidth: "1250px", margin: "0 auto", width: "100%" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))", gap: "4rem", alignItems: "center" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: "4rem", alignItems: "center" }}>
             <div className="wow animate__animated animate__fadeIn">
               <div style={{
                 display: "inline-flex", alignItems: "center", gap: "0.75rem",
@@ -31,23 +66,23 @@ export default function SalesPage() {
                 Sales CRM Solutions
               </div>
               <h1 style={{
-                fontSize: "clamp(2.2rem, 4.5vw, 4rem)",
+                fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
                 fontWeight: 950,
                 lineHeight: 1.1,
                 marginBottom: "1.5rem",
                 letterSpacing: "-0.03em",
                 color: "var(--text)"
               }}>
-                Streamline Your Sales Process with Zoho CRM
+                Streamline Your Sales Process with <span style={{ color: "var(--primary)" }}>Zoho CRM</span>
               </h1>
               <p style={{
-                fontSize: "clamp(1.1rem, 2vw, 1.25rem)",
+                fontSize: "clamp(1.1rem, 1.8vw, 1.35rem)",
                 color: "var(--text-muted)",
-                marginBottom: "2.5rem",
+                marginBottom: "3rem",
                 lineHeight: 1.7,
-                maxWidth: "750px"
+                maxWidth: "680px"
               }}>
-                Effortlessly manage your leads, deals, and revenue, and close more deals with our comprehensive & easy-to-use CRM solution.
+                Effortlessly manage your leads, deals, and revenue. Close more business with our comprehensive, easy-to-use CRM solutions tailored for high-growth teams.
               </p>
               <Link href="/contact" style={{
                 display: "inline-flex",
@@ -65,22 +100,19 @@ export default function SalesPage() {
                 Get Started Today! <ArrowRight size={20} />
               </Link>
             </div>
-            <div style={{ position: "relative", borderRadius: "30px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "var(--card-shadow)" }} className="wow animate__animated animate__fadeInRight">
-                <img src="/images1/services.jpg" alt="Zoho CRM Sales" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Key Features Grid Section */}
+      {/* Key Features Section */}
       <section style={{ padding: "100px 1.5rem", background: "var(--bg-secondary)" }}>
         <div style={{ maxWidth: "1250px", margin: "0 auto" }}>
-          <div style={{ textAlign: "center" }}>
+          <div style={{ textAlign: "center", marginBottom: "5rem" }}>
             <h2 style={{ fontSize: "clamp(2rem, 3.5vw, 3rem)", fontWeight: 850, color: "var(--text)", marginBottom: "1.5rem" }}>
               Key Features
             </h2>
-            <p style={{ color: "var(--text-muted)", fontSize: "1.1rem", maxWidth: "800px", margin: "0 auto", marginBottom: "4rem" }}>
-              All important functionalities built on best practices for manufacturing industry.
+            <p style={{ color: "var(--text-muted)", fontSize: "1.1rem", maxWidth: "800px", margin: "0 auto" }}>
+              Comprehensive functionalities built on best practices for high-performance sales environments.
             </p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "2rem" }}>
@@ -92,82 +124,67 @@ export default function SalesPage() {
               { icon: <CheckCircle2 size={24} />, title: "Activity Tracking" },
               { icon: <BarChart3 size={24} />, title: "Sales Analytics" }
             ].map((card, i) => (
-              <div key={i} style={{ display: "flex", alignItems: "center", gap: "1.5rem", background: "var(--card-bg)", padding: "1.5rem", borderRadius: "20px", border: "1px solid var(--border)", boxShadow: "var(--card-shadow)" }}>
-                <div style={{ width: "50px", height: "50px", borderRadius: "14px", background: "rgba(79, 70, 229, 0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--primary)" }}>
+              <div key={i} style={{ display: "flex", alignItems: "center", gap: "1.5rem", background: "var(--card-bg)", padding: "2rem", borderRadius: "24px", border: "1px solid var(--border)", boxShadow: "var(--card-shadow)" }}>
+                <div style={{ minWidth: "56px", height: "56px", borderRadius: "14px", background: "rgba(79, 70, 229, 0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--primary)" }}>
                    {card.icon}
                 </div>
-                <h3 style={{ fontSize: "1.1rem", fontWeight: 800, color: "var(--text)" }}>{card.title}</h3>
+                <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--text)", margin: 0 }}>{card.title}</h3>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Leads Section */}
+      {/* Feature Details */}
       <section style={{ padding: "100px 1.5rem", background: "var(--bg)" }}>
         <div style={{ maxWidth: "1250px", margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "5rem", alignItems: "center" }}>
-            <div style={{ position: "relative", borderRadius: "30px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "var(--card-shadow)" }} className="wow animate__animated animate__fadeInLeft">
-                <img src="/images1/saas/classic02.png" alt="Convert Leads" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          
+          {[
+            {
+              title: "Convert Leads to Customers with Ease",
+              body: "Zoho CRM's intuitive interface is built for sales teams to close deals quicker. Features like tasks, reminders, and activity tracking ensure no opportunities are missed, delivering a better experience for both agents and customers.",
+              img: "/images1/saas/classic02.png",
+              reverse: false
+            },
+            {
+              title: "Sales Flow Automation",
+              body: "Leverage powerful automation like blueprints, client scripts, and workflows. Free your sales team from mundane tasks so they can focus on building meaningful relationships and closing more deals.",
+              img: "/images1/team.jpg",
+              reverse: true
+            },
+            {
+              title: "Rich Sales Insights, Better Decisions",
+              body: "Capture class-leading Business Intelligence and Analytics. Find the right trends, monitor pipeline conversion rates, and understand drop-off reasons with the click of a button.",
+              img: "/images1/service1.jpg",
+              reverse: false
+            }
+          ].map((detail, i) => (
+            <div key={i} style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "5rem", alignItems: "center", marginBottom: "100px" }}>
+              <div style={{ order: detail.reverse ? { md: 2, base: 1 } : { md: 1, base: 1 } }}>
+                <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.5rem)", fontWeight: 850, color: "var(--text)", marginBottom: "1.5rem", lineHeight: 1.2 }}>
+                  {detail.title}
+                </h2>
+                <p style={{ color: "var(--text-muted)", fontSize: "1.1rem", lineHeight: 1.8 }}>
+                  {detail.body}
+                </p>
+              </div>
+              <div style={{ order: detail.reverse ? { md: 1, base: 2 } : { md: 2, base: 2 }, position: "relative", borderRadius: "30px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "var(--card-shadow)" }}>
+                <img src={detail.img} alt={detail.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              </div>
             </div>
-            <div className="wow animate__animated animate__fadeInRight">
-              <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.5rem)", fontWeight: 850, color: "var(--text)", marginBottom: "1.5rem", lineHeight: 1.2 }}>
-                Convert leads to customers with Ease
-              </h2>
-              <p style={{ color: "var(--text-muted)", fontSize: "1.1rem", lineHeight: 1.8 }}>
-                Zoho CRM&apos;s easy to use interface is built for sales and account management teams to close deals quicker. Features like tasks, remiders and activity tracker ensures none of the opportunities are missed. In simple words, efficient sales tool, which also gives better customer experience.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+          ))}
 
-      {/* Automation Section */}
-      <section style={{ padding: "100px 1.5rem", background: "var(--bg-secondary)" }}>
-        <div style={{ maxWidth: "1250px", margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "5rem", alignItems: "center" }}>
-             <div style={{ order: { md: 2, base: 1 } }} className="wow animate__animated animate__fadeInLeft">
-              <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.5rem)", fontWeight: 850, color: "var(--text)", marginBottom: "1.5rem", lineHeight: 1.2 }}>
-                Sales flow automation
-              </h2>
-              <p style={{ color: "var(--text-muted)", fontSize: "1.1rem", lineHeight: 1.8 }}>
-                Zoho has multiple automation features like blue prints, client scripts, workflows which can help your sales team focus on building meaningful relationships with your customers and leave mundane tasks on Zoho&apos;s powerful automation engine. More time with sales teams, more deal closures.
-              </p>
-            </div>
-            <div style={{ position: "relative", borderRadius: "30px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "var(--card-shadow)", order: { md: 1, base: 2 } }} className="wow animate__animated animate__fadeInRight">
-                <img src="/images1/team.jpg" alt="Sales Automation" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Insights Section */}
-      <section style={{ padding: "100px 1.5rem", background: "var(--bg)" }}>
-        <div style={{ maxWidth: "1250px", margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "5rem", alignItems: "center" }}>
-            <div style={{ position: "relative", borderRadius: "30px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "var(--card-shadow)" }} className="wow animate__animated animate__fadeInLeft">
-                <img src="/images1/Web Development.jpg" alt="Sales Insights" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-            </div>
-            <div className="wow animate__animated animate__fadeInRight">
-              <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.5rem)", fontWeight: 850, color: "var(--text)", marginBottom: "1.5rem", lineHeight: 1.2 }}>
-                Rich Sales Insights, Better Decisions
-              </h2>
-              <p style={{ color: "var(--text-muted)", fontSize: "1.1rem", lineHeight: 1.8 }}>
-                Zoho CRM&apos;s Business Intelligence and Analytics features are class leading and help find the right trends, insights and gap throughout your sales funnel. Measure conversion rates and deal with pipeline, deal with lost reasons and drop offs, all with the click of a button. Give a boost to your sales strategy using analytics and dashboard by Zoho.
-              </p>
-            </div>
-          </div>
         </div>
       </section>
 
       {/* Final CTA Section */}
       <section style={{ padding: "100px 1.5rem", background: "var(--primary)", textAlign: "center", color: "white" }}>
-        <div style={{ maxWidth: "900px", margin: "0 auto" }}>
-          <h2 style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 900, marginBottom: "2rem" }}>
-            Digitize, Automate & Transform your sales process
+        <div style={{ maxWidth: "850px", margin: "0 auto" }}>
+          <h2 style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 950, marginBottom: "2rem", lineHeight: 1.1 }}>
+            Digitize, Automate & Transform Your Sales Process
           </h2>
           <p style={{ fontSize: "1.2rem", marginBottom: "3rem", opacity: 0.9, lineHeight: 1.7 }}>
-            Ready to explore how the world&apos;s favorite CRM can help your business grow? Contact our Zoho experts for a specialized consulting session tailered to your manufacturing or distribution business.
+            Ready to explore how the world's favorite CRM can help your business grow? Contact our Zoho experts for a specialized strategy session today.
           </p>
           <Link href="/contact" style={{
             display: "inline-flex",

@@ -1,4 +1,10 @@
 export const metadata = {
-  title: "Zoho Partner Surrey | FI Digital UK",
-  description: "Zoho Partner Surrey from FI Digital UK. Certified Zoho partner with 10+ years experience and 200+ engineers delivering expert Zoho services.",
+  title: "FI DIGITAL | Zoho Partner Surrey",
+  description: "FI Digital is a certified Zoho Partner in Surrey, offering expert CRM, Creator, Analytics, and Zoho One consulting services. Book your free consultation.",
+  keywords: "Zoho Partner Surrey; Certified Zoho Partner Surrey; Zoho CRM Surrey; Zoho implementation Surrey",
+  authors: [{ name: "Fi Digital Private Limited" }],
+  other: {
+    website: "https://www.fidigital.co.uk",
+    email: "info@fidigital.co.uk",
+  },
 };

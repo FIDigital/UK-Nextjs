@@ -1,4 +1,10 @@
 export const metadata = {
-  title: "Zoho Integration Partner | FI Digital UK",
-  description: "Zoho Integration Partner from FI Digital UK. Certified Zoho partner with 10+ years experience and 200+ engineers delivering expert Zoho services.",
+  title: "Certified Zoho Integration Partner UK",
+  description: "FI Digital, a certified Zoho Integration Partner in the UK, delivers seamless integration solutions connecting Zoho with your existing systems. Book your free consultation today.",
+  keywords: "Zoho Creator developer UK; Zoho Creator app; low-code Zoho app development",
+  authors: [{ name: "Fi Digital Private Limited" }],
+  other: {
+    website: "https://www.fidigital.co.uk",
+    email: "info@fidigital.co.uk",
+  },
 };
