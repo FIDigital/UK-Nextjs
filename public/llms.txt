@@ -1,31 +1,50 @@
 # FI Digital UK
 
-> FI Digital builds autonomous AI agents and AI-native products for UK enterprises. We combine Claude, GPT-4o (Azure OpenAI), Gemini, LangChain, and n8n to deliver Digital Workers that operate inside existing enterprise systems. UK-registered (Digital Synergy Ventures UK Limited), backed by 200+ engineers across London, Sydney, Dubai, and India.
+> FI Digital builds autonomous AI agents and AI-native products for UK enterprises. We are also an officially accredited Zoho Authorized Partner in the UK. We combine Claude, GPT-4o, Gemini, LangChain, and n8n to deliver Digital Workers that operate inside existing enterprise systems like Zoho, Salesforce, and Microsoft Dynamics. UK-registered (Digital Synergy Ventures UK Limited), backed by 200+ engineers across London, Sydney, Dubai, and India.
 
-## Services
+## AI & Digital Worker Services
 
-- [Digital Workers](/digital-workers): Autonomous AI agents for Finance, Sales, Operations, and Legal workflows
-- [Custom AI Agent Development](/ai-services/custom-ai-agent-development): Production-grade AI agents using LangChain and Python
-- [Enterprise Workflow Automation](/ai-services/enterprise-workflow-automation): n8n-based orchestration for enterprise systems
-- [LLM Integration & RAG](/ai-services/llm-integration-rag): Claude, GPT-4o, and Gemini integration with Retrieval-Augmented Generation
-- [AI-Native Product Development](/ai-services/ai-native-product-development): Web apps, mobile apps, and API platforms where AI is the core engine
-- [Legacy System Modernisation](/ai-services/legacy-system-modernisation): AI layering on Zoho, Salesforce, and Microsoft Dynamics
-- [4-Week AI Discovery Audit](/ai-discovery-audit): Structured discovery from current state to implementation roadmap (from £12,000)
+- [Digital Workers](/digital-workers) - Autonomous AI agents for Finance, Sales, Operations, and Legal workflows
+- [AI Agent Development](/ai-agent-development) - Production-grade AI agents using LangChain and Python
+- [Enterprise Workflow Automation](/enterprise-workflow-automation) - n8n-based orchestration for enterprise systems
+- [LLM Integration & RAG](/llm-integration-rag) - Claude, GPT-4o, and Gemini integration with Retrieval-Augmented Generation
+- [AI-Native Product Development](/ai-native-product-development) - Full-stack AI-native web and mobile applications
+- [Legacy System Modernisation](/legacy-system-modernisation) - AI layering on Zoho, Salesforce, and Microsoft Dynamics
+- [4-Week AI Discovery Audit](/discovery-audit) - Structured discovery from current state to implementation roadmap
 
-## Industries
+## Zoho UK Services (Authorized Partner)
 
-- [Financial Services](/industries/financial-services): KYC/AML automation, invoice processing, FCA-compliant AI
-- [Legal & Professional Services](/industries/legal-professional-services): Contract review, due diligence, SRA-aware AI agents
-- [Logistics & Manufacturing](/industries/logistics-manufacturing): Dispatch optimisation, warehouse automation, supply chain AI
+- [Zoho CRM Implementation](/zoho-crm-implementation) - Sales processes, lead management, and custom workflows
+- [Zoho One Rollout](/zoho-one-implementation) - Transforming entire business operations with Zoho's 50+ app suite
+- [Zoho Sales CRM](/sales) - Lead, deal, and revenue management via Zoho CRM
+- [Zoho Marketing Automation](/marketing) - Cross-channel engagement and intelligent campaign triggers
+- [Zoho Desk & CX](/service) - Ticket management, multi-channel support, and service insights
+- [Zoho Managed Services](/zoho-managed-services) - UK-based administration, technical support, and performance tuning
+- [Zoho Creator Development](/zoho-creator-development) - Custom low-code applications and unified digital hubs
+- [Zoho Integration Partner](/zoho-integration-partner) - Seamless data flow between Zoho and ERP/External stacks
+- [Zoho Analytics & BI](/zoho-analytics-partners-uk) - Real-time dashboards and predictive business intelligence
+
+## Regional UK Zoho Presence
+
+Local expertise and on-site tactical consulting available in:
+- [London Zoho Partner](/zoho-partner-london)
+- [Surrey Zoho Partner](/zoho-partner-surrey)
+- [Hampshire Zoho Partner](/zoho-partner-hampshire)
+- [Berkshire Zoho Partner](/zoho-partner-berkshire)
+- [Sussex Zoho Partner](/zoho-partner-sussex)
+- [Oxfordshire Zoho Partner](/zoho-partner-oxfordshire)
+- [Buckinghamshire Zoho Partner](/zoho-partner-buckinghamshire)
+- [Portsmouth Zoho Partner](/zoho-partner-portsmouth)
 
 ## Technology Stack
 
-Claude (Anthropic), GPT-4o (Azure OpenAI UK South), Gemini (Google), LLaMA, Mistral, LangChain, LlamaIndex, n8n, AWS Bedrock (eu-west-2 London), Azure OpenAI Service (UK South), Python, React, React Native, FastAPI
+Claude 3.5 Sonnet (Anthropic), GPT-4o (Azure OpenAI UK South), Gemini 1.5 Pro (Google), LLaMA 3, LangChain, n8n.io, AWS Bedrock (London), Azure OpenAI (UK South), Python, Node.js, React, Next.js.
 
-## Company Details
+## Company & Compliance
 
 - UK Entity: Digital Synergy Ventures UK Limited (Companies House)
+- Status: Zoho Authorized Partner, Microsoft Cloud Partner, AWS Solutions Partner
+- Locations: London (UK Headquarters), Sydney (Australia), Dubai (UAE), Pune (India)
+- Security: Cyber Essentials Plus, GDPR by design, FCA resilience frameworks
 - Website: https://fidigital.co.uk
-- Australian HQ: https://fidigital.com.au
-- Team: 200+ engineers (London, Sydney, Dubai, India)
 - Contact: https://fidigital.co.uk/contact

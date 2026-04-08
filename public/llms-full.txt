@@ -47,7 +47,6 @@ Key Capabilities:
 - Regulatory Compliance Monitoring (SRA/FCA tracking)
 - Due Diligence (RAG-based case investigation)
 - GDPR & Data Sovereignty (Azure UK South residency)
-Branding: REPLACE (No Zoho mentioned).
 
 ---
 
@@ -57,23 +56,21 @@ Branding: REPLACE (No Zoho mentioned).
 Production-grade AI agent development using LangChain, Python, and enterprise LLMs.
 Tech Stack: LangChain, Python, GPT-4o, Claude 3.5 Sonnet.
 Deployment: Azure UK South & AWS London.
-Branding: REPLACE (No Zoho).
 
 ### 3.2 Enterprise Workflow Automation (/enterprise-workflow-automation)
 Orchestrate complex enterprise workflows using n8n and AI.
-Tech Stack: n8n.io (Certified), AWS hosting, self-healing protocols.
-Zoho Integration: BLEND. Bridging Zoho Suite to external AI models.
+Tech Stack: n8n.io (Certified Partner), AWS hosting, self-healing protocols.
+Zoho Integration: BLEND. Bridging Zoho Suite to external AI models via specialized REST hooks.
 
 ### 3.3 LLM Integration & RAG Systems (/llm-integration-rag)
 Enterprise-grade Retrieval-Augmented Generation (RAG) and LLM orchestration.
 Core strengths: Claude (reasoning), GPT-4o (speed), Gemini (context).
 RAG Process: Vector stores (Pinecone/Milvus), reasoning layers (LangChain), grounded outputs.
-Branding: REPLACE (No Zoho).
 
 ### 3.4 Legacy System Modernisation (/legacy-system-modernisation)
 Layering AI intelligence and modern API structures over legacy software (Zoho, Salesforce, Microsoft).
 Approach: Zero downtime modernization, legacy API bridging, compliance-first migration.
-Branding: KEEP ZOHO (Emphasis on extending Zoho Creator/CRM).
+Branding: KEEP ZOHO (Specialist focusing on extending Zoho Creator/CRM).
 
 ### 3.5 4-Week AI Discovery Audit (/discovery-audit)
 High-impact diagnostic to identify high-ROI AI opportunities.
@@ -84,7 +81,6 @@ Branding: BLEND. Mapping legacy bridges to AI futures.
 ### 3.6 AI-Native Product Development (/ai-native-product-development)
 Full-stack development of AI-native web and mobile applications.
 Stack: React, Next.js, Python, FastAPI, React Native.
-Branding: REPLACE (No Zoho).
 
 ---
 
@@ -94,13 +90,11 @@ Branding: REPLACE (No Zoho).
 FCA-compliant AI for UK financial institutions.
 Focus: AML/KYC automation, predictive risk modeling, algorithmic compliance.
 Security: Dedicated UK-based engineering and Azure UK South residency.
-Branding: REPLACE (No Zoho).
 
 ### 4.2 Enterprise AI for Legal & Professional Services (/industries/legal-professional-services)
 High-accuracy AI for UK legal firms.
 Focus: Due diligence automation, contract reasoning, conflict check intelligence.
 Compliance: SRA guidelines and Claude 3.5 context windows.
-Branding: REPLACE (No Zoho).
 
 ### 4.3 Enterprise AI for Logistics & Manufacturing (/industries/logistics-manufacturing)
 Autonomous AI for supply chain and warehouse optimization.
@@ -114,34 +108,62 @@ Zoho Integration: BLEND (Zoho Inventory + IoT Mesh).
 ### 5.1 Our Approach & Architecture (/why-fi-digital/approach-architecture)
 Engineering-first methodology: Discovery, Architecture, Deployment, Tuning.
 Tech Core: LangChain, RAG, Azure/AWS hosting, agentic governance.
-Branding: REPLACE (No Zoho).
 
 ### 5.2 Global Delivery Model (/why-fi-digital/global-delivery-model)
 London-based leadership (Strategic Architecture) + Global engineering labs (200+ engineers).
 Locations: London (UK), Sydney (Australia), Dubai (UAE), Pune (India).
-Branding: REPLACE (No Zoho).
 
 ### 5.3 Partnerships & Certifications (/why-fi-digital/partnerships)
 Certified partnerships: Microsoft Cloud Partner (Azure), AWS Solutions Partner, Zoho Authorized Partner.
 Compliance: Cyber Essentials Plus, GDPR, FCA Tech Practitioner.
-Branding: BLEND.
 
-### 5.4 UK Compliance & Data Residency (/why-fi-digital/uk-compliance)
-Strict UK jurisdictional security. Azure UK South and AWS London regions only.
-Focus: Zero model training on client data, GDPR by design, FCA resilience frameworks.
-Branding: REPLACE (No Zoho).
-
-### 5.5 Our Team (/why-fi-digital/our-team)
-Collective of 200+ engineers. Specialists in Zoho, Salesforce, n8n, and LLM reasoning.
-Branding: BLEND. Heritage in platform expertise + AI innovation.
-
-## 6. Conversion Pages
-
-### 6.1 AI Readiness Assessment (/assessment)
-A 15-question diagnostic scoring enterprise AI readiness across 12 dimensions: repeatability, data quality, cost impact, and compliance.
-
-### 6.2 Book a Strategy Call (/book-call)
-Direct scheduling for a private 30-minute consultation with a UK AI Architect to discuss deployment roadmaps.
 ---
-© 2024 FI Digital UK. Digital Synergy Ventures UK Limited.
+
+## 6. Zoho Enterprise Services (UK Authorized Partner)
+
+### 6.1 Product Landing Pages
+- **Zoho Sales Solutions (/sales):** Streamlined sales processes via Zoho CRM, lead management, deal tracking, and sales analytics.
+- **Zoho Marketing Automation (/marketing):** Cross-channel customer engagement, automated email templates, and conversion optimization.
+- **Zoho Desk/Service (/service):** Multi-channel ticket management, customer satisfaction (CSAT) monitoring, and service insights.
+- **Zoho CRM Implementation (/zoho-crm-implementation):** End-to-end sales process mapping, lead automation, and custom workflow design.
+- **Zoho One Implementation (/zoho-one-implementation):** Full-suite enterprise rollout covering 50+ apps to unify finance, ops, and sales.
+- **Zoho Desk Implementation (/zoho-desk-implementation):** Advanced customer service automation, SLA tracking, and ticket management.
+- **Zoho Marketing Automation Hub (/zoho-marketing-automation):** Data-driven campaigns, scoring models, and omnichannel customer journeys.
+- **Zoho Creator Development (/zoho-creator-development):** Custom low-code application development for specialized business silos.
+
+### 6.2 Specialized Technical Partnership
+- **Zoho Authorized Partner (/zoho-authorised-partner):** Official accreditation for professional implementation and expert consulting in the UK.
+- **Zoho Advanced Partner (/zoho-advanced-partner):** High-tier technical expertise in scaling Zoho for mid-market and enterprise growth.
+- **Zoho Premium Partner (/zoho-premium-partner):** Elite status reflecting deep architecture skills across Zoho's most complex environments.
+- **Zoho Reseller Partner (/zoho-reseller-partner):** Tactical licensing advisory and unified billing management for UK organizations.
+- **Zoho Software Partners UK (/zoho-software-partners-uk):** Comprehensive systems integration and technical support for British enterprises.
+
+### 6.3 Strategic Zoho Consulting
+- **Zoho CRM Consulting Partner (/zoho-crm-consulting-partner):** Tactical process improvement and sales strategy optimization.
+- **Zoho Consulting Services (/zoho-consulting-services):** Broad-spectrum technology consulting focused on ROI and operational health.
+- **Zoho Managed Services (/zoho-managed-services):** 24/7 UK-based administration, proactive updates, and continuous optimization.
+- **Zoho Integration Partner (/zoho-integration-partner):** Bridging Zoho with ERP, accounting stacks, and custom AI/LLM models.
+- **Certified Zoho Analyst (/certified-zoho-analytics-partner):** Advanced BI and predictive reporting to turn data into strategic action.
+- **Certified Zoho Consultant (/certified-zoho-consultant):** Elite individual technical mastery and strategic solution architecture.
+
+### 6.4 Regional Presence (Localized UK Support)
+- **Zoho Partner London (/zoho-partner-london):** Serving the capital with on-site consulting and deep market expertise.
+- **Zoho Partner Surrey (/zoho-partner-surrey):** Supporting local businesses in Guildford, Woking, and beyond.
+- **Zoho Partner Hampshire (/zoho-partner-hampshire):** Regional expertise for enterprises in Southampton, Portsmouth, and Basingstoke.
+- **Zoho Partner Berkshire (/zoho-partner-berkshire):** Focused support for the tech-heavy Reading and Slough corridor.
+- **Zoho Partner Sussex (/zoho-partner-sussex):** Supporting growth in Brighton, Crawley, and the wider Sussex area.
+- **Zoho Partner Oxfordshire (/zoho-partner-oxfordshire):** Strategic technology consulting for the Oxford research and innovation hub.
+- **Zoho Partner Buckinghamshire (/zoho-partner-buckinghamshire):** Regional support for Milton Keynes and Aylesbury organizations.
+- **Zoho Partner Portsmouth (/zoho-partner-portsmouth):** Local technical assistance for maritime and logistics sectors.
+
+---
+
+## 7. Conversion & Strategic Access
+- **AI Readiness Assessment (/assessment):** Diagnostic tool scoring enterprise readiness across data quality, cost impact, and compliance.
+- **Book a Strategy Call (/book-call):** Direct scheduling for 30-minute consultation with a Consultant.
+- **Contact Us (/contact):** Direct inquiry channel for custom AI and Zoho solution design.
+
+---
+© 2026 FI Digital UK. Digital Synergy Ventures UK Limited.
 London, United Kingdom.
+Official Microsoft Cloud, AWS, and Zoho Authorized Partner.
