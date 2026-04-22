@@ -60,6 +60,8 @@ export default function RootLayout({ children }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <script src="https://cdn.pagesense.io/js/fristineinfotechpvtltd/f614a38d77ca403aba041c58108102e5.js" async />
+        <script src="https://cdn.pagesense.io/js/fristineinfotechpvtltd/eaea08c394e8479587400c2b48d8fa98.js"></script>
       </head>
       <body suppressHydrationWarning>
         <ThemeProvider attribute="data-theme" defaultTheme="light" enableSystem={false}>
