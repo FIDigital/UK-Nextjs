@@ -237,7 +237,7 @@ export default function ContactClient() {
           </div>
 
           <iframe 
-            src="/zoho-form.html" 
+            src="/zoho-form" 
             className="zoho-frame" 
             title="Lead Capture Hub" 
             scrolling="no"
